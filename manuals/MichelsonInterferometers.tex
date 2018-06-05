@@ -1,0 +1,241 @@
+\documentclass[]{manual}
+
+\title{Michelson Interferometers}
+\date{\today}
+\course{Physics 325}
+
+\begin{document}
+    \maketitle
+    \thispagestyle{firstpage}
+
+    %%%
+
+    \section*{Motivation}
+    
+    The Michelson interferometer was one of the first devices that allowed the precise measurement of the wavelength of light.
+    Since the wavelength of light is a measure of its energy, interferometers are powerful tools for learning about atomic structure.
+    Although modern interferometers are often more useful (such as the Fabry-Perot interferometer), the Michelson is by far the easiest to align and use.
+    In this lab we will use a Michelson interferometer to measure the wavelength of light from a sodium lamp, discover that the sodium emission line is a doublet, measure the doublet spacing, and then apply the same technique to a hydrogen/deuterium gas mixture to measure the proton-electron mass ratio.
+    
+    \section*{Background}
+    
+    The Michelson interferometer, like all interferometers, is based on the fact that light can interfere with itself.
+    The observed intensity of light is proportional to the square of the amplitude of the electric field.
+    If the electric field is composed of sinusoidal components with different phases or wavelengths, we must add them together \textit{before} we square the field.
+    This produces regions of high and low intensity that are called \emph{interference fringes}.
+    
+    In a Michelson interferometer, a beam of light is passed through a half-silvered mirror, which acts as a beam splitter (BS).
+    The reflected and transmitted components of the beam both reflect off mirrors (M1 and M2) and return to the half-silvered mirror, which now recombines them into a single output beam that travels to your eye, as shown below.
+    Any difference between the distances from the beam splitter to the mirrors produces a phase shift proportional to the difference in distances traveled.
+    
+    \begin{center}
+        \begin{tikzpicture}[thick, scale = 1]
+        % mirrors
+        \draw[pattern = north west lines] (-.5,3.85) rectangle ++(1,.3) node[above, right] {M1};
+        \draw[pattern = north west lines, rotate around = {-20:(3,0)}] (2.85,-.5) rectangle ++(.3, 1) node[above, right] {M2};
+        
+        % d
+        \draw[dashed] (-.5, 3) -- (.5, 3);
+        \draw[dashed, |<->|] (-.5,3) -- (-.5,3.85) node[midway, left] {$d$};
+        %\node[left] at (-.5, 3.4) {$d$};
+        
+        % bs
+        \draw[pattern = north west lines, rotate around={-45:(0,0)}] (-.1, -1) rectangle (.1, 1) node[above, right] {BS};
+        %\draw (-1, -1) -- (1, 1) node[above, right] {BS};
+        
+        % light source
+        \draw (-4, -.5) rectangle ++(1.5,1) node[midway] {Lamp};
+        
+        % light rays
+        \draw[neararrow={latex}] (-2.5, 0) -- (0,0); % leaving lamp
+        \draw[fararrow={latex}] (0,0) -- (0, -2.43); % going to eye
+        
+        \draw[fararrow={latex}] (0,0) -- (0, 3.85); % going to M1
+        \draw[neararrow={latex reversed}] (0,0) -- (0, 3.85); % coming back
+        
+        \draw[fararrow={latex}] (0,0) -- (2.85, 0); % going to M2
+        \draw[neararrow={latex reversed}] (0,0) -- (2.85, 0); % coming back
+        
+        % eye
+        \eye{.75}{0}{-3}{90}
+        \node[below] at (0, -3) {Observer};
+        \end{tikzpicture}
+    \end{center}
+    
+    In this diagram, M1 is the movable mirror, and its distance from the zero path difference configuration (where the path length in each ``arm'' of the interferometer is the same) is $d$.
+    M2 is a tiltable mirror (tilt exaggerated on the diagram), with knobs that adjust the orientation (but not position) of the mirror.
+    To determine what we see when we look down the interferometer, we need to ``unwrap'' the optical system into an equivalent linear system:
+    
+    \begin{center}
+        \begin{tikzpicture}
+        \draw[dashed] (0, 0) -- (8, 0);
+        \draw (8, -1) -- (8, 3) node[above, font = \footnotesize] {Observer};
+        
+        \draw[midarrow=latex] (0, 0) node[below] {M1} -- (8, 2.5);
+        \draw[midarrow=latex] (3, 0) node[below] {M2} -- (8, 2.5);
+        
+        \draw[dashed] (3,0) -- ++(107.35:0.894);
+        
+        \draw[dashed, |<->|] (0,-0.7) -- (3,-0.7) node[midway, below] {$d$};
+        
+        \fill (0, 0) circle [radius=2pt];
+        \fill (3, 0) circle [radius=2pt];
+        
+        \draw[dashed, |<->|] (0 - .1,0 + .2) -- ++(17.35:2.8635 + .05) node[midway, above, rotate=17.35] {$2d\cos{\theta}$};
+        
+        \draw[domain=0:17.35] plot ({1.5*cos(\x)}, {1.5*sin(\x)});
+        \node[right] at (1.5, .25) {$\theta$};
+        
+        \draw [domain=0:26] plot ({3+1.5*cos(\x)}, {1.5*sin(\x)});
+        \node[right] at (4.5, .4) {$\approx\theta$};
+        \end{tikzpicture}
+    \end{center}
+    
+    From this diagram we see that the path difference between the arms at viewing angle $\theta$ is approximately $2d \cos{\theta}$ (the approximation is very good because $\cos{\theta} \approx 1$ for small angles).
+    The $2$ appear because the light needs to traverse each arm twice.
+    When the path difference is an integer multiple of the wavelength, we get constructive interference and see a fringe:
+    \begin{align}
+    m \lambda = 2 d \cos{\theta},
+    \end{align}
+    where $m$ is the ``order'' of the fringe. Absolute order numbers are typically irrelevant, because it is very difficult to count out from $m=0$ at $d=0$ to whatever $m$ you are at.
+    However, \textit{differences} in order number are very useful, and are the primary way of using the interferometer to gather data.
+    
+    Note that this analysis \textit{does not} include the $\pi$ phase shift that occurs when light reflects from a material with a higher index of refraction (i.e., a mirror or piece of glass), and it does not account for how your eye focuses the incoming rays so that you can see them.
+    
+    Another powerful interferometric technique involves looking at the \emph{fringe contrast}.
+    If two wavelengths of light are passed through the interferometer at the same time they will each produce their own independent fringe pattern (any time-domain interference between different wavelengths will oscillate at the difference in frequencies, which is typically not smaller than a few $\SI{}{\giga\hertz}$).
+    
+    Since these fringe patterns are both visible at the same time but do not have the same wavelength, the same order number will not correspond to the same viewing angle.
+    At $d=0$, the patterns will line up, since $d=0$ forces $m = 0$ for both patterns.
+    However, at $m_1=1$ for the first wavelength, $m_2$ will not be an integer, so the fringes will not line up.
+    As $d$ continues to increase the patterns will gradually move out of sync (whenever $m_1 \lambda_1 = \left(m_2+\frac{1}{2}\right) \lambda_2 = 2 d \sin{\theta}$) and back into sync (whenever $m_1 \lambda_1 = m_2 \lambda_2 = 2 d \sin{\theta}$).
+    We call these out-of-sync regions \emph{contrast minima} because the field of view will wash out, with little distinction between dark and light regions. The in-sync regions are \emph{contrast maxima}.
+    Note that $d=0$ is always a contrast maximum.
+    
+    Because the period of this pattern is related to the difference in wavelengths, we can use this effect to measure the \emph{line splitting}, the difference in wavenumbers ($\sigma = 1/\lambda$) between the two levels.
+    To formalize this analysis, suppose we have the interferometer at movable mirror position $d_1$, an interference minimum.
+    At this position the order number for the first wavelength is $m$, so for the other it must be $m+\frac{1}{2}$.
+    In terms of wavenumbers, we have
+    \begin{align}
+    2\sigma_1 d_1 \cos{\theta} = m, \qquad 2\sigma_2 d_1 \cos{\theta} = m + \frac{1}{2}.
+    \end{align}
+    At the next interference minimum, we have
+    \begin{align}
+    2\sigma_1 d_2 \cos{\theta} = m + \Delta m, \qquad 2\sigma_2 d_2 \cos{\theta} = m + \frac{1}{2} + \Delta m + 1.
+    \end{align}
+    Subtract:
+    \begin{align}
+    2\sigma_1 \cos{\theta} \left(d_2-d_1\right) &= N \\
+    2\sigma_2 \cos{\theta} \left(d_2-d_1\right) &= N + 1.
+    \end{align}
+    Subtract again and divide:
+    \begin{align}
+    2\left(\sigma_1 - \sigma_2\right)\left(d_2-d_1\right) &= 1 \\
+    \Delta \sigma = \frac{1}{2 \, \Delta d}.
+    \end{align}
+    The difference in wavenumber is inversely proportional to the difference in path length difference between two contrast minima.
+    Note that you cannot extract $\Delta \lambda$ from $\Delta \sigma$ without knowing one of the two wavelengths.
+    
+    \section*{Equipment}
+    
+    The Michelson interferometers used in this lab are fairly simple to use.
+    However, there is one key point that you must not forget: the movable mirror is attached to a micrometer which controls its distance from the beam splitter via a lever arm.
+    \textit{The lever makes the mirror move only one fifth of the distance that you move the micrometer!}
+    If you do not account for this, all of your measurements will be off by a factor of 5.
+    
+    \newpage
+    
+    \section*{Procedure}
+    
+    \subsection{Aligning the Interferometer}
+    
+    \subsubsection{Angular Alignment}
+    
+    The first step in aligning the interferometer is to make the sure that the mirrors are both at the same tilt relative to the path the light takes.
+    Put the diffuser between the sodium lamp and the interferometer, and put a thumb tack or other sharp-tipped object in the way so that you see its shape when you look down the interferometer.
+    You should see three or four images of the pencil's shadow (a pair on the right, and a pair on the left).
+    The pair on the right are easier to see, so we will use those to align the interferometer.
+    That pair comes from reflections involving the back surface of the beam splitter, while the pair on the left come from the front surface.
+    
+    Once you can see the pair of images on the right, adjust the tilt of the tiltable mirror until the images overlap.
+    You should see faint straight-line fringes form in the yellow light from the sodium lamp.
+    Remove the sharp object and continue adjusting the tiltable mirror with small motions until you see the fringes ``wrap around'' and form a bullseye pattern.
+    
+    \subsubsection{Rough Path Difference Alignment}
+    
+    At this point we are mostly likely far away from zero path difference between the interferometer arms, so we can make large changes.
+    Move the movable mirror so that the fringes are moving in or out, such that the path length difference is decreasing (see the first Prelab question).
+    Once the fringes become very large in the field of view (only one or two fringes visible), move to the next step (make sure to remember which direction zero path is in).
+    
+    \subsubsection{Precise Path Difference Alignment \hfill (2 pts.)}
+    
+    Switch the sodium lamp out for the filament lamp.
+    Remove the diffuser.
+    Look down the interferometer through the diffraction grating.
+    You should see a rainbow about $\ang{30}$ off-center.
+    This rainbow is the image of the filament, broken up into different colors by the grating, which acts like a prism. Continue moving (now much more slowly) in the direction of zero path.
+    When you get very close, dark bands will appear across the rainbow.
+    As you get closer and closer the bands will become larger.
+    
+    As you keep moving toward zero path, you will eventually see colors (red and blue, and possibly others) appear in your field of view.
+    At this point you are within a few microns of zero path. Put the diffuser back in and look down the interferometer without the diffraction grating.
+    Tilt the tiltable mirror very slightly so that you get straight-line fringes. Move the movable mirror back and forth very slightly.
+    There should be about 10 visible fringes, most having a distinct red-blue tint to the edges, but with one black fringe in the center of the pattern.
+    The pattern is symmetric around that center black fringe, so when it is in the center of your field of view the interferometer must be at zero path.
+    Record this micrometer reading so that you can go back to this configuration quickly.
+    
+    \subsection{Measuring the Wavelength of the Sodium Emission Line \hfill (2 pts.)}
+    
+    We can use the interferometer to measure the wavelength of the sodium lamp by counting fringes.
+    Go to a path difference where you have good fringe contrast and can see many fringes in your field of view.
+    Align the interferometer for bullseye fringes. Move the micrometer slowly in either direction while counting the number of fringes that appear or disappear in the center of the bullseye.
+    Since $\theta=0$ at the center of the bullseye, we have
+    \begin{align}
+    \lambda = \frac{2 \Delta d}{\Delta m},
+    \end{align}
+    where $\Delta d$ is the difference in movable mirror position and $\Delta m$ is the number of fringes you count.
+    This measurement is notoriously difficult to do by eye, but you should be able to get within $\SI{10}{\percent}$ of the actual wavelength, $\lambda \approx \SI{589}{\nano\meter}$.
+    You will want to count as many fringes as possible to reduce Poisson error, but not so many that you pick up a large systematic error (100 is a good number).
+    
+    \subsection{Measuring Emission Line Splitting}
+    
+    \subsubsection{Sodium Doublet \hfill (2 pts.)}
+    
+    There are really two different sodium emission lines near $\SI{589}{\nano\meter}$.
+    Although it is difficult to measure the actual wavelength of those lines (as you have just seen), we can still make a very accurate measurement of the difference in their wavenumbers.
+    
+    Measure the path length difference between many different contrast minima to get an accurate measurement of the wavenumber splitting in the sodium emission lines.
+    
+    \subsubsection{Hydrogen-Deuterium Doublet \hfill [2 pts.]}
+    
+    Switch to the hydrogen-deuterium lamp.
+    Put the dichroic filter between the lamp and the interferometer to select out the $3p \rightarrow 2s$ transition.
+    Because the reduced mass of the electron is different in deuterium than it is in hydrogen, the energy of this transition is slightly different for the two atoms.
+    It can be shown that
+    \begin{align}
+    \Delta \sigma \approx R_{\infty} \, \frac{5}{72} \, \frac{m_e}{m_p},
+    \end{align}
+    where $\Delta \sigma$ is the wavenumber splitting, $R_{\infty}$ is the Rydberg constant, and $m_e$ and $m_p$ are the masses of the electron and proton, respectively.
+    
+    Measure the electron-proton mass ratio using your interferometer.
+
+    \newpage
+    \section*{Prelab Questions}
+    \setcounter{subsection}{0}
+    
+    \subsection{Fringe Movements \hfill (1 pt.)}
+    
+    Suppose we have the interferometer showing a bullseye interference pattern far away from zero path difference.
+    As the path length difference $d$ is decreased, does a given fringe $m$ move in (to smaller $\theta$) or out (to larger $\theta$)?
+    
+    \vspace{\stretch{1}}
+    
+    \subsection{One Fringe, Two Fringe, Light Fringe, Dark Fringe \hfill (1 pt.)}
+    
+    If the path length difference between the interferometer arms is zero, the light coming from each arm should constructively interfere and produce a bright fringe.
+    However, as mentioned in the alignment procedure, the fringe at zero path difference is actually dark.
+    Why does this happen?
+    
+    \vspace{\stretch{2}}
+
+\end{document}
