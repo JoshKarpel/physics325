@@ -20,15 +20,15 @@
 
     \section*{Background}
 
-    A simple Fabry-Perot interferometer is constructed from two plane-parallel mirrors.
+    A simple Fabry-Perot interferometer is constructed from two plane-parallel mirrors, which form an \emph{optical cavity}.
     When a beam of light is incident on the device it is partially transmitted into the cavity between the mirrors.
     This transmitted beam reflects back and forth between the mirrors many times (depending on the reflectivity of the mirrors), producing a transmitted ray from the far mirror each time.
     When these beams are recombined on a screen using a focusing lens, we see a fringe pattern resulting from constructive interference between successively transmitted rays.
     In this sense the fringe pattern is very similar to the Michelson interferometer's fringe pattern.
     In the Fabry-Perot interferometer we see a bright fringe when the round-trip optical path length in the cavity is an integer multiple of the wavelength:
-    \begin{align*}
+    \begin{align}  \label{eqn:fabry-perot-fringes}
         2nd \cos{\theta} = m \lambda,
-    \end{align*}
+    \end{align}
     where $n$ is the index of refraction of the medium filling the cavity, $d$ is the length of the cavity, $\theta$ is the angle to the fringe from the center of the pattern, and $m$ is an integer.
 
     If the fringes occur at the same angles as in the Michelson interferometer, why does the Fabry-Perot interferometer have better resolution?
@@ -96,7 +96,7 @@
         \caption[Fabry-Perot Cavity Geometry]{The geometry of a Fabry-Perot cavity.}
     \end{figure}
 
-    The green light from a low-pressure mercury lamp ($\lambda \approx \SI{546}{\nano\meter}$) is particularly interesting to look at with the Fabry-Perot interferometer because it reveals that mercury on Earth typically has several isotopes of slightly different masses mixed in.
+    The green light from a \emph{low-pressure mercury lamp} ($\lambda \approx \SI{546}{\nano\meter}$) is particularly interesting to look at with the Fabry-Perot interferometer because it reveals that mercury on Earth typically has several isotopes of slightly different masses mixed in.
     Each isotope's emission lines are at slightly different wavelengths.
     We will also have enough resolution to see the fine structure of the atomic transitions, caused by relativistic corrections and the coupling of the electron's spin and angular momentum.
     A sample mercury spectrum made with a grating spectrometer is shown below.
@@ -104,6 +104,7 @@
     \begin{figure}[H]
         \centering
         \includegraphics[width = .5\textwidth, angle = 90]{figs/hg_spectrum}
+        \label{fig:low-pressure-mercury-spectrum}
         \caption[Low-Pressure Mercury Spectrum]{W. Fastie, H. Crosswhite, and P. Gloersen, "Vacuum Ebert Grating Spectrometer," J. Opt. Soc. Am. 48, 106-111 (1958).}
     \end{figure}
 
@@ -112,8 +113,6 @@
     In this lab you will use a pre-built Fabry-Perot cavity ($d=\SI{3}{\milli\meter}$) as your interferometer. The cavity is attached by alignment screws to a solid plate, so that the cavity can be aimed at a photomultiplier tube. The Fabry-Perot cavity is fragile, so be careful when handling it. The cavity is attached to a source of compressed nitrogen gas which can be used to change the index of refraction between the plates (the index of refraction will increase as more nitrogen is added). A manometer is built-in to the nitrogen supply to measure the pressure relative to the surrounding atmosphere.
 
     The photomultiplier tube uses high-voltage plates to convert a small flux of photoelectrons from the interferometer into a measurable current. The photomultiplier requires a negative voltage to operate. \textbf{Do not exceed 600 volts on the photomultiplier!}
-
-
 
     \newpage
 
@@ -158,14 +157,14 @@
 
     \subsubsection{Index of Refraction Measurement \hfill (4 pts.)}
     To measure the index of refraction using your pressure spectrum, note that the index of refraction of a low-density gas goes like
-    \begin{align*}
+    \begin{align} \label{eqn:index-of-refraction}
         n \approx 1 + \alpha \, \frac{N}{V} = 1 + \alpha \, \frac{P}{RT},
-    \end{align*}
-    where $N/V$ is the number density of the gas, $\alpha$ is a constant, $P$ is the pressure of the gas, $T$ is the temperature of the gas, and $R$ is the ideal gas constant. We could use this equation to determine the index of refraction of nitrogen gas at standard temperature and pressure ($P = \SI{760}{\torr}$, $T = \SI{273}{\kelvin}$) if we can determine $\alpha$.
+    \end{align}
+    where $N/V$ is the number density of the gas, $\alpha$ is a constant, $P$ is the pressure of the gas, $T$ is the temperature of the gas, and $R$ is the ideal gas constant. We could use this equation to determine the index of refraction of nitrogen gas at standard temperature and pressure ($P = \SI{760}{\torr}$, $T = \SI{273.15}{\kelvin}$) if we can determine $\alpha$.
 
     Figure out a way to measure $\alpha$, measure it, and compute the index of refraction of nitrogen gas at standard temperature and pressure, $n_{\mathrm{STP}}$.
     The accepted value is 1.000298 - how close did you get?
-    Keep in mind that you can't include the overall 1 in your error analysis - we only care about the difference of the index of refraction from 1.
+    Keep in mind that you can't include the overall 1 in your error analysis - we only care about the difference of the index of refraction from 1, because that's the index of refraction of vacuum.
 
     \subsubsection{The Fine and Isotopic Structure of Mercury \hfill [2 pts.]}
     Swap out the sodium lamp for the low-pressure mercury lamp.
@@ -177,11 +176,19 @@
     \section*{Prelab Questions}
     \setcounter{subsection}{0}
     
-    \subsection{Question 1 \hfill (1 pt.)}
+    \subsection{Fringe Movements \hfill (1 pt.)}
+    
+    Suppose we have the interferometer showing a bullseye interference pattern at room pressure.
+    As the pressure in the cavity is increased, does a given fringe $m$ move in (to smaller $\theta$) or out (to larger $\theta$)?
     
     \vspace{\stretch{1}}
     
-    \subsection{Question 2 \hfill (1 pt.)}
+    \subsection{Finessing Your Measurements \hfill (1 pt.)}
+    From \ref{fig:low-pressure-mercury-spectrum} we can deduce that the green emission line in low-pressure mercury is approximately \SI{5}{\giga\hertz} wide.
+    The \emph{free spectral range} (frequency distance between adjacent transmission peaks) of a $d=\SI{3}{\milli\meter}$ Fabry-Perot cavity is $\mathrm{FSR} = c / 2d \approx \SI{50}{\giga\hertz}$.
+    The \emph{finesse} of the cavity is the ratio between the free spectral range and the width of the cavity transmission line, $\mathcal{F} = \Delta \nu / \mathrm{FSR}$, but is also approximately equal to the number of round-trips each photon will go through in the cavity.
+    
+    Estimate (to within an order of magnitude) the minimum finesse that the Fabry-Perot interferometer used in this experiment needs to achieve to be able to resolve the fine structure of the green emission line in low-pressure mercury.
     
     \vspace{\stretch{1}}
 

@@ -3,7 +3,8 @@
 
 \LoadClass[11pt]{article}
 
-% standard image display packages
+% standard graphics/image display packages
+\usepackage[dvipsnames]{xcolor}
 \RequirePackage{graphicx}
 \RequirePackage{float}
 
@@ -38,7 +39,7 @@
 \lhead{\MyTitle}
 \chead{}
 \rhead{\@course}
-\lfoot{Compiled on \MyDate}
+\lfoot{\small{Compiled on \MyDate}}
 \cfoot{}
 \rfoot{Page \thepage/\pageref{LastPage}}
 \renewcommand{\headrulewidth}{0.0pt}
