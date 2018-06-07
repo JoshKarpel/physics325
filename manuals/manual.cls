@@ -11,6 +11,9 @@
 % standard math packages
 \RequirePackage{amsmath,amssymb}
 
+% extended physics notations
+\RequirePackage{physics}
+
 % can access title and date as \MyTitle and \MyDate
 \RequirePackage{authoraftertitle}
 
@@ -26,7 +29,8 @@
     bottom=1in,
     left=1.2in,
     right=1.2in,
-    headsep=0.25in,
+    headsep=0.3in,
+    headheight=13.6pt,
     includefoot,
 ]{geometry}
 
@@ -50,11 +54,6 @@
     \lhead{}
     \chead{\@course}
     \rhead{}
-    \lfoot{\tiny{Compiled on \MyDate}}
-    \cfoot{}
-    \rfoot{Page \thepage/\pageref{LastPage}}
-    \renewcommand{\headrulewidth}{0.0pt}
-    \renewcommand{\footrulewidth}{0.0pt}
 }
 
 % add command to display course
