@@ -13,6 +13,7 @@
 
 % extended physics notations
 \RequirePackage{physics}
+\DeclareMathOperator{\sinc}{sinc}
 
 % can access title and date as \MyTitle and \MyDate
 \RequirePackage{authoraftertitle}
@@ -115,7 +116,7 @@
 
 
 % load siunitx
-\usepackage[alsoload=synchem]{siunitx}
+\usepackage{siunitx}
 
 % set up section (really subsection) numbering
 \renewcommand{\thesubsection}{\arabic{subsection}}
