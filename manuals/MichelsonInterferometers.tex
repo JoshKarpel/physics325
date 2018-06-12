@@ -10,88 +10,100 @@
 
     %%%
 
-    \section*{Motivation}
+    \section{Motivation}
     
     The Michelson interferometer was one of the first devices that allowed the precise measurement of the wavelength of light.
     Since the wavelength of light is a measure of its energy, interferometers are powerful tools for learning about atomic structure.
     Although modern interferometers are often more useful (such as the Fabry-Perot interferometer), the Michelson is by far the easiest to align and use.
     In this lab we will use a Michelson interferometer to measure the wavelength of light from a sodium lamp, discover that the sodium emission line is a doublet, measure the doublet spacing, and then apply the same technique to a hydrogen/deuterium gas mixture to measure the proton-electron mass ratio.
     
-    \section*{Background}
+    \section{Background}
     
     The Michelson interferometer, like all interferometers, is based on the fact that light can interfere with itself.
     The observed intensity of light is proportional to the square of the amplitude of the electric field.
     If the electric field is composed of sinusoidal components with different phases or wavelengths, we must add them together \textit{before} we square the field.
     This produces regions of high and low intensity that are called \emph{interference fringes}.
     
-    In a Michelson interferometer, a beam of light is passed through a half-silvered mirror, which acts as a beam splitter (BS).
+    In a Michelson interferometer (shown in Figure~\ref{fig:michelson-top-down}), a beam of light is passed through a half-silvered mirror, which acts as a beam splitter (BS).
     The reflected and transmitted components of the beam both reflect off mirrors (M1 and M2) and return to the half-silvered mirror, which now recombines them into a single output beam that travels to your eye, as shown below.
     Any difference between the distances from the beam splitter to the mirrors produces a phase shift proportional to the difference in distances traveled.
     
-    \begin{center}
+    \begin{figure}
+        \centering
+        
         \begin{tikzpicture}[thick, scale = 1]
-        % mirrors
-        \draw[pattern = north west lines] (-.5,3.85) rectangle ++(1,.3) node[above, right] {M1};
-        \draw[pattern = north west lines, rotate around = {-20:(3,0)}] (2.85,-.5) rectangle ++(.3, 1) node[above, right] {M2};
-        
-        % d
-        \draw[dashed] (-.5, 3) -- (.5, 3);
-        \draw[dashed, |<->|] (-.5,3) -- (-.5,3.85) node[midway, left] {$d$};
-        %\node[left] at (-.5, 3.4) {$d$};
-        
-        % bs
-        \draw[pattern = north west lines, rotate around={-45:(0,0)}] (-.1, -1) rectangle (.1, 1) node[above, right] {BS};
-        %\draw (-1, -1) -- (1, 1) node[above, right] {BS};
-        
-        % light source
-        \draw (-4, -.5) rectangle ++(1.5,1) node[midway] {Lamp};
-        
-        % light rays
-        \draw[neararrow={latex}] (-2.5, 0) -- (0,0); % leaving lamp
-        \draw[fararrow={latex}] (0,0) -- (0, -2.43); % going to eye
-        
-        \draw[fararrow={latex}] (0,0) -- (0, 3.85); % going to M1
-        \draw[neararrow={latex reversed}] (0,0) -- (0, 3.85); % coming back
-        
-        \draw[fararrow={latex}] (0,0) -- (2.85, 0); % going to M2
-        \draw[neararrow={latex reversed}] (0,0) -- (2.85, 0); % coming back
-        
-        % eye
-        \eye{.75}{0}{-3}{90}
-        \node[below] at (0, -3) {Observer};
+            % mirrors
+            \draw[pattern = north west lines] (-.5,3.85) rectangle ++(1,.3) node[above, right] {M1};
+            \draw[pattern = north west lines, rotate around = {-20:(3,0)}] (2.85,-.5) rectangle ++(.3, 1) node[above, right] {M2};
+            
+            % d
+            \draw[dashed] (-.5, 3) -- (.5, 3);
+            \draw[dashed, |<->|] (-.5,3) -- (-.5,3.85) node[midway, left] {$d$};
+            %\node[left] at (-.5, 3.4) {$d$};
+            
+            % bs
+            \draw[pattern = north west lines, rotate around={-45:(0,0)}] (-.1, -1) rectangle (.1, 1) node[above, right] {BS};
+            %\draw (-1, -1) -- (1, 1) node[above, right] {BS};
+            
+            % light source
+            \draw (-4, -.5) rectangle ++(1.5,1) node[midway] {Lamp};
+            
+            % light rays
+            \draw[neararrow={latex}] (-2.5, 0) -- (0,0); % leaving lamp
+            \draw[fararrow={latex}] (0,0) -- (0, -2.43); % going to eye
+            
+            \draw[fararrow={latex}] (0,0) -- (0, 3.85); % going to M1
+            \draw[neararrow={latex reversed}] (0,0) -- (0, 3.85); % coming back
+            
+            \draw[fararrow={latex}] (0,0) -- (2.85, 0); % going to M2
+            \draw[neararrow={latex reversed}] (0,0) -- (2.85, 0); % coming back
+            
+            % eye
+            \eye{.75}{0}{-3}{90}
+            \node[below] at (0, -3) {Observer};
         \end{tikzpicture}
-    \end{center}
+        
+        \caption{A top-down view of the geometry of a Michelson interferometer.}
+        
+         \label{fig:michelson-top-down}
+    \end{figure}
     
     In this diagram, M1 is the movable mirror, and its distance from the zero path difference configuration (where the path length in each ``arm'' of the interferometer is the same) is $d$.
     M2 is a tiltable mirror (tilt exaggerated on the diagram), with knobs that adjust the orientation (but not position) of the mirror.
-    To determine what we see when we look down the interferometer, we need to ``unwrap'' the optical system into an equivalent linear system:
     
-    \begin{center}
+    \begin{figure}
+        \centering
+        
         \begin{tikzpicture}
-        \draw[dashed] (0, 0) -- (8, 0);
-        \draw (8, -1) -- (8, 3) node[above, font = \footnotesize] {Observer};
-        
-        \draw[midarrow=latex] (0, 0) node[below] {M1} -- (8, 2.5);
-        \draw[midarrow=latex] (3, 0) node[below] {M2} -- (8, 2.5);
-        
-        \draw[dashed] (3,0) -- ++(107.35:0.894);
-        
-        \draw[dashed, |<->|] (0,-0.7) -- (3,-0.7) node[midway, below] {$d$};
-        
-        \fill (0, 0) circle [radius=2pt];
-        \fill (3, 0) circle [radius=2pt];
-        
-        \draw[dashed, |<->|] (0 - .1,0 + .2) -- ++(17.35:2.8635 + .05) node[midway, above, rotate=17.35] {$2d\cos{\theta}$};
-        
-        \draw[domain=0:17.35] plot ({1.5*cos(\x)}, {1.5*sin(\x)});
-        \node[right] at (1.5, .25) {$\theta$};
-        
-        \draw [domain=0:26] plot ({3+1.5*cos(\x)}, {1.5*sin(\x)});
-        \node[right] at (4.5, .4) {$\approx\theta$};
+            \draw[dashed] (0, 0) -- (8, 0);
+            \draw (8, -1) -- (8, 3) node[above, font = \footnotesize] {Observer};
+            
+            \draw[midarrow=latex] (0, 0) node[below] {M1} -- (8, 2.5);
+            \draw[midarrow=latex] (3, 0) node[below] {M2} -- (8, 2.5);
+            
+            \draw[dashed] (3,0) -- ++(107.35:0.894);
+            
+            \draw[dashed, |<->|] (0,-0.7) -- (3,-0.7) node[midway, below] {$d$};
+            
+            \fill (0, 0) circle [radius=2pt];
+            \fill (3, 0) circle [radius=2pt];
+            
+            \draw[dashed, |<->|] (0 - .1,0 + .2) -- ++(17.35:2.8635 + .05) node[midway, above, rotate=17.35] {$2d\cos{\theta}$};
+            
+            \draw[domain=0:17.35] plot ({1.5*cos(\x)}, {1.5*sin(\x)});
+            \node[right] at (1.5, .25) {$\theta$};
+            
+            \draw [domain=0:26] plot ({3+1.5*cos(\x)}, {1.5*sin(\x)});
+            \node[right] at (4.5, .4) {$\approx\theta$};
         \end{tikzpicture}
-    \end{center}
+        
+        \caption{A diagram showing the ``unwrapped'' geometry of the Michelson interferometer.}
+        
+        \label{fig:michelson-unwrapped}
+    \end{figure}
     
-    From this diagram we see that the path difference between the arms at viewing angle $\theta$ is approximately $2d \cos{\theta}$ (the approximation is very good because $\cos{\theta} \approx 1$ for small angles).
+    To determine what we see when we look down the interferometer, we need to ``unwrap'' the optical system into an equivalent linear system, shown in Figure~\ref{fig:michelson-unwrapped}.
+    From that diagram we see that the path difference between the arms at viewing angle $\theta$ is approximately $2d \cos{\theta}$ (the approximation is very good because $\cos{\theta} \approx 1$ for small angles).
     The $2$ appear because the light needs to traverse each arm twice.
     When the path difference is an integer multiple of the wavelength, we get constructive interference and see a fringe:
     \begin{align}
@@ -136,7 +148,7 @@
     The difference in wavenumber is inversely proportional to the difference in path length difference between two contrast minima.
     Note that you cannot extract $\Delta \lambda$ from $\Delta \sigma$ without knowing one of the two wavelengths.
     
-    \section*{Equipment}
+    \section{Equipment}
     
     The Michelson interferometers used in this lab are fairly simple to use.
     However, there is one key point that you must not forget: the movable mirror is attached to a micrometer which controls its distance from the beam splitter via a lever arm.
@@ -145,7 +157,7 @@
     
     \newpage
     
-    \section*{Procedure}
+    \section{Procedure}
     
     \subsection{Aligning the Interferometer}
     
@@ -220,7 +232,7 @@
     Measure the electron-proton mass ratio using your interferometer.
 
     \newpage
-    \section*{Prelab Questions}
+    \section{Prelab Questions}
     \setcounter{subsection}{0}
     
     \subsection{Fringe Movements \hfill (1 pt.)}

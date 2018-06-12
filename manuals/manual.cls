@@ -8,6 +8,10 @@
 \RequirePackage{graphicx}
 \RequirePackage{float}
 
+% internal and external links
+\RequirePackage{hyperref}
+\RequirePackage{caption}  % go to top of figure instead of caption
+
 % standard math packages
 \RequirePackage{amsmath,amssymb}
 
@@ -46,7 +50,7 @@
 \rhead{\@course}
 \lfoot{\small{Compiled on \MyDate}}
 \cfoot{}
-\rfoot{Page \thepage/\pageref{LastPage}}
+\rfoot{Page \thepage/\pageref*{LastPage}}
 \renewcommand{\headrulewidth}{0.0pt}
 \renewcommand{\footrulewidth}{0.0pt}
 
@@ -116,10 +120,17 @@
 
 
 % load siunitx
-\usepackage{siunitx}
+\usepackage[alsoload=synchem]{siunitx}
 
-% set up section (really subsection) numbering
+% set up section numbering
+
 \renewcommand{\thesubsection}{\arabic{subsection}}
+%\makeatletter
+\def\@seccntformat#1{\csname #1ignore\expandafter\endcsname\csname the#1\endcsname\quad}
+\let\sectionignore\@gobbletwo
+\let\latex@numberline\numberline
+\def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
+%\makeatother
 
 % make emph bold instead of italic
 \let\emph\relax % there's no \RedeclareTextFontCommand

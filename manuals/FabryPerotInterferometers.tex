@@ -10,7 +10,7 @@
 
     %%%
 
-    \section*{Motivation}
+    \section{Motivation}
 
     The Fabry-Perot interferometer is a refinement of the Michelson interferometer.
     Instead of splitting a beam of light and interfering it with its other half a single time, a Fabry-Perot interferometer interferes the same beam of light with itself tens, hundreds, or even thousands of times.
@@ -18,11 +18,13 @@
     In this lab we will look yet again at the sodium lamp, but this time we will be able to observe an interesting plasma phenomenon and distinguish the two orange emission lines in our scan.
     We will also look at the complicated structure of the green emission line in a low-pressure mercury lamp.
 
-    \section*{Background}
+    \section{Background}
 
     A simple Fabry-Perot interferometer is constructed from two plane-parallel mirrors, which form an \emph{optical cavity}.
     When a beam of light is incident on the device it is partially transmitted into the cavity between the mirrors.
     This transmitted beam reflects back and forth between the mirrors many times (depending on the reflectivity of the mirrors), producing a transmitted ray from the far mirror each time.
+    This geometry is shown in Figure~\ref{fig:fabry-perot-geometry}.
+    
     When these beams are recombined on a screen using a focusing lens, we see a fringe pattern resulting from constructive interference between successively transmitted rays.
     In this sense the fringe pattern is very similar to the Michelson interferometer's fringe pattern.
     In the Fabry-Perot interferometer we see a bright fringe when the round-trip optical path length in the cavity is an integer multiple of the wavelength:
@@ -39,84 +41,95 @@
     A Fabry-Perot cavity made with modern dielectric mirrors ($R > 99.99\%$) could have thousands or even hundreds of thousands of reflections, giving extremely narrow fringes.
 
     \begin{figure}
-        \begin{center}
-            \begin{tikzpicture}[thick, scale=2]
-                \draw[pattern = north west lines] (-.1,0) rectangle (0, 3);
-                \draw[pattern = north west lines] (1.5,0) rectangle (1.6, 3);
-                \draw[dashed, |<->|] (0,-.1) -- (1.5,-.1) node[midway, below] {$d$};
-                \node at (.75, 2.5) {$n$};
-                \node[font=\footnotesize] at (.75, 3.1) {Fabry-Perot Cavity};
+        \centering
+    
+        \begin{tikzpicture}[thick, scale=2]
+            \draw[pattern = north west lines] (-.1,0) rectangle (0, 3);
+            \draw[pattern = north west lines] (1.5,0) rectangle (1.6, 3);
+            \draw[dashed, |<->|] (0,-.1) -- (1.5,-.1) node[midway, below] {$d$};
+            \node at (.75, 2.5) {$n$};
+            \node[font=\footnotesize] at (.75, 3.1) {Fabry-Perot Cavity};
 
-                % y = x tan(theta) = 1.5 * tan(10 deg) = .2645
-                % r = x / cos(theta) = 1.5 / cos(10 deg) = 1.523
+            % y = x tan(theta) = 1.5 * tan(10 deg) = .2645
+            % r = x / cos(theta) = 1.5 / cos(10 deg) = 1.523
 
-                \draw (0, 0.2) -- ++ (10:-1.2) node[below, font=\footnotesize] {Incident Ray};
+            \draw (0, 0.2) -- ++ (10:-1.2) node[below, font=\footnotesize] {Incident Ray};
 
-                \draw[midarrow={latex}] (0, 0.2) -- ++(10:1.523);
-                \draw[midarrow={latex}] (1.5, .4645) -- ++(170:1.523);
-                \draw[neararrow={latex}] (1.5, .4645) -- ++(10:2) -- (5, 1.5225 + .6171);
+            \draw[midarrow={latex}] (0, 0.2) -- ++(10:1.523);
+            \draw[midarrow={latex}] (1.5, .4645) -- ++(170:1.523);
+            \draw[neararrow={latex}] (1.5, .4645) -- ++(10:2) -- (5, 1.5225 + .6171);
 
-                \draw[midarrow={latex}] (0, .729) -- ++(10:1.523);
-                \draw[midarrow={latex}] (1.5, .9935) -- ++(170:1.523);
-                \draw[neararrow={latex}] (1.5, .9935) -- ++(10:2) -- (5, 1.5225 + .6171);
+            \draw[midarrow={latex}] (0, .729) -- ++(10:1.523);
+            \draw[midarrow={latex}] (1.5, .9935) -- ++(170:1.523);
+            \draw[neararrow={latex}] (1.5, .9935) -- ++(10:2) -- (5, 1.5225 + .6171);
 
-                \draw[midarrow={latex}] (0, 1.258) -- ++(10:1.523);
-                \draw[midarrow={latex}] (1.5, 1.5225) -- ++(170:1.523);
-                \draw[neararrow={latex}] (1.5, 1.5225) -- ++(10:2) -- (5, 1.5225 + .6171);
+            \draw[midarrow={latex}] (0, 1.258) -- ++(10:1.523);
+            \draw[midarrow={latex}] (1.5, 1.5225) -- ++(170:1.523);
+            \draw[neararrow={latex}] (1.5, 1.5225) -- ++(10:2) -- (5, 1.5225 + .6171);
 
-                \draw[midarrow={latex}] (0, 1.787) -- ++(10:1.523);
-                \draw[midarrow={latex}, path fading = west] (1.5, 2.0505) -- ++(170:1.523);
-                \draw[neararrow={latex}, path fading = east] (1.5, 2.0505) -- ++(10:2) -- (5, 1.5225 + .6171);
+            \draw[midarrow={latex}] (0, 1.787) -- ++(10:1.523);
+            \draw[midarrow={latex}, path fading = west] (1.5, 2.0505) -- ++(170:1.523);
+            \draw[neararrow={latex}, path fading = east] (1.5, 2.0505) -- ++(10:2) -- (5, 1.5225 + .6171);
 
-                \pgfmathsetmacro{\lensRadius}{10}
-                \pgfmathsetmacro{\lensHeight}{1.4}
-                \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
+            \pgfmathsetmacro{\lensRadius}{10}
+            \pgfmathsetmacro{\lensHeight}{1.4}
+            \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
 
-                % x = r * cos(theta) = 2 / cos(10 deg) = 1.97
+            % x = r * cos(theta) = 2 / cos(10 deg) = 1.97
 
-                \draw[thin, gray] (1.5 + 1.97, 1.85 + \lensHeight) -- (1.5 + 1.97, 1.85 - \lensHeight) node[below, font=\footnotesize, black] {Lens};
-                \draw (1.5 + 1.97, 1.85 + \lensHeight)
-                arc[thick, start angle=180-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
-                arc[thick, start angle=-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
-                -- cycle; % to get a better line end
-                
+            \draw[thin, gray] (1.5 + 1.97, 1.85 + \lensHeight) -- (1.5 + 1.97, 1.85 - \lensHeight) node[below, font=\footnotesize, black] {Lens};
+            \draw (1.5 + 1.97, 1.85 + \lensHeight)
+            arc[thick, start angle=180-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+            arc[thick, start angle=-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+            -- cycle; % to get a better line end
+            
 
-                \draw (5, 0) -- (5, 3) node[above, font=\footnotesize] {Screen};
+            \draw (5, 0) -- (5, 3) node[above, font=\footnotesize] {Screen};
 
-                \draw[dashed] (0, .2) -- (-1.2, .2);
-                \draw [<->, domain=180:190] plot ({cos(\x)}, {.2 + sin(\x)});
-                \node[left] at (-1.1, .09) {$\theta$};
+            \draw[dashed] (0, .2) -- (-1.2, .2);
+            \draw [<->, domain=180:190] plot ({cos(\x)}, {.2 + sin(\x)});
+            \node[left] at (-1.1, .09) {$\theta$};
 
-                \draw[dashed] (1.5 + 1.97, 1.85) -- (5, 1.85);
-                \draw [<->, domain=0:12] plot ({1.5 + 1.97 + .9 * cos(\x)}, {1.85 + .9 * sin(\x)});
-                \node[left] at (1.5 + 1.97 + .93, 1.92) {$\theta$};
-            \end{tikzpicture}
-        \end{center}
+            \draw[dashed] (1.5 + 1.97, 1.85) -- (5, 1.85);
+            \draw [<->, domain=0:12] plot ({1.5 + 1.97 + .9 * cos(\x)}, {1.85 + .9 * sin(\x)});
+            \node[left] at (1.5 + 1.97 + .93, 1.92) {$\theta$};
+        \end{tikzpicture}
 
-        \caption[Fabry-Perot Cavity Geometry]{The geometry of a Fabry-Perot cavity.}
+        \caption{The geometry of a Fabry-Perot cavity.}
+        
+        \label{fig:fabry-perot-geometry}
     \end{figure}
 
     The green light from a \emph{low-pressure mercury lamp} ($\lambda \approx \SI{546}{\nano\meter}$) is particularly interesting to look at with the Fabry-Perot interferometer because it reveals that mercury on Earth typically has several isotopes of slightly different masses mixed in.
     Each isotope's emission lines are at slightly different wavelengths.
     We will also have enough resolution to see the fine structure of the atomic transitions, caused by relativistic corrections and the coupling of the electron's spin and angular momentum.
-    A sample mercury spectrum made with a grating spectrometer is shown below.
+    A sample mercury spectrum made with a grating spectrometer is shown in Figure~\ref{fig:low-pressure-mercury-spectrum}.
 
     \begin{figure}[H]
         \centering
+        
         \includegraphics[width = .5\textwidth, angle = 90]{figs/hg_spectrum}
-        \label{fig:low-pressure-mercury-spectrum}
+        
         \caption[Low-Pressure Mercury Spectrum]{W. Fastie, H. Crosswhite, and P. Gloersen, "Vacuum Ebert Grating Spectrometer," J. Opt. Soc. Am. 48, 106-111 (1958).}
+        
+        \label{fig:low-pressure-mercury-spectrum}
     \end{figure}
 
-    \section*{Equipment}
+    \section{Equipment}
 
-    In this lab you will use a pre-built Fabry-Perot cavity ($d=\SI{3}{\milli\meter}$) as your interferometer. The cavity is attached by alignment screws to a solid plate, so that the cavity can be aimed at a photomultiplier tube. The Fabry-Perot cavity is fragile, so be careful when handling it. The cavity is attached to a source of compressed nitrogen gas which can be used to change the index of refraction between the plates (the index of refraction will increase as more nitrogen is added). A manometer is built-in to the nitrogen supply to measure the pressure relative to the surrounding atmosphere.
+    In this lab you will use a pre-built Fabry-Perot cavity ($d=\SI{3}{\milli\meter}$) as your interferometer.
+    The cavity is attached by alignment screws to a solid plate so that the cavity can be aimed at a photomultiplier tube.
+    The Fabry-Perot cavity is fragile, so be careful when handling it.
+    The cavity is attached to a source of compressed nitrogen gas which can be used to change the index of refraction between the plates (the index of refraction will increase as more nitrogen is added). 
+    A manometer is built-in to the nitrogen supply to measure the pressure relative to the surrounding atmosphere.
 
-    The photomultiplier tube uses high-voltage plates to convert a small flux of photoelectrons from the interferometer into a measurable current. The photomultiplier requires a negative voltage to operate. \textbf{Do not exceed 600 volts on the photomultiplier!}
+    The photomultiplier tube uses high-voltage plates to convert a small flux of photoelectrons from the interferometer into a measurable current.
+    The photomultiplier requires a negative voltage to operate.
+    \emph{Do not exceed 600 volts on the photomultiplier!}
 
     \newpage
 
-    \section*{Procedure}
+    \section{Procedure}
 
     \subsection{Aligning the Interferometer}
     Aligning the Fabry-Perot interferometer is significantly simpler than the Michelson interferometer because the Fabry-Perot cavity has been pre-assembled.
@@ -173,7 +186,7 @@
     Print out your pressure scan and note the emission lines that you can distinguish.
 
     \newpage
-    \section*{Prelab Questions}
+    \section{Prelab Questions}
     \setcounter{subsection}{0}
     
     \subsection{Fringe Movements \hfill (1 pt.)}
@@ -184,7 +197,7 @@
     \vspace{\stretch{1}}
     
     \subsection{Finessing Your Measurements \hfill (1 pt.)}
-    From \ref{fig:low-pressure-mercury-spectrum} we can deduce that the green emission line in low-pressure mercury is approximately \SI{5}{\giga\hertz} wide.
+    From Equation~\ref{fig:low-pressure-mercury-spectrum} we can deduce that the green emission line in low-pressure mercury is approximately \SI{5}{\giga\hertz} wide.
     The \emph{free spectral range} (frequency distance between adjacent transmission peaks) of a $d=\SI{3}{\milli\meter}$ Fabry-Perot cavity is $\mathrm{FSR} = c / 2d \approx \SI{50}{\giga\hertz}$.
     The \emph{finesse} of the cavity is the ratio between the free spectral range and the width of the cavity transmission line, $\mathcal{F} = \Delta \nu / \mathrm{FSR}$, but is also approximately equal to the number of round-trips each photon will go through in the cavity.
     
