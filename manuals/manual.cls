@@ -7,6 +7,7 @@
 \usepackage[dvipsnames]{xcolor}
 \RequirePackage{graphicx}
 \RequirePackage{float}
+\RequirePackage{placeins}
 
 % internal and external links
 \RequirePackage{hyperref}
