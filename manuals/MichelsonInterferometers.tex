@@ -160,11 +160,12 @@
     
     \section{Procedure}
     
-    \subsection{Aligning the Interferometer}
+    \subsection{Making Crude Measurements}
     
     \subsubsection{Angular Alignment}
     
-    The first step in aligning the interferometer is to make the sure that the mirrors are both at the same tilt relative to the path the light takes.
+    Before we do anything else, we need to align the interferometer.
+    The first step is to make the sure that the mirrors are both at the same tilt relative to the path the light takes.
     Put the diffuser between the sodium lamp and the interferometer, and put a thumb tack or other sharp-tipped object in the way so that you see its shape when you look down the interferometer.
     You should see three or four images of the pencil's shadow (a pair on the right, and a pair on the left).
     The pair on the right are easier to see, so we will use those to align the interferometer.
@@ -180,7 +181,7 @@
     Move the movable mirror so that the fringes are moving in or out, such that the path length difference is decreasing (see the first Prelab question).
     Once the fringes become very large in the field of view (only one or two fringes visible), move to the next step (make sure to remember which direction zero path is in).
     
-    \subsubsection{Precise Path Difference Alignment \hfill (2 pts.)}
+    \subsubsection{Precise Path Difference Alignment}
     
     Switch the sodium lamp out for the filament lamp.
     Remove the diffuser.
@@ -195,42 +196,74 @@
     Tilt the tiltable mirror very slightly so that you get straight-line fringes. Move the movable mirror back and forth very slightly.
     There should be about 10 visible fringes, most having a distinct red-blue tint to the edges, but with one black fringe in the center of the pattern.
     The pattern is symmetric around that center black fringe, so when it is in the center of your field of view the interferometer must be at zero path.
-    Record this micrometer reading so that you can go back to this configuration quickly.
     
-    \subsection{Measuring the Wavelength of the Sodium Emission Line \hfill (2 pts.)}
+    \Q{2 pts.}{Align your interferometer and get it to zero path difference. Show your TA your white-light fringes and have them mark your lab notebook. Record the micrometer reading at this position so that you can go back to it quickly.}
+    
+    \subsubsection{Measuring the Wavelength of the Sodium Emission Line}
     
     We can use the interferometer to measure the wavelength of the sodium lamp by counting fringes.
     Go to a path difference where you have good fringe contrast and can see many fringes in your field of view.
-    Align the interferometer for bullseye fringes. Move the micrometer slowly in either direction while counting the number of fringes that appear or disappear in the center of the bullseye.
+    Align the interferometer for bullseye fringes.
+    Move the micrometer slowly in either direction while counting the number of fringes that appear or disappear in the center of the bullseye.
     Since $\theta=0$ at the center of the bullseye, we have
     \begin{align}
     \lambda = \frac{2 \Delta d}{\Delta m},
     \end{align}
     where $\Delta d$ is the difference in movable mirror position and $\Delta m$ is the number of fringes you count.
-    This measurement is notoriously difficult to do by eye, but you should be able to get within $\SI{10}{\percent}$ of the actual wavelength, $\lambda \approx \SI{589}{\nano\meter}$.
-    You will want to count as many fringes as possible to reduce Poisson error, but not so many that you pick up a large systematic error (100 is a good number).
+    You will want to count as many fringes as possible to reduce Poisson error, but not so many that you pick up a large systematic error ($\Delta m \approx 100$ is a reasonable tradeoff).
+    
+    \Q{2 pts.}{
+        Measure the wavelength of the sodium emission line by counting fringes.
+        \begin{itemize}
+            \item Analyze your error and compare your measurement to the expected wavelength ($\lambda \approx \SI{589}{\nano\meter}$).
+            \item Why is fringe-counting by eye a particularly poor way to measure wavelengths?
+        \end{itemize}
+    }
     
     \subsection{Measuring Emission Line Splitting}
     
-    \subsubsection{Sodium Doublet \hfill (2 pts.)}
+    \subsubsection{Sodium Doublet}
     
     There are really two different sodium emission lines near $\SI{589}{\nano\meter}$.
+    A pair of emission lines like this is called a \emph{doublet}.
     Although it is difficult to measure the actual wavelength of those lines (as you have just seen), we can still make a very accurate measurement of the difference in their wavenumbers.
     
-    Measure the path length difference between many different contrast minima to get an accurate measurement of the wavenumber splitting in the sodium emission lines.
+    \Q{2 pts.}{
+        Measure the wavenumber splitting of the sodium emission lines by counting contrast minima.
+        \begin{itemize}
+            \item Analyze your error and compare your result to the expected splitting ($\Delta \sigma \approx \SI{17.2}{\per\centi\meter}$).
+            \item Why is this technique more accurate and precise than your measurement of the wavelength by fringe-counting?
+            \item What disadvantages does this technique have compared to fringe-counting?
+        \end{itemize}  
+    }
     
-    \subsubsection{Hydrogen-Deuterium Doublet \hfill [2 pts.]}
+    \subsubsection{Hydrogen-Deuterium Doublet}
     
     Switch to the hydrogen-deuterium lamp.
     Put the dichroic filter between the lamp and the interferometer to select out the $3p \rightarrow 2s$ transition.
     Because the reduced mass of the electron is different in deuterium than it is in hydrogen, the energy of this transition is slightly different for the two atoms.
     It can be shown that
     \begin{align}
-    \Delta \sigma \approx R_{\infty} \, \frac{5}{72} \, \frac{m_e}{m_p},
+        \Delta \sigma = R_{\infty} \, \frac{5}{72} \, \frac{m_e}{m_p},
     \end{align}
-    where $\Delta \sigma$ is the wavenumber splitting, $R_{\infty}$ is the Rydberg constant, and $m_e$ and $m_p$ are the masses of the electron and proton, respectively.
+    where $\Delta \sigma$ is the wavenumber splitting caused by the mass difference, $R_{\infty}$ is the Rydberg constant, and $m_e$ and $m_p$ are the masses of the electron and proton, respectively.
     
-    Measure the electron-proton mass ratio using your interferometer.
+    \Q{1 pts.}{
+        Measure the proton-electron mass ratio using your interferometer. 
+        \begin{itemize}
+            \item Analyze your error and compare to the expected value ($m_p/m_e \approx 1836$).
+        \end{itemize}
+    }
+
+    \Q{1 pts.}{
+        Answer these questions:
+        \begin{itemize}
+            \item How does interferometry let us measure the microscopic properties of light using macroscopic tools?
+            \item The techniques used in this lab are similar to those that could have been used by Michelson and Morley in the late 1800's, when they invented this type of interferometer.
+            What kind of modern enhancements could we make to the apparatus to improve its accuracy and precision?
+        \end{itemize}
+        
+    }
 
     \newpage
     \FloatBarrier

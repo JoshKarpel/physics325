@@ -160,26 +160,20 @@
         \centering
         
         \begin{tikzpicture}
-        \draw[<->] (-6.5, 0) -- (6.5, 0) node[below right, black] {$x$}; 
-        \draw[->] (0, 0) node[below] {$x=0$}-- (0, 5.5) node[above right, black] {$I(x)$} ;
-        
-        \draw[domain=-2*pi:2*pi, samples=1001, very thick] plot (\x, {1.2 * ((sin(\x r)/\x)*(sin(10*\x r)/sin(5*\x r)))^2)});
-        
-        \draw (-pi,0) to [out=-60,in=180] (-pi/10,-0.5) to [out=0, in=90] (0,-1) node[below] {central lobe} to [out=90, in=180] (pi/10,-0.5) to [out=0, in=-120] (pi,0);
-%        \node [align=center,below] [scale=0.75] at (0,-0.75)%
-%        {central lobe};
-        
-        \draw (-2*pi,0) to [out=-60,in=180] (-1.6*pi,-0.15) to [out=0,in=90] (-1.5*pi,-0.5) node[below] {second lobe} to [out=90,in=180] (-1.4*pi,-0.15) to [out=0, in=-120] (-pi,0);
-%        \node [align=center,below] [scale=0.75] at (-1.5*pi,-0.5)%
-%        {second lobe};
-
-        
-        \draw[<-] (0.05, 4.85) -- (1, 5.2) node[right] {central maximum $I_0$};
-%        \draw[<-] (2.86, 1/3) -- (3.5, 2) node[above] {first order maximum $I_1$};
-%        \draw[<-] (4.91, 1/5) -- (6, 1) node[above] {second order maximum $I_2$};
-        
-        \draw[<-] (-pi, 1/10) -- (-pi, 3) node[above] {first minimum};
-        \draw[<-] (-2*pi, 1/10) -- (-2*pi, 2) node[above] {second minimum};
+            \draw[<->] (-6.5, 0) -- (6.5, 0) node[below right, black] {$x$}; 
+            \draw[->] (0, 0) node[below] {$x=0$}-- (0, 5.5) node[above right, black] {$I(x)$} ;
+            
+            \draw[domain=-2.01*pi:2.01*pi, samples=1001, very thick] plot (\x, {1.2 * ((sin(\x r)/\x)*(sin(10*\x r)/sin(5*\x r)))^2)});
+            
+            \draw (-pi,0) to [out=-60,in=180] (-pi/10,-0.5) to [out=0, in=90] (0,-1) node[below] {central lobe} to [out=90, in=180] (pi/10,-0.5) to [out=0, in=-120] (pi,0);
+            
+            \draw (-2*pi,0) to [out=-60,in=180] (-1.6*pi,-0.15) to [out=0,in=90] (-1.5*pi,-0.5) node[below] {second lobe} to [out=90,in=180] (-1.4*pi,-0.15) to [out=0, in=-120] (-pi,0);
+    
+            
+            \draw[<-] (0.05, 4.85) -- (1, 5.2) node[right] {central maximum $I_0$};
+            
+            \draw[<-] (-pi, 1/10) -- (-pi, 3) node[above] {first minimum};
+            \draw[<-] (-2*pi, 1/10) -- (-2*pi, 2) node[above] {second minimum};
         \end{tikzpicture}
         
         \caption{The intensity profile of multiple-slit diffraction.}

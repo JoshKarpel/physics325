@@ -151,7 +151,7 @@
 
     \subsection{Measuring the Index of Refraction of Nitrogen Gas}
 
-    \subsubsection{Pressure Scanning \hfill (2 pts.)}
+    \subsubsection{Pressure Scanning}
     Since the index of refraction of the material filling the Fabry-Perot cavity changes the optical path length in the cavity, we should be able to use it to measure the index of refraction of a gas.
     Perform a ``pressure scan'' by slowly filling the cavity with extra nitrogen gas. As you do this the angle of a given fringe will shift.
     As they pass through $\theta = 0$ the photomultiplier will detect them and you will see a signal on the electrometer.
@@ -167,24 +167,40 @@
     In fact, the sodium plasma is cool enough at the edges that in that region it actually absorbs more photons than it emits.
     Since the transition is narrower at the edges, we see an absorption feature in the center of the broad emission line produced at the center of the plasma.
 
-    Put a printout of a pressure scan from atmospheric pressure to atmospheric pressure plus $\SI{1000}{\torr}$ of nitrogen gas with both of these effects clearly labeled in your lab notebook.
-
-    \subsubsection{Index of Refraction Measurement \hfill (4 pts.)}
-    To measure the index of refraction using your pressure spectrum, note that the index of refraction of a low-density gas goes like
+    \Q{3 pts.}{
+        Perform an intensity vs. pressure scan from atmospheric pressure to atmospheric pressure plus $\SI{1000}{\torr}$ of nitrogen gas.
+        \begin{itemize}
+            \item Make a plot in your lab report with the results of your scan.
+            \item Label (or otherwise clearly identify) the effects of the doublet splitting and the self-reversal on your plot.
+        \end{itemize}
+    }
+    
+    \subsubsection{Measuring the Index of Refraction of Nitrogen Gas}
+    To measure the index of refraction of diatomic nitrogen gas using your pressure spectrum, note that the index of refraction of a low-density gas goes like
     \begin{align} \label{eqn:index-of-refraction}
         n \approx 1 + \alpha \, \frac{N}{V} = 1 + \alpha \, \frac{P}{RT},
     \end{align}
-    where $N/V$ is the number density of the gas, $\alpha$ is a constant, $P$ is the pressure of the gas, $T$ is the temperature of the gas, and $R$ is the ideal gas constant. We could use this equation to determine the index of refraction of nitrogen gas at standard temperature and pressure ($P = \SI{760}{\torr}$, $T = \SI{273.15}{\kelvin}$) if we can determine $\alpha$.
+    where $N/V$ is the number density of the gas, $\alpha$ is a constant, $P$ is the pressure of the gas, $T$ is the temperature of the gas, and $R$ is the ideal gas constant.
+    We could use this equation to determine the index of refraction of nitrogen gas at standard temperature and pressure ($P = \SI{760}{\torr}$, $T = \SI{273.15}{\kelvin}$) if we knew the value of $\alpha$.
 
-    Figure out a way to measure $\alpha$, measure it, and compute the index of refraction of nitrogen gas at standard temperature and pressure, $n_{\mathrm{STP}}$.
-    The accepted value is 1.000298 - how close did you get?
-    Keep in mind that you can't include the overall 1 in your error analysis - we only care about the difference of the index of refraction from 1, because that's the index of refraction of vacuum.
+    \Q{3 pts.}{
+        Measure $\alpha$ and compute the index of refraction of nitrogen gas at standard temperature and pressure.
+        \begin{itemize}
+            \item Analyze your error and compare to the expected value ($n_{\mathrm{STP}} \approx 1.000298$).
+            Keep in mind that you can't include the overall 1 in your error analysis - we only care about the difference of the index of refraction from 1, because that's the index of refraction of vacuum.
+        \end{itemize}
+    }
 
-    \subsubsection{The Fine and Isotopic Structure of Mercury \hfill [2 pts.]}
+    \subsubsection{The Fine and Isotopic Structure of Mercury}
     Swap out the sodium lamp for the low-pressure mercury lamp.
-    Perform the same kind of pressure scan as before.
-    If you do not see at least six or seven distinguishable peaks, you will need to go back to the sodium lamp and ensure that you have the setup very well aligned.
-    Print out your pressure scan and note the emission lines that you can distinguish.
+    
+    \Q{2 pts.}{
+        Perform a pressure scan over mercury's green emission line.
+        \begin{itemize}
+            \item Make a plot in your lab report with the results of your scan.
+            \item Identify at least six distinguishable sub-peaks in the emission line. If you don't see that many, you'll need to ensure that your setup is well-aligned and redo the scan.
+        \end{itemize}
+    }
 
     \newpage
     \FloatBarrier
@@ -199,13 +215,9 @@
     
     \vspace{\stretch{1}}
     
-    \subsection{Finessing Your Measurements \hfill (1 pt.)}
-    From Equation~\ref{fig:low-pressure-mercury-spectrum} we can deduce that the green emission line in low-pressure mercury is approximately \SI{5}{\giga\hertz} wide.
-    The \emph{free spectral range} (frequency distance between adjacent transmission peaks) of a $d=\SI{3}{\milli\meter}$ Fabry-Perot cavity is $\mathrm{FSR} = c / 2d \approx \SI{50}{\giga\hertz}$.
-    The \emph{finesse} of the cavity is the ratio between the free spectral range and the width of the cavity transmission line, $\mathcal{F} = \Delta \nu / \mathrm{FSR}$, but is also approximately equal to the number of round-trips each photon will go through in the cavity.
+    \subsection{Connecting the Dots \hfill (1 pt.)}
+    Figure out how to measure $\alpha$ (see Equation~\eqref{eqn:index-of-refraction}) using the Fabry-Perot interferometer.
     
-    Estimate (to within an order of magnitude) the minimum finesse that the Fabry-Perot interferometer used in this experiment needs to achieve to be able to resolve the fine structure of the green emission line in low-pressure mercury.
-    
-    \vspace{\stretch{1}}
+    \vspace{\stretch{2}}
 
 \end{document}

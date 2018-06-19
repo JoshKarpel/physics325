@@ -136,3 +136,22 @@
 % make emph bold instead of italic
 \let\emph\relax % there's no \RedeclareTextFontCommand
 \DeclareTextFontCommand{\emph}{\bfseries}
+
+
+\newcounter{Q}
+\newcommand{\Q}[2]{
+    \refstepcounter{Q}
+    \begin{center}
+        \noindent \fbox{\parbox{.85\textwidth}{ \textbf{Q\theQ \hfill [#1]} \\ \noindent #2 }}
+    \end{center}
+}
+\newcommand{\Qgray}[2]{
+    \refstepcounter{Q}
+    \begin{center}
+        \noindent \fcolorbox{black}{lightgray}{\parbox{.85\textwidth}{ \textbf{Q\theQ \hfill [#1]} \\ \noindent #2 }}
+    \end{center}
+}
+
+
+
+
