@@ -33,11 +33,12 @@
 \RequirePackage[
     top=1in,
     bottom=1in,
-    left=1.2in,
-    right=1.2in,
+    left=1in,
+    right=1in,
     headsep=0.3in,
     headheight=13.6pt,
-    includefoot,
+%    includefoot,
+%    includehead,
 ]{geometry}
 
 
@@ -137,21 +138,51 @@
 \let\emph\relax % there's no \RedeclareTextFontCommand
 \DeclareTextFontCommand{\emph}{\bfseries}
 
+% question boxes
+\RequirePackage[most]{tcolorbox}
+
+\newtcolorbox{Qbox}[1][]{
+    enhanced,
+    arc=0pt,
+    outer arc=0pt,
+    colback=white,
+    boxrule=0.8pt,
+    boxsep=0mm,
+    #1
+}
+
 
 \newcounter{Q}
 \newcommand{\Q}[2]{
     \refstepcounter{Q}
     \begin{center}
-        \noindent \fbox{\parbox{.85\textwidth}{ \textbf{Q\theQ \hfill [#1]} \\ \noindent #2 }}
+        \noindent \parbox{.9\textwidth}{
+            \begin{Qbox}
+                \textbf{Q\theQ \hfill [#1]}
+                \vspace{1em}
+                \\
+                \noindent #2
+            \end{Qbox}
+        }
     \end{center}
 }
 \newcommand{\Qgray}[2]{
     \refstepcounter{Q}
     \begin{center}
-        \noindent \fcolorbox{black}{lightgray}{\parbox{.85\textwidth}{ \textbf{Q\theQ \hfill [#1]} \\ \noindent #2 }}
+        \noindent \parbox{.9\textwidth}{
+            \begin{Qbox}[colback=lightgray!50]
+                \textbf{Q\theQ \hfill [#1]}
+                \vspace{1em}
+                \\
+                \noindent #2
+            \end{Qbox}
+        }
     \end{center}
 }
 
+% customize item spacing in lists
+\usepackage{enumitem}
+\setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
 
 
 
