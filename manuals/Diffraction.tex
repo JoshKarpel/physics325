@@ -31,9 +31,18 @@
         \centering
         
         \begin{tikzpicture}
-            \draw[rounded corners] (-3,5) -- (-2.8,4.5) -- (-2.9,4) -- (-2.5,3.5) -- (-2.7,3) -- (-2.4,2.5) -- (-2.6,2) -- (-2.5,1.5) -- (-2.9,1) -- (-2.7,0.5) -- (-3,0);
-            \draw[rounded corners] (-2.6,5) -- (-2.4,4.5) -- (-2.5,4) -- (-2.1,3.5) -- (-2.3,3) -- (-2.0,2.5) -- (-2.2,2) -- (-2.1,1.5) -- (-2.5,1) -- (-2.3,0.5) -- (-2.6,0);
-            \draw[rounded corners] (-2.2,5) -- (-2.0,4.5) -- (-2.1,4) -- (-1.7,3.5) -- (-1.9,3) -- (-1.6,2.5) -- (-1.8,2) -- (-1.7,1.5) -- (-2.1,1) -- (-1.9,0.5) -- (-2.2,0);
+            \foreach \x in {0, .4, .8}
+                \draw[rounded corners] (-3 + \x, 5)
+                 -- (-2.8 + \x, 4.5) 
+                 -- (-2.9 + \x, 4)
+                 -- (-2.5 + \x, 3.5)
+                 -- (-2.7 + \x, 3)
+                 -- (-2.4 + \x, 2.5)
+                 -- (-2.6 + \x, 2) 
+                 -- (-2.5 + \x, 1.5) 
+                 -- (-2.9 + \x, 1) 
+                 -- (-2.7 + \x, 0.5) 
+                 -- (-3 + \x, 0);
             
             \draw[|<->|, dashed] (-0.3,2) -- (-0.3,3) node[midway, left] {$W$};
             
@@ -48,17 +57,17 @@
             
             \draw[<->, dashed] (7,2.5) arc (0:6.4:7) node[midway, right] {$\theta$};
             
-            \draw[fill] (0,2.5) circle [radius=0.05];
+            \draw[fill] (0,2.5) circle (2pt);
             \draw (0,2.5) -- (0.5,2.25);
             \node[align=center,below] at (1,2.35) {$(z_0, \, 0)$};
             
-            \draw[fill] (0,2.75) circle [radius=0.05];
+            \draw[fill] (0,2.75) circle (2pt);
             \draw (0,2.75) -- (0.5,2.85);
             \node[align=center,above] at (1,2.7) {$(z_0, \, w)$};
             
             \draw (9, 0) -- (9, 5) node[above] {Screen};
             
-            \draw[fill] (9,3.5) circle [radius=0.05];
+            \draw[fill] (9,3.5) circle (2pt);
         \end{tikzpicture}
         
         \caption{An electromagnetic wave illuminating a single slit.}
@@ -137,7 +146,11 @@
             $3$ & $3.4709 \, \pi$ & $0.0083$ \\
         \end{tabular}
         
-        \caption{The positions $y_n$ and values of the maxima of $\sinc^2(y)$. Because $\sinc^2(0) = 1$, the last column is also the fractional (i.e., relative) intensity of the maxima relative to the center. The approximation $y_n \approx \qty(n + \frac{1}{2}) \, \pi$ is sometimes conveniesnt.}
+        \caption{
+            The positions $y_n$ and values of the maxima of $\sinc^2(y)$.
+            Because $\sinc^2(0) = 1$, the last column is also the fractional (i.e., relative) intensity of the maxima relative to the center.
+            The approximation $y_n \approx \qty(n + \frac{1}{2}) \, \pi$ is sometimes convenient.
+        }
         
         \label{tab:sinc-squared-maxima}
     \end{table}
@@ -215,25 +228,65 @@
         Compare the theoretical expression for single-slit diffraction (Equation~\eqref{eqn:single-slit-diffraction}) to your real setup.
         \begin{itemize}
             \item Make a plot that compares the theoretical intensity curve (i.e., $I(x)$) to your measured intensity curve.
-            \item Identify the position of the first-order maximum and use it to measure the wavelength of the laser. Don't interpolate on your plot - go back to the apparatus and find the position as accurately as possible. Analyze your error and compare to the expected wavelength ($\lambda = \SI{632.8}{\nano\meter})$. 
+            \item Identify the position of the first-order maximum and use it to measure the wavelength of the laser.
+            Don't interpolate on your plot - go back to the apparatus and find the position as accurately as possible.
+            Analyze your error and compare to the expected wavelength ($\lambda = \SI{632.8}{\nano\meter})$. 
         \end{itemize}
     }
     
     \subsubsection{Double-Slit Diffraction}
     
     Switch out the single-slit assembly for a double-slit holder.
-    
+    Readjust your setup to make  sure that you can resolve the small features in the double-slit diffraction pattern.
     
     \Q{2 pts.}{
         Compare the theoretical expression for double-slit diffraction (Equation~\eqref{eqn:multi-slit-diffraction} with $N=2$) to your real setup.
         \begin{itemize}
             \item Make a plot that compares the theoretical intensity curve to your measured intensity curve.
             \item Identify the position of the first non-central maximum in the central lobe and use it to measure the wavelength of the laser. 
+            Analyze your error and compare to the expected wavelength ($\lambda = \SI{632.8}{\nano\meter})$.
         \end{itemize}
     }
+
+    \subsubsection{Fresnel Diffraction}
+    
+    {\color{red} do Fresnel diffraction...}
     
     \subsection{Fourier Optics}
     
+    \begin{figure}
+        \centering
+        
+        \begin{tikzpicture}
+            \node[below] (verticalwires) at (0, 0) {Vertical Wires};
+            \node[below] (horizontalwires) at (4, 0) {Horizontal Wires};
+            \node[below] (grid) at (8, 0) {Wire Grid};
+            \node[below] (hole) at (12, 0) {Circular Hole};
+            
+            % vertical
+            \foreach \x in {-1,-.75,...,1}
+                \draw[thick] (\x, .5) -- (\x, 2.5);
+                
+            % horizontal
+            \foreach \y in {.5,.75,...,2.5}
+                \draw[thick] (3, \y) -- (5, \y);
+                
+            % grid
+            \foreach \y in {.5,.75,...,2.5}
+                \draw[thick] (7, \y) -- (9, \y);
+            \foreach \x in {7,7.25,...,9}
+                \draw[thick] (\x, .5) -- (\x, 2.5);
+            
+            % hole
+            \draw[fill] (11, .5) rectangle (13, 2.5);
+            \draw[fill, color=white] (12, 1.5) circle[radius=.5];
+                
+        \end{tikzpicture}
+        
+        \caption{Simple objects to Fourier transform.}
+        
+        \label{fig:simple-fourier-objects}
+    \end{figure}
     
     \newpage
     \FloatBarrier
