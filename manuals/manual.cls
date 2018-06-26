@@ -95,6 +95,13 @@
         postaction={decorate}
     }
 }
+\tikzset{veryneararrow/.style={
+        decoration={markings,
+            mark= at position 0.1 with {\arrow[scale=1.5]{#1}} ,
+        },
+        postaction={decorate}
+    }
+}
 \tikzset{neararrow/.style={
         decoration={markings,
             mark= at position 0.4 with {\arrow[scale=1.5]{#1}} ,
@@ -105,6 +112,13 @@
 \tikzset{fararrow/.style={
         decoration={markings,
             mark= at position 0.6 with {\arrow[scale=1.5]{#1}} ,
+        },
+        postaction={decorate}
+    }
+}
+\tikzset{veryfararrow/.style={
+        decoration={markings,
+            mark= at position 0.9 with {\arrow[scale=1.5]{#1}} ,
         },
         postaction={decorate}
     }

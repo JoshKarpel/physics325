@@ -1,0 +1,138 @@
+\documentclass[]{manual}
+
+\title{Thin Lenses}
+\date{\today}
+\course{Physics 325}
+
+\newcommand{\lens}[3]{
+    \pgfmathsetmacro{\lensRadius}{#2}
+    \pgfmathsetmacro{\lensHeight}{#3}
+    \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
+    
+    \draw[dashed] (#1, -\lensHeight) -- (#1, \lensHeight) node[above] {PP};
+    
+    \draw[ultra thick] (#1,\lensHeight)
+    arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+    arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+    -- cycle;
+}
+
+\newcommand{\object}[2]{
+    \draw[-{squareTip[scale=3]}] (#1, 0) -- ++(0, #2) node[above] {Object};
+}
+
+\usetikzlibrary{arrows.meta}
+\tikzset{%
+    squareTip/.tip={Bar[sep]Square[open]}
+}
+
+
+
+\begin{document}
+    \maketitle
+    \thispagestyle{firstpage}
+
+    %%%
+
+    \section*{Motivation}
+    
+    The traditional starting point for optics is the study of \emph{thin lenses}.
+    Under the approximations of ray optics, a thin lens bends light in very predictable ways.
+    Thin lenses are important in optics labs, where they are used to guide light between different parts fo the experiment and to shape laser beams into the necessary form for the experiment.
+    This often involves focusing the beam to as small a spot as possible to achieve maximum intensity.
+
+    \section*{Background}
+
+    \begin{figure}
+        \centering
+        
+        \begin{tikzpicture}
+            \draw[dashed] (-6, 0) -- (4, 0) node[above, at start] {$\mathrm{OA}$}; 
+        
+            \lens{0}{20}{4}
+            
+            \foreach \y in {-3,...,3}
+                \draw[veryneararrow={latex}, veryfararrow={latex}] (-5, \y) -- (0, \y) -- (3, 0);
+                
+            \draw[fill] (3, 0) circle (2pt) node[above right] (PFI) {$\mathrm{PF_i}$};
+            \node[above] (object) at (-5, 3) {Rays from Object at $\infty$};
+        \end{tikzpicture}
+        
+        \caption[Object at Infinity]{
+            Imaging an object at infinity with a thin lens.
+        }
+        
+        \label{fig:object-at-infinity}
+    \end{figure}
+
+    \begin{figure}
+        \centering
+        
+        \begin{tikzpicture}
+            \draw[dashed] (-7, 0) -- (4, 0) node[above, at start] {$\mathrm{OA}$}; 
+            
+            \lens{0}{20}{4}
+            
+            \object{-6}{2}
+
+            \draw[|<->|, dashed] (-6, -.5) -- (-2, -.5) node[midway, below] {$2f$};
+            \draw[<->, dashed] (-2, -.5) -- (0, -.5) node[midway, below] {$f$};
+            \draw[<->|, dashed] (0, -.5) -- (2, -.5) node[midway, below] {$f$};
+            
+            \draw[fill] (-2, 0) circle (2pt) node[above] {$\mathrm{PF_o}$};
+            \draw[fill] (2, 0) circle (2pt) node[above] {$\mathrm{PF_i}$};
+        \end{tikzpicture}
+        
+        \caption[]{
+            
+        }
+        
+        \label{fig:3f}
+    \end{figure}
+
+    \begin{figure}
+        \centering
+        
+        \begin{tikzpicture}
+        \draw[dashed] (-5, 0) -- (4, 0) node[above, at start] {$\mathrm{OA}$}; 
+        
+        \lens{0}{20}{4}
+        
+        \object{-2}{2}
+        
+        \draw[|<->, dashed] (-2, -.5) -- (0, -.5) node[midway, below] {$\frac{2}{3} f$};
+        \draw[<->|, dashed] (0, -.5) -- (3, -.5) node[midway, below] {$f$};
+        
+        \draw[fill] (-3, 0) circle (2pt) node[above] {$\mathrm{PF_o}$};
+        \draw[fill] (3, 0) circle (2pt) node[above] {$\mathrm{PF_i}$};
+        \end{tikzpicture}
+        
+        \caption[]{
+            
+        }
+        
+        \label{fig:2/3f}
+    \end{figure}
+
+    \section*{Equipment}
+
+    
+
+    \newpage
+
+    \section*{Procedure}
+
+
+    \newpage
+    \section*{Prelab Questions}
+    \setcounter{subsection}{0}
+
+    \subsection{Question 1 \hfill (1 pt.)}
+
+    \vspace{\stretch{1}}
+
+    \subsection{Question 2 \hfill (1 pt.)}
+
+    \vspace{\stretch{1}}
+
+\end{document}
