@@ -4,21 +4,34 @@
 \date{\today}
 \course{Physics 325}
 
-\newcommand{\lens}[3]{
+\newcommand{\clens}[4]{
     \pgfmathsetmacro{\lensRadius}{#2}
     \pgfmathsetmacro{\lensHeight}{#3}
+    \pgfmathsetmacro{\lensWidth}{#4}
     \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
     
-    \draw[dashed] (#1, -\lensHeight) -- (#1, \lensHeight) node[above] {PP};
+    \draw[dashed] (#1, -\lensHeight*1.2) -- (#1, \lensHeight*1.2) node[above] {PP};
     
-    \draw[ultra thick] (#1,\lensHeight)
+    \draw[ultra thick] (#1-\lensWidth,\lensHeight)
     arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+    -- (#1+\lensWidth,-\lensHeight)
     arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
     -- cycle;
 }
 
-\newcommand{\object}[2]{
-    \draw[-{squareTip[scale=3]}] (#1, 0) -- ++(0, #2) node[above] {Object};
+\newcommand{\dlens}[4]{
+    \pgfmathsetmacro{\lensRadius}{#2}
+    \pgfmathsetmacro{\lensHeight}{#3}
+    \pgfmathsetmacro{\lensWidth}{#4}
+    \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
+    
+    \draw[dashed] (#1, -\lensHeight*1.2) -- (#1, \lensHeight*1.2) node[above] {PP};
+    
+    \draw[ultra thick] (#1-\lensWidth,\lensHeight)
+    arc[start angle=\startAngle,delta angle=-2*\startAngle,radius=\lensRadius]
+    -- (#1+\lensWidth,-\lensHeight)
+    arc[start angle=180+\startAngle,delta angle=-2*\startAngle,radius=\lensRadius]
+    -- cycle;
 }
 
 \usetikzlibrary{arrows.meta}
@@ -26,6 +39,9 @@
     squareTip/.tip={Bar[sep]Square[open]}
 }
 
+\newcommand{\object}[2]{
+    \draw[-{squareTip[scale=3]}] (#1, 0) -- ++(0, #2) node[above] {Object};
+}
 
 
 \begin{document}
@@ -38,43 +54,180 @@
     
     The traditional starting point for optics is the study of \emph{thin lenses}.
     Under the approximations of ray optics, a thin lens bends light in very predictable ways.
-    Thin lenses are important in optics labs, where they are used to guide light between different parts fo the experiment and to shape laser beams into the necessary form for the experiment.
-    This often involves focusing the beam to as small a spot as possible to achieve maximum intensity.
+    Thin lenses are important in optics labs, where they are used to guide light between different parts of the experiment and to shape laser beams into the necessary forms.
+    In this lab we will study the properties of thin \emph{converging} (positive focal length) and \emph{diverging} (negative focal length) lenses.
 
     \section*{Background}
-
+    
+    For rays passing through a thin lens, the distance of the image $s_{\mathrm{i}}$ is determined from the position of the object $s_{\mathrm{o}}$ via the lens equation,
+    \begin{align} \label{eqn:lens-equation}
+        \frac{1}{s_0} + \frac{1}{s_{\mathrm{i}}} = \frac{1}{f},
+    \end{align}
+    where $f$ is the \emph{focal length} of the lens.
+    These distances are measured along the \emph{optical axis} (OA) from the \emph{principal plane} (PP), in the center of the lens.
+    Because the lens is thin, we can think of the refraction as occurring only at the principal plane.
+    The two points distance $f$ along the optical axis are called the \emph{principal foci}.
+    We often label them with subscripts to indicated whether they're on the ``object'' side of the lens (o) or the image side of the lens (i), just like the subscripts for $s$.
+    
+    Determining $s_{\mathrm{i}}$ is only half of the battle if we want to know where the image is.
+    We also need to know it's ``height'' above the optical axis.
+    Consider the three principal rays shown in Figure~\ref{fig:thin-lens}.
+    The rays are defined like this:
+    \begin{enumerate}
+        \item A ray that connects the principal plane to the object at a right angle, then passes through the principal focus on the image side.
+        \item A ray that passes through the center of the lens without changing angle.
+        \item A ray that connects the object to the principal plane through the principal focus on the object side, then leaves the principal plane at a right angle.
+    \end{enumerate}
+    The image will form at the intersection of these three rays.
+    Only two need to be drawn to locate the image in two dimensions.
+    
+    We see that there are several similar triangles formed by the object and image and the various distances, so we have
+    \begin{align}
+        \frac{y_{\mathrm{o}}}{\abs{y_{\mathrm{i}}}} = \frac{f}{x_{\mathrm{i}}} = \frac{x_{\mathrm{o}}}{f} = \frac{s_{\mathrm{o}}}{s_{\mathrm{i}}}.
+    \end{align}
+    The middle relationship leads to
+    \begin{align}
+        \frac{f}{x_{\mathrm{i}}} &= \frac{x_{\mathrm{o}}}{f} \nonumber \\
+        x_{\mathrm{o}} \, x_{\mathrm{i}} &= f^2,
+    \end{align}
+    which is Newton's form of the lens equation.
+    The outer relationship leads to a definition of the \emph{magnification},
+    \begin{align} \label{eqn:magnification}
+        m = \frac{y_{\mathrm{i}}}{y_{\mathrm{o}}} = - \frac{s_{\mathrm{i}}}{s_{\mathrm{o}}}.
+    \end{align}
+    Note how the sign works: if $s_{\mathrm{o}}$ and $s_{\mathrm{i}}$ are both positive (i.e., they are on opposite sides of the lens), then the magnification is \textit{negative}, and the image is inverted relative to the object ($y_{\mathrm{i}}$ has the opposite sign of $y_{\mathrm{o}}$). 
+   
+    
     \begin{figure}
         \centering
         
         \begin{tikzpicture}
-            \draw[dashed] (-6, 0) -- (4, 0) node[above, at start] {$\mathrm{OA}$}; 
-        
-            \lens{0}{20}{4}
+            \draw[dashed] (-6, 0) -- (6, 0) node[left, at start] {$\mathrm{OA}$}; 
             
-            \foreach \y in {-3,...,3}
-                \draw[veryneararrow={latex}, veryfararrow={latex}] (-5, \y) -- (0, \y) -- (3, 0);
-                
-            \draw[fill] (3, 0) circle (2pt) node[above right] (PFI) {$\mathrm{PF_i}$};
-            \node[above] (object) at (-5, 3) {Rays from Object at $\infty$};
+            \clens{0}{20}{4}{0.05}
+            
+            \draw[fill] (2, 0) circle (2pt) node[above right] (PFI) {$\mathrm{PF_i}$};
+            \draw[fill] (-2, 0) circle (2pt) node[above right] (PFI) {$\mathrm{PF_o}$};
+            
+            \draw[<->|, dashed] (0, -.7) -- ++(2, 0) node[midway, below] (pfi) {$f$};
+            \draw[<->|, dashed] (0, -.7) -- ++(-2, 0) node[midway, below] (pfo) {$f$};
+            \draw[<->|, dashed] (2, -.7) -- ++(2, 0) node[midway, below] {$x_{\mathrm{i}}$};
+            \draw[<->|, dashed] (-2, -.7) -- ++(-2, 0) node[midway, below] {$x_{\mathrm{o}}$};
+            \draw[<->, dashed] (0, 2.2) -- ++(-4, 0) node[midway, above] {$s_{\mathrm{o}}$};
+            \draw[<->, dashed] (0, -2.2) -- ++(4, 0) node[midway, below] {$s_{\mathrm{i}}$};
+            \draw[<->|, dashed] (-4.4, 0) -- ++(0, 2.8) node[midway, left] {$y_{\mathrm{o}}$};
+            \draw[<->, dashed] (4.4, 0) -- ++(0, -2.8) node[midway, right] {$y_{\mathrm{i}}$};
+            
+            \object{-4}{3}
+            \draw[-{squareTip[scale=3]}] (4, 0) -- ++(0, -3) node[below] {Image};
+            
+            \draw[veryneararrow={latex}, veryfararrow={latex}, shorten >= -3.8cm] (-4, 2.8) -- (0, 2.8) -- (2, 0);
+            \draw[neararrow={latex}, shorten >= -.4cm] (-4, 2.8) -- (4, -2.8);
+            \draw[veryneararrow={latex}, veryfararrow={latex}, shorten >= -1cm] (-4, 2.8) -- (0, -2.8) -- (4, -2.8);
+            
+            \draw (0, 2.7) -- ++(-.1, 0) -- ++(0, .1);
+            \draw (0, -2.7) -- ++(.1, 0) -- ++(0, -.1);
         \end{tikzpicture}
         
-        \caption[Object at Infinity]{
-            Imaging an object at infinity with a thin lens.
+        \caption{
+            The thin lens opticals system.
+        }
+        
+        \label{fig:thin-lens}
+    \end{figure}
+
+
+    \section*{Equipment}
+
+    
+    \FloatBarrier
+    \newpage
+
+    \section*{Procedure}
+    
+    \subsection{Converging Lens}
+    
+    \subsubsection{Measuring the Focal Length}
+    
+    One way to measure the focal length of our lens is to find the distance where incoming parallel rays converge to a single point after passing through it, as shown in Figure~\ref{fig:object-at-infinity}.
+    Slip the conversion lens over the object projector to move the object out to infinity, and then move the ground glass screen back and forth to determine the position of sharpest focus.
+    
+    \Q{$\mathbf{1/2}$ pt.}{
+        Measure the focal length of your lens using an object at infinity.
+    }
+    
+    \begin{figure}
+        \centering
+        
+        \begin{tikzpicture}
+            \draw[dashed] (-6, 0) -- (4, 0) node[left, at start] {$\mathrm{OA}$}; 
+            
+            \clens{0}{10}{2}{0.05}
+            
+            \foreach \y in {-1.5,-.75,...,1.5}
+                \draw[veryneararrow={latex}, veryfararrow={latex}] (-5, \y) -- (0, \y) -- (3, 0);
+            
+            \draw[fill] (3, 0) circle (2pt) node[above right] (PFI) {$\mathrm{PF_i}$};
+            \node[above right] (object) at (-5, 1.6) {Rays from Object at $\infty$};
+        \end{tikzpicture}
+        
+        \caption{
+            Imaging an object at infinity with a thin convering lens.
         }
         
         \label{fig:object-at-infinity}
     \end{figure}
 
+    \subsubsection{Real Object Magnification}
+    
+    Place the object at distance $s_{\mathrm{o}} = \frac{3}{2} f$.
+    
+    \Q{$\mathbf{1/2}$ pt.}{
+        Investigate the properties of the image in this regime.
+        \begin{itemize}
+            \item Measure the location of the image $s_{\mathrm{i}}$. Analyze your error and compare your result to the expected position (Equation \eqref{eqn:lens-equation}).
+            \item Measure the magnification $m$. Analyze your error and compare your result to the expected magnification (Equation \eqref{eqn:magnification}).
+            \item Is the image real or virtual? Is it upright or inverted?
+            \item Move the object closer to the principal focus ($\mathrm{PF_o}$). Explain your observations. What happens to the magnification? What happens when the object is exactly at the principal focus?
+        \end{itemize}
+    }
+    
     \begin{figure}
         \centering
         
         \begin{tikzpicture}
-            \draw[dashed] (-7, 0) -- (4, 0) node[above, at start] {$\mathrm{OA}$}; 
+            \draw[dashed] (-5, 0) -- (4, 0) node[left, at start] {$\mathrm{OA}$}; 
             
-            \lens{0}{20}{4}
+            \clens{0}{10}{2}{0.05}
             
-            \object{-6}{2}
-
+            \object{-3}{1}
+            
+            \draw[|<->, dashed] (-3, -.5) -- (0, -.5) node[midway, below] {$\frac{3}{2} f$};
+            \draw[<->|, dashed] (0, -.5) -- (3, -.5) node[midway, below] {$f$};
+            
+            \draw[fill] (-2, 0) circle (2pt) node[above] {$\mathrm{PF_o}$};
+            \draw[fill] (2, 0) circle (2pt) node[above] {$\mathrm{PF_i}$};
+        \end{tikzpicture}
+        
+        \caption{
+            Imaging a real object at distance $s_{\mathrm{o}} = \frac{3}{2}f$ with a thin converging lens.
+        }
+        
+        \label{fig:3/2f}
+    \end{figure}
+    
+    \subsubsection{Real Object Minification}
+    
+     \begin{figure}
+        \centering
+        
+        \begin{tikzpicture}
+            \draw[dashed] (-7, 0) -- (4, 0) node[left, at start] {$\mathrm{OA}$}; 
+            
+            \clens{0}{10}{2}{0.05}
+            
+            \object{-6}{1}
+            
             \draw[|<->|, dashed] (-6, -.5) -- (-2, -.5) node[midway, below] {$2f$};
             \draw[<->, dashed] (-2, -.5) -- (0, -.5) node[midway, below] {$f$};
             \draw[<->|, dashed] (0, -.5) -- (2, -.5) node[midway, below] {$f$};
@@ -83,51 +236,165 @@
             \draw[fill] (2, 0) circle (2pt) node[above] {$\mathrm{PF_i}$};
         \end{tikzpicture}
         
-        \caption[]{
-            
+        \caption{
+            Imaging a real object at distance $s_{\mathrm{o}} = 3f$ with a thin converging lens.
         }
         
         \label{fig:3f}
     \end{figure}
 
+    Place the object at distance $s_{\mathrm{o}} = 3f$.
+    
+    \Q{$\mathbf{1/2}$ pt.}{
+        Investigate the properties of the image in this regime.
+        \begin{itemize}
+            \item Measure the location of the image $s_{\mathrm{i}}$. Analyze your error and compare your result to the expected position.
+            \item Measure the magnification $m$. Analyze your error and compare your result to the expected magnification.
+            \item Is the image real or virtual? Is it upright or inverted?
+        \end{itemize}
+    }
+    
+    \subsubsection{Real Object Within $f$}
+    
+    Place the object at distance $s_{\mathrm{o}} = \frac{2}{3} f$.
+    
+    \Q{$\mathbf{1/2}$ pt.}{
+        Investigate the properties of the image in this regime.
+        \begin{itemize}
+            \item Measure the location of the image $s_{\mathrm{i}}$. Analyze your error and compare your result to the expected position.
+            \item Measure the magnification $m$. Analyze your error and compare your result to the expected magnification.
+            \item Is the image real or virtual? Is it upright or inverted?
+            \item Move the object closer to the principal plane (PP). Explain your observations. What happens when the object is exactly in the principal plane?
+        \end{itemize}
+    }
+    
     \begin{figure}
         \centering
         
         \begin{tikzpicture}
-        \draw[dashed] (-5, 0) -- (4, 0) node[above, at start] {$\mathrm{OA}$}; 
-        
-        \lens{0}{20}{4}
-        
-        \object{-2}{2}
-        
-        \draw[|<->, dashed] (-2, -.5) -- (0, -.5) node[midway, below] {$\frac{2}{3} f$};
-        \draw[<->|, dashed] (0, -.5) -- (3, -.5) node[midway, below] {$f$};
-        
-        \draw[fill] (-3, 0) circle (2pt) node[above] {$\mathrm{PF_o}$};
-        \draw[fill] (3, 0) circle (2pt) node[above] {$\mathrm{PF_i}$};
+            \draw[dashed] (-5, 0) -- (4, 0) node[left, at start] {$\mathrm{OA}$}; 
+            
+            \clens{0}{10}{2}{0.05}
+            
+            \object{-2}{1}
+            
+            \draw[|<->, dashed] (-2, -.5) -- (0, -.5) node[midway, below] {$\frac{2}{3} f$};
+            \draw[<->|, dashed] (0, -.5) -- (3, -.5) node[midway, below] {$f$};
+            
+            \draw[fill] (-3, 0) circle (2pt) node[above] {$\mathrm{PF_o}$};
+            \draw[fill] (3, 0) circle (2pt) node[above] {$\mathrm{PF_i}$};
         \end{tikzpicture}
         
-        \caption[]{
-            
+        \caption{
+            Imaging a real object at distance $s_{\mathrm{o}} = \frac{2}{3}f$ with a thin converging lens.
         }
         
         \label{fig:2/3f}
     \end{figure}
-
-    \section*{Equipment}
-
     
+    
+    \subsubsection{Virtual Object}
+    
+    Since we are projecting the object instead of using a physical object, we can freely push it through the lens.
+    Move the object to $s_{\mathrm{o}} = -2f$.
+    
+    \Q{$\mathbf{1/2}$ pt.}{
+        Investigate the properties of the image in this regime.
+        \begin{itemize}
+            \item Measure the location of the image $s_{\mathrm{i}}$. Analyze your error and compare your result to the expected position.
+            \item Measure the magnification $m$. Analyze your error and compare your result to the expected magnification.
+            \item Is the image real or virtual? Is it upright or inverted?
+            \item Move the object closer to the principal plane (PP). Explain your observations.
+            \item Move the object further from the principal plane (PP), heading out to ${s_{\mathrm{o}} \to -\infty}$. Explain your observations.
+        \end{itemize}
+    }
+    
+    \begin{figure}
+        \centering
+        
+        \begin{tikzpicture}
+            \draw[dashed] (-5, 0) -- (4, 0) node[left, at start] {$\mathrm{OA}$}; 
+            
+            \clens{0}{10}{2}{0.05}
+            
+            \object{4}{1}
+            
+            \draw[|<->, dashed] (-2, -.5) -- (0, -.5) node[midway, below] {$f$};
+            \draw[<->|, dashed] (0, -.5) -- (4, -.5) node[midway, below] {$2f$};
+            
+            \draw[fill] (-2, 0) circle (2pt) node[above] {$\mathrm{PF_o}$};
+            \draw[fill] (2, 0) circle (2pt) node[above] {$\mathrm{PF_i}$};
+        \end{tikzpicture}
+        
+        \caption{
+            Imaging a virtual object at distance $s_{\mathrm{o}} = -2f$ with a thin converging lens.
+        }
+        
+        \label{fig:-2f}
+    \end{figure}
 
-    \newpage
+    \subsection{Diverging Lens}
+    
+    \subsubsection{Measuring the Focal Length}
+    
+        
+    \begin{figure}[H]
+        \centering
+        
+        \begin{tikzpicture}
+            \draw[dashed] (-6, 0) -- (4, 0) node[left, at start] {$\mathrm{OA}$}; 
+            
+            \dlens{0}{10}{2}{.4}
+            
+            \draw[fill] (3, 0) circle (2pt) node[above right] (PFI) {$\mathrm{PF_i}$};
+            
+            \draw[fill] (-3, 0) circle (2pt) 
+            node (PFO) {} 
+            node[above left] {$\mathrm{PF_o}$};
+            
+            \foreach \y in {-1.5,-.75,...,1.5} {
+                \draw[veryneararrow={latex}] (-5, \y) -- (0, \y);
+                \draw[dashed] (-3, 0) -- (0, \y);
+                \draw[fararrow={latex}] (0, \y) -- ++({atan(\y/3)}:2);
+            }
+            
+            \node[above right] (object) at (-5, 1.6) {Rays from Object at $\infty$};
+        \end{tikzpicture}
+        
+        \caption{
+            Imaging an object at infinity with a thin diverging lens.
+        }
+        
+        \label{fig:object-at-infinity-diverging}
+    \end{figure}
 
-    \section*{Procedure}
-
+    \subsubsection{Virtual Object Magnification}
+    
+    Create a virtual object at $s_o = -\frac{3}{2}f$.
+    
+    \Q{$\mathbf{1/2}$ pt.}{
+        Investigate the properties of the image in this regime.
+        \begin{itemize}
+            \item Measure the location of the image $s_{\mathrm{i}}$. Analyze your error and compare your result to the expected position.
+            \item Measure the magnification $m$. Analyze your error and compare your result to the expected magnification.
+            \item Is the image real or virtual? Is it upright or inverted?
+            \item Move the object closer to the principal focus ($\mathrm{PF_i}$). Explain your observations.
+        \end{itemize}
+    }
+    
+    \subsubsection{Virtual Object Minification}
+    
+    \subsubsection{Virtual Object within $f$}
+    
+    \subsubsection{Imaging a Real Object}
 
     \newpage
     \section*{Prelab Questions}
     \setcounter{subsection}{0}
 
-    \subsection{Question 1 \hfill (1 pt.)}
+    \subsection{The Limits of Minimagnification \hfill (1 pt.)}
+    
+    Sketch a plot of the magnification $m$ vs. object distance $s_{\mathrm{o}}$ for fixed $f$, for all $s_{\mathrm{o}}$ from $\infty$ to $-\infty$. You may find it helpful to put positive $s_{\mathrm{o}}$ on the left (instead of the right, as is traditional) to match the way we typically draw lens diagrams.
 
     \vspace{\stretch{1}}
 
