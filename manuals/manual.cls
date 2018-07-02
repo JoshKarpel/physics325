@@ -33,8 +33,8 @@
 \RequirePackage[
     top=1in,
     bottom=1in,
-    left=1in,
-    right=1in,
+    left=1.2in,
+    right=1.2in,
     headsep=0.3in,
     headheight=13.6pt,
 %    includefoot,
