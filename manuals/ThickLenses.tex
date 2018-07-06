@@ -1,0 +1,138 @@
+\documentclass[]{manual}
+
+\usepackage{lenses}
+
+\title{Thick Lenses}
+\date{\today}
+\course{Physics 325}
+
+\begin{document}
+    \maketitle
+    \thispagestyle{firstpage}
+
+    %%%
+
+    \section*{Motivation}
+
+    Although thin lenses are far more common, thick lenses have some situationally desirable attributes.
+    For example, they can provide much higher optical power ($P = \frac{1}{f}$) with less delicate construction than a multi-thin-lens optical system.
+    For example, the thick lenses we will work with in this lab are World War 2 bomb sights.
+    A single thick lens was (apparently) much easier to design around than what would likely be a complicated arrangement of thin lenses.
+    People with particularly poor eyesight typically wear glasses with very thick lenses - again, it would be much harder to build glasses that held a system of thin lenses with the same optical power.
+
+    \section*{Background}
+    
+    \begin{align}
+        \frac{1}{F} &= \frac{1}{f_1} + \frac{1}{f_2} - \frac{a}{f_1 \, f_2} \\
+        b_1 &= \frac{a \, F}{f_2} \\
+        b_2 &= \frac{a \, F}{f_1} \\
+    \end{align}
+    
+    \begin{figure}
+        \centering
+        
+        \begin{tikzpicture}
+            \draw[dashed] (-7, 0) -- (8, 0) node[left, at start] {$\mathrm{OA}$};
+            
+            \clensLabelled{-1}{40}{4}{0.05}{}
+            \clensLabelled{1}{40}{4}{0.05}{}
+            
+            \draw[fill] (-3.5, 0) circle (2pt) node[above right] (PFO) {$\mathrm{PF}_1$};
+            \draw[fill] (3.5, 0) circle (2pt) node[above right] (PFI) {$\mathrm{PF}_2$};
+            
+            \draw[<->, dashed] (-1, -4.5) -- ++(2, 0) node[midway, below] {$a$};
+            
+            \draw[dashed, thick] (-.5, -3.5) -- ++(0, 9) node[above] {$\mathrm{PP}_1$};
+            \draw[dashed, thick] (.5, -3.5) -- ++(0, 9) node[above] {$\mathrm{PP}_2$};
+            
+            \draw[<->|, dashed] (0.5, -.7) -- (4, -.7) node[midway, below] (pfi) {$F$};
+            \draw[<->|, dashed] (-0.5, -.7) -- (-4, -.7) node[midway, below] (pfo) {$F$};
+            
+            \object{-6}{2}
+    
+            \draw[neararrow={latex}] (-6, 1.8) -- (-0.5, 1.8);
+            \draw[midarrow={latex}, dotted] (-0.5, 1.8) -- ++(1, 0);
+            \draw[neararrow={latex}, shorten >= -5cm] (0.5, 1.8) -- (3.5, 0);
+            
+            \pgfmathsetmacro{\y}{{1.8*3/2.5}}
+            \draw[veryneararrow={latex}] (-6, 1.8) -- (-.5, -\y);
+            \draw[midarrow={latex}, dotted] (-.5, -\y) -- ++(1, 0);
+            \draw[neararrow={latex}] (0.5, -\y) -- ++(7.5, 0);
+            
+            \draw[-{squareTip[scale=3]}] ({0.5+1/(1/3-1/5.5)}, 0) -- ++(0, -2.35) node[below] {Image};
+        \end{tikzpicture}
+        
+        \caption{
+            The effective thick lens optical system, made from two thin lenses.
+        }
+        
+        \label{fig:effective-thick-lens}
+    \end{figure}
+
+
+    \section*{Equipment}
+
+
+    \FloatBarrier
+    \newpage
+
+    \section*{Procedure}
+    
+    \begin{figure}
+        \centering
+        
+        \begin{tikzpicture}
+            \draw[dashed] (-6, 0) -- (4, 0) node[left, at start] {$\mathrm{OA}$};
+        
+            \pgfmathsetmacro{\h}{2}
+            \draw[ultra thick] (-2, \h) -- ++(0, -2*\h)
+            -- ++(2, 0)
+            .. controls (1, -0.5) and (1, 0.5) .. ++(0, 2*\h)
+            node[pos=.125, inner sep=0] (a) {}
+            node[pos=.25, inner sep=0] (b) {}
+            node[pos=.375, inner sep=0] (c) {}
+            node[pos=.5, inner sep=0] (d) {}
+            node[pos=.625, inner sep=0] (e) {}
+            node[pos=.75, inner sep=0] (f) {}
+            node[pos=.875, inner sep=0] (g) {}
+            -- cycle node[above, midway] {Thick Lens};
+            
+            \draw[ultra thick, fill] (4, 2) -- ++(0, -4) -- ++(0.1, 0) -- ++(0, 4) -- cycle node[above, midway] {Screen};
+            
+            \foreach \y in {-1.5,-1,...,1.5} {
+                \draw[midarrow={latex}] (-5, \y) -- (-2, \y);
+            }
+            \draw[midarrow={latex}] (a) -- (4, 0);
+            \draw[midarrow={latex}] (b) -- (4, 0);
+            \draw[midarrow={latex}] (c) -- (4, 0);
+            \draw[midarrow={latex}] (d) -- (4, 0);
+            \draw[midarrow={latex}] (e) -- (4, 0);
+            \draw[midarrow={latex}] (f) -- (4, 0);
+            \draw[midarrow={latex}] (g) -- (4, 0);
+            
+            \node[above] (object) at (-5, 1.6) {Rays from Object at $\infty$};
+        \end{tikzpicture}
+        
+        \caption{
+            Imaging an object at infinity using the thick lens.
+        }
+        
+        \label{fig:object-at-infinity}
+    \end{figure}
+
+
+    \FloatBarrier
+    \newpage
+
+    \section*{Prelab Questions}
+    \setcounter{subsection}{0}
+
+    \subsection{Question 1 \hfill (1 pt.)}
+
+    \vspace{\stretch{1}}
+
+    \subsection{Question 2 \hfill (1 pt.)}
+
+    \vspace{\stretch{1}}
+
+\end{document}

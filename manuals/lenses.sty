@@ -1,0 +1,57 @@
+\ProvidesPackage{lenses}
+
+\RequirePackage{tikz}
+
+\newcommand{\clens}[4]{
+    \pgfmathsetmacro{\lensRadius}{#2}
+    \pgfmathsetmacro{\lensHeight}{#3}
+    \pgfmathsetmacro{\lensWidth}{#4}
+    \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
+
+    \draw[dashed] (#1, -\lensHeight*1.2) -- (#1, \lensHeight*1.2) node[above] {PP};
+
+    \draw[ultra thick] (#1-\lensWidth,\lensHeight)
+    arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+    -- (#1+\lensWidth,-\lensHeight)
+    arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+    -- cycle;
+}
+
+\newcommand{\clensLabelled}[5]{
+    \pgfmathsetmacro{\lensRadius}{#2}
+    \pgfmathsetmacro{\lensHeight}{#3}
+    \pgfmathsetmacro{\lensWidth}{#4}
+    \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
+
+    \draw[dashed] (#1, -\lensHeight*1.2) -- (#1, \lensHeight*1.2) node[above] {#5};
+
+    \draw[ultra thick] (#1-\lensWidth,\lensHeight)
+    arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+    -- (#1+\lensWidth,-\lensHeight)
+    arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\lensRadius]
+    -- cycle;
+}
+
+\newcommand{\dlens}[4]{
+    \pgfmathsetmacro{\lensRadius}{#2}
+    \pgfmathsetmacro{\lensHeight}{#3}
+    \pgfmathsetmacro{\lensWidth}{#4}
+    \pgfmathsetmacro{\startAngle}{asin(\lensHeight/\lensRadius)}
+
+    \draw[dashed] (#1, -\lensHeight*1.2) -- (#1, \lensHeight*1.2) node[above] {PP};
+
+    \draw[ultra thick] (#1-\lensWidth,\lensHeight)
+    arc[start angle=\startAngle,delta angle=-2*\startAngle,radius=\lensRadius]
+    -- (#1+\lensWidth,-\lensHeight)
+    arc[start angle=180+\startAngle,delta angle=-2*\startAngle,radius=\lensRadius]
+    -- cycle;
+}
+
+\usetikzlibrary{arrows.meta}
+\tikzset{%
+    squareTip/.tip={Bar[sep]Square[open]}
+}
+
+\newcommand{\object}[2]{
+    \draw[-{squareTip[scale=3]}] (#1, 0) -- ++(0, #2) node[above] {Object};
+}
