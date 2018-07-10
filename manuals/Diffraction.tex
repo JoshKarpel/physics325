@@ -283,7 +283,7 @@
     \subsection{Fourier Optics}
     
     
-    \Q{1 pts.}{
+    \Q{1 pt.}{
         Make a qualitative prediction about what the intensity pattern of each of the four patterns in \ref{fig:simple-fourier-objects} will look like.
         \begin{itemize}
             \item Justify each of your predictions based on the ideas of Fourier optics.
@@ -324,7 +324,67 @@
         \label{fig:simple-fourier-objects}
     \end{figure}
 
-    \Q{1 pts.}{
+    \begin{figure}
+        \centering
+        
+        \begin{tikzpicture}[optics/.style={thick,fill=gray!30}]
+            \pgfmathsetmacro{\h}{1.5}
+            
+            % laser
+            \draw[optics] (0, 0) rectangle (2, \h) node[midway] {Laser};
+            
+            % thin lens
+            
+            \pgfmathsetmacro{\thinlensx}{4}
+            \pgfmathsetmacro{\r}{3}
+            \pgfmathsetmacro{\startAngle}{asin(\h/\r)/2}
+            \draw[optics] (\thinlensx, \h)
+            arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\r]
+            arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\r]
+            -- cycle;
+            
+            % pinhole
+            
+            % thick lens
+            \pgfmathsetmacro{\thicklensx}{6}
+            \draw[optics] (\thicklensx, \h) -- ++(0, -\h)
+            -- ++(-.5, 0)
+            .. controls (\thicklensx-0.8, \h/3) and (\thicklensx-0.8, 2*\h/3) .. ++(0, \h)
+            node[pos=.3, inner sep=0] (thicklower) {}
+            node[pos=.7, inner sep=0] (thickupper) {}
+            -- cycle;
+            
+            % object
+            
+            % achromat
+            
+            % mirror
+            
+            % screen
+            
+            % prism pair
+            \draw[optics] (11, \h) -- ++(0, -\h) -- ++(\h, \h) -- cycle;
+            \draw[optics] (11, 1 + \h) -- ++(0, \h) -- ++(\h, -\h) -- cycle;
+            
+            % upper beam
+            \pgfmathsetmacro{\upper}{2*\h/3}
+            \pgfmathsetmacro{\lower}{\h/3}
+            
+            \draw[neararrow={stealth}] (2, \upper) -- (\thinlensx, \upper) -- (thicklower);
+            \draw[midarrow={stealth}] (\thicklensx, \lower) -- ++(3, 0);
+            
+            % lower beam
+            \draw[neararrow={stealth}] (2, \lower) -- (\thinlensx, \lower) -- (thickupper);
+            \draw[midarrow={stealth}] (\thicklensx, \upper) -- ++(3, 0);
+            
+        \end{tikzpicture}
+        
+        \caption{The Fourier optics setup.}
+        
+        \label{fig:fourier-optics-setup}
+    \end{figure}
+
+    \Q{1 pt.}{
         Check your predictions from the previous question by using the masks. 
         Then, play with the various ways of modifying the image.
         \begin{itemize}
