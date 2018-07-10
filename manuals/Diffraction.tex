@@ -205,7 +205,6 @@
     Apparently, $E(x) \sim \mathcal{F}_w(x)$, the spatial Fourier transform of $E(z_0, w)$ in the $w$ dimension.
     This matches what we learned earlier by doing the integral manually, because the Fourier transform of a single rectangle is a $\sinc$ function.
     
-    
 
     \section{Equipment}
 
@@ -220,7 +219,7 @@
     
     Set up the laser, single-slit holder, and photodiode on the optical rail such that the laser beam passes through one the slits (write down the slit width for that slit) and is diffracted onto the photodiode.
     Hook the photodiode up to the oscilloscope and observe how the output voltage varies as you change the horizontal and vertical positions of the slit assembly and photodiode (make sure the oscilloscope is DC-coupled).
-    The photodiode output voltage is proportional to the number of photons it is detecting, which is proportional to the light intensity on the detector (plus a small offset which you must account for!).
+    The photodiode output voltage is proportional to the number of photons it is detecting, which is proportional to the light intensity on the detector (plus a small offset, which you must account for!).
     Optimize the horizontal and vertical alignments so that you have maximum intensity on the photodiode at the center of the diffraction pattern.
     
     \Q{2 pts.}{
@@ -284,7 +283,6 @@
     \subsection{Fourier Optics}
     
     
-    
     \Q{1 pts.}{
         Make a qualitative prediction about what the intensity pattern of each of the four patterns in \ref{fig:simple-fourier-objects} will look like.
         \begin{itemize}
@@ -325,6 +323,18 @@
         
         \label{fig:simple-fourier-objects}
     \end{figure}
+
+    \Q{1 pts.}{
+        Check your predictions from the previous question by using the masks. 
+        Then, play with the various ways of modifying the image.
+        \begin{itemize}
+            \item Carefully install the glass-chip phase shifter of the central bright spot of the wire-grid image.
+            Rotate the chip slowly to change the phase shift.
+            Comment on your observations.
+            \item Regardless of where you put the circular-hole aperture, the diffraction pattern (called an Airy disk), doesn't change.
+            However, the information about the aperture's position must still be recorded somewhere in the image - where?
+        \end{itemize}
+    }
     
     \newpage
     \FloatBarrier
@@ -340,7 +350,20 @@
 
     \vspace{\stretch{1}}
 
-    \subsection{Question 2 \hfill (1 pt.)}
+    \subsection{Simple Fourier Transforms \hfill (1 pt.)}
+
+    Show that the Fourier transform of the centered rectangle function is a $\sinc$ function.
+    The rectangle function of width $a$ is
+    \begin{align*}
+        R_a(x) &= \begin{cases}
+            1 & \abs{x} \leq a/2 \\
+            0 & \mathrm{otherwise}
+        \end{cases}
+    \end{align*}
+    and the normalized Fourier transform of a function $f(x)$ is $\hat{f}(k)$, defined to be
+    \begin{align*}
+        \hat{f}(k) &= \frac{1}{\sqrt{2\pi}} \int \dd{x} f(x) \, e^{-i k x}.
+    \end{align*}
 
     \vspace{\stretch{2}}
 
