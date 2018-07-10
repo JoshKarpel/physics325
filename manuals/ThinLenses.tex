@@ -83,9 +83,9 @@
             \object{-4}{3}
             \draw[-{squareTip[scale=3]}] (4, 0) -- ++(0, -3) node[below] {Image};
 
-            \draw[veryneararrow={latex}, veryfararrow={latex}, shorten >= -3.8cm] (-4, 2.8) -- (0, 2.8) -- (2, 0);
-            \draw[neararrow={latex}, shorten >= -.4cm] (-4, 2.8) -- (4, -2.8);
-            \draw[veryneararrow={latex}, veryfararrow={latex}, shorten >= -1cm] (-4, 2.8) -- (0, -2.8) -- (4, -2.8);
+            \draw[veryneararrow={stealth}, veryfararrow={stealth}, shorten >= -3.8cm] (-4, 2.8) -- (0, 2.8) -- (2, 0);
+            \draw[neararrow={stealth}, shorten >= -.4cm] (-4, 2.8) -- (4, -2.8);
+            \draw[veryneararrow={stealth}, veryfararrow={stealth}, shorten >= -1cm] (-4, 2.8) -- (0, -2.8) -- (4, -2.8);
 
             \draw (0, 2.7) -- ++(-.1, 0) -- ++(0, .1);
             \draw (0, -2.7) -- ++(.1, 0) -- ++(0, -.1);
@@ -127,7 +127,7 @@
             \clens{0}{10}{2}{0.05}
 
             \foreach \y in {-1.5,-.75,...,1.5}
-                \draw[veryneararrow={latex}, veryfararrow={latex}] (-5, \y) -- (0, \y) -- (3, 0);
+                \draw[veryneararrow={stealth}, veryfararrow={stealth}] (-5, \y) -- (0, \y) -- (3, 0);
 
             \draw[fill] (3, 0) circle (2pt) node[above right] (PFI) {$\mathrm{PF_i}$};
             \node[above right] (object) at (-5, 1.6) {Rays from Object at $\infty$};
@@ -342,9 +342,9 @@
             node[above left] {$\mathrm{PF_o}$};
 
             \foreach \y in {-1.5,-.75,...,1.5} {
-                \draw[veryneararrow={latex}] (-5, \y) -- (0, \y);
+                \draw[veryneararrow={stealth}] (-5, \y) -- (0, \y);
                 \draw[dashed] (-3, 0) -- (0, \y);
-                \draw[fararrow={latex}] (0, \y) -- ++({atan(\y/3)}:2);
+                \draw[fararrow={stealth}] (0, \y) -- ++({atan(\y/3)}:2);
             }
 
             \node[above right] (object) at (-5, 1.6) {Rays from Object at $\infty$};
@@ -425,13 +425,9 @@
     \section*{Prelab Questions}
     \setcounter{subsection}{0}
 
-    \subsection{The Limits of Minimagnification \hfill (1 pt.)}
+    \subsection*{The Limits of Minimagnification \hfill (2 pt.)}
 
     Sketch a plot of the magnification $m$ vs. object distance $s_{\mathrm{o}}$ for fixed $f$, for all $s_{\mathrm{o}}$ from $\infty$ to $-\infty$. You may find it helpful to put positive $s_{\mathrm{o}}$ on the left (instead of the right, as is traditional) to match the way we typically draw lens diagrams.
-
-    \vspace{\stretch{1}}
-
-    \subsection{Question 2 \hfill (1 pt.)}
 
     \vspace{\stretch{1}}
 

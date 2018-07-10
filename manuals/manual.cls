@@ -86,6 +86,7 @@
 \usetikzlibrary{decorations.markings}
 \usetikzlibrary{backgrounds}
 \usetikzlibrary{fadings}
+\usetikzlibrary{intersections}
 \usepackage[americanvoltages]{circuitikz}
 
 \tikzset{midarrow/.style={
