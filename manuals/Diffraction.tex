@@ -198,12 +198,12 @@
     Let's return to Eq.~\eqref{eqn:fraunhofer-diffraction-integral} and rewrite the the phase factor using $x / r = \sin \theta$.
     If we think of $E(z_0, w)$ as containing the information about the slit restricting the electric field (so that we can relax the bounds on the integral), we have
     \begin{align}
-        E(x) &= \frac{e^{i k r}}{r} \, \int^{\infty}_{-\infty} \dd{w} E(z_0, w) \, e^{-i k \sin\theta \, w} \\
+        E(x) &= \frac{e^{i k r}}{r} \, \int^{\infty}_{-\infty} \dd{w} E(z_0, w) \, e^{-i k \sin\theta \, w} \nonumber \\
         E(x) &= \frac{e^{i k r}}{r} \, \int^{\infty}_{-\infty} \dd{w} E(z_0, w) \, e^{-i k_w \, w}.
     \end{align}
     That's a Fourier transform!
-    Apparently, $E(x) \sim \mathcal{F}_w(x)$, the spatial Fourier transform of $E(z_0, w)$ in the $w$ dimension.
-    This matches what we learned earlier by doing the integral manually, because the Fourier transform of a single rectangle is a $\sinc$ function.
+    This matches what we learned earlier by doing the integral manually, because the Fourier transform of a rectangle is a $\sinc$ function.
+    Once you wrap your head around it, Fourier optics is a quick and convenient way to think about the effects of diffraction in the far-field.
     
 
     \section{Equipment}
