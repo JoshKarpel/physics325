@@ -26,7 +26,7 @@
 
 % use - as date separator instead of /
 \RequirePackage[yyyymmdd]{datetime}
-\renewcommand{\dateseparator}{--}
+\renewcommand{\dateseparator}{-}
 
 
 % set page margins
@@ -50,7 +50,7 @@
 \lhead{\MyTitle}
 \chead{}
 \rhead{\@course}
-\lfoot{\small{Compiled on \MyDate{} from commit \input{|"git describe --always --dirty"}}}
+\lfoot{\footnotesize \ttfamily Compiled on \MyDate{} from commit \input{|"git describe --always --dirty"}}
 \cfoot{}
 \rfoot{Page \thepage/\pageref*{LastPage}}
 \renewcommand{\headrulewidth}{0.0pt}
