@@ -50,7 +50,7 @@
 \lhead{\MyTitle}
 \chead{}
 \rhead{\@course}
-\lfoot{\small{Compiled on \MyDate}}
+\lfoot{\small{Compiled on \MyDate{} from commit \input{|"git describe --always --dirty"}}}
 \cfoot{}
 \rfoot{Page \thepage/\pageref*{LastPage}}
 \renewcommand{\headrulewidth}{0.0pt}
