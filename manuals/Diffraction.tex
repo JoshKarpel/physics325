@@ -334,7 +334,6 @@
             \draw[optics] (0, 0) rectangle (2, \h) node[midway] {Laser};
             
             % thin lens
-            
             \pgfmathsetmacro{\thinlensx}{4}
             \pgfmathsetmacro{\r}{3}
             \pgfmathsetmacro{\startAngle}{asin(\h/\r)/2}
@@ -342,41 +341,79 @@
             arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\r]
             arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\r]
             -- cycle;
+            \node[above] at (\thinlensx, \h) {Lens 1};
             
             % pinhole
+            \pgfmathsetmacro{\pinholex}{4.6}
+            \draw[ultra thick] (\pinholex, 0) -- (\pinholex, {(\h/2)-.1});
+            \draw[ultra thick] (\pinholex, {(\h/2)+.1}) -- (\pinholex, \h);
+            \node[below] at (\pinholex, 0) {Pinhole};
             
             % thick lens
             \pgfmathsetmacro{\thicklensx}{6}
             \draw[optics] (\thicklensx, \h) -- ++(0, -\h)
             -- ++(-.5, 0)
             .. controls (\thicklensx-0.8, \h/3) and (\thicklensx-0.8, 2*\h/3) .. ++(0, \h)
-            node[pos=.3, inner sep=0] (thicklower) {}
-            node[pos=.7, inner sep=0] (thickupper) {}
+            node[pos=.3, inner sep=0pt] (thicklower) {}
+            node[pos=.7, inner sep=0pt] (thickupper) {}
             -- cycle;
+            \node[above] at ({\thicklensx}, \h) {Lens 2};
             
             % object
+            \foreach \x in {0,.1,...,.5} {
+                \draw[thin] ({8+\x},{0-(\x/2)+(\h/4)}) -- ++({\h/3}, {\h/2+0.2});
+            }
+            \node[above] at (8.5, \h) {Object};
             
             % achromat
-            
-            % mirror
-            
-            % screen
+            \pgfmathsetmacro{\achromatx}{9.5}
+            \pgfmathsetmacro{\r}{3}
+            \pgfmathsetmacro{\startAngle}{asin(\h/\r)/2}
+            \draw[optics] (\achromatx, \h)
+            arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\r]
+            arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\r]
+            -- cycle;
+            \node[below] at (\achromatx, 0) {Achromatic Lens};
             
             % prism pair
-            \draw[optics] (11, \h) -- ++(0, -\h) -- ++(\h, \h) -- cycle;
-            \draw[optics] (11, 1 + \h) -- ++(0, \h) -- ++(\h, -\h) -- cycle;
+            \pgfmathsetmacro{\prismx}{11}
+            \draw[optics] (\prismx, \h) -- ++(0, -\h) -- ++(\h, \h)
+            node[pos=.5, inner sep=0pt] (prismlower1) {}
+            node[pos=.6, inner sep=0pt] (prismlower2) {}
+            -- cycle
+            node[pos=0.4, inner sep=0pt] (prismlowerjoin) {}
+            ;
+            \draw[optics] (\prismx, 1 + \h) -- ++(0, \h) -- ++(\h, -\h)
+            node[pos=0.5, inner sep=0pt] (prismupper) {}
+            -- cycle;
+            \node[above right] at (\prismx, {(2*\h)+1}) {Prism Pair};
+            
+            % mirror
+            \draw[fill] (1, 3) rectangle ++(.1, 1) node[midway, inner sep=0pt] (mirror) {};
+            \node[below] at (1.05, 3) {Mirror};
+            
+            % screen
+            \draw[fill] (8, 4) rectangle ++(.1, 1) node[midway, inner sep=0pt] (screen) {};
+            \node[above] at (8.05, 5) {Screen};
             
             % upper beam
             \pgfmathsetmacro{\upper}{2*\h/3}
             \pgfmathsetmacro{\lower}{\h/3}
             
             \draw[neararrow={stealth}] (2, \upper) -- (\thinlensx, \upper) -- (thicklower);
-            \draw[midarrow={stealth}] (\thicklensx, \lower) -- ++(3, 0);
+            \draw[dotted] (thicklower) -- (\thicklensx, \lower);
+            \draw[midarrow={stealth}] (\thicklensx, \lower) -- (\achromatx, \lower);
+            \draw (\achromatx, \lower) -- (prismlower1) -- (prismlowerjoin) -- (prismupper);
             
             % lower beam
             \draw[neararrow={stealth}] (2, \lower) -- (\thinlensx, \lower) -- (thickupper);
-            \draw[midarrow={stealth}] (\thicklensx, \upper) -- ++(3, 0);
+            \draw[dotted] (thickupper) -- (\thicklensx, \upper);
+            \draw[midarrow={stealth}] (\thicklensx, \upper) -- (\achromatx, \upper);
+            \draw (\achromatx, \upper) -- (prismlower2) -- (prismlowerjoin) -- (prismupper);
             
+            % combined beam
+            \draw[midarrow={stealth}] (prismupper) -- (mirror); 
+            \draw[midarrow={stealth}] (mirror) -- (screen);
         \end{tikzpicture}
         
         \caption{The Fourier optics setup.}
