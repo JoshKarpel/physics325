@@ -198,6 +198,7 @@
 % customize item spacing in lists
 \usepackage{enumitem}
 \setitemize{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
+\setenumerate{noitemsep,topsep=0pt,parsep=0pt,partopsep=0pt}
 
 % nice inline fraction
 \usepackage{nicefrac}

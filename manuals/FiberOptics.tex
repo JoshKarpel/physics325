@@ -52,11 +52,16 @@
 
     \section*{Equipment}
     
+    You will need:
     \begin{itemize}
         \item A He-Ne laser.
         \item Two mirrors on mounts, with posts.
         \item A fault-finder.
         \item A fiber-optic connector mount (a ``fiber coupler''), with post.
+        \item A fiber-coupled switch.
+        \item A function generator.
+        \item An oscilloscope.
+        \item A photodiode.
     \end{itemize}
 
 
@@ -131,6 +136,19 @@
 
     A simple fiber-optic device is a \emph{switch}.
     An electronic voltage controls the output of a fiber-optic cable.
+    Using this, we could perform a simple binary encoding at electronic frequencies: light on means logical true (1), light off means logical false (0).
+    
+    \Q{2 pts.}{
+        Connect the single-mode fiber to the switch, and observe the light output under different conditions.
+        \begin{itemize}
+            \item Push the manual control on the switch to swap the light output between the two channels.
+            Observe the output.
+            Is the mode shape distorted?
+            \item Set up a function generator and generate a \SI{1}{\kilo\hertz} square wave that goes from \SI{0}{\volt} to \SI{5}{\volt}.
+            Connect the function generator to the switch, and observe the light output on a photodiode connected to an oscilloscope.
+            Does the signal behave as you expect?
+        \end{itemize}
+    }
     
 
     \FloatBarrier
