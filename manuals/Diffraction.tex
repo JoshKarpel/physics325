@@ -44,30 +44,30 @@
                  -- (-2.7 + \x, 0.5) 
                  -- (-3 + \x, 0);
             
-            \draw[|<->|, dashed] (-0.3,2) -- (-0.3,3) node[midway, left] {$W$};
+            \draw[|<->|, dashed] (-0.3, 2) -- (-0.3, 3) node[midway, left] {$W$};
             
-            \draw[ultra thick] (0,0) -- (0,2);
-            \draw[ultra thick] (0,3) -- (0,5) node[above] {Barrier w/ Slit};
+            \draw[ultra thick] (0, 0) -- (0, 2);
+            \draw[ultra thick] (0, 3) -- (0, 5) node[above] {Barrier w/ Slit};
             
-            \draw[dashed] (0,2.5) -- (9,2.5) node[midway, below] {$L$};
+            \draw[dashed] (0, 2.5) -- (8, 2.5) node[midway, below] {$L$};
             
-            \draw[dashed] (0,2.5) -- (9,3.5) node[midway, above] {$r$};
+            \draw[dashed] (0 ,2.5) -- (8, 3.5) node[midway, above] {$r$};
             
-            \draw[|<->|, dashed] (9.2,2.5) -- (9.2,3.5) node[midway, right] {$x$} node[above right] {Observation Point};
+            \draw[|<->|, dashed] (8.2, 2.5) -- (8.2,3.5) node[midway, right] {$x$};
             
-            \draw[<->, dashed] (7,2.5) arc (0:6.4:7) node[midway, right] {$\theta$};
+            \draw[<->, dashed] (7, 2.5) arc (0:6.4:7) node[midway, right] {$\theta$};
             
-            \draw[fill] (0,2.5) circle (2pt);
-            \draw (0,2.5) -- (0.5,2.25);
+            \draw[fill] (0, 2.5) circle (2pt);
+            \draw (0, 2.5) -- (0.5, 2.25);
             \node[align=center,below] at (1,2.35) {$(z_0, \, 0)$};
             
-            \draw[fill] (0,2.75) circle (2pt);
-            \draw (0,2.75) -- (0.5,2.85);
+            \draw[fill] (0, 2.75) circle (2pt);
+            \draw (0, 2.75) -- (0.5, 2.85);
             \node[align=center,above] at (1,2.7) {$(z_0, \, w)$};
             
-            \draw (9, 0) -- (9, 5) node[above] {Screen};
+            \draw (8, 0) -- ++(0, 5) node[above] {Screen};
             
-            \draw[fill] (9,3.5) circle (2pt);
+            \draw[fill] (8,3.5) circle (2pt) node[above right] {Observation Point};
         \end{tikzpicture}
         
         \caption{An electromagnetic wave illuminating a single slit.}
@@ -193,18 +193,6 @@
         
         \label{fig:multi-slit-diffraction-intensity}
     \end{figure}
-    
-    If all of that doesn't feel very intuitive, don't be alarmed: we just haven't thought about it the right way yet.
-    Let's return to Eq.~\eqref{eqn:fraunhofer-diffraction-integral} and rewrite the the phase factor using $x / r = \sin \theta$.
-    If we think of $E(z_0, w)$ as containing the information about the slit restricting the electric field (so that we can relax the bounds on the integral), we have
-    \begin{align}
-        E(x) &= \frac{e^{i k r}}{r} \, \int^{\infty}_{-\infty} \dd{w} E(z_0, w) \, e^{-i k \sin\theta \, w} \nonumber \\
-        E(x) &= \frac{e^{i k r}}{r} \, \int^{\infty}_{-\infty} \dd{w} E(z_0, w) \, e^{-i k_w \, w}.
-    \end{align}
-    That's a Fourier transform!
-    This matches what we learned earlier by doing the integral manually, because the Fourier transform of a rectangle is a $\sinc$ function.
-    Once you wrap your head around it, Fourier optics is a quick and convenient way to think about the effects of diffraction in the far-field.
-    
 
     \section{Equipment}
 
@@ -282,6 +270,42 @@
     
     \subsection{Fourier Optics}
     
+    If all of that doesn't feel very intuitive, don't be alarmed: we just haven't thought about it the right way yet.
+    Let's return to Eq.~\eqref{eqn:fraunhofer-diffraction-integral} and rewrite the the phase factor using $x / r = \sin \theta$.
+    If we think of $E(z_0, w)$ as containing the information about the slit restricting the electric field (so that we can relax the bounds on the integral), we have
+    \begin{align}
+        E(x) &= \frac{e^{i k r}}{r} \, \int^{\infty}_{-\infty} \dd{w} E(z_0, w) \, e^{-i k \sin\theta \, w} \nonumber \\
+        E(x) &= \frac{e^{i k r}}{r} \, \int^{\infty}_{-\infty} \dd{w} E(z_0, w) \, e^{-i k_w \, w}.
+    \end{align}
+    That's a Fourier transform!
+    This matches what we learned earlier by doing the integral manually, because the Fourier transform of a rectangle is a $\sinc$ function.
+    
+    Once you wrap your head around it, Fourier optics is a quick and convenient way to think about the effects of diffraction in the far-field.
+    You may find the identities listed in Table~\ref{tab:fourier-transform-properties} helpful.
+    
+    \begin{table}
+        \centering
+        
+        \renewcommand{\arraystretch}{1.5}
+        \begin{tabular}{ c c c }
+            Function & Fourier Transform & Name \\
+            \hline
+            $f(c x)$ & $\frac{1}{c} \hat{f}(\frac{k}{c})$ & Similarity \\
+            $f(x - c)$ & $\hat{f}(k) \, e^{-i \, 2 \pi \, a k}$ & Shift \\
+            $f(x) * g(x)$ & $\frac{1}{\sqrt{2 \pi}} \hat{f}(k) \, \hat{g}(k)$ & Convolution Theorem \\
+            $e^{i k_0 x}$ & $\sqrt{2 \pi} \, \delta(k - k_0)$ & \\
+        \end{tabular}
+        \renewcommand{\arraystretch}{1}
+        
+        \caption{
+            A few particularly useful identities involving the Fourier transform.
+            The convolution of $f$ and $g$ is defined to be $f * g = \int_{-\infty}^{\infty} \dd{\sigma} f(x) g(x - \sigma)$.
+            Remember that due to the duality of the Fourier transform (the Fourier transform is almost its own inverse), all of these properties are true in reverse as well.
+            For example, the Fourier transform of a product of two function is the convolution of their Fourier transforms.
+        }
+        
+        \label{tab:fourier-transform-properties}
+    \end{table}
     
     \Q{1 pt.}{
         Make a qualitative prediction about what the intensity pattern of each of the four patterns in \ref{fig:simple-fourier-objects} will look like.
@@ -323,6 +347,46 @@
         
         \label{fig:simple-fourier-objects}
     \end{figure}
+
+    Now, set up the Fourier optics imaging system as shown in Figure~\ref{fig:fourier-optics-setup}.
+    Lenses 1 and 2 and the pinhole form a ``spatial filter'' system, which cleans up the input beam.
+    The beam then passes through the object, which acts just like the simple slits we have been using up until now (except, of course, that the pattern is more complicated).
+    The achromatic lens pulls the far-field into the near field, and specifically puts it on the lower prism's upper surface.
+    At this point the intensity pattern is the Fourier transform of the object.
+    But, we just produced a (virtual) object in the new near-field, so if we let the beam keep propagating, we can eventually get it to Fourier transform \emph{again}.
+    This is accomplished by the mirror and screen after the prism pair.
+    This is interesting because we can modify the new image in the near-field and see the results in the far-field.
+    
+    Here is the alignment procedure for the setup:
+    \begin{enumerate}
+        \item Setup everything except the lenses.
+        Align the laser beam through the optical setup so that it hits (roughly) the centers of the prisms, the mirror, and the screen.
+        \item Add Lens 1.
+        You should now have a big blog of light.
+        Make sure the blob is still hitting the center of the other optics by adjusting the position of the lens.
+        \item Add the pinhole so that it sits on top of the focus of Lens 1.
+        \item Add Lens 2 and adjust it to produce a roughly-collimated beam.
+        \item Add the achromatic lens to the system, and move it so that its focal plane is the exit surface of the first prism.
+        \item Install the wire grid object.
+        You should see its Fourier transform on the exit surface of the first prism in sharp focus - adjust the achromatic lens until this is so.
+        You should also be able to see the Fourier transform \emph{of the Fourier transform} (i.e., the original object) on the screen.
+        Again, adjust until this is so.
+    \end{enumerate}
+
+    \Q{1 pt.}{
+        Check your predictions from the previous question by using the masks. 
+        Then, play with the various ways of modifying the image.
+        \begin{itemize}
+            \item Mask out various parts of the Fourier transform of the wire grid.
+            What happens to the image on the screen?
+            What information is in the bright central dot of the Fourier transform?
+            \item Carefully install the glass-chip phase shifter of the central bright spot of the wire-grid image's Fourier transform.
+            Rotate the chip slowly to change the phase shift.
+            Comment on your observations.
+            \item Regardless of where you put the circular-hole aperture, the diffraction pattern (called an Airy disk), doesn't change.
+            However, the information about the aperture's position must still be recorded somewhere in the Fourier transform - where?
+        \end{itemize}
+    }
 
     \begin{figure}
         \centering
@@ -387,6 +451,7 @@
             node[pos=0.5, inner sep=0pt] (prismupper) {}
             -- cycle;
             \node[above right] at (\prismx, {(2*\h)+1}) {Prism Pair};
+            \draw[<-, dashed, shorten <=.1cm] (prismlowerjoin) -- ++(.6, .5) node[right, inner sep=0pt] {$\mathcal{F}\qty{\mathrm{Object}}$};
             
             % mirror
             \draw[fill] (1, 3) rectangle ++(.1, 1) node[midway, inner sep=0pt] (mirror) {};
@@ -395,6 +460,7 @@
             % screen
             \draw[fill] (8, 4) rectangle ++(.1, 1) node[midway, inner sep=0pt] (screen) {};
             \node[above] at (8.05, 5) {Screen};
+            \draw[<-, dashed, shorten <=.1cm] (screen) -- ++(-.8, .5) node[left, inner sep=0pt] {$\mathcal{F}\qty{\mathcal{F}\qty{\mathrm{Object}}}$};
             
             % upper beam
             \pgfmathsetmacro{\upper}{2*\h/3}
@@ -420,18 +486,6 @@
         
         \label{fig:fourier-optics-setup}
     \end{figure}
-
-    \Q{1 pt.}{
-        Check your predictions from the previous question by using the masks. 
-        Then, play with the various ways of modifying the image.
-        \begin{itemize}
-            \item Carefully install the glass-chip phase shifter of the central bright spot of the wire-grid image.
-            Rotate the chip slowly to change the phase shift.
-            Comment on your observations.
-            \item Regardless of where you put the circular-hole aperture, the diffraction pattern (called an Airy disk), doesn't change.
-            However, the information about the aperture's position must still be recorded somewhere in the image - where?
-        \end{itemize}
-    }
     
     \newpage
     \FloatBarrier
@@ -447,7 +501,7 @@
 
     \vspace{\stretch{1}}
 
-    \subsection{Simple Fourier Transforms \hfill (1 pt.)}
+    \subsection{A Fourier Transform \hfill (1 pt.)}
 
     Show that the Fourier transform of the centered rectangle function is a $\sinc$ function.
     The rectangle function of width $a$ is
@@ -457,7 +511,7 @@
             0 & \mathrm{otherwise}
         \end{cases}
     \end{align*}
-    and the normalized Fourier transform of a function $f(x)$ is $\hat{f}(k)$, defined to be
+    and the normalized Fourier transform of a function $f(x)$ is $\mathcal{F}\qty{f(x)}(k) = \hat{f}(k)$, defined to be
     \begin{align*}
         \hat{f}(k) &= \frac{1}{\sqrt{2\pi}} \int \dd{x} f(x) \, e^{-i k x}.
     \end{align*}
