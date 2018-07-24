@@ -16,8 +16,14 @@ See [this page](https://docs.gitlab.com/ee/gitlab-basics/) for some tutorials on
 
 ### Compiling the Manuals
 
-The lab manuals are all normal LaTeX files and can be compiled using `pdflatex` or similar.
-There are many package dependencies, but they should all be included in something like [`TeXLive`](https://www.tug.org/texlive/), or downloadable on-the-fly by something like [`MikTeX`](https://miktex.org/).
+The lab manuals are all normal LaTeX files and can be compiled using `pdflatex`.
+There are many package dependencies, but they should all be included in a full distribution like [`TeXLive`](https://www.tug.org/texlive/), or downloadable on-the-fly by a distribution like [`MikTeX`](https://miktex.org/).
+
+To generate the commit message at the bottom left of each page, we need to let LaTeX run a shell command during compilation.
+Therefore, you will need to run `pdflatex` with the command line option `--shell-escape` for the compilation to work.
+Either do that from the command line, or add `--shell-escape` to what your editor runs when you compile.
+For example, the command I use in `TeXstudio` is `pdflatex.exe -synctex=1 -interaction=nonstopmode --shell-escape %.tex`.
+This should work on any operating system as long as you have `git` installed (it only calls `git` commands, which have the same syntax on any OS).
 
 ### Editing the Manuals
 

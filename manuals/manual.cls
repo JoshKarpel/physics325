@@ -41,6 +41,34 @@
 %    includehead,
 ]{geometry}
 
+\RequirePackage{expl3}
+\RequirePackage{xparse}
+\RequirePackage{stringstrings}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\captureshell}{ov}
+ {
+  \IfNoValueTF { #1 }
+   {
+    \sdaau_captureshell:Nn \l__sdaau_captureshell_out_tl { #2 }
+    \tl_use:N \l__sdaau_captureshell_out_tl
+   }
+   {
+    \sdaau_captureshell:Nn #1 { #2 }
+   }
+ }
+
+\tl_new:N \l__sdaau_captureshell_out_tl
+
+\cs_new_protected:Nn \sdaau_captureshell:Nn
+ {
+  \tl_set_from_file:Nnn #1 { } { |"#2" }
+ }
+\ExplSyntaxOff
+
+% black magic: use --dirty==-dirty.tex to make pdflatex not append a .tex to the command, then use substring later to remove the ".tex" from the output
+\captureshell[\commithash]{git describe --always --dirty=-dirty.tex}
+\captureshell[\commitdate]{git log -1 --pretty=format:"%x28%ad%x29" --date=short .}
 
 % set headers and footers
 \RequirePackage{lastpage}  % figure out number of last page
@@ -50,7 +78,7 @@
 \lhead{\MyTitle}
 \chead{}
 \rhead{\@course}
-\lfoot{\footnotesize \ttfamily Compiled on \MyDate{} from commit \input{|"git describe --always --dirty"}}
+\lfoot{\footnotesize \ttfamily Compiled on \MyDate{} from commit \substring{\commithash}{1}{$-5} \commitdate}
 \cfoot{}
 \rfoot{Page \thepage/\pageref*{LastPage}}
 \renewcommand{\headrulewidth}{0.0pt}
