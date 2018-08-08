@@ -112,14 +112,48 @@
 \usepackage{tikz}
 \usetikzlibrary{patterns}
 \usetikzlibrary{decorations.markings}
+\usetikzlibrary{decorations.pathreplacing}
 \usetikzlibrary{backgrounds}
 \usetikzlibrary{fadings}
 \usetikzlibrary{intersections}
 \usepackage[americanvoltages]{circuitikz}
 
+\tikzset{
+    % style to apply some styles to each segment of a path
+    on each segment/.style={
+        decorate,
+        decoration={
+            show path construction,
+            moveto code={},
+            lineto code={
+                \path [#1]
+                (\tikzinputsegmentfirst) -- (\tikzinputsegmentlast);
+            },
+            curveto code={
+                \path [#1] (\tikzinputsegmentfirst)
+                .. controls
+                (\tikzinputsegmentsupporta) and (\tikzinputsegmentsupportb)
+                ..
+                (\tikzinputsegmentlast);
+            },
+            closepath code={
+                \path [#1]
+                (\tikzinputsegmentfirst) -- (\tikzinputsegmentlast);
+            },
+        },
+    }
+}
+
 \tikzset{midarrow/.style={
         decoration={markings,
             mark= at position 0.5 with {\arrow[scale=1.5]{#1}} ,
+        },
+        postaction={decorate}
+    }
+}
+\tikzset{revmidarrow/.style={
+        decoration={markings,
+            mark= at position 0.5 with {\arrow[scale=1.5, >={#1}]{<}} ,
         },
         postaction={decorate}
     }
@@ -160,6 +194,12 @@
     \draw[fill=gray] (#2,#3) ++(#4+55/3:.75*#1) arc (#4+180-55:#4+180+55:.28*#1);
     %PUPIL, a filled arc
     \draw[fill=black] (#2,#3) ++(#4+55/3:.75*#1) arc (#4+55/3:#4-55/3:.75*#1);
+}
+
+% centered arc for tikz
+\def\centerarc[#1](#2)(#3:#4:#5)% Syntax: [draw options] (center) (initial angle:final angle:radius)
+{
+    \draw[#1] ($(#2)+({#5*cos(#3)},{#5*sin(#3)})$) arc (#3:#4:#5)
 }
 
 
@@ -230,4 +270,3 @@
 
 % nice inline fraction
 \usepackage{nicefrac}
-

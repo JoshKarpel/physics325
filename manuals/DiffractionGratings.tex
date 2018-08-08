@@ -1,0 +1,319 @@
+\documentclass[]{manual}
+
+\title{Diffraction Gratings}
+\date{\today}
+\course{Physics 325}
+
+\begin{document}
+    \maketitle
+    \thispagestyle{firstpage}
+
+    %%%
+
+    \section*{Motivation}
+
+    Light has become one of the primary tools that scientists in nearly every field use to measure the properties of matter.
+    Quickly and efficiently determining the wavelength of light is therefore of obvious practical importance.
+    A device that does this by separating the wavelengths and projecting them to known positions is called a \emph{spectrometer}.
+    Spectrometers based on \emph{diffraction gratings} are quite common, and can be delivered in small, robust packages.
+    The popularity of these devices means that, in practice, you may never have to use a diffraction grating manually.
+    Therefore, the purpose of this lab is to gain both practical and theoretical experience with a diffraction grating.
+
+    \section*{Background}
+
+    The theory of the diffraction grating spectrometer is built on the concepts studied in the slit diffraction lab, where we studied diffraction from a small number of slits.
+    Recall that the intensity pattern for $N$ slits of width $W$ and spacing $D$ is
+    \begin{align}
+        I = \frac{A_0^2 W^2}{r^2} \mathrm{sinc}^2 \left(\pi W \sin(\theta) / \lambda\right)\frac{\sin^2(\pi N D \sin(\theta) / \lambda)}{\sin^2(\pi D \sin(\theta) / \lambda)}
+    \end{align}
+    The first term is an overall scale factor and not important, and the second term is an envelope function determined by the width $W$ of a single slit.
+    The third term, the ratio of sines, is the most important.
+    When $N$ is very large, the amplitude is heavily suppressed when the denominator of this ratio is not nearly zero.
+    The positions where the denominator vanishes are called the \emph{principal maxima}, and they occur when
+    \begin{align} \label{eqn:normal-grating-equation}
+        \frac{\pi D \sin{\theta}}{\lambda} &= m \pi \nonumber \\
+        D \sin{\theta} &= m \lambda.
+    \end{align}
+    This is the grating equation for illumination at normal incidence.
+    The integer $m$ is the \emph{order}.
+    For each wavelength, we'll see a single bright spot of that color of light at each order.
+    Since these occur at different angles, we can use a grating to separate wavelengths of light, in much the same way that a prism does.
+    
+    Unfortunately, normal incidence isn't particularly useful.
+    We need an equation that describes what happens for non-normal incidence.
+    To derive a grating equation for non-normal incidence, let's go back to the geometric picture of light incident on an array of thin slits.
+    When light is normally incident on a set of slits, the maxima of the interference pattern on the other side will occur when the phase difference between adjacent slits is a multiple of $2 \pi$, or equivalently that the path length difference is a multiple of $\lambda$.
+    This is illustrated in Figure~\ref{fig:path-length-difference-normal}.
+
+    \begin{figure}[H]
+        \centering
+
+        \begin{tikzpicture}
+        \foreach \y in {0, 1, 2, 3, 4} {
+            \draw[very thick] (0, \y + .1) -- (0, \y + .9);
+        }
+
+        \foreach \y in {1, 2, 3, 4} {
+            \draw[midarrow = {stealth}] (0, \y) -- ++(20:2);
+            \draw[revmidarrow = {stealth}] (0, \y) -- ++(180:2);
+            \draw[dotted, thick] (0, \y) -- ++ (-70:{(\y-1) * sin(70)});
+        }
+
+        \draw[dashed] (0, 1) -- (-2, 1);
+        \draw[<->, dashed] (-1.5, 1) -- (-1.5, 2) node[midway, left] {$D$};
+
+        \draw[dashed] (0, 1) -- (2, 1);
+        \centerarc[<->, thick](0, 1)(0:20:1.5) node[midway, right] {$\theta$};
+        \end{tikzpicture}
+
+        \caption[Path-Length Difference for Normal Incidence]{
+            The path-length difference caused by a slit pair for normal incidence.
+            The path-length difference between each pair of adjacent slits is $D \sin\theta$.
+        }
+        
+        \label{fig:path-length-difference-normal}
+    \end{figure}
+
+    The path length difference argument is still valid for non-normal incidence.
+    However, we need to account for the extra path length difference caused by the non-normal angle of incidence, as shown in Figure~\ref{fig:path-length-difference-non-normal}.
+    Examining the figure, we see that the necessary modification of Equation~\eqref{eqn:normal-grating-equation} is
+    \begin{align} \label{eqn:non-normal-grating-equation}
+        D(\sin\alpha + \sin\beta) = m \lambda,
+    \end{align}
+    which is the grating equation for non-normal incidence.
+
+    \begin{figure}[H]
+        \centering
+
+        \begin{tikzpicture}
+            \foreach \y in {0, 1, 2, 3} {
+                \draw[very thick] (0, \y + .1) -- (0, \y + .9);
+            }
+    
+            \foreach \y in {2, 3} {
+                \draw[midarrow = {stealth}] (0, \y) -- ++(20:2);
+                \draw[revmidarrow = {stealth}] (0, \y) -- ++(140:2);
+            }
+    
+            \draw[dashed] (0, 3) -- ++({140 + 90}:.77) node [circle, fill, inner sep=1pt, label=left:$a$](A) {};
+            \draw[dashed] (0, 3) -- ++({20 - 90}:.94) node [circle, fill, inner sep=1pt, label=below right:$c$](C) {};
+            \node[circle, fill, inner sep=1pt, label=below left:$b$](B) at (0, 2) {};
+    
+            \draw[dashed] (0, 2) -- (-2, 2);
+            \centerarc[<->](0, 2)(140:180:1.5) node[midway, left] {$\alpha$};
+    
+            \draw[dashed] (0, 1) -- (-2, 1);
+            \draw[<->, dashed] (-1, 1) -- (-1, 2) node[midway, left] {$D$};
+    
+            \draw[dashed] (0, 2) -- (2, 2);
+            \centerarc[<->](0, 2)(0:20:1.5) node[midway, right] {$\beta$};
+        \end{tikzpicture}
+
+        \caption[Path-Length Difference for Non-Normal Incidence]{
+            The path-length difference caused by a slit pair for non-normal incidence.
+            The total path-length difference between adjacent slits is the length of the line segment $\overline{abc}$: $D\qty(\sin\alpha + \sin\beta)$.
+        }
+        
+        \label{fig:path-length-difference-non-normal}
+    \end{figure}
+    
+    A \emph{diffraction grating} is exactly this geometry, but uses small mirrors instead of slits.
+    The diffraction arises purely from small, regular structures in the geometry, so the output light is identical except that it comes back toward the source because the surfaces are mirrors instead of slits.
+    The slit-based grating should then be called a \emph{transmission grating}.
+    The mirror-based gratings are sometimes called \emph{reflection gratings}, but most people just called them diffraction gratings.
+
+    There's a major problem with making practical use of the grating as we've discussed it so far.
+    If we examine the envelope function that we ignored earlier, we notice that it is maximized for $m=0$.
+    That means most of the input light ends up in the $m=0$ order, which is unfortunate because that order is not dispersed.
+    To get most of the light into a different order, we tip the little mirrors by some angle $\xi$ as shown below.
+
+    \begin{figure}[H]
+        \centering
+
+        \begin{tikzpicture}
+            \foreach \x in {0, 2, ..., 10} {
+                \draw[fill=black] (\x, 0) -- (\x + 2, 0) -- ++(160:2) -- cycle;
+            }
+
+            \draw[thick, dotted]
+            ({6 - cos{20}}, {sin(20)})
+            -- ++(90:2) node[above left] {Surface Normal};
+
+            \draw[thick, dotted]
+            ({6 - cos(20)}, {sin(20)})
+            -- ++(70:2) node[below right] {Mirror Normal};
+
+            \centerarc[->]({6 - cos(20)}, {sin(20)})(90:70:1.8)
+            node[midway, above] {$\xi$};
+
+            \draw[|<->|, dashed] (2, -.3) -- (4, -.3) node[midway, below] {$D$};
+        \end{tikzpicture}
+
+        \caption[Blazed Grating]{
+            The surface of a blazed reflection grating.
+            The blaze angle is $\xi$.
+        }
+        \label{fig:blazed-grating}
+    \end{figure}
+
+    This improvement throws a \emph{blaze} of light into a particular order.
+    Such a grating is therefore called a \emph{blazed diffraction grating}.
+    The blaze angle does not affect the sine-squared ratio that produces the part of the diffraction pattern that gives you sharp spots of light, because that part depends only on the spacing between elements of the geometry.
+    
+    To make effective use of a blazed diffraction grating, we need to build an optical device around the grating.
+    A simple design is the \emph{Ebert-Fastie grating spectrometer}, shown in Figure~\ref{fig:ebert-fastie}.
+    It is designed to be used with a blazed diffraction grating, with the blaze angle $\xi$ chose to be approximately equal to $\alpha_0$.
+    This sends the blaze of light through the exit slit.
+    
+    \begin{figure}[H]
+            \centering
+    
+            \begin{tikzpicture}
+                % entrance slit
+                \draw[very thick] (-1, 2) -- (-1, 2.9);
+                \draw[very thick] (-1, 3.1) -- (-1, 4) node[above, right] {Entrance Slit};
+    
+                % exit slit
+                \draw[very thick] (-1, -2) -- (-1, -2.9);
+                \draw[very thick] (-1, -3.1) -- (-1, -4) node[below, right] {Exit Slit};
+    
+                % light path
+                \draw[postaction={on each segment={midarrow={stealth}}}]
+                (-1.5, 3)
+                -- (8, 3)
+                -- (0, 0)
+                -- (8, -3)
+                -- (-1.5, -3);
+    
+                % mirror
+                \pgfmathsetmacro{\r}{sqrt(8*8 + 3*3)};
+                \centerarc[very thick](0, 0)(-30:30:\r) node[left] {Concave Mirror};
+    
+                % grating
+                \draw[rotate around={-10:(0, 0)}] (-.25, -1) rectangle (0, 1);
+                \node[left] at (-.25, 0) {Diffraction Grating};
+    
+                % grating angle
+                \draw[dashed] (0, 0) -- (-100:2);
+                \draw[dashed] (0, 0) -- (-90:2);
+                \centerarc[<->, very thick](0, 0)(-90:-100:1.8) node[midway, below] {$\delta$};
+    
+                \draw[dashed] (0, 0) -- (-10:3);
+                \centerarc[<->](0, 0)(20.5:-10:2) node[midway, right] {$\alpha$};
+                \centerarc[<->](0, 0)(-10:-20.5:2.8) node[midway, right] {$-\beta$};
+    
+                \draw[dashed] (0, 0) -- (0:\r);
+    
+                \centerarc[<->](0, 0)(20.5:0:5) node[midway, right] {$\alpha_0$};
+                \centerarc[<->](0, 0)(0:-20.5:5) node[midway, right] {$\alpha_0$};
+            \end{tikzpicture}
+    
+            \caption[Ebert-Fastie Spectrometer]{The optical path of an Ebert-Fastie grating spectrometer.}
+            \label{fig:ebert-fastie}
+        \end{figure}
+
+    \newpage
+    \section*{Equipment}
+
+
+    \FloatBarrier
+    \newpage
+
+    \section*{Procedure}
+    
+    \subsection{Calibrating the Spectrometer}
+    
+    To calibrate the spectrometer, you need to find two points where you know the wavelength of the light passing through the exit slit.
+    Based on the position of the grating at these two points, you can determine how the position of the grating maps to differences in wavelengths.
+    
+    \Q{1 pt.}{
+        Calibrate your spectrometer using the {\color{red} low-pressure mercury} lamp.
+    }
+
+    \subsection{Measuring the Spectrum of Mercury}
+    
+    For calibration, you used a low-pressure mercury lamp.
+    At low pressure, hot mercury vapor has only a few prominent emission lines.
+    At high pressure, mercury vapor has many more visible emission lines.
+    
+    Switch to the high-pressure mercury lamp.
+    
+    \Q{2 pts.}{
+        Measure the emission spectrum of {\color{red} high-pressure mercury} using your spectrometer.
+        \begin{itemize}
+            \item Analyze your error and compare your measurements to known values for the spectrum of high-pressure mercury.
+        \end{itemize}
+    }
+    
+    \subsection{Measuring the Spectrum of an LED}
+        
+    Now switch to the white-light LED lamp.
+    
+    \Q{2 pts.}{
+        Measure the emission spectrum of {\color{red} the white-light LED lamp} using your spectrometer.
+        \begin{itemize}
+            \item Is the output of the lamp truly ``white'' (i.e., composed of all visible colors)? 
+                  What would the emission spectrum of an incandescent light bulb look like in comparison?
+        \end{itemize}
+    }
+    
+    \subsection{Measuring the Rydberg Constant}
+    
+    The spectrometer can also be used to measure constants related to quantum mechanics, by measuring the properties of the light emitted by quantum interactions.
+    In this lab we'll use it to measure the \emph{Rydberg constant}.
+    As a reminder, the \emph{Rydberg formula} for the wavelength of the electronic transitions in hydrogen is
+    \begin{align}
+        \frac{1}{\lambda} = R_{\infty} \abs{\frac{1}{n_f^2}-\frac{1}{n_i^2}},
+    \end{align}
+    where $\lambda$ is the wavelength of light emitted from the transition, $R_{\infty}$ is the Rydberg constant, $n_f$ is the principal quantum number of the final state of the electron, and $n_i$ is the principal quantum number of the initial state of the electron.
+    
+    For historical reasons, transitions that can be described by the Rydberg formula are grouped into ``series'' by their final state.
+    For example, transitions to the hydrogen $n_f=1$ level are called the Lyman series, the $n_f=2$ transitions are the Balmer series, the $n_f=3$ transitions are the Paschen series, etc.
+    The lowest energy transition in a series is known as the $\alpha$ line, the second as the $\beta$ line and so forth.
+    
+    \Qgray{2 pts.}{
+        Measure the wavelengths of the Balmer $\alpha$ ($n_i = 3$, $n_f = 2$, $\lambda = \SI{656}{\nano\meter}$) and Balmer $\beta$ ($n_i = 4$, $n_f = 2$, $\lambda = \SI{486}{\nano\meter}$) emission lines of hydrogen and use them to calculate the Rydberg constant $R_{\infty}$.
+        \begin{itemize}
+            \item Analyze your error and compare your measurement to the expected value ($R_{\infty} = \SI{109737.3}{\per\centi\meter}$).
+        \end{itemize}
+    }
+    
+    \subsection{Spectrometer in a Box}
+    
+    Hook up the compact USB spectrometer to the computer and run the readout software.
+    This spectrometer is doing essentially the same thing as your manually-operated Ebert-Fastie spectrometer, except that it can scan over a wide spectral range (slightly larger than the visible spectrum) in about a tenth of a second, has its own internal reference laser for calibration, and outputs directly to a computer.
+    
+    \Q{1 pt.}{
+        Use your USB spectrometer to capture the emission spectrum of the low- and high-pressure sodium lamps, the white-light LED lamp, the hydrogen lamp, a fluorescent light, and a incandescent light bulb.
+        \begin{itemize}
+            \item Put a printout of the spectrum of each light source in your lab notebook.
+            \item Do the spectra from the USB spectrometer agree with the spectra you measured earlier in the lab?
+        \end{itemize}
+    }
+
+    \FloatBarrier
+    \newpage
+
+    \section*{Prelab Questions}
+    \setcounter{subsection}{0}
+
+    \subsection{Ebert-Fastie Grating Equation \hfill (1 pt.)}
+
+    Using the angles $\alpha$, $\beta$, $\alpha_0$, and $\delta$ that are given in Figures \ref{fig:path-length-difference-non-normal} and \ref{fig:ebert-fastie}, show that the grating equation $D(\sin\alpha + \sin\beta) = m \lambda$ is equivalent to
+    \begin{align*}
+        2 D \cos\alpha_0 \sin\delta = m \lambda.
+    \end{align*}
+    Be careful with the orientation of $\beta$.
+
+    \vspace{\stretch{1}}
+
+    \subsection{Ebert-Fastie Sine Bar \hfill (1 pt.)}
+    
+    Suppose that a \emph{sine bar} (shown below) is used to rotate the grating of an Ebert-Fastie grating spectrometer.
+    Show that the wavelength of the light passing through the exit slit changes linearly with the position of the sine bar.
+    
+    {\color{red} SINE BAR DIAGRAM}
+
+    \vspace{\stretch{2}}
+
+\end{document}
