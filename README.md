@@ -27,15 +27,5 @@ This should work on any operating system as long as you have `git` installed (it
 
 ### Editing the Manuals
 
-This doesn't give you edit access to the repository.
-If you think you should have edit access but don't, it's probably because you logged into GitLab via your UW-Madison NetID.
-That way of authenticating doesn't give you a real GitLab account, which you'll need to actually commit changes.
-Go to Settings > Password (upper right corner, dropdown menu to Settings, then Password in the menu on the left).
-Set a password - this is for your "actual" GitLab account, which you're currently accessing purely through its connection to your NetID.
-
-Whatever edits you make to the manuals locally should eventually be pushed back up to the GitLab repository.
-Minor edits can probably be `commit`ed and `push`ed directly into the `master` branch.
-Major edits should go into a new branch first, then `merge`d when they're ready.
-The goal should be for the `master` branch to be a consistent, usable, "production-ready" set of lab manuals at all times.
-
-See the `CONTRIBUTING.md` file next to this file (`README.md`) for notes on the style of the lab manuals.
+These manuals are publicly available and open to modification.
+If you have modifications that you'd like to contribute, see `CONTRIBUTING.md`.
