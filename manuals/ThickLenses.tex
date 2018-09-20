@@ -21,7 +21,7 @@
     People with particularly poor eyesight typically wear glasses with very thick lenses - again, it would be much harder to build glasses that held a system of thin lenses with the same optical power.
 
     \section*{Background}
-    
+
     A thick lens can be modeled as a pair of thin lenses separated by a ``gap'' of length $a$.
     The combined system has an effective focal length $F$, measured from a pair of effective principal planes located at positions $b_1$ and $b_2$, as shown in Figure~\ref{fig:effective-thick-lens}.
     The focal length and principal plane positions can be calculated from the focal length of the thin lenses and their separation:
@@ -34,61 +34,61 @@
     To make ray-tracing diagrams with this effective thick lens, just have your rays skip horizontally over the gap.
     That is, when the ray touches the gap, it is as if it immediately exits the other side of the gap at the same relative position.
     This effective lens system is illustrated in Figure~\ref{fig:effective-thick-lens}.
-    
+
     \begin{figure}
         \centering
-        
+
         \begin{tikzpicture}
             \draw[dashed] (-7, 0) -- (8, 0) node[left, at start] {$\mathrm{OA}$};
-            
+
             \clensLabelled{-1}{40}{4}{0.05}{}
             \clensLabelled{1}{40}{4}{0.05}{}
-            
+
             \draw[fill] (-3.5, 0) circle (2pt) node[above right] (PFO) {$\mathrm{PF}_1$};
             \draw[fill] (3.5, 0) circle (2pt) node[above right] (PFI) {$\mathrm{PF}_2$};
-            
+
             \draw[<->, dashed] (-1, -4.5) -- ++(2, 0) node[midway, below] {$a$};
             \draw[<->, dashed] (-1, 4.3) -- ++(0.5, 0) node[midway, above] {$b_1$};
             \draw[<->, dashed] (1, 4.3) -- ++(-0.5, 0) node[midway, above] {$b_2$};
-            
+
             \draw[dashed, thick] (-.5, -3.5) -- ++(0, 9) node[above] {$\mathrm{PP}_1$};
             \draw[dashed, thick] (.5, -3.5) -- ++(0, 9) node[above] {$\mathrm{PP}_2$};
-            
+
             \draw[<->|, dashed] (0.5, -.55) -- (3.5, -.55) node[midway, below] (pfi) {$F$};
             \draw[<->|, dashed] (-0.5, -.55) -- (-3.5, -.55) node[midway, below] (pfo) {$F$};
-            
+
             \object{-6}{2}
-    
+
             \draw[neararrow={stealth}] (-6, 1.8) -- (-0.5, 1.8);
             \draw[dotted] (-0.5, 1.8) -- ++(1, 0);
             \draw[fararrow={stealth}, shorten >= -5cm] (0.5, 1.8) -- (3.5, 0);
-            
+
             \pgfmathsetmacro{\y}{{1.8*3/2.5}}
             \draw[neararrow={stealth}] (-6, 1.8) -- (-.5, -\y);
             \draw[dotted] (-.5, -\y) -- ++(1, 0);
             \draw[neararrow={stealth}] (0.5, -\y) -- ++(7.5, 0);
-            
+
             \draw[midarrow={stealth}] (-6, 1.8) -- (-.5, 0);
             \draw[dotted] (-.5, 0) -- (.5, 0);
             \draw[midarrow={stealth}, shorten >= -2cm] (.5, 0) -- (6, -1.8);
-            
+
             \draw[-{squareTip[scale=3]}] ({0.5+1/(1/3-1/5.5)}, 0) -- ++(0, -2.35) node[below] {Image};
         \end{tikzpicture}
-        
+
         \caption{
             The effective thick lens optical system, made from two thin lenses.
         }
-        
+
         \label{fig:effective-thick-lens}
     \end{figure}
 
 
     \section*{Equipment}
-    
+
     In this lab you will work with two thick lenses:
     \begin{enumerate}
         \item A World War 2 bomb sight.
-        \item {\color{red} another one}
+        \item A camera lens.
     \end{enumerate}
 
     \noindent
@@ -98,33 +98,33 @@
         \item A thin lens.
         \item A screen.
     \end{itemize}
-    
+
 
     \FloatBarrier
     \newpage
 
     \section*{Procedure}
-    
+
     \subsection{Measuring the Position of the Focal Planes using an Object at Infinity}
-    
+
     Our first goal is to measure the position of the focal planes relative to the surface of the lens.
     Note that because the lens is thick, \emph{this distance is not the focal length}.
     Send light from a lamp through a thin lens to create a collimated beam of light (i.e., an object at infinity) and shine it through the thick lens onto a screen, as illustrated in Figure~\ref{fig:object-at-infinity}.
     By moving the screen until the light is focused to the smallest point possible on it, we can identify the focal plane.
-    
+
     \Q{2 pts.}{
         Measure the position of both focal planes of both thick lenses using collimated light.
         \begin{itemize}
             \item Estimate the error in your measurements.
         \end{itemize}
     }
-    
+
     \begin{figure}
         \centering
-        
+
         \begin{tikzpicture}
             \draw[dashed] (-6, 0) -- (4, 0) node[left, at start] {$\mathrm{OA}$};
-        
+
             \pgfmathsetmacro{\h}{2}
             \draw[ultra thick] (-2, \h) -- ++(0, -2*\h)
             -- ++(2, 0)
@@ -137,9 +137,9 @@
             node[pos=.75, inner sep=0] (f) {}
             node[pos=.875, inner sep=0] (g) {}
             -- cycle node[above, midway] {Thick Lens};
-            
+
             \draw[ultra thick, fill] (4, 2) -- ++(0, -4) -- ++(0.1, 0) -- ++(0, 4) -- cycle node[above, midway] {Screen};
-            
+
             \foreach \y in {-1.5,-1,...,1.5} {
                 \draw[midarrow={stealth}] (-5, \y) -- (-2, \y);
             }
@@ -150,29 +150,29 @@
             \draw[midarrow={stealth}] (e) -- (4, 0);
             \draw[midarrow={stealth}] (f) -- (4, 0);
             \draw[midarrow={stealth}] (g) -- (4, 0);
-            
+
             \node[above] (object) at (-5, 1.6) {Rays from Object at $\infty$};
         \end{tikzpicture}
-        
+
         \caption{
             Imaging an object at infinity using the thick lens.
         }
-        
+
         \label{fig:object-at-infinity}
     \end{figure}
 
     \subsection{Measuring the Position of the Focal Planes using Autocollimation}
-    
+
     One problem with the previous measurement is that we needed to use a collimated light source.
     Some uncertainty is introduced by doing this - is our light source really collimated?
-    
+
     To avoid this issue, we can perform an autocollimation measurement.
     Autocollimation means ``self-collimating''.
     The idea is to place a mirror behind the thick lens, and place a point source of light in front of it.
     The point source passes through the lens, hits the mirror, passes through the lens again, and returns to the plane of the point source.
     If the point source is at the focal plane, the returning light will form an image of the point source.
     This is illustrated in Figure~\ref{fig:autocollimation}.
-    
+
     \Q{2 pts.}{
         Measure the position of both focal planes of both thick lenses using autocollimation.
         \begin{itemize}
@@ -183,10 +183,10 @@
 
     \begin{figure}
         \centering
-        
+
         \begin{tikzpicture}
             \draw[dashed] (-6, 0) -- (4, 0) node[left, at start] {$\mathrm{OA}$};
-            
+
             \pgfmathsetmacro{\h}{2}
             \draw[ultra thick] (-2, \h) -- ++(0, -2*\h)
             -- ++(2, 0)
@@ -199,63 +199,63 @@
             node[pos=.75, inner sep=0] (f) {}
             node[pos=.875, inner sep=0] (g) {}
             -- cycle node[above, midway] {Thick Lens};
-            
+
             \draw[ultra thick, fill] (4, 2) -- ++(0, -4) -- ++(0.1, 0) -- ++(0, 4) -- cycle;
             \draw[ultra thick, fill, color=white] (4, .3) -- ++(.1, 0) -- ++(0, -.2) -- ++(-.1, 0) -- cycle;
-            \draw[fill] (4.05, .2) circle (2pt) node[right, xshift=2pt] {Point Source}; 
+            \draw[fill] (4.05, .2) circle (2pt) node[right, xshift=2pt] {Point Source};
             \draw[ultra thick, fill] (-5, 2) -- ++(0, -4) -- ++(-0.1, 0) -- ++(0, 4) -- cycle node[midway, above] {Mirror};
-            
+
             \pgfmathsetmacro{\yshift}{-.2}
             \draw[midarrow={stealth}] (-2, 1.5) -- ++(-3, \yshift) node[inner sep=0] (top) {};
             \draw[midarrow={stealth}] (-2, -1.0) -- ++(-3, \yshift) node[inner sep=0] (bottom) {};
             \draw[midarrow={stealth}] (4.05, 0.2) -- (b);
             \draw[midarrow={stealth}] (4.05, 0.2) -- (g);
-            
+
             \draw[midarrow={stealth}, dashed] (top) -- ++(3, \yshift);
             \draw[midarrow={stealth}, dashed] (bottom) -- ++(3, \yshift);
             \draw[midarrow={stealth}, dashed] (a) -- (4.05, -0.2);
             \draw[midarrow={stealth}, dashed] (f) -- (4.05, -0.2);
-            
-            
+
+
         \end{tikzpicture}
-        
+
         \caption{
             Performing an autocollimation experiment with the thick lens.
         }
-        
+
         \label{fig:autocollimation}
     \end{figure}
 
     \subsection{Measuring the Focal Length and Locating the Principal Planes}
-    
+
     The reason that the previous measurements didn't give us the focal length $F$ is that that length is measured from inside the surface of the thick lens.
     To find the actual distance, we can perform an experiment like the one shown in Figure~\ref{fig:effective-thick-lens}.
     Image a point source through the lens onto the screen.
     By measuring the distances of the object and image from the surface of the lens, combined with your previous measurement of the position of the focal planes, you can determine the distances of the object and the image from the focal planes, $d_{\mathrm{o}}$ and $d_{\mathrm{i}}$.
     The thick lens still obeys Newton's lens equation, $F^2 = d_{\mathrm{o}} \, d_{\mathrm{i}}$.
     Armed with $F$ and your previous measurements, you can also determine the positions of the principal planes.
-    
+
     \Q{2 pts}{
         Measure the focal length of both thick lenses and determine the positions of their principal planes (i.e., determine $F$, $b_1$, and $b_2$ for both lenses.)
     }
 
     \subsection{Measuring the $f$-number}
-    
+
     The $f$-number or numerical aperture of a lens, notated $f/\#$, is the ratio of the focal length to the diameter of the entrance pupil.
     A convenient way to measure it is to use the outgoing light formed by a wide, collimated beam passing through the lens.
     After passing through the focus, this light forms an expanding cone, as shown in Figure~\ref{fig:f-number-measurement}.
     The height of this cone divided by its diameter is the $f$-number.
-    
+
     \Q{2 pts.}{
         Measure the $f$-number of both thick lenses.
     }
-    
+
     \begin{figure}
         \centering
-        
+
         \begin{tikzpicture}
             \draw[dashed] (-5, 0) -- (4, 0) node[left, at start] {$\mathrm{OA}$};
-            
+
             \pgfmathsetmacro{\h}{2}
             \draw[ultra thick] (-2, \h) -- ++(0, -2*\h)
             -- ++(2, 0)
@@ -268,9 +268,9 @@
             node[pos=.75, inner sep=0] (f) {}
             node[pos=.875, inner sep=0] (g) {}
             -- cycle node[above, midway] {Thick Lens};
-            
+
             \draw[ultra thick, fill] (7, 2) -- ++(0, -4) -- ++(0.1, 0) -- ++(0, 4) -- cycle node[above, midway] {Screen};
-            
+
             \foreach \y in {-1.5,-1,...,1.5} {
                 \draw[midarrow={stealth}] (-4.5, \y) -- (-2, \y);
             }
@@ -281,18 +281,18 @@
             \draw[midarrow={stealth}, shorten >= -3.1cm] (e) -- (4, 0);
             \draw[midarrow={stealth}, shorten >= -3.2cm] (f) -- (4, 0);
             \draw[midarrow={stealth}, shorten >= -3.3cm] (g) -- (4, 0);
-            
+
             \pgfmathsetmacro{\h}{2.4}
             \draw[|<->|, dashed] (7.4, {-\h/2}) -- ++(0, \h) node[midway, right] {$D$};
             \draw[|<->|, dashed] (4, -1.4) -- ++(3, 0) node[midway, below] {$H$};
-            
+
         \end{tikzpicture}
-        
+
         \caption{
             The setup for measuring the $f$-number of a lens.
             The $f$-number is the ratio $H/D$.
         }
-        
+
         \label{fig:f-number-measurement}
     \end{figure}
 
@@ -303,7 +303,7 @@
     \setcounter{subsection}{0}
 
     \subsection{Thin From Thick}
-    
+
     Given $b_1$, $b_2$, and $a$ for a thick lens, derive equations for the focal lengths $f_1$ and $f_2$ of the effective thin lenses.
     Why do you not need to know $F$?
 
