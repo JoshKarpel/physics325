@@ -1,5 +1,5 @@
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{manual}[Physics 325 Lab Manual]
+\ProvidesClass{manual}
 
 \LoadClass[11pt]{article}
 
