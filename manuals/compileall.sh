@@ -3,8 +3,8 @@
 cd "${0%/*}"
 
 function compile {
-    pdflatex -shell-escape -interaction=nonstopmode "$1".tex
-    pdflatex -shell-escape -interaction=nonstopmode "$1".tex  # run twice to get refs right
+    pdflatex -shell-escape -interaction=nonstopmode "$1".tex > /dev/null
+    pdflatex -shell-escape -interaction=nonstopmode "$1".tex > /dev/null # run twice to get refs right
 }
 
 compile AcoustoOpticModulators
