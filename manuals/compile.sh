@@ -9,7 +9,7 @@ function compile {
     echo "compiled $1"
 }
 
-if [ $1 == "--all" ]; then
+if [[ $1 == "-&&ll" ]]; then
     compile AcoustoOpticModulators
     compile Diffraction
     compile DiffractionGratings

@@ -38,7 +38,7 @@
     The integer $m$ is the \emph{order}.
     For each wavelength, we'll see a single bright spot of that color of light at each order.
     Since these occur at different angles, we can use a grating to separate wavelengths of light, in much the same way that a prism does.
-    
+
     Unfortunately, normal incidence isn't particularly useful.
     We need an equation that describes what happens for non-normal incidence.
     To derive a grating equation for non-normal incidence, let's go back to the geometric picture of light incident on an array of thin slits.
@@ -70,7 +70,7 @@
             The path-length difference caused by a slit pair for normal incidence.
             The path-length difference between each pair of adjacent slits is $D \sin\theta$.
         }
-        
+
         \label{fig:path-length-difference-normal}
     \end{figure}
 
@@ -89,22 +89,22 @@
             \foreach \y in {0, 1, 2, 3} {
                 \draw[very thick] (0, \y + .1) -- (0, \y + .9);
             }
-    
+
             \foreach \y in {2, 3} {
                 \draw[midarrow = {stealth}] (0, \y) -- ++(20:2);
                 \draw[revmidarrow = {stealth}] (0, \y) -- ++(140:2);
             }
-    
+
             \draw[dashed] (0, 3) -- ++({140 + 90}:.77) node [circle, fill, inner sep=1pt, label=left:$a$](A) {};
             \draw[dashed] (0, 3) -- ++({20 - 90}:.94) node [circle, fill, inner sep=1pt, label=below right:$c$](C) {};
             \node[circle, fill, inner sep=1pt, label=below left:$b$](B) at (0, 2) {};
-    
+
             \draw[dashed] (0, 2) -- (-2, 2);
             \centerarc[<->](0, 2)(140:180:1.5) node[midway, left] {$\alpha$};
-    
+
             \draw[dashed] (0, 1) -- (-2, 1);
             \draw[<->, dashed] (-1, 1) -- (-1, 2) node[midway, left] {$D$};
-    
+
             \draw[dashed] (0, 2) -- (2, 2);
             \centerarc[<->](0, 2)(0:20:1.5) node[midway, right] {$\beta$};
         \end{tikzpicture}
@@ -113,10 +113,10 @@
             The path-length difference caused by a slit pair for non-normal incidence.
             The total path-length difference between adjacent slits is the length of the line segment $\overline{abc}$: $D\qty(\sin\alpha + \sin\beta)$.
         }
-        
+
         \label{fig:path-length-difference-non-normal}
     \end{figure}
-    
+
     A \emph{diffraction grating} is exactly this geometry, but uses small mirrors instead of slits.
     The diffraction arises purely from small, regular structures in the geometry, so the output light is identical except that it comes back toward the source because the surfaces are mirrors instead of slits.
     The slit-based grating should then be called a \emph{transmission grating}.
@@ -159,12 +159,12 @@
     This improvement throws a \emph{blaze} of light into a particular order.
     Such a grating is therefore called a \emph{blazed diffraction grating}.
     The blaze angle does not affect the sine-squared ratio that produces the part of the diffraction pattern that gives you sharp spots of light, because that part depends only on the spacing between elements of the geometry.
-    
+
     To make effective use of a blazed diffraction grating, we need to build an optical device around the grating.
     A simple design is the \emph{Ebert-Fastie grating spectrometer}, shown in Figure~\ref{fig:ebert-fastie}.
     It is designed to be used with a blazed diffraction grating, with the blaze angle $\xi$ chose to be approximately equal to $\alpha_0$.
     This sends the blaze of light through the exit slit.
-    
+
     \begin{figure}[H]
         \centering
 
@@ -209,13 +209,13 @@
         \end{tikzpicture}
 
         \caption[Ebert-Fastie Spectrometer]{The optical path of an Ebert-Fastie grating spectrometer.}
-        
+
         \label{fig:ebert-fastie}
     \end{figure}
 
     \newpage
     \section*{Equipment}
-    
+
     For this lab, you will need:
     \begin{itemize}
         \item The two calibration lasers (\SI{532}{\nano\meter} and \SI{635}{\nano\meter}), with mounts.
@@ -231,25 +231,25 @@
     \newpage
 
     \section*{Procedure}
-    
+
     \subsection{Calibrating the Spectrometer}
-    
+
     To calibrate the spectrometer, you need to find two points where you know the wavelength of the light passing through the exit slit.
     Based on the position of the grating at these two points, you can determine how the position of the grating maps to differences in wavelengths.
     A convenient source of known-wavelength light is a laser, and you've been provided two lasers: one has a wavelength of \SI{532}{\nano\meter} and the other has a wavelength of \SI{635}{\nano\meter}.
-    
-    \Q{1 pt.}{
+
+    \checkpoint{
         Calibrate your spectrometer using the two lasers.
         \begin{itemize}
             \item Based on the difference in wavelengths of the lasers and your ability to measure positions using the micrometer, what is the error in your calibration?
         \end{itemize}
     }
-    
+
     \subsection{Measuring the Spectrum of Sodium}
-    
+
     Hot sodium vapor emits light at around \SI{589}{\nano\meter}.
-        
-    \Q{2 pts.}{
+
+    \checkpoint{
         Measure the emission wavelength of sodium vapor using your spectrometer.
         \begin{itemize}
             \item Analyze your error and compare your measurement to the expected wavelength.
@@ -257,32 +257,32 @@
     }
 
     \subsection{Measuring the Spectrum of Low-Pressure Mercury}
-    
+
     Hot mercury vapor at low pressure emits light at several different wavelengths.
     Depending on your eyes and how bright your mercury lamp is, you can probably see three to five of its emission lines.
-    
-    \Q{2 pts.}{
+
+    \checkpoint{
         Measure the emission spectrum of low-pressure mercury using your spectrometer.
         \begin{itemize}
             \item Analyze your error and compare your measurements to known values for the spectrum of low-pressure mercury.
         \end{itemize}
     }
-    
+
     \subsection{Spectrometer in a Box}
-    
+
     Hook up the compact USB spectrometer to the computer and run the readout software.
     This spectrometer is doing essentially the same thing as your manually-operated Ebert-Fastie spectrometer, except that it can scan over a wide spectral range (slightly larger than the visible spectrum) in about a tenth of a second, has its own internal reference laser for calibration, and outputs directly to a computer.
-    
-    \Q{1 pt.}{
+
+    \checkpoint{
         Use your USB spectrometer to capture the emission spectrum of the sodium lamp, the low-pressure mercury lamp, a fluorescent light, and an incandescent light bulb.
         \begin{itemize}
             \item Put a printout of the spectrum of each light source in your lab notebook.
             \item Do the spectra from the USB spectrometer agree with the spectra you measured earlier in the lab?
         \end{itemize}
     }
-    
+
     \subsection{Measuring the Rydberg Constant}
-        
+
     Spectrometers can also be used to measure constants related to quantum mechanics, by measuring the properties of the light emitted by quantum interactions.
     In this lab we'll use it to measure the \emph{Rydberg constant}.
     As a reminder, the \emph{Rydberg formula} for the wavelength of the electronic transitions in hydrogen is
@@ -290,14 +290,14 @@
         \frac{1}{\lambda} = R_{\infty} \abs{\frac{1}{n_f^2}-\frac{1}{n_i^2}},
     \end{align}
     where $\lambda$ is the wavelength of light emitted from the transition, $R_{\infty}$ is the Rydberg constant, $n_f$ is the principal quantum number of the final state of the electron, and $n_i$ is the principal quantum number of the initial state of the electron.
-    
+
     For historical reasons, transitions that can be described by the Rydberg formula are grouped into ``series'' by their final state.
     For example, transitions to the hydrogen $n_f=1$ level are called the Lyman series, the $n_f=2$ transitions are the Balmer series, the $n_f=3$ transitions are the Paschen series, etc.
     The lowest energy transition in a series is known as the $\alpha$ line, the second as the $\beta$ line and so forth.
-    
+
     These lines are very faint, so you'll need to use the USB spectrometer to see them.
-    
-    \Qgray{2 pts.}{
+
+    \checkpoint{
         Measure the wavelengths of the Balmer $\alpha$ ($n_i = 3$, $n_f = 2$, $\lambda = \SI{656}{\nano\meter}$) and Balmer $\beta$ ($n_i = 4$, $n_f = 2$, $\lambda = \SI{486}{\nano\meter}$) emission lines of hydrogen and use them to calculate the Rydberg constant $R_{\infty}$.
         \begin{itemize}
             \item Analyze your error and compare your measurement to the expected value ($R_{\infty} = \SI{109737.3}{\per\centi\meter}$).
@@ -310,7 +310,7 @@
     \section*{Prelab Questions}
     \setcounter{subsection}{0}
 
-    \subsection{Ebert-Fastie Grating Equation \hfill (1 pt.)}
+    \subsection{Ebert-Fastie Grating Equation}
 
     Using the angles $\alpha$, $\beta$, $\alpha_0$, and $\delta$ that are given in Figures \ref{fig:path-length-difference-non-normal} and \ref{fig:ebert-fastie}, show that the grating equation $D(\sin\alpha + \sin\beta) = m \lambda$ is equivalent to
     \begin{align*}
@@ -320,22 +320,22 @@
 
     \vspace{\stretch{1}}
 
-    \subsection{Ebert-Fastie Sine Bar \hfill (1 pt.)}
-    
+    \subsection{Ebert-Fastie Sine Bar}
+
     Suppose that a \emph{sine bar} (shown in Figure~\ref{fig:sine-bar}) is used to rotate the grating of an Ebert-Fastie grating spectrometer.
     Show that the wavelength of the light passing through the exit slit changes linearly with the displacement of the sine bar ($x$ in the figure).
-    
+
     \begin{figure}[H]
         \centering
 
         \begin{tikzpicture}
             \draw[ultra thick] (0, 0) -- (4, 3) node[midway, above left] {Support Arm};
             \draw[dotted] (0, 0) -- (4, 0) node[midway, below] {$x$} -- (4, 3) node[midway, right] {$y$};
-            
+
             \draw[fill=black, rotate around={36.87:(4, 3)}] (3.50, 2.90) rectangle ++(1, .2) node[above] {Diffraction Grating};
-            
+
             \draw[fill=black] (-3, -.1) rectangle ++(3, .2) node[midway, above, yshift=.1cm] {Pushing Arm};
-            
+
             \centerarc[<->](4, 3)(-91:{-90-53.13+1}:2) node[midway, above] {$\theta$};
         \end{tikzpicture}
 
@@ -345,7 +345,7 @@
             The resting position is $x=0$.
             The contact point between the pushing arm and the support arm is allowed to slip slightly as the arms are moved so that the path is straight instead of curved (the distances drawn in the figure are exaggerated compared to a real sine bar).
         }
-        
+
         \label{fig:sine-bar}
     \end{figure}
 

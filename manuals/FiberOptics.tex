@@ -15,18 +15,18 @@
     Fiber optics are an important, and still increasingly important, tool in both physics and engineering.
     Fibers (long, thin pieces of glass) can be used to transport light over great distances.
     They are already extremely important in the communications industry, because a fiber-optic cable can carry much more information per second than a traditional metal wire can.
-    In this lab we will practice ``coupling'' to a fiber, the process of aligning and focusing a laser beam so that most of its power ends up traveling along the fiber. 
+    In this lab we will practice ``coupling'' to a fiber, the process of aligning and focusing a laser beam so that most of its power ends up traveling along the fiber.
 
     \section*{Background}
-    
+
     Fibers are long cylinders, typically made from two layers of fused-silica glass.
     The inner layer (the \emph{core}) has a slightly larger refractive index than the outer layer (the \emph{cladding}) (i.e., $n_{\mathrm{core}} > n_{\mathrm{cladding}}$).
-    
+
     A simple model of the operation of a fiber can be derived from ray optics.
     As light propagates down the fiber, it will eventually hit the boundary between the core and the cladding.
     Because the core has a slightly larger index of refraction, the light can undergo total internal reflection if the impact angle is shallow enough.
     Rays that satisfy this condition stay in the fiber over long distances, undergoing total internal reflection many times.
-    
+
     The two most important quantities to consider when choosing a fiber (besides the internal losses) are the numerical aperture (NA) and the $V$ parameter.
     The numerical aperture is the same as it was for lenses, and is roughly the opening angle of the cone of light that comes out of the fiber, and is given by
     \begin{align}
@@ -39,19 +39,19 @@
         V = k \, a \, \mathrm{NA},
     \end{align}
     where $a$ is the radius of the core and $k = 2\pi / \lambda$ is the free-space wavenumber of the incident light.
-    
+
     Broadly, there are two classes of fiber-optic cables: single-mode and multi-mode.
     Single-mode fibers have $V \lessapprox 2.405$ and support one or only a very small number of spatial modes.
     Multi-mode fibers could support hundreds of modes.
     The simplest way to build them is to change the core radius $a$.
     For visible light, the typical core radius for a single-mode fiber is a few microns.
     A multi-mode fiber for the same wavelength might have a core radius of more than $\SI{100}{\micro\meter}$.
-    
+
     You can measure how well-coupled your input laser beam is to the fiber by measuring the \emph{coupling efficiency}, which is the ratio of the propagating power in the fiber to the input power of the laser beam.
     If the fiber has low internal loss, we can get a reasonable estimate of the propagating power by measuring the output power.
 
     \section*{Equipment}
-    
+
     For this lab, you will need:
     \begin{itemize}
         \item A He-Ne laser, with mount.
@@ -69,12 +69,12 @@
     \newpage
 
     \section*{Procedure}
-    
+
     \subsection{Multi-Mode Fiber}
-    
+
     Aligning to a multi-mode fiber is much easier than aligning to a single-mode fiber, for the simple reason that it supports more spatial modes.
     Because the core radius is large and supports many modes, the coupling efficiency is not be very sensitive to the size or shape of the input beam.
-    
+
     \begin{enumerate}
         \item Do a coarse alignment: get the beam going toward the fiber coupler by using the two mirrors to perform a \emph{beam walk}.
         \item Connect your multi-mode fiber to the fiber connector and connect the other end to the fault-finder.
@@ -88,7 +88,7 @@
         You shouldn't have to make very large adjustments at this point!
     \end{enumerate}
 
-    \Q{2 pts.}{
+    \checkpoint{
         Couple your laser beam to the multi-mode fiber, then maximize and record your coupling efficiency.
         \begin{itemize}
             \item Observe the output of the fiber on a white card about two meters away from the end of the fiber.
@@ -98,21 +98,21 @@
     }
 
     Now that we have some experience aligning fibers, we can test the hypothesis that aligning to a multi-mode fiber shouldn't depend much on the size or shape of the input beam.
-    
-    \Q{1 pt.}{
+
+    \checkpoint{
         Add a telescope after the laser to double the radius of the input beam, then realign your setup.
         Maximize and record the coupling efficiency.
         Were you able to achieve similar coupling efficiency?
     }
 
     \subsection{Single-Mode Fiber}
-    
+
     Aligning to the single-mode fiber is significantly more difficult than aligning to the multi-mode fiber.
     You will likely not have any visible output after doing the rough alignment with the fault-finder.
     Instead, you'll need to get your photodiode right up next to the output of the fiber and look for evidence that you have light coming through - if you adjust the mirrors, does the photodiode voltage change?
     Once you have some light, continue walking the mirrors to maximize the coupling efficiency.
-    
-    \Q{2 pts.}{
+
+    \checkpoint{
         Couple your laser beam to the single-mode fiber, then maximize and record your coupling efficiency.
         \begin{itemize}
             \item Observe the output of the fiber on a white card about two meters away from the end of the fiber.
@@ -123,9 +123,9 @@
             Does your measurement match what the sheet says it should be?
         \end{itemize}
     }
-    
+
     Since the core diameter is small, the coupling efficiency should be very sensitive to the size of the input beam.
-    
+
     \Qgray{1 pt.}{
         Add a telescope after the laser to double the radius of the input beam, then realign your setup.
         Maximize and record the coupling efficiency.
@@ -137,8 +137,8 @@
     A simple fiber-optic device is a \emph{switch}.
     An electronic voltage controls the output of a fiber-optic cable.
     Using this, we could perform a simple binary encoding at electronic frequencies: light on means logical true (1), light off means logical false (0).
-    
-    \Q{2 pts.}{
+
+    \checkpoint{
         Connect the single-mode fiber to the switch, and observe the light output under different conditions.
         \begin{itemize}
             \item Push the manual control on the switch to swap the light output between the two channels.
@@ -149,7 +149,7 @@
             Does the signal behave as you expect?
         \end{itemize}
     }
-    
+
 
     \FloatBarrier
     \newpage
@@ -157,11 +157,11 @@
     \section*{Prelab Questions}
     \setcounter{subsection}{0}
 
-    \subsection{Question 1 \hfill (1 pt.)}
+    \subsection{Question 1}
 
     \vspace{\stretch{1}}
 
-    \subsection{Question 2 \hfill (1 pt.)}
+    \subsection{Question 2}
 
     \vspace{\stretch{1}}
 

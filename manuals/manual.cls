@@ -224,7 +224,7 @@
 % question boxes
 \RequirePackage[most]{tcolorbox}
 
-\newtcolorbox{Qbox}[1][]{
+\newtcolorbox{checkpointbox}[1][]{
     enhanced,
     arc=0pt,
     outer arc=0pt,
@@ -235,30 +235,17 @@
 }
 
 
-\newcounter{Q}
-\newcommand{\Q}[2]{
-    \refstepcounter{Q}
+\newcounter{Checkpoint}
+\newcommand{\checkpoint}[1]{
+    \refstepcounter{Checkpoint}
     \begin{center}
         \noindent \parbox{.9\textwidth}{
-            \begin{Qbox}
-                \textbf{Q\theQ \hfill [#1]}
+            \begin{checkpointbox}
+                \textbf{Checkpoint \theCheckpoint}
                 \vspace{1em}
                 \\
-                \noindent #2
-            \end{Qbox}
-        }
-    \end{center}
-}
-\newcommand{\Qgray}[2]{
-    \refstepcounter{Q}
-    \begin{center}
-        \noindent \parbox{.9\textwidth}{
-            \begin{Qbox}[colback=lightgray!50]
-                \textbf{Q\theQ \hfill [#1]}
-                \vspace{1em}
-                \\
-                \noindent #2
-            \end{Qbox}
+                \noindent #1
+            \end{checkpointbox}
         }
     \end{center}
 }

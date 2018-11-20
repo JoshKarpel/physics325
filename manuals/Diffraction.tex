@@ -238,7 +238,7 @@
     The photodiode output voltage is proportional to the number of photons it is detecting, which is proportional to the light intensity on the detector (plus a small offset, which you must account for!).
     Optimize the horizontal and vertical alignments so that you have maximum intensity on the photodiode at the center of the diffraction pattern.
     
-    \Q{2 pts.}{
+    \checkpoint{
         Compare the theoretical expression for single-slit diffraction (Equation~\eqref{eqn:single-slit-diffraction}) to your real setup.
         \begin{itemize}
             \item Make a plot that compares the theoretical intensity curve (i.e., $I(x)$) to your measured intensity curve.
@@ -253,7 +253,7 @@
     Switch out the single-slit assembly for a double-slit holder.
     Readjust your setup to make  sure that you can resolve the small features in the double-slit diffraction pattern.
     
-    \Q{2 pts.}{
+    \checkpoint{
         Compare the theoretical expression for double-slit diffraction (Equation~\eqref{eqn:multi-slit-diffraction} with $N=2$) to your real setup.
         \begin{itemize}
             \item Make a plot that compares the theoretical intensity curve to your measured intensity curve.
@@ -284,10 +284,8 @@
         \nu_{\mathrm{max}} = \qty(\frac{W}{2} - x) \sqrt{\frac{2}{r \lambda}}.
     \end{align}
     This type of diffraction is called \emph{Fresnel diffraction}.
-    {\color{red} what's the best way for them to see this is in the lab? 308: use two slits, close together. Since we're just using laser, maybe just move screen very close?}
-    
 
-    \Qgray{2 pts.}{
+    \checkpoint{
         Compare the theoretical expression for Fresnel diffraction (Equation~\eqref{eqn:fresnel-diffraction}) to your real setup.
         \begin{itemize}
             \item Make a plot that compares the theoretical intensity curve to your measured intensity curve.
@@ -329,13 +327,13 @@
             A few particularly useful identities involving the Fourier transform.
             The convolution of $f$ and $g$ is defined to be $f * g = \int_{-\infty}^{\infty} \dd{\sigma} f(x) g(x - \sigma)$.
             Remember that due to the duality of the Fourier transform (the Fourier transform is almost its own inverse), all of these properties are true in reverse as well.
-            For example, the Fourier transform of a product of two function is the convolution of their Fourier transforms.
+            For example, the Fourier transform of a product of two functions is the convolution of their Fourier transforms.
         }
         
         \label{tab:fourier-transform-properties}
     \end{table}
     
-    \Q{1 pt.}{
+    \checkpoint{
         Make a qualitative prediction about what the intensity pattern of each of the four patterns in \ref{fig:simple-fourier-objects} will look like.
         \begin{itemize}
             \item Justify each of your predictions based on the ideas of Fourier optics.
@@ -401,7 +399,7 @@
         Again, adjust until this is so.
     \end{enumerate}
 
-    \Q{1 pt.}{
+    \checkpoint{
         Check your predictions from the previous question by using the masks. 
         Then, play with the various ways of modifying the image.
         \begin{itemize}
@@ -521,7 +519,7 @@
     \section{Prelab Questions}
     \setcounter{subsection}{0}
 
-    \subsection{Wavelength from Intensity Maxima \hfill (1 pt.)}
+    \subsection{Wavelength from Intensity Maxima}
     
     Consider the intensity pattern produced by monochromatic light undergoing Fraunhofer diffraction from a single slit.
     Derive a relationship between the location of the first-order intensity maximum and the wavelength of the light.
@@ -529,7 +527,7 @@
 
     \vspace{\stretch{1}}
 
-    \subsection{A Fourier Transform \hfill (1 pt.)}
+    \subsection{A Fourier Transform}
 
     Show that the Fourier transform of the centered rectangle function is a $\sinc$ function.
     The rectangle function of width $a$ is

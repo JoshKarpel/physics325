@@ -29,7 +29,7 @@
     When a voltage is applied to the piezo, it expands.
     By applying an oscillating voltage from a radio-frequency (RF) source, we can make the piezo oscillate.
     If we carefully choose a crystal with an index of refraction that changes when it is compressed, we will have a crystal whose index of refraction varies over time at electronic frequencies.
-    When light passes through this crystal, it will gain additional frequency components, called \emph{sidebands}, separated from the original frequency by multiples of whatever \emph{modulation frequency} the crystal is driven at.
+    When light passes through this crystal, it will gain additional frequency components, called \emph{sidebands}, separated from the original frequency by integer multiples of whatever \emph{modulation frequency} the crystal is driven at.
     
     Alternatively, one can think of the light as diffracting off of a sound wave in the crystal, or of the photons scattering off of phonons.
     Any of these pictures work, but for this lab, the important result is the angle that the diffracted light appears at:
@@ -111,7 +111,7 @@
     Then you can optimize the output power by walking the input beam and the fine-angle adjustment on the AOM mount.
     Maximize the power in the $+1$ order using the fixed-frequency source.
 
-    \Q{2 pts.}{
+    \checkpoint{
         Switch to the variable-frequency source and measure the output angle as a function of frequency.
         \begin{itemize}
             \item Make a plot of frequency vs. output angle for the $+1$ order.
@@ -127,7 +127,7 @@
     Since you'll need to move the power meter between measurements, you'll need to be careful about background light.
     You may also need to figure out a way to minimize the amount of light coming from the $0$ order, depending on how much power you were able to push into the $+1$ order.
 
-    \Q{2 pt.}{
+    \checkpoint{
         Using the variable-frequency source, measure the output power as a function of frequency.
         \begin{itemize}
             \item Make a plot of frequency vs. output power for the $+1$ order.
@@ -141,9 +141,9 @@
     An alternate way of measuring the bandwidth of the AOM is to measure the \emph{rise time} of it when operating as an \emph{optical switch}.
     This is itself a useful way to use the AOM - turning a laser beam on or off.
     For now, set up a photodiode to measure the power from the $+1$ order.
-    Set up the oscilloscope to trigger a single shot from a rising voltage and hook it up to the oscilloscope.
+    Set up the oscilloscope to trigger a single shot from a rising voltage and hook it up to the photodiode.
     
-    \Q{2 pts.}{
+    \checkpoint{
         Turn the AOM off and on to trigger the oscilloscope and observe the turn-on of the order.
         \begin{itemize}
             \item How long does it take the AOM to turn on? What shape is the curve?
@@ -161,27 +161,26 @@
     We will look for the beat frequency between the $0$ order and the $+1$ order.
     Try to equalize their powers (to get the best signal) and focus them both down onto the same photodiode.
     
-    \Qgray{2 pts.}{
+    \checkpoint{
         Look for a beat frequency at the modulation frequency in the combined signal from the two orders.
     }
     
-
     \FloatBarrier
     \newpage
 
     \section*{Prelab Questions}
     \setcounter{subsection}{0}
 
-    \subsection{Frequency Modulation \hfill (1 pt.)}
+    \subsection{Frequency Modulation}
 
-    Show that an electric field with a time-varying frequency $E(t) = E_0 \exp{- i \qty[\omega_0 + \Delta \omega \sin(\omega t)] t}$ can be re-written as a superposition of electric fields, each with a constant frequency.
+    Show that an electric field with a time-varying frequency $E(t) = E_0 \, e^{- i \qty[\omega_0 + \Delta \omega \sin(\omega t)] t}$ can be re-written as a superposition of electric fields, each with a constant frequency.
 
     \vspace{\stretch{1}}
 
-    \subsection{Beat Frequencies \hfill (1 pt.)}
+    \subsection{Beat Frequencies}
     
     Show that the intensity pattern over time formed by a superposition of two electric fields, $E_0(t) = E_0 \sin(\omega t)$ and $E_1(t) = E_1 \sin((\omega + \Delta \omega) t)$ has a component at the beat frequency $\Delta \omega$.
-    For a fixed total power $E_0^2 + E_1^2 = E$, what ratio $E_1/E_0$ gives the largest signal at the beat frequency?
+    For a fixed total power (i.e., $E_0^2 + E_1^2 = E^2$), what ratio $E_1/E_0$ gives the largest signal at the beat frequency?
 
     \vspace{\stretch{1}}
 
