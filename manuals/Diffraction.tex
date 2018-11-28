@@ -196,7 +196,7 @@
 
     \section{Equipment}
     
-    For the first part of the lab (slit diffraction), you will need:
+    For this lab, you will need:
     \begin{itemize}
         \item An optical rail, with several mounting brackets.
         \item A Helium-Neon (He-Ne) laser on a post.
@@ -206,32 +206,12 @@
         \item An oscilloscope.
     \end{itemize}
     
-    \noindent
-    For the second part of the lab (Fourier optics), you will need:
-    \begin{itemize}
-        \item The pieces of the Fourier imaging setup, with appropriate mounts for each:
-        \begin{itemize}
-            \item A Helium-Neon (He-Ne) laser.
-            \item A converging lens.
-            \item A diverging lens.
-            \item An achromatic lens.
-            \item A pinhole.
-            \item A right-angle prism pair.
-            \item A mirror.
-            \item A screen.
-        \end{itemize}
-        \item Various masks, to block out portions of the Fourier transform.
-        \item Various ``objects'', like wire grids and circular holes.
-    \end{itemize}
-
     \FloatBarrier
     \newpage
     
     \section{Procedure}
     
-    \subsection{Diffraction}
-    
-    \subsubsection{Single-Slit Diffraction}
+    \subsection{Single-Slit Diffraction}
     
     Set up the laser, single-slit holder, and photodiode on the optical rail such that the laser beam passes through one the slits (write down the slit width for that slit) and is diffracted onto the photodiode.
     Hook the photodiode up to the oscilloscope and observe how the output voltage varies as you change the horizontal and vertical positions of the slit assembly and photodiode (make sure the oscilloscope is DC-coupled).
@@ -248,7 +228,7 @@
         \end{itemize}
     }
     
-    \subsubsection{Double-Slit Diffraction}
+    \subsection{Double-Slit Diffraction}
     
     Switch out the single-slit assembly for a double-slit holder.
     Readjust your setup to make  sure that you can resolve the small features in the double-slit diffraction pattern.
@@ -262,7 +242,7 @@
         \end{itemize}
     }
 
-    \subsubsection{Fresnel Diffraction}
+    \subsection{Fresnel Diffraction}
     
     If we can't neglect the quadratic terms in \eqref{eqn:fraunhoffer-square-root-approx}, we instead get
     \begin{align} \label{eqn:fresnel-square-root-approx}
@@ -291,227 +271,6 @@
             \item Make a plot that compares the theoretical intensity curve to your measured intensity curve.
         \end{itemize}
     }
-
-    \FloatBarrier
-    
-    \subsection{Fourier Optics}
-    
-    If all of that doesn't feel very intuitive, don't be alarmed: we just haven't thought about it the right way yet.
-    Let's return to Eq.~\eqref{eqn:fraunhofer-diffraction-integral} and rewrite the the phase factor using $x / r = \sin \theta$.
-    If we think of $E(z_0, w)$ as containing the information about the slit restricting the electric field (so that we can relax the bounds on the integral), we have
-    \begin{align}
-        E(x) &= \frac{e^{i k r}}{r} \, \int^{\infty}_{-\infty} \dd{w} E(z_0, w) \, e^{-i k \sin\theta \, w} \nonumber \\
-        E(x) &= \frac{e^{i k r}}{r} \, \int^{\infty}_{-\infty} \dd{w} E(z_0, w) \, e^{-i k_w \, w}.
-    \end{align}
-    That's a Fourier transform!
-    This matches what we learned earlier by doing the integral manually, because the Fourier transform of a rectangle is a $\sinc$ function.
-    
-    Once you wrap your head around it, Fourier optics is a quick and convenient way to think about the effects of diffraction in the far-field.
-    You may find the identities listed in Table~\ref{tab:fourier-transform-properties} helpful.
-    
-    \begin{table}
-        \centering
-        
-        \renewcommand{\arraystretch}{1.5}
-        \begin{tabular}{ c c c }
-            Function & Fourier Transform & Name \\
-            \hline
-            $f(c x)$ & $\frac{1}{c} \hat{f}(\frac{k}{c})$ & Similarity \\
-            $f(x - c)$ & $\hat{f}(k) \, e^{-i \, 2 \pi \, a k}$ & Shift \\
-            $f(x) * g(x)$ & $\frac{1}{\sqrt{2 \pi}} \hat{f}(k) \, \hat{g}(k)$ & Convolution Theorem \\
-            $e^{i k_0 x}$ & $\sqrt{2 \pi} \, \delta(k - k_0)$ & \\
-        \end{tabular}
-        \renewcommand{\arraystretch}{1}
-        
-        \caption{
-            A few particularly useful identities involving the Fourier transform.
-            The convolution of $f$ and $g$ is defined to be $f * g = \int_{-\infty}^{\infty} \dd{\sigma} f(x) g(x - \sigma)$.
-            Remember that due to the duality of the Fourier transform (the Fourier transform is almost its own inverse), all of these properties are true in reverse as well.
-            For example, the Fourier transform of a product of two functions is the convolution of their Fourier transforms.
-        }
-        
-        \label{tab:fourier-transform-properties}
-    \end{table}
-    
-    \checkpoint{
-        Make a qualitative prediction about what the intensity pattern of each of the four patterns in \ref{fig:simple-fourier-objects} will look like.
-        \begin{itemize}
-            \item Justify each of your predictions based on the ideas of Fourier optics.
-        \end{itemize}
-    }
-    
-    \begin{figure}
-        \centering
-        
-        \begin{tikzpicture}
-            \node[below] (verticalwires) at (0, 0) {Vertical Wires};
-            \node[below] (horizontalwires) at (4, 0) {Horizontal Wires};
-            \node[below] (grid) at (8, 0) {Wire Grid};
-            \node[below] (hole) at (12, 0) {Circular Hole};
-            
-            % vertical
-            \foreach \x in {-1,-.75,...,1}
-                \draw[thick] (\x, .5) -- (\x, 2.5);
-                
-            % horizontal
-            \foreach \y in {.5,.75,...,2.5}
-                \draw[thick] (3, \y) -- (5, \y);
-                
-            % grid
-            \foreach \y in {.5,.75,...,2.5}
-                \draw[thick] (7, \y) -- (9, \y);
-            \foreach \x in {7,7.25,...,9}
-                \draw[thick] (\x, .5) -- (\x, 2.5);
-            
-            % hole
-            \draw[fill] (11, .5) rectangle (13, 2.5);
-            \draw[fill, color=white] (12, 1.5) circle[radius=.5];
-                
-        \end{tikzpicture}
-        
-        \caption{Simple patterns to Fourier transform.}
-        
-        \label{fig:simple-fourier-objects}
-    \end{figure}
-
-    Now, set up the Fourier optics imaging system as shown in Figure~\ref{fig:fourier-optics-setup}.
-    Lenses 1 and 2 and the pinhole form a ``spatial filter'' system, which cleans up the input beam.
-    The beam then passes through the object, which acts just like the simple slits we have been using up until now (except, of course, that the pattern is more complicated).
-    The achromatic lens pulls the far-field into the near field, and specifically puts it on the lower prism's upper surface.
-    At this point the intensity pattern is the Fourier transform of the object.
-    But, we just produced a (virtual) object in the new near-field, so if we let the beam keep propagating, we can eventually get it to Fourier transform \emph{again}.
-    This is accomplished by the mirror and screen after the prism pair.
-    This is interesting because we can modify the new image in the near-field and see the results in the far-field.
-    
-    Here is the alignment procedure for the setup:
-    \begin{enumerate}
-        \item Set up everything except the lenses.
-        Align the laser beam through the optical setup so that it hits (roughly) the centers of the prisms, the mirror, and the screen.
-        \item Add Lens 1.
-        You should now have a big blog of light.
-        Make sure the blob is still hitting the center of the other optics by adjusting the position of the lens.
-        \item Add the pinhole so that it sits on top of the focus of Lens 1.
-        \item Add Lens 2 and adjust it to produce a roughly-collimated beam.
-        \item Add the achromatic lens to the system, and move it so that its focal plane is the exit surface of the first prism.
-        \item Install the wire grid object.
-        You should see its Fourier transform on the exit surface of the first prism in sharp focus - adjust the achromatic lens until this is so.
-        You should also be able to see the Fourier transform \emph{of the Fourier transform} (i.e., the original object) on the screen.
-        Again, adjust until this is so.
-    \end{enumerate}
-
-    \checkpoint{
-        Check your predictions from the previous question by using the masks. 
-        Then, play with the various ways of modifying the image.
-        \begin{itemize}
-            \item Mask out various parts of the Fourier transform of the wire grid.
-            What happens to the image on the screen?
-            What information is in the bright central dot of the Fourier transform?
-            \item Carefully install the glass-chip phase shifter of the central bright spot of the wire-grid image's Fourier transform.
-            Rotate the chip slowly to change the phase shift.
-            Comment on your observations.
-            \item Regardless of where you put the circular-hole aperture, the diffraction pattern (called an Airy disk), doesn't change.
-            However, the information about the aperture's position must still be recorded somewhere in the Fourier transform - where?
-        \end{itemize}
-    }
-
-    \begin{figure}
-        \centering
-        
-        \begin{tikzpicture}[optics/.style={thick,fill=gray!30}]
-            \pgfmathsetmacro{\h}{1.5}
-            
-            % laser
-            \draw[optics] (0, 0) rectangle (2, \h) node[midway] {Laser};
-            
-            % thin lens
-            \pgfmathsetmacro{\thinlensx}{4}
-            \pgfmathsetmacro{\r}{3}
-            \pgfmathsetmacro{\startAngle}{asin(\h/\r)/2}
-            \draw[optics] (\thinlensx, \h)
-            arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\r]
-            arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\r]
-            -- cycle;
-            \node[above] at (\thinlensx, \h) {Lens 1};
-            
-            % pinhole
-            \pgfmathsetmacro{\pinholex}{4.6}
-            \draw[ultra thick] (\pinholex, 0) -- (\pinholex, {(\h/2)-.1});
-            \draw[ultra thick] (\pinholex, {(\h/2)+.1}) -- (\pinholex, \h);
-            \node[below] at (\pinholex, 0) {Pinhole};
-            
-            % thick lens
-            \pgfmathsetmacro{\thicklensx}{6}
-            \draw[optics] (\thicklensx, \h) -- ++(0, -\h)
-            -- ++(-.5, 0)
-            .. controls (\thicklensx-0.8, \h/3) and (\thicklensx-0.8, 2*\h/3) .. ++(0, \h)
-            node[pos=.3, inner sep=0pt] (thicklower) {}
-            node[pos=.7, inner sep=0pt] (thickupper) {}
-            -- cycle;
-            \node[above] at ({\thicklensx}, \h) {Lens 2};
-            
-            % object
-            \foreach \x in {0,.1,...,.5} {
-                \draw[thin] ({8+\x},{0-(\x/2)+(\h/4)}) -- ++({\h/3}, {\h/2+0.2});
-            }
-            \node[above] at (8.5, \h) {Object};
-            
-            % achromat
-            \pgfmathsetmacro{\achromatx}{9.5}
-            \pgfmathsetmacro{\r}{3}
-            \pgfmathsetmacro{\startAngle}{asin(\h/\r)/2}
-            \draw[optics] (\achromatx, \h)
-            arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\r]
-            arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\r]
-            -- cycle;
-            \node[below] at (\achromatx, 0) {Achromatic Lens};
-            
-            % prism pair
-            \pgfmathsetmacro{\prismx}{11}
-            \draw[optics] (\prismx, \h) -- ++(0, -\h) -- ++(\h, \h)
-            node[pos=.5, inner sep=0pt] (prismlower1) {}
-            node[pos=.6, inner sep=0pt] (prismlower2) {}
-            -- cycle
-            node[pos=0.4, inner sep=0pt] (prismlowerjoin) {}
-            ;
-            \draw[optics] (\prismx, 1 + \h) -- ++(0, \h) -- ++(\h, -\h)
-            node[pos=0.5, inner sep=0pt] (prismupper) {}
-            -- cycle;
-            \node[above right] at (\prismx, {(2*\h)+1}) {Prism Pair};
-            \draw[<-, dashed, shorten <=.1cm] (prismlowerjoin) -- ++(.6, .5) node[right, inner sep=0pt] {$\mathcal{F}\qty{\mathrm{Object}}$};
-            
-            % mirror
-            \draw[fill] (1, 3) rectangle ++(.1, 1) node[midway, inner sep=0pt] (mirror) {};
-            \node[below] at (1.05, 3) {Mirror};
-            
-            % screen
-            \draw[fill] (8, 4) rectangle ++(.1, 1) node[midway, inner sep=0pt] (screen) {};
-            \node[above] at (8.05, 5) {Screen};
-            \draw[<-, dashed, shorten <=.1cm] (screen) -- ++(-.8, .5) node[left, inner sep=0pt] {$\mathcal{F}\qty{\mathcal{F}\qty{\mathrm{Object}}}$};
-            
-            % upper beam
-            \pgfmathsetmacro{\upper}{2*\h/3}
-            \pgfmathsetmacro{\lower}{\h/3}
-            
-            \draw[neararrow={stealth}] (2, \upper) -- (\thinlensx, \upper) -- (thicklower);
-            \draw[dotted] (thicklower) -- (\thicklensx, \lower);
-            \draw[midarrow={stealth}] (\thicklensx, \lower) -- (\achromatx, \lower);
-            \draw (\achromatx, \lower) -- (prismlower1) -- (prismlowerjoin) -- (prismupper);
-            
-            % lower beam
-            \draw[neararrow={stealth}] (2, \lower) -- (\thinlensx, \lower) -- (thickupper);
-            \draw[dotted] (thickupper) -- (\thicklensx, \upper);
-            \draw[midarrow={stealth}] (\thicklensx, \upper) -- (\achromatx, \upper);
-            \draw (\achromatx, \upper) -- (prismlower2) -- (prismlowerjoin) -- (prismupper);
-            
-            % combined beam
-            \draw[midarrow={stealth}] (prismupper) -- (mirror); 
-            \draw[midarrow={stealth}] (mirror) -- (screen);
-        \end{tikzpicture}
-        
-        \caption{The Fourier optics setup.}
-        
-        \label{fig:fourier-optics-setup}
-    \end{figure}
     
     \newpage
     \FloatBarrier
@@ -527,21 +286,10 @@
 
     \vspace{\stretch{1}}
 
-    \subsection{A Fourier Transform}
+    \subsection{Numerical Fresnel Diffraction}
 
-    Show that the Fourier transform of the centered rectangle function is a $\sinc$ function.
-    The rectangle function of width $a$ is
-    \begin{align*}
-        R_a(x) &= \begin{cases}
-            1 & \abs{x} \leq a/2 \\
-            0 & \mathrm{otherwise}
-        \end{cases}
-    \end{align*}
-    and the normalized Fourier transform of a function $f(x)$ is $\mathcal{F}\qty{f(x)}(k) = \hat{f}(k)$, defined to be
-    \begin{align*}
-        \hat{f}(k) &= \frac{1}{\sqrt{2\pi}} \int \dd{x} f(x) \, e^{-i k x}.
-    \end{align*}
+    Write a program in your language of choice (Mathematica, MATLAB, and Python are all good choices) that performs the Fresnel diffraction integral \eqref{eqn:fresnel-diffraction-integral} numerically.
 
-    \vspace{\stretch{2}}
+    \vspace{\stretch{1}}
 
 \end{document}

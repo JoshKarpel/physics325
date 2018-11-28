@@ -120,43 +120,27 @@
         \end{itemize}
     }
 
-    \subsection{Measuring the Bandwidth}
-    
-    You may have noticed that the brightness of the output light varied as you changed the frequency.
-    Let's investigate this effect using the power meter.
-    Since you'll need to move the power meter between measurements, you'll need to be careful about background light.
-    You may also need to figure out a way to minimize the amount of light coming from the $0$ order, depending on how much power you were able to push into the $+1$ order.
-
-    \checkpoint{
-        Using the variable-frequency source, measure the output power as a function of frequency.
-        \begin{itemize}
-            \item Make a plot of frequency vs. output power for the $+1$ order.
-            For what frequency is the output power maximized?
-            What is the bandwidth of the AOM (full-width at half-max)?
-        \end{itemize}
-    }
-
     \subsection{Rise Time}
     
-    An alternate way of measuring the bandwidth of the AOM is to measure the \emph{rise time} of it when operating as an \emph{optical switch}.
-    This is itself a useful way to use the AOM - turning a laser beam on or off.
-    For now, set up a photodiode to measure the power from the $+1$ order.
+    One useful way to use the AOM is to turn a laser beam on or off.
+    Because the sidebands are spatially separated from the $0$ order and only appear when the AOM is on, we can control whether they exist by using the AOM as a switch.
+    Set up a photodiode to measure the power from the $+1$ order.
     Set up the oscilloscope to trigger a single shot from a rising voltage and hook it up to the photodiode.
     
     \checkpoint{
-        Turn the AOM off and on to trigger the oscilloscope and observe the turn-on of the order.
+        Turn the AOM off and on to trigger the oscilloscope and observe the turn-on of the $+1$ order.
         \begin{itemize}
-            \item How long does it take the AOM to turn on? What shape is the curve?
-            \item The AOM turn-on time should be the inverse of the bandwidth.
-            Does your measurement of the turn-on time agree with your previous measurement of the bandwidth?
+            \item How long does it take the AOM to turn on?
+            \item What shape is the curve?
         \end{itemize}
     }
     
-    \subsubsection{Confirming That It Actually Works}
+    \subsection{Looking for Beats}
     
     The frequency of visible light is hundreds of terahertz.
     The modulation frequency is about \SI{100}{\mega\hertz}.
     Is there any way for us to ``see'' the frequency difference between the orders?
+    
     Not by eye, but the oscilloscope can clearly see a \SI{100}{\mega\hertz} signal, so let's use the oscilloscope.
     We will look for the beat frequency between the $0$ order and the $+1$ order.
     Try to equalize their powers (to get the best signal) and focus them both down onto the same photodiode.
