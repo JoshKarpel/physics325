@@ -21,18 +21,18 @@
 
     Luckily, we don't.
     AOMs can solve these problems, and in solving them, also provide other useful capabilities.
-    In this lab, we will explore both the solution to the original problem and their other uses.
+    In this lab, we will explore both the solution to the problem state above and their other uses.
 
     \section*{Background}
 
     The AOM is a small crystal attached to a piezo-electric transducer.
     When a voltage is applied to the piezo, it expands.
     By applying an oscillating voltage from a radio-frequency (RF) source, we can make the piezo oscillate.
-    If we carefully choose a crystal with an index of refraction that changes when it is compressed, we will have a crystal whose index of refraction varies over time at electronic frequencies.
+    If we carefully choose a crystal with an index of refraction that changes when it is compressed, we will have a crystal whose index of refraction varies over time at ``electronic'' frequencies (\si{\mega\hertz} or \si{\giga\hertz}).
     When light passes through this crystal, it will gain additional frequency components, called \emph{sidebands}, separated from the original frequency by integer multiples of whatever \emph{modulation frequency} the crystal is driven at.
 
     Alternatively, one can think of the light as diffracting off of a sound wave in the crystal, or of the photons scattering off of phonons.
-    Any of these pictures work, but for this lab, the important result is the angle that the diffracted light appears at:
+    Any of these pictures work, but for this lab, the important result is the angle that the diffracted light exits the crystal at:
     \begin{align} \label{eqn:output-angle}
         \Delta \theta = \frac{\lambda}{v} \, \Delta f,
     \end{align}
@@ -104,7 +104,7 @@
 
     \subsection{Measuring $\theta$}
 
-    Our first goal is to measure $\Delta \theta$ as a function of modulation frequency.
+    Our first goal is to measure $\Delta \theta$ as a function of modulation frequency to confirm \eqref{eqn:output-angle}.
     Set up the AOM (but don't screw it down tightly yet) and use two mirrors to walk your laser into it.
     You'll need to have the AOM running while doing this.
     When you see the modulated orders coming out of the AOM, you're close enough to lock down the AOM position.
@@ -131,23 +131,30 @@
         Using the variable-frequency source, measure the output power as a function of frequency.
         \begin{itemize}
             \item Make a plot of frequency vs. output power for the $+1$ order.
-            For what frequency is the output power maximized?
-            What is the bandwidth of the AOM (full-width at half-max)?
+            \item For what frequency is the output power maximized?
+            \item What is the bandwidth of the AOM (for the half-power point)?
         \end{itemize}
     }
 
     \subsection{Rise Time}
 
-    An alternate way of measuring the bandwidth of the AOM is to measure the \emph{rise time} of it when operating as an \emph{optical switch}.
+    An alternate way of measuring the bandwidth of the AOM is to measure its \emph{rise time} when operating as an \emph{optical switch}.
     This is itself a useful way to use the AOM: turning a laser beam on or off.
-    Set up a photodiode to measure the power from the $+1$ order, and set up the oscilloscope to trigger a single shot from a rising voltage and hook it up to the photodiode.
+    Today, our main interest in this measurement is that the rise time is the inverse of the bandwidth.
+    
+    To see why, recall that the bandwidth of the AOM essentially measures the highest frequency that it can operate at with reasonable efficiency.
+    When the AOM is turned on it tries to jump from ``no output'' to ``full output'' instantly.
+    Since it can't do that, it responds as quickly as possibly, and the speed of this response is limited by the fastest sine wave it can operate efficiently with (think Fourier!).
+    
+    Set up a photodiode to measure the power from the $+1$ order.
+    Set up the oscilloscope to trigger a single shot from a rising voltage and hook it up to the photodiode.
 
     \checkpoint{
-        Turn the AOM off and on to trigger the oscilloscope and observe the turn-on of the order.
+        Turn the AOM off and on to trigger the oscilloscope and observe the rise of the $+1$ order.
         \begin{itemize}
-            \item How long does it take the AOM to turn on? What shape is the curve?
-            \item The AOM turn-on time should be the inverse of the bandwidth.
-            Does your measurement of the turn-on time agree with your previous measurement of the bandwidth?
+            \item Roughly how long does it take the AOM to turn on? 
+            \item What shape is the curve? What quantity corresponds to the rise time?
+            \item Does your measurement of the rise time agree with your previous measurement of the bandwidth?
         \end{itemize}
     }
 
@@ -160,13 +167,6 @@
     \subsection{Frequency Modulation}
 
     Show that an electric field with a time-varying frequency $E(t) = E_0 \, e^{- i \qty[\omega_0 + \Delta \omega \sin(\omega t)] t}$ can be re-written as a superposition of electric fields, each with a constant frequency.
-
-    \vspace{\stretch{1}}
-
-    \subsection{Beat Frequencies}
-
-    Show that the intensity pattern over time formed by a superposition of two electric fields, $E_0(t) = E_0 \sin(\omega t)$ and $E_1(t) = E_1 \sin((\omega + \Delta \omega) t)$ has a component at the beat frequency $\Delta \omega$.
-    For a fixed total power (i.e., $E_0^2 + E_1^2 = E^2$), what ratio $E_1/E_0$ gives the largest signal at the beat frequency?
 
     \vspace{\stretch{1}}
 
