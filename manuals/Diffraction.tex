@@ -75,8 +75,8 @@
         \label{fig:single-slit-diffraction-geometry}
     \end{figure}
     
-    To determine what we see on the screen (i.e., $I(x) = \abs{E(x)}^2 = E(x) \, E^*(x)$, called the ``intensity pattern'' or the ``diffraction'' pattern), we will use \emph{Huygen's Principle}, which says that we can treat each point in the plane of the rectangular hole as an independent spherical emitter.
-    To determine the electric field anywhere, we just sum over the contributions from each point (after making some approximations which we won't describe in detail here):
+    To determine what we see on the screen (i.e., $I(x) = \abs{E(x)}^2 = E(x) \, E^*(x)$, called the ``intensity pattern'' or ``diffraction pattern''), we will use \emph{Huygen's Principle}, which says that we can treat each point in the plane of the rectangular hole as an independent spherical emitter.
+    To determine the electric field anywhere, we sum over the contributions from each point (after making some approximations which we won't describe in detail here):
     \begin{align}
         E(z, x) &= \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, \frac{e^{i k r}}{r},
     \end{align}
@@ -99,18 +99,18 @@
     \begin{align} \label{eqn:fraunhofer-diffraction-integral}
         E(x) &= \frac{e^{i k r}}{r} \, \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, e^{-i k \frac{x}{r} w}.
     \end{align}
-    We've managed to pull out an overall prefactor: the integral itself now only accounts for deviations from the pattern produced by a point source at the center of the slit.
-    Suppose that the incoming electromagnetic wave is a plane wave, so that $E(z_0, w) = E_0$.
+    We've managed to pull out an overall prefactor: the integral itself now only accounts for deviations from the pattern produced by a point source at the center of the slit, which is itself handled by the prefactor.
+    Suppose that the incoming electromagnetic wave is a plane wave, so that we can take $E(z_0, w) = E_0$.
     Then
     \begin{align} \label{eqn:single-slit-diffraction}
         E(x) &= E_0 \, W \, \frac{e^{i k r}}{r} \sinc\qty(\pi \, \frac{W}{\lambda r} \, x) \\
         I(x) &= \frac{E_0^2 \, W^2}{r^2} \sinc^2\qty(\pi \, \frac{W}{\lambda r} \, x)
     \end{align}
     where $\sinc(x) \equiv \sin(x) / x$, and $\sinc(0) = 1$.
-    The intensity profile is shown in Figure~\ref{fig:single-slit-diffraction-intensity}.
-    The zeros of $\sinc^2(y)$ occur at $y = 0, \, \pi, \, 2 \pi, \, 3 \pi, \, \cdots$.
-    The positions of the maxima are not evenly spaced and must be calculated numerically.
-    The first few are tabulated to a few digits of precision in Table \ref{tab:sinc-squared-maxima}.
+    The intensity pattern is shown in Figure~\ref{fig:single-slit-diffraction-intensity}.
+    The zeros of $\sinc^2(y)$ occur at $y = 0, \, \pm \pi, \, \pm 2 \pi, \, \pm 3 \pi, \, \cdots$.
+    The positions of the local maxima are not evenly spaced and must be calculated numerically.
+    The first few are tabulated to a few digits of precision in Table~\ref{tab:sinc-squared-maxima}.
     
     \begin{figure}
         \centering
@@ -129,7 +129,7 @@
             \draw[<-] (-4, 1/10) -- (-5, 2) node[above] {second minimum};
         \end{tikzpicture}
         
-        \caption{The intensity profile of single-slit diffraction.}
+        \caption{The intensity pattern of single-slit diffraction.}
         
         \label{fig:single-slit-diffraction-intensity}
     \end{figure}
@@ -141,13 +141,13 @@
             $n$ & $y_n$ & $\sinc^2(y_n)$ \\
             \hline			
             $0$ & $0$ & $1$ \\
-            $1$ & $1.4303 \, \pi$ & $0.0472$ \\
-            $2$ & $2.4590 \, \pi$ & $0.0165$ \\
-            $3$ & $3.4709 \, \pi$ & $0.0083$ \\
+            $\pm 1$ & $\pm 1.4303 \, \pi$ & $0.0472$ \\
+            $\pm 2$ & $\pm 2.4590 \, \pi$ & $0.0165$ \\
+            $\pm 3$ & $\pm 3.4709 \, \pi$ & $0.0083$ \\
         \end{tabular}
         
         \caption{
-            The positions $y_n$ and values of the maxima of $\sinc^2(y)$.
+            The positions $y_n$ and values of the local maxima of $\sinc^2(y)$.
             Because $\sinc^2(0) = 1$, the last column is also the fractional (i.e., relative) intensity of the maxima relative to the center.
             The approximation $y_n \approx \qty(n + \frac{1}{2}) \, \pi$ is sometimes convenient.
         }
@@ -155,7 +155,7 @@
         \label{tab:sinc-squared-maxima}
     \end{table}
 
-    If we have $N$ slits each separated by distance $D$ (center-to-center) instead of just one, we can  sum Eq.~\eqref{eqn:single-slit-diffraction} over each slit, with a phase-shift that takes into account the extra translation:
+    If we have $N$ slits each separated by distance $D$ (center-to-center) instead of just one, we can sum Eq.~\eqref{eqn:single-slit-diffraction} over each slit, with a phase-shift that takes into account the extra translation:
     \begin{align}
         E(x) &= \sum_{n=1}^N E_0 \, W \, \frac{e^{i k r}}{r} \sinc\qty(\pi \, \frac{W}{\lambda r} \, x) \, e^{i \, n \, k \, D \, \frac{x}{r}}.
     \end{align}
@@ -168,6 +168,11 @@
         E(x) &= E_0 \, W \, \frac{e^{i k r}}{r} \sinc\qty(\pi \, \frac{W}{\lambda r} \, x) \, \frac{e^{i k \, D \, x / r} - e^{i (N + 1) \, k \, D \, x / r}}{1 - e^{i k \, D \, x / r}} \\
         I(x) &= \frac{E_0^2 \, W^2}{r^2} \sinc^2\qty(\pi \, \frac{W}{\lambda r} \, x) \, \frac{\sin^2(\pi \frac{N D}{\lambda r} x)}{\sin^2(\pi \frac{D}{\lambda r} x)}.
     \end{align}
+    This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intensity}.
+    The overall envelope of multiple lobes comes from the $\sinc^2$ term, and the oscillations under each lobe come from the $\sin^2$ ratio.
+    Since the $\sinc^2$ involves only $W$ and the $\sin^2$ involve only $D$, we see that the slit width controls the lobe pattern and the slit spacing controls the oscillations.
+    The two features are essentially independent of each other.
+    We will revisit this perhaps-surprising result when we start thinking about Fourier optics.
     
     \begin{figure}
         \centering
@@ -189,7 +194,7 @@
             \draw[<-] (-2*pi, 1/10) -- (-2*pi, 2) node[above] {second minimum};
         \end{tikzpicture}
         
-        \caption{The intensity profile of multiple-slit diffraction.}
+        \caption{The intensity pattern of multiple-slit diffraction.}
         
         \label{fig:multi-slit-diffraction-intensity}
     \end{figure}
@@ -289,6 +294,7 @@
     \subsection{Numerical Fresnel Diffraction}
 
     Write a program in your language of choice (Mathematica, MATLAB, and Python are all good choices) that performs the Fresnel diffraction integral \eqref{eqn:fresnel-diffraction-integral} numerically.
+    Show the Fresnel diffraction patterns of a few different sets of parameters.
 
     \vspace{\stretch{1}}
 
