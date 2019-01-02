@@ -11,7 +11,7 @@
 
 % internal and external links
 \RequirePackage{hyperref}
-\RequirePackage{caption}  % go to top of figure instead of caption
+\RequirePackage{caption}  % links go to top of figure instead of caption
 
 % standard math packages
 \RequirePackage{amsmath,amssymb}
@@ -41,6 +41,7 @@
 %    includehead,
 ]{geometry}
 
+% voodoo to get the git commit hash in there
 \RequirePackage{expl3}
 \RequirePackage{xparse}
 \RequirePackage{stringstrings}
@@ -96,7 +97,6 @@
 \newcommand{\@course}{\@latex@warning@no@line{No \noexpand\course given}}
 
 % customized \maketitle command
-
 
 \def\@maketitle{%
   \newpage
@@ -203,7 +203,6 @@
 }
 
 
-
 % load siunitx
 \usepackage[alsoload=synchem]{siunitx}
 
@@ -221,7 +220,7 @@
 \let\emph\relax % there's no \RedeclareTextFontCommand
 \DeclareTextFontCommand{\emph}{\bfseries}
 
-% question boxes
+% checkpoint boxes
 \RequirePackage[most]{tcolorbox}
 
 \newtcolorbox{checkpointbox}[1][]{
