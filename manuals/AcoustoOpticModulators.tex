@@ -11,68 +11,68 @@
     %%%
 
     \section*{Motivation}
-    
+
     Acousto-optic modulators (AOMs) are an extremely useful piece of optics lab equipment.
     One of the most common problems in the lab is getting your laser to the desired frequency.
     There are far fewer good, high-power laser frequencies than there are atomic and molecular transitions that we want to target.
     Some lasers are widely tunable, but they may not be very efficient over their entire bandwidth.
     Even worse, what if we want to target two atomic transitions that are very close to each other at the same time.
     Do we need to get two identical lasers and tune them ever-so-slightly differently?
-    
+
     Luckily, we don't.
     AOMs can solve these problems, and in solving them, also provide other useful capabilities.
-    In this lab, we will explore both the solution to the original problem and their other uses.
+    In this lab, we will explore both the solution to the problem state above and their other uses.
 
     \section*{Background}
-    
+
     The AOM is a small crystal attached to a piezo-electric transducer.
     When a voltage is applied to the piezo, it expands.
     By applying an oscillating voltage from a radio-frequency (RF) source, we can make the piezo oscillate.
-    If we carefully choose a crystal with an index of refraction that changes when it is compressed, we will have a crystal whose index of refraction varies over time at electronic frequencies.
+    If we carefully choose a crystal with an index of refraction that changes when it is compressed, we will have a crystal whose index of refraction varies over time at ``electronic'' frequencies (\si{\mega\hertz} or \si{\giga\hertz}).
     When light passes through this crystal, it will gain additional frequency components, called \emph{sidebands}, separated from the original frequency by integer multiples of whatever \emph{modulation frequency} the crystal is driven at.
-    
+
     Alternatively, one can think of the light as diffracting off of a sound wave in the crystal, or of the photons scattering off of phonons.
-    Any of these pictures work, but for this lab, the important result is the angle that the diffracted light appears at:
+    Any of these pictures work, but for this lab, the important result is the angle that the diffracted light exits the crystal at:
     \begin{align} \label{eqn:output-angle}
-        \theta = \frac{\lambda}{v} f,
+        \Delta \theta = \frac{\lambda}{v} \, \Delta f,
     \end{align}
-    where $\lambda$ is the wavelength of the light in vacuum, $f$ is the modulation frequency, and $v$ is the speed of sound in the crystal.
-    Each sideband will come out at the angle $n \, \theta$ with frequency $\omega_0 + m \, \Delta \omega$, where $\omega_0$ is the original frequency and $\Delta \omega$ is the modulation frequency.
+    where $\lambda$ is the wavelength of the light in vacuum, $\Delta f$ is the modulation frequency, and $v$ is the speed of sound in the crystal.
+    Each sideband will come out of the AOM deflected by an angle $n \, \Delta \theta$ with frequency $f_0 + n \, \Delta f$, where $f_0$ is the original frequency.
     The integer $n$ is the \emph{order number}.
     Note that $n$ may be negative!
     Multiple orders in both directions may be visible.
-    Most AOMs are engineered so that most of the power goes into the $+1$ or $-1$ order, for convenience.
-    
+    Most AOMs are engineered so that most of the power goes into the $+1$ or $-1$ order.
+
     The geometry of the laser-to-AOM setup that you will use in this lab is illustrated in Figure~\ref{fig:aom-setup}.
 
     \begin{figure}
         \centering
-        
+
         \begin{tikzpicture}
             \draw[thick, fill=gray!30] (-1, -0.5) rectangle ++(2, 1) node[midway] {Laser};
-            
+
             \draw[pattern = north west lines, rotate around = {-45:(3, 0)}] (3, -.5) rectangle ++(.1, 1) node[midway, below right] {M1};
             \draw[pattern = north west lines, rotate around = {-45:(3, 3)}] (3, 2.5) rectangle ++(-.1, 1) node[midway, above left] {M2};
-            
+
             \draw[fill=gray!20] (5, 2) rectangle ++(2, 2);
             \draw[thick,fill=gray!40] (5, 1) rectangle ++(2, 1) node[midway] {\small Transducer};
             \draw[thick,fill=gray!40] (5, 4) rectangle ++(2, .2) node[midway, above] {AOM};
-            
+
             \draw[veryneararrow={stealth}, midarrow={stealth}] (1, 0) -- (3, 0) -- (3, 3) -- (6.5, 3);
             \foreach \t in {-3,-2,...,3} {
                 \draw[veryfararrow={stealth}] (6.5, 3) -- ++({\t*15}:3) node[right] {\t};
             }
             \draw[<->, dashed] (8.5, 3) arc (0:15:2) node[midway, right] {$\theta$};
-        
+
             \draw[ultra thick] (6, .5) -- (6, 1);
             \draw[thick, fill=gray!30] (5, -0.5) rectangle ++(2, 1) node[midway] {RF Source};
         \end{tikzpicture}
-        
+
         \caption{
-            An acousto-optic modulator, with input laser and output beams.
+            An acousto-optic modulator, with input laser (guided by mirrors M1 and M2) and output beams.
             The modulator's transducer is connected to a radio-frequency (RF) source.
         }
-        
+
         \label{fig:aom-setup}
     \end{figure}
 
@@ -82,7 +82,7 @@
     For this lab, you will need:
     \begin{itemize}
         \item An acousto-optic modulator, with mount.
-        \item Two radio-frequency (RF) sources: 
+        \item Two radio-frequency (RF) sources:
         \begin{itemize}
             \item A fixed-frequency, high-power source.
             \item A variable-frequency, low-power source.
@@ -93,7 +93,7 @@
         \item A Helium-Neon (He-Ne) laser, with mount.
         \item Two mirrors, with mounts, and whatever other optics you want for coupling into the AOM and differentiating the output beams.
     \end{itemize}
-    
+
     \noindent
     \emph{Never run the RF sources without a load!} Running the sources without loads can severely damage them.
 
@@ -101,27 +101,27 @@
     \newpage
 
     \section*{Procedure}
-    
+
     \subsection{Measuring $\theta$}
-    
-    Our first goal is to measure the angle $\theta$.
-    Set up the AOM (but don't screw it down yet) and use two mirrors to walk your laser into it.
+
+    Our first goal is to measure $\Delta \theta$ as a function of modulation frequency to confirm \eqref{eqn:output-angle}.
+    Set up the AOM (but don't screw it down tightly yet) and use two mirrors to walk your laser into it.
     You'll need to have the AOM running while doing this.
-    When you see the extra orders coming out of the AOM, you're close enough to lock down the AOM position.
+    When you see the modulated orders coming out of the AOM, you're close enough to lock down the AOM position.
     Then you can optimize the output power by walking the input beam and the fine-angle adjustment on the AOM mount.
     Maximize the power in the $+1$ order using the fixed-frequency source.
 
     \checkpoint{
-        Switch to the variable-frequency source and measure the output angle as a function of frequency.
+        Switch to the variable-frequency source and measure the deflection angle as a function of modulation frequency.
         \begin{itemize}
-            \item Make a plot of frequency vs. output angle for the $+1$ order.
+            \item Make a plot of modulation frequency vs. deflection angle for the $+1$ order.
             Analyze your error and overlay the expected result from \eqref{eqn:output-angle}.
             Do they agree?
         \end{itemize}
     }
 
     \subsection{Measuring the Bandwidth}
-    
+
     You may have noticed that the brightness of the output light varied as you changed the frequency.
     Let's investigate this effect using the power meter.
     Since you'll need to move the power meter between measurements, you'll need to be careful about background light.
@@ -131,40 +131,33 @@
         Using the variable-frequency source, measure the output power as a function of frequency.
         \begin{itemize}
             \item Make a plot of frequency vs. output power for the $+1$ order.
-            For what frequency is the output power maximized?
-            What is the bandwidth of the AOM (full-width at half-max)?
+            \item For what frequency is the output power maximized?
+            \item What is the bandwidth of the AOM (for the half-power point)?
         \end{itemize}
     }
 
     \subsection{Rise Time}
+
+    An alternate way of measuring the bandwidth of the AOM is to measure its \emph{rise time} when operating as an \emph{optical switch}.
+    This is itself a useful way to use the AOM: turning a laser beam on or off.
+    Today, our main interest in this measurement is that the rise time is the inverse of the bandwidth.
     
-    An alternate way of measuring the bandwidth of the AOM is to measure the \emph{rise time} of it when operating as an \emph{optical switch}.
-    This is itself a useful way to use the AOM - turning a laser beam on or off.
-    For now, set up a photodiode to measure the power from the $+1$ order.
+    To see why, recall that the bandwidth of the AOM essentially measures the highest frequency that it can operate at with reasonable efficiency.
+    When the AOM is turned on it tries to jump from ``no output'' to ``full output'' instantly.
+    Since it can't do that, it responds as quickly as possibly, and the speed of this response is limited by the fastest sine wave it can operate efficiently with (think Fourier!).
+    
+    Set up a photodiode to measure the power from the $+1$ order.
     Set up the oscilloscope to trigger a single shot from a rising voltage and hook it up to the photodiode.
-    
+
     \checkpoint{
-        Turn the AOM off and on to trigger the oscilloscope and observe the turn-on of the order.
+        Turn the AOM off and on to trigger the oscilloscope and observe the rise of the $+1$ order.
         \begin{itemize}
-            \item How long does it take the AOM to turn on? What shape is the curve?
-            \item The AOM turn-on time should be the inverse of the bandwidth.
-            Does your measurement of the turn-on time agree with your previous measurement of the bandwidth?
+            \item Roughly how long does it take the AOM to turn on? 
+            \item What shape is the curve? What quantity corresponds to the rise time?
+            \item Does your measurement of the rise time agree with your previous measurement of the bandwidth?
         \end{itemize}
     }
-    
-    \subsubsection{Confirming That It Actually Works}
-    
-    The frequency of visible light is hundreds of terahertz.
-    The modulation frequency is about \SI{100}{\mega\hertz}.
-    Is there any way for us to ``see'' the frequency difference between the orders?
-    Not by eye, but the oscilloscope can clearly see a \SI{100}{\mega\hertz} signal, so let's use the oscilloscope.
-    We will look for the beat frequency between the $0$ order and the $+1$ order.
-    Try to equalize their powers (to get the best signal) and focus them both down onto the same photodiode.
-    
-    \checkpoint{
-        Look for a beat frequency at the modulation frequency in the combined signal from the two orders.
-    }
-    
+
     \FloatBarrier
     \newpage
 
@@ -174,13 +167,6 @@
     \subsection{Frequency Modulation}
 
     Show that an electric field with a time-varying frequency $E(t) = E_0 \, e^{- i \qty[\omega_0 + \Delta \omega \sin(\omega t)] t}$ can be re-written as a superposition of electric fields, each with a constant frequency.
-
-    \vspace{\stretch{1}}
-
-    \subsection{Beat Frequencies}
-    
-    Show that the intensity pattern over time formed by a superposition of two electric fields, $E_0(t) = E_0 \sin(\omega t)$ and $E_1(t) = E_1 \sin((\omega + \Delta \omega) t)$ has a component at the beat frequency $\Delta \omega$.
-    For a fixed total power (i.e., $E_0^2 + E_1^2 = E^2$), what ratio $E_1/E_0$ gives the largest signal at the beat frequency?
 
     \vspace{\stretch{1}}
 

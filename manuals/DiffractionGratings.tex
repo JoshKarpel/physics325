@@ -26,20 +26,22 @@
     \begin{align}
         I = \frac{A_0^2 W^2}{r^2} \mathrm{sinc}^2 \left(\pi W \sin(\theta) / \lambda\right)\frac{\sin^2(\pi N D \sin(\theta) / \lambda)}{\sin^2(\pi D \sin(\theta) / \lambda)}
     \end{align}
-    The first term is an overall scale factor and not important, and the second term is an envelope function determined by the width $W$ of a single slit.
-    The third term, the ratio of sines, is the most important.
+    The first term is an unimportant overall scale factor, and the second term is an envelope function determined by the width $W$ of a single slit.
+    The third term (the ratio of sines) is the most important.
     When $N$ is very large, the amplitude is heavily suppressed when the denominator of this ratio is not nearly zero.
+    This property is precisely what a diffraction grating is based on.
+    
     The positions where the denominator vanishes are called the \emph{principal maxima}, and they occur when
     \begin{align} \label{eqn:normal-grating-equation}
         \frac{\pi D \sin{\theta}}{\lambda} &= m \pi \nonumber \\
         D \sin{\theta} &= m \lambda.
     \end{align}
-    This is the grating equation for illumination at normal incidence.
+    This is the \emph{grating equation for illumination at normal incidence}.
     The integer $m$ is the \emph{order}.
-    For each wavelength, we'll see a single bright spot of that color of light at each order.
+    If we shone light composed of many wavelengths on these slits, the output intensity pattern would be a single bright spot for each wavelength of light, for each order.
     Since these occur at different angles, we can use a grating to separate wavelengths of light, in much the same way that a prism does.
 
-    Unfortunately, normal incidence isn't particularly useful.
+    Unfortunately, it turns out that normal incidence isn't particularly useful.
     We need an equation that describes what happens for non-normal incidence.
     To derive a grating equation for non-normal incidence, let's go back to the geometric picture of light incident on an array of thin slits.
     When light is normally incident on a set of slits, the maxima of the interference pattern on the other side will occur when the phase difference between adjacent slits is a multiple of $2 \pi$, or equivalently that the path length difference is a multiple of $\lambda$.
@@ -80,7 +82,7 @@
     \begin{align} \label{eqn:non-normal-grating-equation}
         D(\sin\alpha + \sin\beta) = m \lambda,
     \end{align}
-    which is the grating equation for non-normal incidence.
+    which is the \emph{grating equation for non-normal incidence}.
 
     \begin{figure}[H]
         \centering
@@ -117,7 +119,7 @@
         \label{fig:path-length-difference-non-normal}
     \end{figure}
 
-    A \emph{diffraction grating} is exactly this geometry, but uses small mirrors instead of slits.
+    A \emph{diffraction grating} is exactly this geometry, but uses small mirrors instead of slits, so that the output is reflected instead of transmitted.
     The diffraction arises purely from small, regular structures in the geometry, so the output light is identical except that it comes back toward the source because the surfaces are mirrors instead of slits.
     The slit-based grating should then be called a \emph{transmission grating}.
     The mirror-based gratings are sometimes called \emph{reflection gratings}, but most people just called them diffraction gratings.
@@ -222,7 +224,7 @@
         \item A sodium vapor lamp.
         \item A low-pressure mercury vapor lamp.
         \item A hydrogen lamp.
-        \time An Ebert-Fastie grating spectrometer.
+        \item An Ebert-Fastie grating spectrometer.
         \item An Ocean Optics USB-connected spectrometer.
     \end{itemize}
 
@@ -265,19 +267,6 @@
         Measure the emission spectrum of low-pressure mercury using your spectrometer.
         \begin{itemize}
             \item Analyze your error and compare your measurements to known values for the spectrum of low-pressure mercury.
-        \end{itemize}
-    }
-
-    \subsection{Spectrometer in a Box}
-
-    Hook up the compact USB spectrometer to the computer and run the readout software.
-    This spectrometer is doing essentially the same thing as your manually-operated Ebert-Fastie spectrometer, except that it can scan over a wide spectral range (slightly larger than the visible spectrum) in about a tenth of a second, has its own internal reference laser for calibration, and outputs directly to a computer.
-
-    \checkpoint{
-        Use your USB spectrometer to capture the emission spectrum of the sodium lamp, the low-pressure mercury lamp, a fluorescent light, and an incandescent light bulb.
-        \begin{itemize}
-            \item Put a printout of the spectrum of each light source in your lab notebook.
-            \item Do the spectra from the USB spectrometer agree with the spectra you measured earlier in the lab?
         \end{itemize}
     }
 

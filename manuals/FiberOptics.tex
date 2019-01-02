@@ -97,12 +97,15 @@
         \end{itemize}
     }
 
-    Now that we have some experience aligning fibers, we can test the hypothesis that aligning to a multi-mode fiber shouldn't depend much on the size or shape of the input beam.
+    Now that we have some experience aligning fibers, we can test the reasonable thought that aligning to a multi-mode fiber shouldn't depend much on the size or shape of the input beam.
+    This is because the multi-mode fiber accepts many input spatial modes (like a poorly-centered or badly-angled Gaussian, for example).
 
     \checkpoint{
         Add a telescope after the laser to double the radius of the input beam, then realign your setup.
         Maximize and record the coupling efficiency.
-        Were you able to achieve similar coupling efficiency?
+        \begin{itemize}
+            \item Were you able to achieve similar coupling efficiency?
+        \end{itemize}
     }
 
     \subsection{Single-Mode Fiber}
@@ -124,32 +127,15 @@
         \end{itemize}
     }
 
-    Since the core diameter is small, the coupling efficiency should be very sensitive to the size of the input beam.
+    Since the core diameter of a single-mode fiber is small, the coupling efficiency should be very sensitive to the size of the input beam.
 
     \checkpoint{
         Add a telescope after the laser to double the radius of the input beam, then realign your setup.
         Maximize and record the coupling efficiency.
-        Were you able to achieve similar coupling efficiency?
-    }
-
-    \subsection{Fiber-Optic Devices}
-
-    A simple fiber-optic device is a \emph{switch}.
-    An electronic voltage controls the output of a fiber-optic cable.
-    Using this, we could perform a simple binary encoding at electronic frequencies: light on means logical true (1), light off means logical false (0).
-
-    \checkpoint{
-        Connect the single-mode fiber to the switch, and observe the light output under different conditions.
         \begin{itemize}
-            \item Push the manual control on the switch to swap the light output between the two channels.
-            Observe the output.
-            Is the mode shape distorted?
-            \item Set up a function generator and generate a \SI{1}{\kilo\hertz} square wave that goes from \SI{0}{\volt} to \SI{5}{\volt}.
-            Connect the function generator to the switch, and observe the light output on a photodiode connected to an oscilloscope.
-            Does the signal behave as you expect?
-        \end{itemize}
+            \item Were you able to achieve similar coupling efficiency?
+        \end{itemize}   
     }
-
 
     \FloatBarrier
     \newpage
@@ -157,11 +143,10 @@
     \section*{Prelab Questions}
     \setcounter{subsection}{0}
 
-    \subsection{Question 1}
-
-    \vspace{\stretch{1}}
-
-    \subsection{Question 2}
+    \subsection{Calculating $V$}
+    
+    Look up the datasheets for three different commercial fiber-optic cables online (Thorlabs and Edmund Optics both sell a wide variety of fibers).
+    Calculate the $V$ parameter for each fiber for some wavelength, given the information in the datasheet (don't make it too hard: use the information they're providing).
 
     \vspace{\stretch{1}}
 
