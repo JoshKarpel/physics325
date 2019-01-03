@@ -12,7 +12,7 @@
 
     \section{Motivation}
 
-    
+
 
     \section{Background}
 
@@ -20,52 +20,52 @@
     \begin{align} \label{eqn:fraunhofer-diffraction-integral}
         E(x) &= \frac{e^{i k r}}{r} \, \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, e^{-i k \frac{x}{r} w}.
     \end{align}
-    
+
     \begin{figure}
             \centering
-            
+
             \begin{tikzpicture}
                 \foreach \x in {0, .4, .8}
                     \draw[rounded corners] (-3 + \x, 5)
-                     -- (-2.8 + \x, 4.5) 
+                     -- (-2.8 + \x, 4.5)
                      -- (-2.9 + \x, 4)
                      -- (-2.5 + \x, 3.5)
                      -- (-2.7 + \x, 3)
                      -- (-2.4 + \x, 2.5)
-                     -- (-2.6 + \x, 2) 
-                     -- (-2.5 + \x, 1.5) 
-                     -- (-2.9 + \x, 1) 
-                     -- (-2.7 + \x, 0.5) 
+                     -- (-2.6 + \x, 2)
+                     -- (-2.5 + \x, 1.5)
+                     -- (-2.9 + \x, 1)
+                     -- (-2.7 + \x, 0.5)
                      -- (-3 + \x, 0);
-                
+
                 \draw[|<->|, dashed] (-0.3, 2) -- (-0.3, 3) node[midway, left] {$W$};
-                
+
                 \draw[ultra thick] (0, 0) -- (0, 2);
                 \draw[ultra thick] (0, 3) -- (0, 5) node[above] {Barrier w/ Slit};
-                
+
                 \draw[dashed] (0, 2.5) -- (8, 2.5) node[midway, below] {$L$};
-                
+
                 \draw[dashed] (0 ,2.5) -- (8, 3.5) node[midway, above] {$r$};
-                
+
                 \draw[|<->|, dashed] (8.2, 2.5) -- (8.2,3.5) node[midway, right] {$x$};
-                
+
                 \draw[<->, dashed] (7, 2.5) arc (0:6.4:7) node[midway, right] {$\theta$};
-                
+
                 \draw[fill] (0, 2.5) circle (2pt);
                 \draw (0, 2.5) -- (0.5, 2.25);
                 \node[align=center,below] at (1,2.35) {$(z_0, \, 0)$};
-                
+
                 \draw[fill] (0, 2.75) circle (2pt);
                 \draw (0, 2.75) -- (0.5, 2.85);
                 \node[align=center,above] at (1,2.7) {$(z_0, \, w)$};
-                
+
                 \draw (8, 0) -- ++(0, 5) node[above] {Screen};
-                
+
                 \draw[fill] (8,3.5) circle (2pt) node[above right] {Observation Point};
             \end{tikzpicture}
-            
+
             \caption{An electromagnetic wave illuminating a single slit.}
-            
+
             \label{fig:single-slit-diffraction-geometry}
         \end{figure}
 
@@ -78,15 +78,15 @@
     \end{align}
     That's a Fourier transform!
     Apparently, diffracting off of an obstructing object produces a far-field image based on the amplitudes of the different \emph{spatial frequency components}, or \emph{wavenumbers}, of the obstructing object's perpendicular features (denoted $k_w$, with units of inverse length, just like time-based frequency has units of inverse time).
-    
-    This matches what we learned in the previous lab by doing the integral manually, because the Fourier transform of a rectangle is a $\sinc$ function.
+
+    This agrees with what we learned in the Diffraction lab by doing the integral manually, because the Fourier transform of a rectangle is a $\sinc$ function.
     When we shone light on a rectangular slit the intensity pattern we observed was $\sinc^2$, so the underlying electric field must have been a $\sinc$.
 
     Thinking of far-field diffraction using the Fourier transform is a specialty sub-field all it's own: Fourier optics.
-    In this lab we will build a simple Fourier imaging setup, as shown in Figure~\ref{fig:fourier-optics-setup}.
-    
+    In this lab we will build a Fourier imaging setup, as shown in Figure~\ref{fig:fourier-optics-setup}.
+
     Lenses 1 and 2 and the pinhole form a ``spatial filter'' system, which cleans up the input beam.
-    The beam then passes through the object, which acts just like the simple slits we have been using up until now (except, of course, that the pattern is more complicated).
+    The beam then passes through the object, which acts just like the slits we have been using up until now (except, of course, that the pattern is more complicated).
     The achromatic lens pulls the far-field into the near-field, placing it on the lower prism's upper surface.
     At this point the intensity pattern is the Fourier transform of the object.
     But, we just produced a (virtual) object in the new near-field, so if we let the beam keep propagating, we can eventually get it to Fourier transform \emph{again}.
@@ -191,8 +191,8 @@
 
         \label{fig:fourier-optics-setup}
     \end{figure}
-    
-    You may find the identities listed in Table~\ref{tab:fourier-transform-properties} helpful.
+
+    You may find the Fourier transform identities and properties listed in Table~\ref{tab:fourier-transform-properties} helpful.
 
     \begin{table}
         \centering
@@ -217,7 +217,7 @@
 
         \label{tab:fourier-transform-properties}
     \end{table}
-    
+
 
     \section{Equipment}
 
@@ -245,10 +245,10 @@
 
     \FloatBarrier
 
-    \subsection{Fourier Transforms of Simple Objects}
+    \subsection{Fourier Transforms of Objects}
 
     \checkpoint{
-        Make a qualitative prediction about what the intensity pattern of each of the four objects shown in Figure~\ref{fig:simple-fourier-objects} will look like.
+        Make a qualitative prediction about what the intensity pattern of each of the four objects shown in Figure~\ref{fig:fourier-objects} will look like.
         \begin{itemize}
             \item Justify each of your predictions based on the ideas of Fourier optics.
         \end{itemize}
@@ -283,12 +283,12 @@
 
         \end{tikzpicture}
 
-        \caption{Simple objects to Fourier transform.}
+        \caption{Objects to Fourier transform.}
 
-        \label{fig:simple-fourier-objects}
+        \label{fig:fourier-objects}
     \end{figure}
 
-    
+
 
     Here is the alignment procedure for the setup:
     \begin{enumerate}
