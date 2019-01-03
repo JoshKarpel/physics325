@@ -12,7 +12,8 @@
 
     \section{Motivation}
 
-
+    One of the most beautiful results in optics is that far-field diffraction is essentially a Fourier transform of the diffracting object.
+    In this lab we will explore this idea by building a Fourier imaging system from scratch and using it to gain some intuition about far-field diffraction.
 
     \section{Background}
 
@@ -81,14 +82,15 @@
 
     This agrees with what we learned in the Diffraction lab by doing the integral manually, because the Fourier transform of a rectangle is a $\sinc$ function.
     When we shone light on a rectangular slit the intensity pattern we observed was $\sinc^2$, so the underlying electric field must have been a $\sinc$.
+    Thinking about far-field diffraction using the Fourier transform is a specialty sub-field all it's own: Fourier optics.
 
-    Thinking of far-field diffraction using the Fourier transform is a specialty sub-field all it's own: Fourier optics.
-    In this lab we will build a Fourier imaging setup, as shown in Figure~\ref{fig:fourier-optics-setup}.
-
+    In this lab we will build a Fourier imaging setup from scratch.
+    The schematic of the setup is shown in Figure~\ref{fig:fourier-optics-setup}.
     Lenses 1 and 2 and the pinhole form a ``spatial filter'' system, which cleans up the input beam.
     The beam then passes through the object, which acts just like the slits we have been using up until now (except, of course, that the pattern is more complicated).
     The achromatic lens pulls the far-field into the near-field, placing it on the lower prism's upper surface.
-    At this point the intensity pattern is the Fourier transform of the object.
+    
+    At this point the intensity pattern is the Fourier transform of the object, and we will in fact be able to see it on the surface of the prism.
     But, we just produced a (virtual) object in the new near-field, so if we let the beam keep propagating, we can eventually get it to Fourier transform \emph{again}.
     The doubly-Fourier-transformed image is picked up using the mirror and screen after the prism pair.
     This is an interesting addition to the setup: we can modify the Fourier transform in the near-field and see the results in the far-field.
@@ -245,10 +247,10 @@
 
     \FloatBarrier
 
-    \subsection{Fourier Transforms of Objects}
+    \subsection{Thinking Fourier}
 
     \checkpoint{
-        Make a qualitative prediction about what the intensity pattern of each of the four objects shown in Figure~\ref{fig:fourier-objects} will look like.
+        Make a qualitative prediction about what the Fourier transform of each of the four objects shown in Figure~\ref{fig:fourier-objects} will look like.
         \begin{itemize}
             \item Justify each of your predictions based on the ideas of Fourier optics.
         \end{itemize}
@@ -288,7 +290,7 @@
         \label{fig:fourier-objects}
     \end{figure}
 
-
+    \subsection{Building the Fourier Imaging System}
 
     Here is the alignment procedure for the setup:
     \begin{enumerate}
@@ -307,18 +309,41 @@
     \end{enumerate}
 
     \checkpoint{
-        Check your predictions from the previous checkpoint by using the masks.
-        Then, play with the various ways of modifying the image.
-        \begin{itemize}
-            \item Mask out various parts of the Fourier transform of the wire grid.
-            What happens to the image on the screen?
-            What information is in the bright central dot of the Fourier transform?
-            \item Carefully install the glass-chip phase shifter of the central bright spot of the wire-grid image's Fourier transform.
-            Rotate the chip slowly to change the phase shift.
-            Comment on your observations.
-            \item Regardless of where you put the circular-hole aperture, the diffraction pattern (called an Airy disk), doesn't change.
-            However, the information about the aperture's position must still be recorded somewhere in the Fourier transform - where?
-        \end{itemize}
+        Construct and align the Fourier imaging system, then check your predictions from the previous checkpoint by using the masks.
+    }
+    
+    \subsection{The Wild World of Fourier Transforms}
+    
+    We will now investigate some of the strange things we can make happen by interacting with the Fourier transform of the object.
+    
+    Install the wire grid object.
+    
+    \checkpoint{
+        Mask out all but a single row or column of dots.
+        What do you see on the screen?
+        Why?
+        What happens if you mask out all but a $\SI{45}{\degree}$ line of dots containing the central dot?
+    }
+    
+    \checkpoint{
+        Mask out all but the central dot.
+        What do you see on the screen?
+        This mask is a \emph{spatial frequency filter}.
+        Is it a high-pass filter, a low-pass filter, or a notch filter?
+    }
+    
+    \checkpoint{
+        Carefully install the glass phase-shifter over the central dot.
+        Rotate the chip to change the phase shift.
+        What do you see on the screen?
+    }
+    
+    Install the circular hole object.
+    
+    \checkpoint{
+        Move the hole around, and note that the Fourier transform (called an ``Airy disk'') does not appear to change.
+        However, the image on the screen will move!
+        How is the information about the position of the object being stored?
     }
 
     \newpage
