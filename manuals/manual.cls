@@ -6,8 +6,15 @@
 % standard graphics/image display packages
 \usepackage[dvipsnames]{xcolor}
 \RequirePackage{graphicx}
+
+% figures
 \RequirePackage{float}
+\RequirePackage{caption}
+\RequirePackage{subcaption}
 \RequirePackage{placeins}
+
+\floatplacement{figure}{thb}
+\floatplacement{table}{thb}
 
 % internal and external links
 \RequirePackage{hyperref}

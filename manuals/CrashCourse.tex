@@ -17,13 +17,16 @@
 
     \section*{Background}
 
-    
+    None!
 
     \section*{Equipment}
 
     For this lab, you will need:
     \begin{itemize}
-        \item a HeNe laser
+        \item a Helium-Neon (HeNe) laser
+        \item four optics mounting posts
+        \item two mirrors
+        \item two pinholes
     \end{itemize}
 
 
@@ -34,10 +37,37 @@
 
     \subsection{Beam Walking}
 
-    
+    \begin{figure}
+        \centering
+
+        \begin{tikzpicture}
+            \draw[thick, fill=gray!30] (-1, -0.5) rectangle ++(2, 1) node[midway] {Laser};
+
+            \draw[pattern = north west lines, rotate around = {-45:(3, 0)}] (3, -.5) rectangle ++(.1, 1) node[midway, below right] {Position Mirror};
+            \draw[pattern = north west lines, rotate around = {-45:(3, 3)}] (3, 2.5) rectangle ++(-.1, 1) node[midway, above left] {Angle Mirror};
+
+            \pgfmathsetmacro{\PinholeHalfWidth}{.5}
+            \pgfmathsetmacro{\PinholePosition}{7}
+            \pgfmathsetmacro{\PinholeSeparation}{3}
+
+            \draw[fill=gray!20] (\PinholePosition, 2.5) rectangle ++(.2, .9*\PinholeHalfWidth) node[at start, below] {Pinhole 1};
+            \draw[fill=gray!20] (\PinholePosition, 2.5 + 2*\PinholeHalfWidth) rectangle ++(.2, -.9*\PinholeHalfWidth);
+
+            \draw[fill=gray!20] (\PinholePosition + \PinholeSeparation, 2.5) rectangle ++(.2, .9*\PinholeHalfWidth) node[at start, below] {Pinhole 2};
+            \draw[fill=gray!20] (\PinholePosition + \PinholeSeparation, 2.5 + 2*\PinholeHalfWidth) rectangle ++(.2, -.9*\PinholeHalfWidth);
+
+            \draw[veryneararrow={stealth}, midarrow={stealth}, veryfararrow={stealth}] (1, 0) -- (3, 0) -- (3, 3) -- (\PinholePosition + \PinholeSeparation + 1, 3);
+        \end{tikzpicture}
+
+        \caption{A setup for practicing beam walking.}
+
+        \label{fig:beam-walking}
+    \end{figure}
 
     \checkpoint{
         Send the laser beam through both pinholes.
     }
+
+    \subsection{Polarization of Light}
 
 \end{document}
