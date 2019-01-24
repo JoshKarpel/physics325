@@ -59,7 +59,6 @@
     \end{align}
     Note how the sign works: if $s_{\mathrm{o}}$ and $s_{\mathrm{i}}$ are both positive (i.e., they are on opposite sides of the lens), then the magnification is \textit{negative}, and the image is inverted relative to the object ($y_{\mathrm{i}}$ has the opposite sign of $y_{\mathrm{o}}$).
 
-
     \begin{figure}
         \centering
 
@@ -98,14 +97,15 @@
         \label{fig:thin-lens}
     \end{figure}
 
-
     \section*{Equipment}
 
     For this lab, you will need:
     \begin{itemize}
+        \item A two-meter optical rail.
         \item A converging thin lens.
         \item A diverging thin lens.
-        \item An object projector system.
+        \item Two object projectors (one creates the object, the other is inverted and picks-off the image). 
+        \item A lamp.
         \item A ``conversion'' lens for the object projector.
         \item A ground-glass screen.
         \item A ruler and/or calipers.
@@ -116,6 +116,40 @@
     \newpage
 
     \section*{Procedure}
+    
+    \subsection{Object Projector Setup}
+    
+    The core device in this experiment an \emph{object projector}, which will let you generate an ``object'' in the air without the need of a physical object placed at that location.
+    This will let us do things like smoothly move the object through the lens.
+    We will view images on a small disk of ground glass.
+    
+    \begin{figure}
+        \centering
+        
+        \begin{tikzpicture}
+            \draw[ultra thick] (-3, 0) -- ++(0, -4) -- ++(6, 0) -- ++(0, 4) node[circle, fill, inner sep=2pt] {};
+            \draw[ultra thick] (-1.5, 0) -- ++(0, -2.5) -- ++(3, 0) -- ++(0, 2.5) node[circle, fill, inner sep=2pt] {};
+            \draw[ultra thick] (-.75, 0) -- ++(0, -1.5) -- ++(1.5, 0) -- ++(0, 1.5) node[circle, fill, inner sep=2pt] {};
+        \end{tikzpicture}
+
+        \caption{
+            The projected object that we will be imaging.
+        }
+
+        \label{fig:projected-object}
+    \end{figure}
+    
+    Here's the procedure to set up the imaging system on the optical rail:
+    \begin{enumerate}
+        \item Attach the lamp and projector to the optical rail and turn the lamp on.
+        \item Attach the ground-glass disk to the slide and move it until you see the object shown in Figure~\ref{fig:projected-object} appear on it.
+        This is the location of the object.
+        The rod can be used to indicate the position of the object during an experiment (since the ground-glass disk will need to be elsewhere).
+        \item Attach the thin converging lens to the optical rail.
+        An image should form in the air: locate it using the ground-glass disk.
+        \item Place the image pick-off (same device as the object projector, but facing the opposite way) to the rail and move it until the image forms on the screen.
+    \end{enumerate}
+
 
     \subsection{Converging Lens}
 
