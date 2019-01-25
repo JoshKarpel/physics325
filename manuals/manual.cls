@@ -75,8 +75,8 @@
 \ExplSyntaxOff
 
 % black magic: use --dirty==-dirty.tex to make pdflatex not append a .tex to the command, then use substring later to remove the ".tex" from the output
-\captureshell[\commithash]{git describe --always --dirty=-dirty.tex}
-\captureshell[\commitdate]{git log -1 --pretty=format:"%x28%ad%x29" --date=short .}
+%\captureshell[\commithash]{git describe --always --dirty=-dirty.tex}
+%\captureshell[\commitdate]{git log -1 --pretty=format:"%x28%ad%x29" --date=short .}
 
 % set headers and footers
 \RequirePackage{lastpage}  % figure out number of last page
@@ -86,7 +86,7 @@
 \lhead{\MyTitle}
 \chead{}
 \rhead{\@course}
-\lfoot{\footnotesize \ttfamily Compiled on \MyDate{} from commit \substring{\commithash}{1}{$-5} \commitdate}
+%\lfoot{\footnotesize \ttfamily Compiled on \MyDate{} from commit \substring{\commithash}{1}{$-5} \commitdate}
 \cfoot{}
 \rfoot{Page \thepage/\pageref*{LastPage}}
 \renewcommand{\headrulewidth}{0.0pt}
