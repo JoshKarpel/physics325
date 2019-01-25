@@ -223,10 +223,6 @@
 \def\numberline#1{\if\relax#1\relax\else\latex@numberline{#1}\fi}
 %\makeatother
 
-% make emph bold instead of italic
-\let\emph\relax % there's no \RedeclareTextFontCommand
-\DeclareTextFontCommand{\emph}{\bfseries}
-
 % checkpoint boxes
 \RequirePackage[most]{tcolorbox}
 

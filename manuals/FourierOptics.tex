@@ -78,7 +78,7 @@
         E(x) &= \frac{e^{i k r}}{r} \, \int^{\infty}_{-\infty} \dd{w} E(z_0, w) \, e^{-i k_w \, w}.
     \end{align}
     That's a Fourier transform!
-    Apparently, diffracting off of an obstructing object produces a far-field image based on the amplitudes of the different \emph{spatial frequency components}, or \emph{wavenumbers}, of the obstructing object's perpendicular features (denoted $k_w$, with units of inverse length, just like time-based frequency has units of inverse time).
+    Apparently, diffracting off of an obstructing object produces a far-field image based on the amplitudes of the different \textbf{spatial frequency components}, or \textbf{wavenumbers}, of the obstructing object's perpendicular features (denoted $k_w$, with units of inverse length, just like time-based frequency has units of inverse time).
 
     This agrees with what we learned in the Diffraction lab by doing the integral manually, because the Fourier transform of a rectangle is a $\sinc$ function.
     When we shone light on a rectangular slit the intensity pattern we observed was $\sinc^2$, so the underlying electric field must have been a $\sinc$.
@@ -89,9 +89,9 @@
     Lenses 1 and 2 and the pinhole form a ``spatial filter'' system, which cleans up the input beam.
     The beam then passes through the object, which acts just like the slits we have been using up until now (except, of course, that the pattern is more complicated).
     The achromatic lens pulls the far-field into the near-field, placing it on the lower prism's upper surface.
-    
+
     At this point the intensity pattern is the Fourier transform of the object, and we will in fact be able to see it on the surface of the prism.
-    But, we just produced a (virtual) object in the new near-field, so if we let the beam keep propagating, we can eventually get it to Fourier transform \emph{again}.
+    But, we just produced a (virtual) object in the new near-field, so if we let the beam keep propagating, we can eventually get it to Fourier transform \textbf{again}.
     The doubly-Fourier-transformed image is picked up using the mirror and screen after the prism pair.
     This is an interesting addition to the setup: we can modify the Fourier transform in the near-field and see the results in the far-field.
 
@@ -311,35 +311,35 @@
     \checkpoint{
         Construct and align the Fourier imaging system, then check your predictions from the previous checkpoint by using the masks.
     }
-    
+
     \subsection{The Wild World of Fourier Transforms}
-    
+
     We will now investigate some of the strange things we can make happen by interacting with the Fourier transform of the object.
-    
+
     Install the wire grid object.
-    
+
     \checkpoint{
         Mask out all but a single row or column of dots.
         What do you see on the screen?
         Why?
         What happens if you mask out all but a $\SI{45}{\degree}$ line of dots containing the central dot?
     }
-    
+
     \checkpoint{
         Mask out all but the central dot.
         What do you see on the screen?
-        This mask is a \emph{spatial frequency filter}.
+        This mask is a \textbf{spatial frequency filter}.
         Is it a high-pass filter, a low-pass filter, or a notch filter?
     }
-    
+
     \checkpoint{
         Carefully install the glass phase-shifter over the central dot.
         Rotate the chip to change the phase shift.
         What do you see on the screen?
     }
-    
+
     Install the circular hole object.
-    
+
     \checkpoint{
         Move the hole around, and note that the Fourier transform (called an ``Airy disk'') does not appear to change.
         However, the image on the screen will move!

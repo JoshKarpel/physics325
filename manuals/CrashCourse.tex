@@ -39,17 +39,17 @@
     \newpage
 
     \section*{Procedure}
-    
+
     \subsection{Optical Table Experiments}
-    
+
     An optical table is a purpose-built platform for building optics setups.
     It features a regular grid of screw holes for securing optical elements.
     The grid can also be used to help align beams.
 
     \subsubsection{Beam Walking}
-    
+
     As we'll see throughout this course, where and with what angle light hits a target is often of great importance.
-    \emph{Beam walking} is the art of getting a laser beam to be where you want it to be.
+    \textbf{Beam walking} is the art of getting a laser beam to be where you want it to be.
     Two mirrors are often sufficient to change the transverse position and alignment of a beam.
     The incoming beam, mirrors, and target are set up in a ``Z'' arrangement, as shown in Figure~\ref{fig:beam-walking}.
 
@@ -79,16 +79,16 @@
 
         \label{fig:beam-walking}
     \end{figure}
-    
+
     In this experiment, we will send a laser beam through two narrow pinholes.
     The first pinhole defines a position that the beam must pass through, and the second pinhole defines an angle that it must through that it must pass through that position at.
-    
-    If the first pinhole is close to the second mirror, then each mirror controls just one degree of freedom. 
+
+    If the first pinhole is close to the second mirror, then each mirror controls just one degree of freedom.
     The mirror closer to the laser control the position, and the mirror closer to the pinholes controls the angle.
-    
+
     To ``walk'' the beam from some initial position and angle to the desired position and angle, you must iteratively adjust both mirrors.
     Repeat the procedure below until the beam is aligned (read the entire procedure before beginning):
-    
+
     \begin{enumerate}
         \item Adjust the horizontal and vertical knobs on the position mirror until the beam passes through the first pinhole.
         \item The beam will now most likely not be passing through the second pinhole.
@@ -102,16 +102,16 @@
     }
 
     \subsubsection{Interference}
-    
-    One of the most useful properties of light as a wave is that it exhibits \emph{interference}.
+
+    One of the most useful properties of light as a wave is that it exhibits \textbf{interference}.
     When two light sources overlap, their electrics fields are added together.
     Depending on the relative phases of the fields, this can either increase or decrease the intensity of the light.
     Although rarely seen in daily life, interference is commonly used in the laboratory to measure the properties of light itself.
-    
+
     To see interference, we will construct a crude Michelson interferometer, as shown in Figure~\ref{fig:crude-michelson}.
     The interferometer overlaps a beam of light with itself through a special arrangement of mirrors.
     Later in the semester, we'll use a pre-built Michelson interferometer to examine interference in more depth.
-    
+
     \begin{figure}
         \centering
 
@@ -120,19 +120,19 @@
 
             \draw[pattern = north west lines, rotate around = {-45:(3, 0)}] (3, -.5) rectangle ++(.1, 1) node[midway, below right] {Position Mirror};
             \draw[pattern = north west lines, rotate around = {-45:(3, 3)}] (3, 2.5) rectangle ++(-.1, 1) node[midway, above left] {Angle Mirror};
-            
+
             \draw[rotate around = {-45:(7, 3)}] (7, 2.5) rectangle ++(-.3, 1) node[midway, above left] {Beamsplitter};
-            
+
             \draw[pattern = vertical lines] (6.5, 1) rectangle ++(1, -.1) node[midway, below] {MR};
             \draw[pattern = horizontal lines] (9, 2.5) rectangle ++(.1, 1) node[midway, right] {MT};
-            
+
             \draw[veryneararrow={stealth}, midarrow={stealth}, veryfararrow={stealth}] (1, 0) -- (3, 0) -- (3, 3) -- (7, 3);
             \draw[neararrow={stealth}] (7, 3) -- (7, 1);
             \draw[neararrow={stealth}] (7, 1) -- (7, 3);
             \draw[neararrow={stealth}] (7, 3) -- (9, 3);
             \draw[neararrow={stealth}] (9, 3) -- (7, 3);
             \draw[midarrow={stealth}] (7, 3) -- (7, 5);
-            
+
             \draw (6.5, 5) rectangle ++(1, .2) node[midway, above] {Screen};
         \end{tikzpicture}
 
@@ -140,7 +140,7 @@
 
         \label{fig:crude-michelson}
     \end{figure}
-    
+
     To construct the crude Michelson interferometer, follow these steps:
     \begin{enumerate}
         \item Open the irises of your pinholes.
@@ -153,29 +153,29 @@
         \item Hold a piece of paper opposite the mirror MR.
         You should see four points of light (if you see six or eight, then MT is not aligned well enough).
         Adjust MR until the four points overlap and become two points of light.
-        As you do this, you should see bands of light, called \emph{interference fringes}, appear around the bright spots of the laser beams.
+        As you do this, you should see bands of light, called \textbf{interference fringes}, appear around the bright spots of the laser beams.
     \end{enumerate}
-    
+
     The bright bands are where the two beams are interfering ``constructively'', increasing the intensity.
     In the dark bands, the beams interfere ``destructively'', decreasing the intensity.
     If you tap or lightly push on the backs of the mirrors, the patterns will shift.
-    
+
     \checkpoint{
         Construct the crude Michelson interferometer and observe interference fringes.
     }
-        
+
     \subsection{Optical Rail Experiments}
-    
+
     An optical rail is a useful tool for a teaching laboratory.
     Optical elements can be mounted on sliding posts that can be locked into position.
     There is a ruler along one side of the rail to help make distance measurements.
-    
+
     \subsubsection{Imaging an Object}
-    
+
     On the long rail, we have set up an ``object projector'' system.
     The object projector is a monolithic tube with an opaque pattern in it as well as a lens.
     When light is shone through the back of the tube, the lens produces an image of the pattern in front of the projector.
-    
+
     In the next few weeks, we will use this setup to quantitatively characterize thin converging and diverging lenses.
     For now, we'll just verify its basic functionality:
     \begin{enumerate}
@@ -184,44 +184,43 @@
         \item Attach the converging lens to the optical rail about a foot further down the rail from the projector than the screen is.
         \item Move the screen behind the lens, and look for an image.
     \end{enumerate}
-    
+
     You have just formed an image \textit{of an image}!
     Although in daily life we are most familiar with a single lens producing an image of a physical object, devices like camera lenses and telescopes are often composed of multiple lenses.
-    
+
     \checkpoint{
         Produce an image of an image on your ground-glass screen.
     }
-    
+
     \subsubsection{Focusing Light}
-    
+
     Turn your attention to the short rail.
-    We often think of the light coming from a laser as being a straight-sided cylinder, but in reality, most lasers produce a \emph{Gaussian beam}.
+    We often think of the light coming from a laser as being a straight-sided cylinder, but in reality, most lasers produce a \textbf{Gaussian beam}.
     The width of a Gaussian beam changes as it propagates, in ways that are perhaps counterintuitive.
-    In this experiment we will observe this.
-    
+
     To see the width changing by eye, we will need to start with a large beam.
     Attach the telescope to the rail and align it such that laser beam passes through it.
     Hold a piece of paper up at various points along the beam and observe that the beam size does not change very much.
-    We say that this beam is \emph{collimated}.
-    
+    We say that this beam is \textbf{collimated}.
+
     Now we will un-collimate the beam and observe how the width changes as the beam propagates:
     \begin{enumerate}
         \item Attach the thin converging lens to the rail about an inch after the telescope.
         \item Adjust the positions of the telescope and lens so that the laser beam passes cleanly through the telescope and the center of the lens.
         \item Attach the ground-glass screen to the rail after the lens and find the point where the width of the beam is smallest.
-        This is called the \emph{waist} of the Gaussian beam.
+        This is called the \textbf{waist} of the Gaussian beam.
         The width of the beam increases in \textit{both directions} as you move away from the waist!
     \end{enumerate}
-    
+
     \checkpoint{
         Find the waist of the Gaussian beam.
     }
-    
+
     \subsubsection{Diffraction}
-    
+
     When light interacts with an object with small features, those small features change the way the light propagates in measurable ways.
-    For example, when light passes through a small opening it forms a \emph{diffraction pattern}.
-    
+    For example, when light passes through a small opening it forms a \textbf{diffraction pattern}.
+
     To see diffraction, we will use an adjustable-width narrow slit:
     \begin{enumerate}
         \item Remove the lens from the optical rail.
@@ -231,7 +230,7 @@
         \item Slowly decrease the width of the adjustable slit until it is closed, observing what happens to the light on the screen.
         Once the slit becomes fairly small, you should see a diffraction pattern form.
     \end{enumerate}
-    
+
     \checkpoint{
         Adjust the slit until you have a diffraction pattern with about a dozen blobs of light on the screen.
     }

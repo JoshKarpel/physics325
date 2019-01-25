@@ -12,7 +12,7 @@
 
     \section{Motivation}
 
-    One of the most fundamental optical phenomena is \emph{spatial interference}.
+    One of the most fundamental optical phenomena is \textbf{spatial interference}.
     This type of interference can occur whenever multiple coherent light sources (i.e., phase-stable relative to each other) are imaged at the same location in space.
     Engineered optical setups like the Michelson interferometer let us use spatial interference to measure the microscopic properties of light in well-controlled conditions.
     Advanced optical technologies like thin-film coatings also rely on spatial interference.
@@ -22,9 +22,9 @@
 
     \section{Background}
 
-    In this lab we will investigate what is perhaps the most common spatial interference phenomena: \emph{diffraction}.
+    In this lab we will investigate what is perhaps the most common spatial interference phenomena: \textbf{diffraction}.
     Diffraction occurs when light is forced to travel through an aperture.
-    The first aperture we will consider is a \emph{slit}, a rectangular hole in an otherwise-opaque barrier.
+    The first aperture we will consider is a \textbf{slit}, a rectangular hole in an otherwise-opaque barrier.
     The situation is illustrated in Figure~\ref{fig:single-slit-diffraction-geometry}.
 
     \begin{figure}
@@ -75,7 +75,7 @@
         \label{fig:single-slit-diffraction-geometry}
     \end{figure}
 
-    To determine what we see on the screen (i.e., $I(x) = \abs{E(x)}^2 = E(x) \, E^*(x)$, called the ``intensity pattern'' or ``diffraction pattern''), we will use \emph{Huygen's Principle}, which says that we can treat each point in the plane of the rectangular hole as an independent spherical emitter.
+    To determine what we see on the screen (i.e., $I(x) = \abs{E(x)}^2 = E(x) \, E^*(x)$, called the ``intensity pattern'' or ``diffraction pattern''), we will use \textbf{Huygen's Principle}, which says that we can treat each point in the plane of the rectangular hole as an independent spherical emitter.
     To determine the electric field anywhere, we sum over the contributions from each point (after making some approximations which we won't describe in detail here):
     \begin{align}
         E(z, x) &= \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, \frac{e^{i k r}}{r},
@@ -88,8 +88,8 @@
     \end{align}
 
     This integral is not tractable without making some assumptions.
-    We will assume that we are in the \emph{far-field}: $L \gg W$.
-    This type of diffraction is called \emph{Fraunhofer diffraction}.
+    We will assume that we are in the \textbf{far-field}: $L \gg W$.
+    This type of diffraction is called \textbf{Fraunhofer diffraction}.
     We can now approximate the square root in the exponent as
     \begin{align} \label{eqn:fraunhoffer-square-root-approx}
         \sqrt{(s-x)^2 + L^2} = \sqrt{w^2 + x^2 - 2wx + L^2} = r \, \sqrt{1 + \frac{-2wx + w^2}{r^2}} \approx r \qty(1 - \frac{wx}{r^2}),
@@ -263,7 +263,7 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
         \qquad \qquad
         \nu_{\mathrm{max}} = \qty(\frac{W}{2} - x) \sqrt{\frac{2}{r \lambda}}.
     \end{align}
-    This type of diffraction is called \emph{Fresnel diffraction}.
+    This type of diffraction is called \textbf{Fresnel diffraction}.
 
     \checkpoint{
         Compare the theoretical expression for Fresnel diffraction (Equation~\eqref{eqn:fresnel-diffraction}) to your real setup.

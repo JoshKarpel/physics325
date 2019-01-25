@@ -29,7 +29,7 @@
     When a voltage is applied to the piezo, it expands.
     By applying an oscillating voltage from a radio-frequency (RF) source, we can make the piezo oscillate.
     If we carefully choose a crystal with an index of refraction that changes when it is compressed, we will have a crystal whose index of refraction varies over time at ``electronic'' frequencies (\si{\mega\hertz} or \si{\giga\hertz}).
-    When light passes through this crystal, it will gain additional frequency components, called \emph{sidebands}, separated from the original frequency by integer multiples of whatever \emph{modulation frequency} the crystal is driven at.
+    When light passes through this crystal, it will gain additional frequency components, called \textbf{sidebands}, separated from the original frequency by integer multiples of whatever \textbf{modulation frequency} the crystal is driven at.
 
     Alternatively, one can think of the light as diffracting off of a sound wave in the crystal, or of the photons scattering off of phonons.
     Any of these pictures work, but for this lab, the important result is the angle that the diffracted light exits the crystal at:
@@ -38,7 +38,7 @@
     \end{align}
     where $\lambda$ is the wavelength of the light in vacuum, $\Delta f$ is the modulation frequency, and $v$ is the speed of sound in the crystal.
     Each sideband will come out of the AOM deflected by an angle $n \, \Delta \theta$ with frequency $f_0 + n \, \Delta f$, where $f_0$ is the original frequency.
-    The integer $n$ is the \emph{order number}.
+    The integer $n$ is the \textbf{order number}.
     Note that $n$ may be negative!
     Multiple orders in both directions may be visible.
     Most AOMs are engineered so that most of the power goes into the $+1$ or $-1$ order.
@@ -95,7 +95,7 @@
     \end{itemize}
 
     \noindent
-    \emph{Never run the RF sources without a load!} Running the sources without loads can severely damage them.
+    \textbf{Never run the RF sources without a load!} Running the sources without loads can severely damage them.
 
     \FloatBarrier
     \newpage
@@ -138,21 +138,21 @@
 
     \subsection{Rise Time}
 
-    An alternate way of measuring the bandwidth of the AOM is to measure its \emph{rise time} when operating as an \emph{optical switch}.
+    An alternate way of measuring the bandwidth of the AOM is to measure its \textbf{rise time} when operating as an \textbf{optical switch}.
     This is itself a useful way to use the AOM: turning a laser beam on or off.
     Today, our main interest in this measurement is that the rise time is the inverse of the bandwidth.
-    
+
     To see why, recall that the bandwidth of the AOM essentially measures the highest frequency that it can operate at with reasonable efficiency.
     When the AOM is turned on it tries to jump from ``no output'' to ``full output'' instantly.
     Since it can't do that, it responds as quickly as possibly, and the speed of this response is limited by the fastest sine wave it can operate efficiently with (think Fourier!).
-    
+
     Set up a photodiode to measure the power from the $+1$ order.
     Set up the oscilloscope to trigger a single shot from a rising voltage and hook it up to the photodiode.
 
     \checkpoint{
         Turn the AOM off and on to trigger the oscilloscope and observe the rise of the $+1$ order.
         \begin{itemize}
-            \item Roughly how long does it take the AOM to turn on? 
+            \item Roughly how long does it take the AOM to turn on?
             \item What shape is the curve? What quantity corresponds to the rise time?
             \item Does your measurement of the rise time agree with your previous measurement of the bandwidth?
         \end{itemize}
