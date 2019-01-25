@@ -44,7 +44,7 @@
     Only two need to be drawn to locate the image in two dimensions.
     Note that these are not literally the paths of the principal rays through the system, but only a (good) approximation for a very thin lens.
 
-    We see that there are several similar triangles formed by the object and image and the various distances, so we have
+    There are several similar triangles formed by the object and image and the various distances, so we have
     \begin{align}
         \frac{y_{\mathrm{o}}}{\abs{y_{\mathrm{i}}}} = \frac{f}{x_{\mathrm{i}}} = \frac{x_{\mathrm{o}}}{f} = \frac{s_{\mathrm{o}}}{s_{\mathrm{i}}}.
     \end{align}
@@ -142,13 +142,17 @@
 
     Here's the procedure to set up the imaging system on the optical rail and confirm that they are working as intended:
     \begin{enumerate}
-        \item Attach the lamp and projector to the optical rail and turn the lamp on.
-        \item Attach the ground-glass disk to the slide and move it until you see the object shown in Figure~\ref{fig:projected-object} appear on it.
-        This is the location of the object.
-        The rod can be used to indicate the position of the object during an experiment (since the ground-glass disk will need to be elsewhere).
+        \item Attach the lamp and projector to the optical rail and plug the lamp into the power supply.
+        \item Attach the ground-glass disk to the rail and move it until you see the object shown in Figure~\ref{fig:projected-object} appear on it in sharp focus.
+        This is the location of the image.
+        Move the metal rod so that it can be used to indicate the position of the object during an experiment (since the ground-glass disk will need to be elsewhere).
         \item Attach the thin converging lens to the optical rail.
-        An image should form in the air: locate it using the ground-glass disk.
-        \item Place the image pick-off (same device as the object projector, but facing the opposite way) to the rail and move it until the image forms on the plastic screen on the back of the tube.
+        The image of the original object will now act as a new object for the converging lens.
+        An image should form in the air on the far side of the lens: locate it using the ground-glass disk.
+        \item Remove the ground-glass disk.
+        Attach the image pick-off (same device as the object projector, but facing the opposite way) to the rail and move it until the image forms on the plastic screen on the back of the tube.
+        \item Remove the converging lens and move the image pick-off until a sharp image appears on the plastic screen.
+        Adjust the metal rod on the image pick-off until its end is at the same position as the end of the rod from the object projector.
     \end{enumerate}
 
     \subsection{Converging Lens}
@@ -156,7 +160,7 @@
     \subsubsection{Measuring the Focal Length}
 
     One way to measure the focal length of a thin lens is to find the distance where incoming parallel rays converge to a single point after passing through it, as shown in Figure~\ref{fig:object-at-infinity}.
-    Slip the conversion lens over the object projector to move the object out to infinity, and then move the ground-glass screen back and forth to determine the position of sharpest focus.
+    Slip the conversion lens over the object projector to collimate it (move the image out to infinity), and then move the ground-glass screen back and forth behind the converging lens to determine the position of sharpest focus.
 
     \checkpoint{
         Measure the focal length of your thin converging lens using an object at infinity.
@@ -186,6 +190,7 @@
 
     \subsubsection{Real Object Magnification}
 
+    Remove the conversion lens.
     Place the object at distance $s_{\mathrm{o}} = \frac{3}{2} f$, as shown in Figure~\ref{fig:3/2f}.
 
     \checkpoint{
@@ -195,14 +200,23 @@
                 Compare your result to the expected position (Equation \eqref{eqn:lens-equation}).
             \item Measure the magnification $m$.
                 Compare your result to the expected magnification (Equation \eqref{eqn:magnification}).
-            \item Is the image real or virtual? Is it upright or inverted?
-            \item Move the object closer to the principal focus ($\mathrm{PF_o}$).
-                Explain your observations.
-                What happens to the magnification?
-                What happens when the object is exactly at the principal focus?
+            \item Is the image real or virtual? 
+                Is it upright or inverted?
         \end{itemize}
     }
-
+    
+    \checkpoint{
+        Determine the object position that gives $m = 1$.
+        \begin{itemize}
+            \item Measure the location of the image $s_{\mathrm{i}}$.
+                Compare your result to the expected position.
+            \item Measure the magnification $m$.
+                Is it really $1$?
+            \item Does the magnification increase or decrease if you move the lens further away from the object?
+                Is $m = 1$ the minimum magnification?
+        \end{itemize}
+    }
+    
     \begin{figure}
         \centering
 
@@ -227,62 +241,19 @@
         \label{fig:3/2f}
     \end{figure}
 
-    \subsubsection{Real Object Minification}
-
-    Place the object at distance $s_{\mathrm{o}} = 3f$, as shown in Figure~\ref{fig:3f}.
-
-    \checkpoint{
-        Investigate the properties of the image in this regime.
-        \begin{itemize}
-            \item Measure the location of the image $s_{\mathrm{i}}$.
-                Compare your result to the expected position.
-            \item Measure the magnification $m$.
-                Compare your result to the expected magnification.
-            \item Is the image real or virtual?
-                Is it upright or inverted?
-        \end{itemize}
-    }
-
-    \begin{figure}
-        \centering
-
-        \begin{tikzpicture}
-            \draw[dashed] (-7, 0) -- (4, 0) node[left, at start] {$\mathrm{OA}$};
-
-            \clens{0}{10}{2}{0.05}
-
-            \object{-6}{1}
-
-            \draw[|<->|, dashed] (-6, -.5) -- (-2, -.5) node[midway, below] {$2f$};
-            \draw[<->, dashed] (-2, -.5) -- (0, -.5) node[midway, below] {$f$};
-            \draw[<->|, dashed] (0, -.5) -- (2, -.5) node[midway, below] {$f$};
-
-            \draw[fill] (-2, 0) circle (2pt) node[above] {$\mathrm{PF_o}$};
-            \draw[fill] (2, 0) circle (2pt) node[above] {$\mathrm{PF_i}$};
-        \end{tikzpicture}
-
-        \caption{
-            Imaging a real object at distance $s_{\mathrm{o}} = 3f$ with a thin converging lens.
-        }
-
-        \label{fig:3f}
-    \end{figure}
-
     \subsubsection{Real Object Within $f$}
 
     Place the object at distance $s_{\mathrm{o}} = \frac{2}{3} f$, as shown in Figure~\ref{fig:2/3f}.
+    Since the image is now virtual, you will need to use the image pick-off to see it.
 
     \checkpoint{
         Investigate the properties of the image in this regime.
         \begin{itemize}
             \item Measure the location of the image $s_{\mathrm{i}}$.
-                Compare your result to the expected position.
+                Is it where you expected it to be?
             \item Measure the magnification $m$.
-                Compare your result to the expected magnification.
-            \item Is the image real or virtual? Is it upright or inverted?
-            \item Move the object closer to the principal plane (PP).
-                Explain your observations.
-                What happens when the object is exactly in the principal plane?
+                Is it what you expected it to be?
+            \item Is the image upright or inverted?
         \end{itemize}
     }
 
@@ -320,15 +291,11 @@
         Investigate the properties of the image in this regime.
         \begin{itemize}
             \item Measure the location of the image $s_{\mathrm{i}}$.
-                Compare your result to the expected position.
+                Is it where you expected it to be?
             \item Measure the magnification $m$.
-                Compare your result to the expected magnification.
+                Is it what you expected it to be?
             \item Is the image real or virtual?
                 Is it upright or inverted?
-            \item Move the object closer to the principal plane (PP).
-                Explain your observations.
-            \item Move the object further from the principal plane (PP), heading out to ${s_{\mathrm{o}} \to -\infty}$.
-                Explain your observations.
         \end{itemize}
     }
 
@@ -402,67 +369,21 @@
         \label{fig:object-at-infinity-diverging}
     \end{figure}
 
-    \subsubsection{Virtual Object Magnification}
+    \subsubsection{Real Object Magnification}
 
-    Create a virtual object at $s_o = -\frac{3}{2}f$.
+    Create a real object at $s_o = \frac{3}{2} \abs{f}$.
 
     \checkpoint{
         Investigate the properties of the image in this regime.
         \begin{itemize}
             \item Measure the location of the image $s_{\mathrm{i}}$.
-                Compare your result to the expected position.
+                Is it where you expected it to be?
             \item Measure the magnification $m$.
-                Compare your result to the expected magnification.
-            \item Is the image real or virtual? Is it upright or inverted?
+                Is it what you expected it to be?
+            \item Is the image real or virtual? 
+                Is it upright or inverted?
             \item Move the object closer to the principal focus ($\mathrm{PF_i}$).
-                Explain your observations.
-        \end{itemize}
-    }
-
-    \subsubsection{Virtual Object Minification}
-
-    Create a virtual object at $s_o = -3 f$.
-
-    \checkpoint{
-        Investigate the properties of the image in this regime.
-        \begin{itemize}
-            \item Measure the location of the image $s_{\mathrm{i}}$.
-                Compare your result to the expected position.
-            \item Measure the magnification $m$.
-                Compare your result to the expected magnification.
-            \item Is the image real or virtual? Is it upright or inverted?
-        \end{itemize}
-    }
-
-    \subsubsection{Virtual Object within $f$}
-
-    Create a virtual object at $s_o = -\frac{2}{3} f$.
-
-    \checkpoint{
-        Investigate the properties of the image in this regime.
-        \begin{itemize}
-            \item Measure the location of the image $s_{\mathrm{i}}$.
-                Compare your result to the expected position.
-            \item Measure the magnification $m$.
-                Compare your result to the expected magnification.
-            \item Is the image real or virtual? Is it upright or inverted?
-            \item Move the object closer to the principal plane.
-                Explain your observations.
-        \end{itemize}
-    }
-
-    \subsubsection{Imaging a Real Object}
-
-    Create a real object at $s_o = 2 f$.
-
-    \checkpoint{
-        Investigate the properties of the image in this regime.
-        \begin{itemize}
-            \item Measure the location of the image $s_{\mathrm{i}}$.
-            Compare your result to the expected position.
-            \item Measure the magnification $m$.
-            Compare your result to the expected magnification.
-            \item Is the image real or virtual? Is it upright or inverted?
+                What happens?
         \end{itemize}
     }
 
