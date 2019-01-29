@@ -14,25 +14,26 @@
 
     \section*{Motivation}
 
-    Although thin lenses are far more common, thick lenses have some situationally desirable attributes.
-    For example, they can provide much higher optical power ($P = \frac{1}{f}$) with less delicate construction than a multi-thin-lens optical system.
+    Although thin lenses are far more common in the lab, thick lenses have some situational uses and are  more common in consumer devices.
+    They can provide much higher optical power ($P = 1/f$) with less delicate construction than a multi-thin-lens optical system.
     For example, one of the thick lenses we will work with in this lab is a World War 2 bomb sight.
     A single thick lens was (apparently) much easier to design around than what would likely be a complicated arrangement of thin lenses.
-    People with particularly poor eyesight typically wear glasses with very thick lenses - again, it would be much harder to build glasses that held a system of thin lenses with the same optical power.
+    As another example, people with particularly poor eyesight typically wear glasses with very thick lenses.
+    Again, it would be much harder to build glasses that held a system of thin lenses with the same optical power than to build glasses that hold a single, thicker lens.
 
     \section*{Background}
 
-    A thick lens can be modeled as a pair of thin lenses separated by a ``gap'' of length $a$.
+    A thick lens can be modeled as a pair of thin lenses with focal lengths $f_1$ and $f_2$, separated by an imaginary ``gap'' of length $a$.
     The combined system has an effective focal length $F$, measured from a pair of effective principal planes located at positions $b_1$ and $b_2$, as shown in Figure~\ref{fig:effective-thick-lens}.
-    The focal length and principal plane positions can be calculated from the focal length of the thin lenses and their separation:
+    The focal length and principal plane positions can be calculated from the focal lengths of the thin lenses and their separation:
     \begin{align}
         \frac{1}{F} &= \frac{1}{f_1} + \frac{1}{f_2} - \frac{a}{f_1 \, f_2} \\
         b_1 &= \frac{a \, F}{f_2} \\
         b_2 &= \frac{a \, F}{f_1}.
     \end{align}
 
-    To make ray-tracing diagrams with this effective thick lens, have your rays skip horizontally over the gap.
-    That is, when the ray touches the gap, it is as if it immediately exits the other side of the gap at the same relative position.
+    To make ray-tracing diagrams with this effective thick lens, have your rays skip horizontally between the principal planes.
+    That is, when the ray touches the first principal plane, it is as if it immediately exits the other principal at the same relative position.
     This effective lens system is illustrated in Figure~\ref{fig:effective-thick-lens}.
 
     \begin{figure}
@@ -114,9 +115,6 @@
 
     \checkpoint{
         Measure the position of both focal planes of both thick lenses using collimated light.
-        \begin{itemize}
-            \item Estimate the error in your measurements.
-        \end{itemize}
     }
 
     \begin{figure}
@@ -164,7 +162,7 @@
     \subsection{Measuring the Position of the Focal Planes using Autocollimation}
 
     One problem with the previous measurement is that we needed to use a collimated light source.
-    Some uncertainty is introduced by doing this - is our light source really collimated?
+    Some uncertainty is introduced by doing this -- is our light source really collimated?
 
     To avoid this issue, we can perform an autocollimation measurement.
     Autocollimation means ``self-collimating''.
@@ -176,8 +174,8 @@
     \checkpoint{
         Measure the position of both focal planes of both thick lenses using autocollimation.
         \begin{itemize}
-            \item Estimate the error in your measurements and compare them with your measurements from the previous section.
-            Do they agree?
+            \item Compare your measurements with your results from the previous section.
+                Do they agree?
         \end{itemize}
     }
 
@@ -228,7 +226,7 @@
 
     \subsection{Measuring the Focal Length and Locating the Principal Planes}
 
-    The reason that the previous measurements didn't give us the focal length $F$ is that that length is measured from inside the surface of the thick lens.
+    The reason that the previous measurements didn't give us the focal length $F$ is that that length is measured from the effective focal plane, which is inside the surface of the thick lens.
     To find the actual distance, we can perform an experiment like the one shown in Figure~\ref{fig:effective-thick-lens}.
     Image a point source through the lens onto the screen.
     By measuring the distances of the object and image from the surface of the lens, combined with your previous measurement of the position of the focal planes, you can determine the distances of the object and the image from the focal planes, $d_{\mathrm{o}}$ and $d_{\mathrm{i}}$.
