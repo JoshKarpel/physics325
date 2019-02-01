@@ -30,7 +30,7 @@
         \frac{1}{F} &= \frac{1}{f_1} + \frac{1}{f_2} - \frac{a}{f_1 \, f_2} \\
         b_1 &= \frac{a \, F}{f_2} \\
         b_2 &= \frac{a \, F}{f_1} \\
-        F &= x_0x_i.
+        F^2 &= x_0x_i.
     \end{align}
 
     To make ray-tracing diagrams with this effective thick lens, have your rays skip horizontally between the principal planes.
@@ -80,7 +80,7 @@
         \end{tikzpicture}
 
         \caption{
-            The effective thick lens optical system, made from two thin lenses.
+            The effective thick lens optical system, modeled as two thin lenses.
         }
 
         \label{fig:effective-thick-lens}
@@ -98,10 +98,8 @@
     \noindent
     You will also need:
     \begin{itemize}
-        \item A lamp.
-        \item A thin lens.
-        \item A screen.
-        \item A pinhole.
+        \item A lamp (a long black tube with a camera lens mounted to the front), with power supply.
+        \item A white screen.
     \end{itemize}
 
 
@@ -112,14 +110,14 @@
 
     \subsection{Measuring the Position of the Focal Planes using an Object at Infinity}
 
-    Our first goal is to measure the position of the focal planes relative to the surface of the lens.
+    Our first goal is to measure the position of the focal planes relative to some position.
     The \textbf{focal planes} are the planes parallel to the optical axis that contain the principle foci.
     Note that because the lens is thick, \textbf{this distance is not the focal length}.
     Send light from a lamp through a thin lens to create a collimated beam of light (i.e., an object at infinity) and shine it through the thick lens onto a screen, as illustrated in Figure~\ref{fig:object-at-infinity}.
     By moving the screen until the light is focused to the smallest point possible on it, we can identify the focal plane.
 
     \checkpoint{
-        Measure the position of both focal planes of both thick lenses using collimated light.
+        Measure the position of both focal planes of both thick lenses (relative to some fixed position on the lens) using collimated light.
     }
 
     \begin{figure}
@@ -169,15 +167,17 @@
     One problem with the previous measurement is that we needed to use a collimated light source.
     Some uncertainty is introduced by doing this -- is our light source really collimated?
 
-    To avoid this issue, we can perform an autocollimation measurement.
-    Autocollimation means ``self-collimating''.
-    The idea is to place a mirror behind the thick lens, and place a point source of light in front of it.
+    To avoid this issue, we can perform an \textbf{autocollimation} measurement.
+    Autocollimation means ``self-collimation''.
+    The idea is to place a mirror behind the thick lens and a point source of light in front of it.
     The point source passes through the lens, reflects off of the mirror, passes through the lens again, and returns to the plane of the point source.
     If the point source is at the focal plane, the returning light will form an image of the point source.
     This is illustrated in Figure~\ref{fig:autocollimation}.
+    
+    To get a point source, remove the camera lens from the front of the lamp by carefully unscrewing the two recessed screws that hold it in place.
 
     \checkpoint{
-        Measure the position of both focal planes of both thick lenses using autocollimation.
+        Measure the position of both focal planes of both thick lenses (relative to the same fixed positions as before) using autocollimation.
         \begin{itemize}
             \item Compare your measurements with your results from the previous section.
                 Do they agree?
@@ -250,7 +250,7 @@
     The height of this cone divided by its diameter is the $f$-number.
 
     \checkpoint{
-        Measure the $f$-number of both thick lenses.
+        Measure the $f$-numbers for both propagation directions of both thick lenses.
     }
 
     \begin{figure}
