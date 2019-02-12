@@ -68,33 +68,39 @@
          \label{fig:michelson-top-down}
     \end{figure}
 
-    In this diagram, M1 is the movable mirror, and its distance from the zero path difference configuration (where the path length in each ``arm'' of the interferometer is the same) is $d$.
+    In this figure \ref{fig:michelson-top-down}, M1 is the movable mirror, and its distance from the zero path length difference configuration (where the path length in each ``arm'' of the interferometer is the same) is $d$.  Since the light is reflected back the way it came the total path length difference that the observer sees will end up being $2d$.
     M2 is a tiltable mirror (tilt exaggerated on the diagram), with knobs that adjust the orientation (but not position) of the mirror.
 
     \begin{figure}
         \centering
 
         \begin{tikzpicture}
-            \draw[dashed] (0, 0) -- (8, 0);
-            \draw (8, -1) -- (8, 3) node[above, font = \footnotesize] {Observer};
+            \draw[dashed] (0, 0) -- (12, 0) node[centered, right] {I$_0$};
+            \draw (12, -1) -- (12, 3) node[above, font = \footnotesize] {Observer};
+            
+            \draw (6 + 2, -0.5) node[below] {M1} -- (6 + 2, 0.5);
+            \draw (7.5 + 2, -0.5) node[below] {M2} -- (7.5 + 2, 0.5);
+            \draw[dashed, |<->|] (6 + 2, 0.2) -- (7.5 + 2, 0.2) node[midway, above] {$d$};
+            
+            \draw (5.75, -0.5) -- (6.75, 0.5) node[below] at (6.25, -0.5) {BS};
 
-            \draw[midarrow=latex] (0, 0) node[below] {M1} -- (8, 2.5);
-            \draw[midarrow=latex] (3, 0) node[below] {M2} -- (8, 2.5);
+            \draw[midarrow=latex] (0, 0) node[below] {S1} -- (12, 2.5);
+            \draw[midarrow=latex] (3, 0) node[below] {S2} -- (12, 2.5);
 
-            \draw[dashed] (3,0) -- ++(107.35:0.894);
+            \draw[dashed] (3,0) -- ++(101.77:0.612);
 
-            \draw[dashed, |<->|] (0,-0.7) -- (3,-0.7) node[midway, below] {$d$};
+            \draw[dashed, |<->|] (0,-0.7) -- (3,-0.7) node[midway, below] {$2d$};
 
             \fill (0, 0) circle [radius=2pt];
             \fill (3, 0) circle [radius=2pt];
 
-            \draw[dashed, |<->|] (0 - .1,0 + .2) -- ++(17.35:2.8635 + .05) node[midway, above, rotate=17.35] {$2d\cos{\theta}$};
+            \draw[dashed, |<->|] (0 - .1,0 + .2) -- ++(11.77:3) node[midway, above, rotate=11.77] {$2d\cos{\theta}$};
 
-            \draw[domain=0:17.35] plot ({1.5*cos(\x)}, {1.5*sin(\x)});
-            \node[right] at (1.5, .25) {$\theta$};
+            \draw[domain=0:11.77] plot ({1.5*cos(\x)}, {1.5*sin(\x)});
+            \node[right] at (1.75, .2) {$\theta$};
 
-            \draw [domain=0:26] plot ({3+1.5*cos(\x)}, {1.5*sin(\x)});
-            \node[right] at (4.5, .4) {$\approx\theta$};
+            \draw [domain=0:15.52] plot ({3+1.5*cos(\x)}, {1.5*sin(\x)});
+            \node[right] at (4.5, .25) {$\approx\theta$};
         \end{tikzpicture}
 
         \caption{A diagram showing the ``unwrapped'' geometry of the Michelson interferometer.}
@@ -102,9 +108,9 @@
         \label{fig:michelson-unwrapped}
     \end{figure}
 
-    To determine what we see when we look down the interferometer, we need to ``unwrap'' the optical system into an equivalent linear system, shown in Figure~\ref{fig:michelson-unwrapped}.
-    From that diagram we see that the path difference between the arms at viewing angle $\theta$ is approximately $2d \cos{\theta}$ (the approximation is very good because $\cos{\theta} \approx 1$ for small angles).
-    The $2$ appear because the light needs to traverse each arm twice.
+    To determine what we see when we look down the interferometer, we need to ``unwrap'' the optical system into an equivalent linear system. Consider the light rays arriving at our eyes from one of the mirrors.  Our eyes do not register each change in direction of the rays.  Instead, our eyes perceive the light coming from the lamp in a straight line. We can model this behavior by simply tracing the rays straight back through the mirror and beam splitter back to the lamp.  When we do this for both of the mirrors, the path length difference, $d$, causes each mirror to produce its own image of the lamp, $S1$ and $S2$. The result is shown in Figure~\ref{fig:michelson-unwrapped}.
+    
+    If we make an observation from the location marked I$_0$ in Figure \ref{fig:michelson-unwrapped}, then the path length difference is $2d$ (remember that the light really travels the path length difference twice). However, if we make an observation from an angle $\theta$, we can see from Figure \ref{fig:michelson-unwrapped} that the path difference between the arms at viewing angle $\theta$ is approximately $2d \cos{\theta}$.
     When the path difference is an integer multiple of the wavelength, we get constructive interference and see a fringe:
     \begin{align}
     m \lambda = 2 d \cos{\theta},
@@ -115,13 +121,13 @@
     Note that this analysis \textit{does not} include the $\pi$ phase shift that occurs when light reflects from a material with a higher index of refraction (i.e., a mirror or piece of glass), and it does not account for how your eye focuses the incoming rays so that you can see them.
 
     Another powerful interferometric technique involves looking at the \textbf{fringe contrast}.
-    If two wavelengths of light are passed through the interferometer at the same time they will each produce their own independent fringe pattern (any time-domain interference between different wavelengths will oscillate at the difference in frequencies, which is typically not smaller than a few $\SI{}{\giga\hertz}$).
+    If two wavelengths of light are passed through the interferometer at the same time they will each produce their own independent fringe pattern.
 
     Since these fringe patterns are both visible at the same time but do not have the same wavelength, the same order number will not correspond to the same viewing angle.
     At $d=0$, the patterns will line up, since $d=0$ forces $m = 0$ for both patterns.
-    However, at $m_1=1$ for the first wavelength, $m_2$ will not be an integer, so the fringes will not line up.
-    As $d$ continues to increase the patterns will gradually move out of sync (whenever $m_1 \lambda_1 = \left(m_2+\frac{1}{2}\right) \lambda_2 = 2 d \sin{\theta}$) and back into sync (whenever $m_1 \lambda_1 = m_2 \lambda_2 = 2 d \sin{\theta}$).
-    We call these out-of-sync regions \textbf{contrast minima} because the field of view will wash out, with little distinction between dark and light regions. The in-sync regions are \textbf{contrast maxima}.
+    However, at $m_1=1$ for the first wavelength, $m_2$ will be ever so slightly different than 1, so the fringes will not line up.
+    As $d$ continues to increase the patterns will gradually move out of sync (whenever $m_1 \lambda_1 = \left(m_1+\frac{1}{2}\right) \lambda_2 = 2 d \sin{\theta}$) and back into sync (whenever $m_1 \lambda_1 = (m_1 + 1) \lambda_2 = 2 d \sin{\theta}$).
+    We call these out-of-sync regions \textbf{contrast minima} because bright fringes of $\lambda_1$ will be on top of the dark fringes of $\lambda_2$. The in-sync regions are \textbf{contrast maxima}.
     Note that $d=0$ is always a contrast maximum.
 
     Because the period of this pattern is related to the difference in wavelengths, we can use this effect to measure the \textbf{line splitting}, the difference in wavenumbers ($\sigma = 1/\lambda$) between the two levels.
@@ -245,6 +251,8 @@
     There are really two different sodium emission lines near $\SI{589}{\nano\meter}$.
     A pair of emission lines like this is called a \textbf{doublet}.
     Although it is difficult to measure the actual wavelength of those lines (as you have just seen), we can still make a very accurate measurement of the difference in their wavenumbers.
+
+
 
     \checkpoint{
         Measure the wavenumber splitting of the sodium emission lines by counting contrast minima.
