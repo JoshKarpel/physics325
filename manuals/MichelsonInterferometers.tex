@@ -77,11 +77,11 @@
         \begin{tikzpicture}
             \draw[dashed] (0, 0) -- (12, 0) node[centered, right] {I$_0$};
             \draw (12, -1) -- (12, 3) node[above, font = \footnotesize] {Observer};
-            
+
             \draw (6 + 2, -0.5) node[below] {M1} -- (6 + 2, 0.5);
             \draw (7.5 + 2, -0.5) node[below] {M2} -- (7.5 + 2, 0.5);
             \draw[dashed, |<->|] (6 + 2, 0.2) -- (7.5 + 2, 0.2) node[midway, above] {$d$};
-            
+
             \draw (5.75, -0.5) -- (6.75, 0.5) node[below] at (6.25, -0.5) {BS};
 
             \draw[midarrow=latex] (0, 0) node[below] {S1} -- (12, 2.5);
@@ -109,7 +109,7 @@
     \end{figure}
 
     To determine what we see when we look down the interferometer, we need to ``unwrap'' the optical system into an equivalent linear system. Consider the light rays arriving at our eyes from one of the mirrors.  Our eyes do not register each change in direction of the rays.  Instead, our eyes perceive the light coming from the lamp in a straight line. We can model this behavior by simply tracing the rays straight back through the mirror and beam splitter back to the lamp.  When we do this for both of the mirrors, the path length difference, $d$, causes each mirror to produce its own image of the lamp, $S1$ and $S2$. The result is shown in Figure~\ref{fig:michelson-unwrapped}.
-    
+
     If we make an observation from the location marked I$_0$ in Figure \ref{fig:michelson-unwrapped}, then the path length difference is $2d$ (remember that the light really travels the path length difference twice). However, if we make an observation from an angle $\theta$, we can see from Figure \ref{fig:michelson-unwrapped} that the path difference between the arms at viewing angle $\theta$ is approximately $2d \cos{\theta}$.
     When the path difference is an integer multiple of the wavelength, we get constructive interference and see a fringe:
     \begin{align}
@@ -188,7 +188,11 @@
     Before we do anything else, we need to align the interferometer.
     The first step is to make sure that the mirrors are both at the same tilt relative to the path the light takes.
     Put the diffuser between the sodium lamp and the interferometer, and put a thumb tack or other sharp-tipped object in the way so that you see its shape when you look down the interferometer.
-    You should see two pairs of the tack's shadow (if you don't see two full pairs then there might be some overlap).  One of these pairs will move when the tiltable mirror is tilted and the other will not.  We will use the shadow on the right side of each pair, since that one is typically easier to see.  These two shadows come from reflections involving the surface of the beam splitter that is away from the lamp.  The shadows on the left come from the surface that is close to the lamp.
+    You should see two pairs of the tack's shadow (if you don't see two full pairs then there might be some overlap).
+    One of these pairs will move when the tiltable mirror is tilted and the other will not.
+    We will use the shadow on the right side of each pair, since that one is typically easier to see.
+    These two shadows come from reflections involving the surface of the beam splitter that is away from the lamp.
+    The shadows on the left come from the surface that is close to the lamp.
 
     Once you can see the pair of images on the right, adjust the tilt of the tiltable mirror until the images overlap.
     You should see faint straight-line fringes form in the yellow light from the sodium lamp.
@@ -228,20 +232,24 @@
     We can use the interferometer to measure the wavelength of the sodium lamp by counting fringes.
     Align the interferometer for bullseye fringes.
     Go to a path difference where you have good fringe contrast and can see many fringes in your field of view.
-    Move the micrometer slowly in either direction while counting the number of fringes that appear or disappear in the center of the bullseye.
-    A useful tip is to put the tack back in the way of the beam.  You can use the tip of the tack to keep track of what fringe you are on.
+    Move the micrometer \textbf{slowly} in either direction while watching fringe appear or disappear in the center of the bullseye.
+    You will need to count how many fringes pass through the center to make your measurement.
+    We recommend putting the tack back in the way of the light.
+    You can use the tip of the tack to keep track of which fringe you are on.
+
     Since $\theta=0$ at the center of the bullseye, we have
     \begin{align}
         \lambda = \frac{2 \Delta d}{\Delta m},
     \end{align}
-    where $\Delta d$ is the difference in movable mirror position and $\Delta m$ is the number of fringes you count.
-    You will want to count as many fringes as possible to reduce error introduced by the micrometer, but not so many that you loose track of what fringe you're on (which is easy to do). $\Delta m \approx 50$ is a reasonable tradeoff.
+    where $\Delta d$ is the difference in movable mirror position and $\Delta m$ is the number of fringes you count passing through the center.
+    You will want to count as many fringes as possible to reduce error introduced by the micrometer, but not so many that you loose track of what fringe you're on (which is easy to do).
+    $\Delta m \approx 50$ is a reasonable tradeoff.
 
     \checkpoint{
         Measure the wavelength of the sodium emission line by counting fringes.
         \begin{itemize}
             \item Compare your measurement to the expected wavelength ($\lambda \approx \SI{589}{\nano\meter}$).
-            \item Why is fringe-counting by eye a particularly poor way to measure wavelengths?
+            \item Why is fringe-counting by eye a bad way to measure wavelengths?
         \end{itemize}
     }
 
