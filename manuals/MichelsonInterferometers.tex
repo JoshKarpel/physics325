@@ -186,11 +186,9 @@
     \subsubsection{Angular Alignment}
 
     Before we do anything else, we need to align the interferometer.
-    The first step is to make the sure that the mirrors are both at the same tilt relative to the path the light takes.
+    The first step is to make sure that the mirrors are both at the same tilt relative to the path the light takes.
     Put the diffuser between the sodium lamp and the interferometer, and put a thumb tack or other sharp-tipped object in the way so that you see its shape when you look down the interferometer.
-    You should see three or four images of the pencil's shadow (a pair on the right, and a pair on the left).
-    The pair on the right are easier to see, so we will use those to align the interferometer.
-    That pair comes from reflections involving the back surface of the beam splitter, while the pair on the left come from the front surface.
+    You should see two pairs of the tack's shadow (if you don't see two full pairs then there might be some overlap).  One of these pairs will move when the tiltable mirror is tilted and the other will not.  We will use the shadow on the right side of each pair, since that one is typically easier to see.  These two shadows come from reflections involving the surface of the beam splitter that is away from the lamp.  The shadows on the left come from the surface that is close to the lamp.
 
     Once you can see the pair of images on the right, adjust the tilt of the tiltable mirror until the images overlap.
     You should see faint straight-line fringes form in the yellow light from the sodium lamp.
@@ -212,7 +210,7 @@
     When you get very close, dark bands will appear across the rainbow.
     As you get closer and closer the bands will become larger.
 
-    As you keep moving toward zero path, you will eventually see colors (red and blue, and possibly others) appear in your field of view.
+    As you keep moving toward zero path, you will eventually see colors (red and blue, and possibly others) appear in your field of view directly over the filament.
     At this point you are within a few microns of zero path. Put the diffuser back in and look down the interferometer without the diffraction grating.
     Tilt the tiltable mirror very slightly so that you get straight-line fringes. Move the movable mirror back and forth very slightly.
     There should be about 10 visible fringes, most having a distinct red-blue tint to the edges, but with one black fringe in the center of the pattern.
@@ -231,12 +229,13 @@
     Go to a path difference where you have good fringe contrast and can see many fringes in your field of view.
     Align the interferometer for bullseye fringes.
     Move the micrometer slowly in either direction while counting the number of fringes that appear or disappear in the center of the bullseye.
+    A useful tip is to put the tack back in the way of the beam.  You can use the tip of the tack to keep track of what fringe you are on.
     Since $\theta=0$ at the center of the bullseye, we have
     \begin{align}
         \lambda = \frac{2 \Delta d}{\Delta m},
     \end{align}
     where $\Delta d$ is the difference in movable mirror position and $\Delta m$ is the number of fringes you count.
-    You will want to count as many fringes as possible to reduce Poisson error, but not so many that you pick up a large systematic error ($\Delta m \approx 50$ is a reasonable tradeoff).
+    You will want to count as many fringes as possible to reduce error introduced by the micrometer, but not so many that you loose track of what fringe you're on (which is easy to do). $\Delta m \approx 50$ is a reasonable tradeoff.
 
     \checkpoint{
         Measure the wavelength of the sodium emission line by counting fringes.
@@ -252,10 +251,8 @@
     A pair of emission lines like this is called a \textbf{doublet}.
     Although it is difficult to measure the actual wavelength of those lines (as you have just seen), we can still make a very accurate measurement of the difference in their wavenumbers.
 
-
-
     \checkpoint{
-        Measure the wavenumber splitting of the sodium emission lines by counting contrast minima.
+        Measure the wavenumber splitting of the sodium emission lines by counting multiple contrast minima.
         \begin{itemize}
             \item Compare your result to the expected wavenumber splitting ($\Delta \sigma \approx \SI{17.2}{\per\centi\meter}$).
             \item Why is this technique both more accurate and more precise than your measurement of the wavelength by fringe-counting?
