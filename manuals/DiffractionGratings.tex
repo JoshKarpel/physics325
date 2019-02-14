@@ -21,12 +21,15 @@
 
     \section*{Background}
 
-    The theory of the diffraction grating spectrometer is built on the concepts studied in the slit diffraction lab, where we studied diffraction from a small number of slits.
-    Recall that the intensity pattern for $N$ slits of width $W$ and spacing $D$ is
+    The theory of the diffraction grating spectrometer is built on the concepts studied more closely in the slit diffraction lab, where we look at diffraction from a small number of slits.
+    A diffraction grating is the result of multi-slit diffraction when the number of slits is so large that the intensity pattern begins to resemble that of multiple-plane-wave interference.
+    It is actually somewhat simpler than slit diffraction, although we will need to use a result that will be derived in that lab: the optical intensity for $N$ slits of width $W$ and spacing $D$ as a function of viewing angle $\theta$ is
     \begin{align}
-        I = \frac{A_0^2 W^2}{r^2} \mathrm{sinc}^2 \left(\pi W \sin(\theta) / \lambda\right)\frac{\sin^2(\pi N D \sin(\theta) / \lambda)}{\sin^2(\pi D \sin(\theta) / \lambda)}
+        I(\theta) = \frac{A_0^2 W^2}{r^2} \mathrm{sinc}^2 \left(\pi W \sin(\theta) / \lambda\right)\frac{\sin^2(\pi N D \sin(\theta) / \lambda)}{\sin^2(\pi D \sin(\theta) / \lambda)}
     \end{align}
     The first term is an unimportant overall scale factor, and the second term is an envelope function determined by the width $W$ of a single slit.
+    We will take the limit $W \to 0$ so that this term vanishes (because $\sinc(0) = 1$).
+    
     The third term (the ratio of sines) is the most important.
     When $N$ is very large, the amplitude is heavily suppressed when the denominator of this ratio is not nearly zero.
     This property is precisely what a diffraction grating is based on.
