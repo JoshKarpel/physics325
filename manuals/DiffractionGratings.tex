@@ -83,7 +83,7 @@
     However, we need to account for the extra path length difference caused by the non-normal angle of incidence, as shown in Figure~\ref{fig:path-length-difference-non-normal}.
     Examining the figure, we see that the necessary modification of Equation~\eqref{eqn:normal-grating-equation} is
     \begin{align} \label{eqn:non-normal-grating-equation}
-        D(\sin\alpha + \sin\beta) = m \lambda,
+        D(\sin\theta_i + \sin\theta) = m \lambda,
     \end{align}
     which is the \textbf{grating equation for non-normal incidence}.
 
@@ -105,18 +105,18 @@
             \node[circle, fill, inner sep=1pt, label=below left:$b$](B) at (0, 2) {};
 
             \draw[dashed] (0, 2) -- (-2, 2);
-            \centerarc[<->](0, 2)(140:180:1.5) node[midway, left] {$\alpha$};
+            \centerarc[<->](0, 2)(140:180:1.5) node[midway, left] {$\theta_i$};
 
             \draw[dashed] (0, 1) -- (-2, 1);
             \draw[<->, dashed] (-1, 1) -- (-1, 2) node[midway, left] {$D$};
 
             \draw[dashed] (0, 2) -- (2, 2);
-            \centerarc[<->](0, 2)(0:20:1.5) node[midway, right] {$\beta$};
+            \centerarc[<->](0, 2)(0:20:1.5) node[midway, right] {$\theta$};
         \end{tikzpicture}
 
         \caption[Path-Length Difference for Non-Normal Incidence]{
             The path-length difference caused by a slit pair for non-normal incidence.
-            The total path-length difference between adjacent slits is the length of the line segment $\overline{abc}$: $D\qty(\sin\alpha + \sin\beta)$.
+            The total path-length difference between adjacent slits is the length of the line segment $\overline{abc}$: $D\qty(\sin\theta_i + \sin\theta)$.
         }
 
         \label{fig:path-length-difference-non-normal}
@@ -201,16 +201,16 @@
             % grating angle
             \draw[dashed] (0, 0) -- (-100:2);
             \draw[dashed] (0, 0) -- (-90:2);
-            \centerarc[<->, very thick](0, 0)(-90:-100:1.8) node[midway, below] {$\delta$};
+            \centerarc[<->, very thick](0, 0)(-90:-100:1.8) node[midway, below] {$\beta$};
 
             \draw[dashed] (0, 0) -- (-10:3);
-            \centerarc[<->](0, 0)(20.5:-10:2) node[midway, right] {$\alpha$};
-            \centerarc[<->](0, 0)(-10:-20.5:2.8) node[midway, right] {$-\beta$};
+            \centerarc[<->](0, 0)(20.5:-10:2) node[midway, right] {$\theta_i$};
+            \centerarc[<->](0, 0)(-10:-20.5:2.8) node[midway, right] {$-\theta$};
 
             \draw[dashed] (0, 0) -- (0:\r);
 
-            \centerarc[<->](0, 0)(20.5:0:5) node[midway, right] {$\alpha_0$};
-            \centerarc[<->](0, 0)(0:-20.5:5) node[midway, right] {$\alpha_0$};
+            \centerarc[<->](0, 0)(20.5:0:5) node[midway, right] {$\alpha$};
+            \centerarc[<->](0, 0)(0:-20.5:5) node[midway, right] {$\alpha$};
         \end{tikzpicture}
 
         \caption[Ebert-Fastie Spectrometer]{The optical path of an Ebert-Fastie grating spectrometer.}
@@ -304,11 +304,11 @@
 
     \subsection{Ebert-Fastie Grating Equation}
 
-    Using the angles $\alpha$, $\beta$, $\alpha_0$, and $\delta$ that are given in Figures \ref{fig:path-length-difference-non-normal} and \ref{fig:ebert-fastie}, show that the grating equation $D(\sin\alpha + \sin\beta) = m \lambda$ is equivalent to
+    Using the angles $\theta_i$, $\theta$, $\alpha$, and $\beta$ that are given in Figures \ref{fig:path-length-difference-non-normal} and \ref{fig:ebert-fastie}, show that the grating equation $D(\sin\theta_i + \sin\theta) = m \lambda$ is equivalent to
     \begin{align*}
-        2 D \cos\alpha_0 \sin\delta = m \lambda.
+        2 D \cos\alpha \sin\beta = m \lambda.
     \end{align*}
-    Be careful with the orientation of $\beta$.
+    Be careful with the orientation of $\theta$.
 
     \vspace{\stretch{1}}
 
