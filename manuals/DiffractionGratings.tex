@@ -23,7 +23,7 @@
 
     The theory of the diffraction grating spectrometer is built on the concepts studied more closely in the slit diffraction lab, where we look at diffraction from a small number of slits.
     A diffraction grating is the result of multi-slit diffraction when the number of slits is so large that the intensity pattern begins to resemble that of multiple-plane-wave interference.
-    It is actually somewhat simpler than slit diffraction, although we will need to use a result that will be derived in that lab: the optical intensity for $N$ slits of width $W$ and spacing $D$ as a function of viewing angle $\theta$ is
+    It is actually somewhat simpler than slit diffraction, although we will need to use a result that will be derived in that lab.  If a plane wave is normally incident on $N$ slits of width $W$ and spacing $D$, then the optical intensity at a viewing angle $\theta$ is 
     \begin{align}
         I(\theta) = \frac{A_0^2 W^2}{r^2} \mathrm{sinc}^2 \left(\pi W \sin(\theta) / \lambda\right)\frac{\sin^2(\pi N D \sin(\theta) / \lambda)}{\sin^2(\pi D \sin(\theta) / \lambda)}
     \end{align}
@@ -31,7 +31,7 @@
     We will take the limit $W \to 0$ so that this term vanishes (because $\sinc(0) = 1$).
     
     The third term (the ratio of sines) is the most important.
-    When $N$ is very large, the amplitude is heavily suppressed when the denominator of this ratio is not nearly zero.
+    When $N$ is very large, the amplitude is sharply peaked when the denominator of this ratio is nearly zero.
     This property is precisely what a diffraction grating is based on.
 
     The positions where the denominator vanishes are called the \textbf{principal maxima}, and they occur when
@@ -123,7 +123,7 @@
     \end{figure}
 
     A \textbf{diffraction grating} is exactly this geometry, but uses small mirrors instead of slits, so that the output is reflected instead of transmitted.
-    The diffraction arises purely from small, regular structures in the geometry, so the output light is identical except that it comes back toward the source because the surfaces are mirrors instead of slits.
+    Since diffraction arises purely from small, regular structures in the geometry, there will be no difference in the diffraction pattern except the pattern will be observed on the same side of the grating as the incident light.  The main benefit of using mirrors over slits is that the slits necessarily block some of the incident light, where as mirrors do not.
     The slit-based grating should then be called a \textbf{transmission grating}.
     The mirror-based gratings are sometimes called \textbf{reflection gratings}, but most people just called them diffraction gratings.
 
@@ -163,17 +163,17 @@
 
     This improvement throws a \textbf{blaze} of light into a particular order.
     Such a grating is therefore called a \textbf{blazed diffraction grating}.
-    The blaze angle does not affect the sine-squared ratio that produces the part of the diffraction pattern that gives you sharp spots of light, because that part depends only on the spacing between elements of the geometry.
+    The blaze angle does not affect the sine-squared ratio that produces the part of the diffraction pattern that gives you sharp spots of light, because that part depends only on the spacing between elements of the geometry.  The blaze angle also does not affect Equation (\ref{eqn:non-normal-grating-equation}) because $\alpha$ and $\beta$ are measured from the surface normal. It only affects the amount of power going into each order.
 
     To make effective use of a blazed diffraction grating, we need to build an optical device around the grating.
     One design is the \textbf{Ebert-Fastie grating spectrometer}, shown in Figure~\ref{fig:ebert-fastie}.
-    It is designed to be used with a blazed diffraction grating, with the blaze angle $\xi$ chose to be approximately equal to $\alpha_0$.
+    It is designed to be used with a blazed diffraction grating, with the blaze angle $\xi$ chose to be approximately equal to $\alpha_0$, and the diffraction grating placed at the focal point of a concave mirror.
     This sends the blaze of light through the exit slit.
 
     \begin{figure}[H]
         \centering
 
-        \begin{tikzpicture}
+        \begin{tikzpicture}[scale=0.9]
             % entrance slit
             \draw[very thick] (-1, 2) -- (-1, 2.9);
             \draw[very thick] (-1, 3.1) -- (-1, 4) node[above, right] {Entrance Slit};
@@ -225,7 +225,7 @@
     \begin{itemize}
         \item The two calibration lasers (\SI{532}{\nano\meter} and \SI{635}{\nano\meter}), with mounts.
         \item A sodium vapor lamp.
-        \item A low-pressure mercury vapor lamp.
+        \item A lamp with an unidentified element in it.
         \item A hydrogen lamp.
         \item An Ebert-Fastie grating spectrometer.
         \item An Ocean Optics USB-connected spectrometer.
@@ -261,21 +261,40 @@
         \end{itemize}
     }
 
-    \subsection{Measuring the Spectrum of Low-Pressure Mercury}
+	\subsection{Identifying an Element}
+	Every ionization state of every element produces a unique emission spectrum, so therefore the species can be identified by looking at its emission spectrum.
+	This method of identification gives rise to the powerful technique of emission spectroscopy.
 
-    Hot mercury vapor at low pressure emits light at several different wavelengths.
-    Depending on your eyes and how bright your mercury lamp is, you can probably see three to five of its emission lines.
+	\begin{table}[H]
+		\begin{center}
+			\begin{tabular}{c|c|c|c}
+				Helium I & Carbon I & Magnesium I & Mercury I \\
+				\hline
+				447.1 & 538.0 & 426.7 & 404.6 \\
+				501.6 & 601.3 & 435   & 407.8 \\
+				587.6 &       & 457   & 435.8 \\
+				667.8 &       & 517   & 546.1 \\
+				      &       & 518   & 577.0 \\
+				      &       & 571   & 579.1 \\
+				      &       &       & 690.7
+			\end{tabular}
+		\end{center}
+		\caption{The emission spectra for four unionized elements in nanometers.
+				 This table only shows lines between 400 nm and 700 nm.}
+		\label{table:emission-spectra}
+	\end{table}
 
-    \checkpoint{
-        Measure the emission spectrum of low-pressure mercury using your spectrometer.
-        \begin{itemize}
-            \item Analyze your error and compare your measurements to known values for the spectrum of low-pressure mercury.
-        \end{itemize}
-    }
+	\checkpoint{
+	Measure the emission spectrum of the unidentified element using your spectrometer.
+	\begin{itemize}
+		\item Use your spectrum and Table \ref{table:emission-spectra} to identify the element in the lamp.
+	\end{itemize}
+	}
 
     \subsection{Measuring the Rydberg Constant}
 
-    Spectrometers can also be used to measure constants related to quantum mechanics, by measuring the properties of the light emitted by quantum interactions.
+    Spectrometers can also be used to measure constants related to quantum mechanics.
+    Since the atoms producing the spectra can be described by quantum mechanics, the spacing of the lines in these spectra depend on the quantum nature of the atoms.
     In this lab we'll use it to measure the \textbf{Rydberg constant}.
     As a reminder, the \textbf{Rydberg formula} for the wavelength of the electronic transitions in hydrogen is
     \begin{align}
