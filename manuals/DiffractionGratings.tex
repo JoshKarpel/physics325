@@ -23,7 +23,8 @@
 
     The theory of the diffraction grating spectrometer is built on the concepts studied more closely in the slit diffraction lab, where we look at diffraction from a small number of slits.
     A diffraction grating is the result of multi-slit diffraction when the number of slits is so large that the intensity pattern begins to resemble that of multiple-plane-wave interference.
-    It is actually somewhat simpler than slit diffraction, although we will need to use a result that will be derived in that lab.  If a plane wave is normally incident on $N$ slits of width $W$ and spacing $D$, then the optical intensity at a viewing angle $\theta$ is 
+    It is actually somewhat simpler than slit diffraction, although we will need to use a result that will be derived in that lab.
+    If a plane wave is normally incident on $N$ slits of width $W$ and spacing $D$, then the optical intensity at a viewing angle $\theta$ is 
     \begin{align}
         I(\theta) = \frac{A_0^2 W^2}{r^2} \mathrm{sinc}^2 \left(\pi W \sin(\theta) / \lambda\right)\frac{\sin^2(\pi N D \sin(\theta) / \lambda)}{\sin^2(\pi D \sin(\theta) / \lambda)}
     \end{align}
@@ -122,10 +123,11 @@
         \label{fig:path-length-difference-non-normal}
     \end{figure}
 
-    A \textbf{diffraction grating} is exactly this geometry, but uses small mirrors instead of slits, so that the output is reflected instead of transmitted.
-    Since diffraction arises purely from small, regular structures in the geometry, there will be no difference in the diffraction pattern except the pattern will be observed on the same side of the grating as the incident light.  The main benefit of using mirrors over slits is that the slits necessarily block some of the incident light, where as mirrors do not.
+    A \textbf{diffraction grating} is exactly this geometry, except that it uses small mirrors instead of slits, so that the output is reflected instead of transmitted.
+    Since diffraction arises purely from small, regular structures in the geometry, there will be no difference in the diffraction pattern except that the pattern will be observed on the same side of the grating as the incident light.
+    The main benefit of using mirrors over slits is that the slits necessarily block some of the incident light, whereas mirrors do not.
     The slit-based grating should then be called a \textbf{transmission grating}.
-    The mirror-based gratings are sometimes called \textbf{reflection gratings}, but most people just called them diffraction gratings.
+    The mirror-based gratings are sometimes called \textbf{reflection gratings}, but most people just call them diffraction gratings.
 
     There's a major problem with making practical use of the grating as we've discussed it so far.
     If we examine the envelope function that we ignored earlier, we notice that it is maximized for $m=0$.
@@ -163,7 +165,9 @@
 
     This improvement throws a \textbf{blaze} of light into a particular order.
     Such a grating is therefore called a \textbf{blazed diffraction grating}.
-    The blaze angle does not affect the sine-squared ratio that produces the part of the diffraction pattern that gives you sharp spots of light, because that part depends only on the spacing between elements of the geometry.  The blaze angle also does not affect Equation (\ref{eqn:non-normal-grating-equation}) because $\alpha$ and $\beta$ are measured from the surface normal. It only affects the amount of power going into each order.
+    The blaze angle does not affect the sine-squared ratio that produces the part of the diffraction pattern that gives you sharp spots of light, because that part depends only on the spacing between elements of the geometry.
+    The blaze angle also does not affect Equation~\eqref{eqn:non-normal-grating-equation} because $\theta_i$ and $\theta$ are measured from the surface normal.
+    It only affects the amount of power going into each order.
 
     To make effective use of a blazed diffraction grating, we need to build an optical device around the grating.
     One design is the \textbf{Ebert-Fastie grating spectrometer}, shown in Figure~\ref{fig:ebert-fastie}.
@@ -246,7 +250,10 @@
     \checkpoint{
         Calibrate your spectrometer using the two lasers.
         \begin{itemize}
-            \item Based on the difference in wavelengths of the lasers and your ability to measure positions using the micrometer, what is the error in your calibration?
+            \item What's the last digit that you can reliably read off of the micrometer?
+            This is a good rough estimate of the uncertainty in your position measurements.
+            \item What is the ratio of your uncertainty to the total distance you moved the micrometer during your calibration measurement?
+            This is a good estimate of the fractional uncertainty in your calibration.
         \end{itemize}
     }
 
@@ -257,7 +264,7 @@
     \checkpoint{
         Measure the emission wavelength of sodium vapor using your spectrometer.
         \begin{itemize}
-            \item Analyze your error and compare your measurement to the expected wavelength.
+            \item  Were you able to resolve the two closely-spaced emission lines near \SI{589}{\nano\meter}?
         \end{itemize}
     }
 
@@ -266,21 +273,22 @@
 	This method of identification gives rise to the powerful technique of emission spectroscopy.
 
 	\begin{table}[H]
-		\begin{center}
-			\begin{tabular}{c|c|c|c}
-				Helium I & Carbon I & Magnesium I & Mercury I \\
-				\hline
-				447.1 & 538.0 & 426.7 & 404.6 \\
-				501.6 & 601.3 & 435   & 407.8 \\
-				587.6 &       & 457   & 435.8 \\
-				667.8 &       & 517   & 546.1 \\
-				      &       & 518   & 577.0 \\
-				      &       & 571   & 579.1 \\
-				      &       &       & 690.7
-			\end{tabular}
-		\end{center}
-		\caption{The emission spectra for four unionized elements in nanometers.
-				 This table only shows lines between 400 nm and 700 nm.}
+		\centering
+		\begin{tabular}{c|c|c|c}
+			Helium I & Carbon I & Magnesium I & Mercury I \\
+			\hline
+			447.1 & 538.0 & 426.7 & 404.6 \\
+			501.6 & 601.3 & 435   & 407.8 \\
+			587.6 &       & 457   & 435.8 \\
+			667.8 &       & 517   & 546.1 \\
+                  &       & 518   & 577.0 \\
+                  &       & 571   & 579.1 \\
+                  &       &       & 690.7
+		\end{tabular}
+		\caption{
+            The wavelengths of the emission spectra for four un-ionized elements, in nanometers.
+		    This table only shows lines between \SI{400}{\nano\meter} and \SI{700}{\nano\meter}.
+        }
 		\label{table:emission-spectra}
 	\end{table}
 
@@ -304,15 +312,11 @@
 
     For historical reasons, transitions that can be described by the Rydberg formula are grouped into ``series'' by their final state.
     For example, transitions to the hydrogen $n_f=1$ level are called the Lyman series, the $n_f=2$ transitions are the Balmer series, the $n_f=3$ transitions are the Paschen series, etc.
-    The lowest energy transition in a series is known as the $\alpha$ line, the second as the $\beta$ line and so forth.
-
-    These lines are very faint, so you'll need to use the USB spectrometer to see them.
+    The lowest energy transition in a series is known as the $\alpha$ line, the second-lowest as the $\beta$ line, and so forth.
 
     \checkpoint{
         Measure the wavelengths of the Balmer $\alpha$ ($n_i = 3$, $n_f = 2$, $\lambda = \SI{656}{\nano\meter}$) and Balmer $\beta$ ($n_i = 4$, $n_f = 2$, $\lambda = \SI{486}{\nano\meter}$) emission lines of hydrogen and use them to calculate the Rydberg constant $R_{\infty}$.
-        \begin{itemize}
-            \item Analyze your error and compare your measurement to the expected value ($R_{\infty} = \SI{109737.3}{\per\centi\meter}$).
-        \end{itemize}
+        Compare your measurement to the expected value ($R_{\infty} = \SI{109737.3}{\per\centi\meter}$).
     }
 
     \FloatBarrier
