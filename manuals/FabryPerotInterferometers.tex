@@ -119,12 +119,17 @@
 
     For this lab, you will need:
     \begin{itemize}
-        \item An optical rail to mount various optics on.
+        \item A one-meter optical rail.
         \item A Fabry-Perot cavity assembly ($d=\SI{3}{\milli\meter}$).
-        \item A long black isolator tube, with built-in focusing lens.
-        \item A photomultiplier tube.
+        \item A black tube with built-in focusing lens.
+        \item A long black isolator tube.
+        \item A black tube with a built-in iris.
+        \item A photomultiplier tube (PMT).
+        \item An electrometer.
         \item A high-voltage power supply.
         \item A nitrogen supply, with built-in manometer.
+        \item A sodium vapor lamp.
+        \item A low-pressure mercury lamp.
     \end{itemize}
 
     \noindent
@@ -140,19 +145,21 @@
     \subsection{Aligning the Interferometer}
     Aligning the Fabry-Perot interferometer is significantly simpler than the Michelson interferometer because the Fabry-Perot cavity has been pre-assembled.
     However, you do need to make sure it is pointing in the right direction and that the output is focused onto the detector.
-
+    
+    Here is the alignment procedure:
     \begin{enumerate}
         \item Get as much light from the sodium lamp going through the cavity as possible.
         \item Hold up a piece of paper on the far side of the focusing lens and find the focal plane (the distance from the lens where the bright fringes are sharpest).
-        \item Move the photomultiplier so that the entrance iris is in the focal plane (the focal length of the lens is around $\SI{50}{\centi\meter}$).
-        \item Tilt and tip the cavity using the knobs on the cavity assembly to send the center of the fringe pattern through the center of the iris. Use a piece of paper held near the photomultiplier iris to determine where the center of the pattern is.
+        \item Move the photomultiplier tube (PMT) so that the entrance iris is in the focal plane (the focal length of the lens is around $\SI{50}{\centi\meter}$).
+        \item Tilt and tip the cavity using the knobs on the cavity assembly to send the center of the fringe pattern through the center of the iris.
+        Use a piece of paper held near the photomultiplier iris to determine where the center of the pattern is.
         \item Close both irises (focusing lens and photomultiplier) until just a small amount of light is passing through them.
     \end{enumerate}
 
     We perform these steps to ensure maximum sensitivity.
-    If the photomultiplier iris is not in the focal plane the recombining transmitted rays will have their phases shifted by the lens and the sharp fringe pattern will tend to spread out.
-    Aligning the center of the fringe pattern ensures we get maximum signal.
-    Closing down both irises minimizes any possible distortion in the alignment (since we are only using light from a very small region of the Fabry-Perot cavity).
+    If the photomultiplier tube's iris is not in the focal plane, the recombining transmitted rays will have their phases shifted by the lens and the sharp fringe pattern will tend to spread out.
+    Aligning the center of the fringe pattern to the center of the iris ensures we get maximum signal.
+    Closing down both irises as small as possible minimizes any possible problems with the alignment, since we are only using light from a very small region of the Fabry-Perot cavity.
 
     \subsection{Experiments with Nitrogen Gas}
 
@@ -161,6 +168,7 @@
     Perform a ``pressure scan'' by slowly filling the cavity with extra nitrogen gas. As you do this the angle of a given fringe will shift.
     As they pass through $\theta = 0$ the photomultiplier will detect them and you will see a signal on the electrometer.
     Therefore, you are mapping out a pressure vs. intensity curve (both indirectly, via the manometer and electrometer respectively).
+    Note that the manometer only measures the \textbf{extra} pressure caused by the addition of extra nitrogen gas.
 
     The first noteworthy aspect of this spectrum is that the fringes appear to come in pairs.
     We are seeing the two different wavelengths in the sodium emission line producing their own fringe patterns.
@@ -175,8 +183,8 @@
     \checkpoint{
         Perform an intensity vs. pressure scan from atmospheric pressure to atmospheric pressure plus $\SI{1000}{\torr}$ of nitrogen gas.
         \begin{itemize}
-            \item Make a plot in your lab report with the results of your scan.
-            \item Label (or otherwise clearly identify) the effects of the doublet splitting and the self-reversal on your plot.
+            \item How many free spectral ranges were you able to scan over?
+            \item Identify the effects of the doublet splitting and self-reversal on your plot.
         \end{itemize}
     }
 
@@ -191,8 +199,8 @@
     \checkpoint{
         Measure $\alpha$ and compute the index of refraction of nitrogen gas at standard temperature and pressure.
         \begin{itemize}
-            \item Analyze your error and compare to the expected value ($n_{\mathrm{STP}} \approx 1.000298$).
-            Keep in mind that you can't include the overall $1$ in your error analysis: we only care about the difference of the index of refraction from $n_{\mathrm{vacuum}} = 1$.
+            \item Compare your result to the expected value ($n_{\mathrm{STP}} \approx 1.000298$).
+            Keep in mind we only care about the difference of the index of refraction from $n_{\mathrm{vacuum}} = 1$!
         \end{itemize}
     }
 
@@ -202,8 +210,8 @@
     \checkpoint{
         Perform a pressure scan over mercury's green emission line.
         \begin{itemize}
-            \item Make a plot in your lab report with the results of your scan.
-            \item Identify at least six distinguishable sub-peaks in the emission line. If you don't see that many, you'll need to ensure that your setup is well-aligned and redo the scan.
+            \item Identify at least six distinguishable sub-peaks in the emission line.
+            If you don't see that many, you'll need to ensure that your setup is well-aligned and redo the scan.
         \end{itemize}
     }
 
