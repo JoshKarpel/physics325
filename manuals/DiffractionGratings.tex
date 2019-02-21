@@ -248,9 +248,12 @@
 
     \subsection{Calibrating the Spectrometer}
 
-    To calibrate the spectrometer, you need to find two points where you know the wavelength of the light passing through the exit slit.
+    To calibrate the spectrometer, you need to find two points on the micrometer  where you know the wavelength of the light passing through the exit slit.
     Based on the position of the grating at these two points, you can determine how the position of the grating maps to differences in wavelengths.
-    A convenient source of known-wavelength light is a laser, and you've been provided two lasers: one has a wavelength of \SI{532}{\nano\meter} and the other has a wavelength of \SI{635}{\nano\meter}.
+    
+    A convenient source of known-wavelength light is a laser, and you've been provided two lasers: one has a wavelength of \SI{532}{\nano\meter} and the other has a wavelength of \SI{635}{\nano\meter}.  Shine each laser through the entrance slit so that the reflection off of the first mirror hits the grating in the middle.  
+    Do this for every light source. 
+    Since the grating is at the focal point of the two mirrors, this will ensure that the light arrives at the exit slit  at a consistent angle.  Slowly move the micrometer over a wide range until you see a spike on the electrometer.  This position on the micrometer then corresponds to the wavelength of the laser you are using.
 
     \checkpoint{
         Calibrate your spectrometer using the two lasers.
@@ -276,6 +279,8 @@
 	\subsection{Identifying an Element}
 	Every ionization state of every element produces a unique emission spectrum, so therefore the species can be identified by looking at its emission spectrum.
 	This method of identification gives rise to the powerful technique of emission spectroscopy.
+	
+	Turn the unidentified lamp on and shine its light through the entrance slit so that the reflection off of the first mirror hits the grating in middle.  Start with the micrometer at a position corresponding to 700 nm and slowly move it down to 400 nm.  Record each wavelength that causes the electrometer to spike.
 
 	\begin{table}[H]
 		\centering
@@ -292,7 +297,7 @@
 		\end{tabular}
 		\caption{
             The wavelengths of the emission spectra for four un-ionized elements, in nanometers.
-		    This table only shows lines between \SI{400}{\nano\meter} and \SI{700}{\nano\meter}.
+		    This table only shows the strongest lines between \SI{400}{\nano\meter} and \SI{700}{\nano\meter}.
         }
 		\label{table:emission-spectra}
 	\end{table}
