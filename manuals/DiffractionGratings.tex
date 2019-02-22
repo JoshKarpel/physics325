@@ -24,13 +24,13 @@
     The theory of the diffraction grating spectrometer is built on the concepts studied more closely in the slit diffraction lab, where we look at diffraction from a small number of slits.
     A diffraction grating is the result of multi-slit diffraction when the number of slits is so large that the intensity pattern begins to resemble that of multiple-plane-wave interference.
     It is actually somewhat simpler than slit diffraction, although we will need to use a result that will be derived in that lab.
-    If a plane wave is normally incident on $N$ slits of width $W$ and spacing $D$, then the optical intensity at a viewing angle $\theta$ is 
+    If a plane wave is normally incident on $N$ slits of width $W$ and spacing $D$, then the optical intensity at a viewing angle $\theta$ is
     \begin{align}
         I(\theta) = \frac{A_0^2 W^2}{r^2} \mathrm{sinc}^2 \left(\pi W \sin(\theta) / \lambda\right)\frac{\sin^2(\pi N D \sin(\theta) / \lambda)}{\sin^2(\pi D \sin(\theta) / \lambda)}
     \end{align}
     The first term is an unimportant overall scale factor, and the second term is an envelope function determined by the width $W$ of a single slit.
     We will take the limit $W \to 0$ so that this term vanishes (because $\sinc(0) = 1$).
-    
+
     The third term (the ratio of sines) is the most important.
     When $N$ is very large, the amplitude is sharply peaked when the denominator of this ratio is nearly zero.
     This property is precisely what a diffraction grating is based on.
@@ -227,7 +227,7 @@
 
     For this lab, you will need:
     \begin{itemize}
-        \item The two calibration lasers (\SI{405}{\nano\meter} and \SI{635}{\nano\meter}), with mounts.
+        \item The two calibration lasers (\SI{532}{\nano\meter} and \SI{635}{\nano\meter}), with mounts.
         \item A sodium vapor lamp.
         \item A lamp with an unidentified element in it.
         \item A hydrogen lamp.
@@ -238,7 +238,7 @@
     \noindent
     The photomultiplier tube uses high-voltage plates to convert a small flux of photoelectrons from the interferometer into a measurable current.
     The photomultiplier requires a negative voltage to operate.
-    \textbf{Do not exceed 600 volts on the photomultiplier!}
+    \textbf{Do not exceed -600 volts on the photomultiplier!}
 
 
     \FloatBarrier
@@ -250,10 +250,13 @@
 
     To calibrate the spectrometer, you need to find two points on the micrometer  where you know the wavelength of the light passing through the exit slit.
     Based on the position of the grating at these two points, you can determine how the position of the grating maps to differences in wavelengths.
-    
-    A convenient source of known-wavelength light is a laser, and you've been provided two lasers: one has a wavelength of \SI{532}{\nano\meter} and the other has a wavelength of \SI{635}{\nano\meter}.  Shine each laser through the entrance slit so that the reflection off of the first mirror hits the grating in the middle.  
-    Do this for every light source. 
-    Since the grating is at the focal point of the two mirrors, this will ensure that the light arrives at the exit slit  at a consistent angle.  Slowly move the micrometer over a wide range until you see a spike on the electrometer.  This position on the micrometer then corresponds to the wavelength of the laser you are using.
+
+    A convenient source of known-wavelength light is a laser, and you've been provided two lasers: one has a wavelength of \SI{532}{\nano\meter} and the other has a wavelength of \SI{635}{\nano\meter}.
+    Shine each laser through the entrance slit so that the reflection off of the first mirror hits the grating in the middle.
+    (This is the correct alignment for every light source.)
+    Since the grating is at the focal point of the two mirrors, this will ensure that the light arrives at the exit slit at a consistent angle.
+    Slowly move the micrometer over a wide range until you see the electrometer's needle tick up.
+    This position on the micrometer corresponds to the wavelength of the laser you are using.
 
     \checkpoint{
         Calibrate your spectrometer using the two lasers.
@@ -278,9 +281,9 @@
     }
 
 	\subsection{Identifying an Element}
-	Every ionization state of every element produces a unique emission spectrum, so therefore the species can be identified by looking at its emission spectrum.
+	Every ionization state of every element produces a unique emission spectrum, so the species can be identified by looking at its emission spectrum.
 	This method of identification gives rise to the powerful technique of emission spectroscopy.
-	
+
 	Turn the unidentified lamp on and shine its light through the entrance slit so that the reflection off of the first mirror hits the grating in middle.  Start with the micrometer at a position corresponding to 700 nm and slowly move it down to 400 nm.  Record each wavelength that causes the electrometer to spike.
 
 	\begin{table}[H]
@@ -326,7 +329,7 @@
     The lowest energy transition in a series is known as the $\alpha$ line, the second-lowest as the $\beta$ line, and so forth.
 
     \checkpoint{
-        Measure the wavelengths of the Balmer $\alpha$ ($n_i = 3$, $n_f = 2$, $\lambda = \SI{656}{\nano\meter}$) and Balmer $\beta$ ($n_i = 4$, $n_f = 2$, $\lambda = \SI{486}{\nano\meter}$) emission lines of hydrogen and use them to calculate the Rydberg constant $R_{\infty}$.
+        Measure the difference between the wavelengths of the Balmer $\alpha$ ($n_i = 3$, $n_f = 2$, $\lambda = \SI{656}{\nano\meter}$) and Balmer $\beta$ ($n_i = 4$, $n_f = 2$, $\lambda = \SI{486}{\nano\meter}$) emission lines of hydrogen and use that difference to calculate the Rydberg constant $R_{\infty}$.
         Compare your measurement to the expected value ($R_{\infty} = \SI{109737.3}{\per\centi\meter}$).
     }
 
