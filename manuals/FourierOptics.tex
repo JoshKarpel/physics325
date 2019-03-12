@@ -74,11 +74,13 @@
     Let's return to Eq.~\eqref{eqn:fraunhofer-diffraction-integral} and rewrite the exponential phase factor using $x / r = \sin \theta$.
     If we think of $E(z_0, w)$ as containing the information about the slit restricting the electric field (so that we can relax the bounds on the integral), we have
     \begin{align}
-        E(x) &= \frac{e^{i k r}}{r} \, \int^{\infty}_{-\infty} \dd{w} E(z_0, w) \, e^{-i k \sin\theta \, w} \nonumber \\
-        E(x) &= \frac{e^{i k r}}{r} \, \int^{\infty}_{-\infty} \dd{w} E(z_0, w) \, e^{-i k_w \, w}.
+        E(x) &= \frac{e^{i \kappa r}}{r} \, \int^{\infty}_{-\infty} \dd{w} E(z_0, w) \, e^{-i k \sin\theta \, w} \nonumber \\
+        E(x) &= \frac{e^{i \kappa r}}{r} \, \int^{\infty}_{-\infty} \dd{w} E(z_0, w) \, e^{-i \kappa \, w}.
     \end{align}
     That's a Fourier transform!
-    Apparently, diffracting off of an obstructing object produces a far-field image based on the amplitudes of the different \textbf{spatial frequency components}, or \textbf{wavenumbers}, of the obstructing object's perpendicular features (denoted $k_w$, with units of inverse length, just like time-based frequency has units of inverse time).
+    The transform variable $\kappa = k \sin{\theta}$ is the \textbf{transverse spatial frequency} (transverse being perpendicular to the propagation direction of the light).
+    Apparently, diffracting off of an obstructing object produces a far-field image based on the amplitudes of the different \textbf{spatial frequency components} of the obstructing object's transverse features.
+    Spatial frequency has units of inverse length, just like time-based frequency has units of inverse time.
 
     This agrees with what we learned in the Diffraction lab by doing the integral manually, because the Fourier transform of a rectangle is a $\sinc$ function.
     When we shone light on a rectangular slit the intensity pattern we observed was $\sinc^2$, so the underlying electric field must have been a $\sinc$.
@@ -203,10 +205,10 @@
         \begin{tabular}{ c c c }
             Function & Fourier Transform & Name \\
             \hline
-            $f(c x)$ & $\frac{1}{c} \hat{f}(\frac{k}{c})$ & Similarity \\
-            $f(x - c)$ & $\hat{f}(k) \, e^{-i \, 2 \pi \, a k}$ & Shift \\
-            $f(x) * g(x)$ & $\frac{1}{\sqrt{2 \pi}} \hat{f}(k) \, \hat{g}(k)$ & Convolution Theorem \\
-            $e^{i k_0 x}$ & $\sqrt{2 \pi} \, \delta(k - k_0)$ & \\
+            $f(c x)$ & $\frac{1}{c} \hat{f}(\frac{\kappa}{c})$ & Similarity \\
+            $f(x - c)$ & $\hat{f}(\kappa) \, e^{-i \, 2 \pi \, a \kappa}$ & Shift \\
+            $f(x) * g(x)$ & $\frac{1}{\sqrt{2 \pi}} \hat{f}(\kappa) \, \hat{g}(\kappa)$ & Convolution Theorem \\
+            $e^{i k_0 \kappa}$ & $\sqrt{2 \pi} \, \delta(\kappa - \kappa_0)$ & \\
         \end{tabular}
         \renewcommand{\arraystretch}{1}
 
@@ -354,7 +356,7 @@
 
     \subsection*{A Fourier Transform}
 
-    Show that the Fourier transform of the centered rectangle function is a $\sinc$ function.
+    Show that the Fourier transform of the centered rectangle function is a $\sinc$ function ($\sinc(y) \equiv \sin(y)/y$).
     The centered rectangle function of width $a$ is
     \begin{align*}
         R_a(x) &= \begin{cases}
@@ -362,9 +364,9 @@
             0 & \mathrm{otherwise}
         \end{cases}
     \end{align*}
-    and the normalized Fourier transform of a function $f(x)$ is $\mathcal{F}\qty{f(x)}(k) = \hat{f}(k)$, defined to be
+    and the normalized Fourier transform of a function $f(x)$ is $\mathcal{F}\qty{f(x)}(\kappa) \equiv \hat{f}(\kappa)$, defined to be
     \begin{align*}
-        \hat{f}(k) &= \frac{1}{\sqrt{2\pi}} \int \dd{x} f(x) \, e^{-i k x}.
+        \hat{f}(\kappa) &= \frac{1}{\sqrt{2\pi}} \int \dd{x} f(x) \, e^{-i \kappa x}.
     \end{align*}
 
 \end{document}

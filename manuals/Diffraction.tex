@@ -94,19 +94,23 @@
     \begin{align} \label{eqn:fraunhoffer-square-root-approx}
         \sqrt{(s-x)^2 + L^2} = \sqrt{w^2 + x^2 - 2wx + L^2} = r \, \sqrt{1 + \frac{-2wx + w^2}{r^2}} \approx r \qty(1 - \frac{wx}{r^2}),
     \end{align}
-    and the square root in the denominator as $\sqrt{(w-x)^2 + L^2} \approx r$.
+    and the square root in the denominator as $\sqrt{(w-x)^2 + L^2} \approx r$. 
     Now we have
     \begin{align} \label{eqn:fraunhofer-diffraction-integral}
         E(x) &= \frac{e^{i k r}}{r} \, \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, e^{-i k \frac{x}{r} w}.
+    \end{align}
+    If we also have $L \gg x$, then $r \approx L$ by the small-angle approximation, and we have
+    \begin{align} \label{eqn:fraunhofer-diffraction-integral-with-L}
+        E(x) &= \frac{e^{i k L}}{L} \, \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, e^{-i k \frac{x}{L} w}.
     \end{align}
     We've managed to pull out an overall prefactor: the integral itself now only accounts for deviations from the pattern produced by a point source at the center of the slit, which is itself handled by the prefactor.
     Suppose that the incoming electromagnetic wave is a plane wave, so that we can take $E(z_0, w) = E_0$.
     Then
     \begin{align} \label{eqn:single-slit-diffraction}
-        E(x) &= E_0 \, W \, \frac{e^{i k r}}{r} \sinc\qty(\pi \, \frac{W}{\lambda r} \, x) \\
-        I(x) &= \frac{E_0^2 \, W^2}{r^2} \sinc^2\qty(\pi \, \frac{W}{\lambda r} \, x)
+        E(x) &= E_0 \, W \, \frac{e^{i L r}}{L} \sinc\qty(\pi \, \frac{W}{\lambda L} \, x) \\
+        I(x) &= \frac{E_0^2 \, W^2}{L^2} \sinc^2\qty(\pi \, \frac{W}{\lambda L} \, x)
     \end{align}
-    where $\sinc(x) \equiv \sin(x) / x$, and $\sinc(0) = 1$.
+    where $\sinc(y) \equiv \sin(y) / y$, and $\sinc(0) = 1$.
     The intensity pattern is shown in Figure~\ref{fig:single-slit-diffraction-intensity}.
     The zeros of $\sinc^2(y)$ occur at $y = 0, \, \pm \pi, \, \pm 2 \pi, \, \pm 3 \pi, \, \cdots$.
     The positions of the local maxima are not evenly spaced and must be calculated numerically.
@@ -155,7 +159,7 @@
 
     If we have $N$ slits each separated by distance $D$ (center-to-center) instead of just one, we can sum Eq.~\eqref{eqn:single-slit-diffraction} over each slit, with a phase-shift that takes into account the extra translation:
     \begin{align}
-        E(x) &= \sum_{n=1}^N E_0 \, W \, \frac{e^{i k r}}{r} \sinc\qty(\pi \, \frac{W}{\lambda r} \, x) \, e^{i \, n \, k \, D \, \frac{x}{r}}.
+        E(x) &= \sum_{n=1}^N E_0 \, W \, \frac{e^{i k L}}{L} \sinc\qty(\pi \, \frac{W}{\lambda L} \, x) \, e^{i \, n \, k \, D \, \frac{x}{L}}.
     \end{align}
     This is a geometric series, which has a closed form sum:
     \begin{align}
@@ -163,8 +167,8 @@
     \end{align}
     So we have
     \begin{align} \label{eqn:multi-slit-diffraction}
-        E(x) &= E_0 \, W \, \frac{e^{i k r}}{r} \sinc\qty(\pi \, \frac{W}{\lambda r} \, x) \, \frac{e^{i k \, D \, x / r} - e^{i (N + 1) \, k \, D \, x / r}}{1 - e^{i k \, D \, x / r}} \\
-        I(x) &= \frac{E_0^2 \, W^2}{r^2} \sinc^2\qty(\pi \, \frac{W}{\lambda r} \, x) \, \frac{\sin^2(\pi \frac{N D}{\lambda r} x)}{\sin^2(\pi \frac{D}{\lambda r} x)}.
+        E(x) &= E_0 \, W \, \frac{e^{i k L}}{L} \sinc\qty(\pi \, \frac{W}{\lambda L} \, x) \, \frac{e^{i k \, D \, x / L} - e^{i (N + 1) \, k \, D \, x / L}}{1 - e^{i k \, D \, x / L}} \\
+        I(x) &= \frac{E_0^2 \, W^2}{L^2} \sinc^2\qty(\pi \, \frac{W}{\lambda L} \, x) \, \frac{\sin^2(\pi \frac{N D}{\lambda L} x)}{\sin^2(\pi \frac{D}{\lambda L} x)}.
     \end{align}
 This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intensity}.
     The overall envelope of multiple lobes comes from the $\sinc^2$ term, and the oscillations under each lobe come from the $\sin^2$ ratio.
@@ -216,8 +220,8 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
 
     \subsection{Single-Slit Diffraction}
     Set up the laser, single-slit holder, and photodiode on the optical rail such that the laser beam passes through one the slits (write down the slit width for that slit) and is diffracted onto the photodiode.
-    Hook the photodiode up to the oscilloscope and observe how the output voltage varies as you change the horizontal and vertical positions of the slit assembly and photodiode (make sure the oscilloscope is DC-coupled).
-    The photodiode output voltage is proportional to the number of photons it is detecting, which is proportional to the light intensity on the detector (plus a small offset, which you must account for!).
+    Hook the photodiode up to the multimeter and observe how the output voltage varies as you change the horizontal and vertical positions of the slit assembly and photodiode (make sure the multimeter is DC-coupled).
+    The photodiode output voltage is proportional to the number of photons it is detecting, which is proportional to the light intensity on the detector (plus a small offset, which you must account for).
     Optimize the horizontal and vertical alignments so that you have maximum intensity on the photodiode at the center of the diffraction pattern.
 
     \checkpoint{
@@ -226,7 +230,7 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
             \item Make a plot that compares the theoretical intensity curve (i.e., $I(x)$) to your measured intensity curve.
             \item Identify the position of the first-order maximum and use it to measure the wavelength of the laser.
                 Don't interpolate on your plot - go back to the apparatus and find the position as accurately as possible.
-                Analyze your error and compare to the expected wavelength ($\lambda = \SI{632.8}{\nano\meter})$.
+                Compare your result to the expected wavelength ($\lambda = \SI{632.8}{\nano\meter})$.
         \end{itemize}
     }
 
@@ -239,7 +243,7 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
         \begin{itemize}
             \item Make a plot that compares the theoretical intensity curve to your measured intensity curve.
             \item Identify the position of the first non-central maximum in the central lobe and use it to measure the wavelength of the laser.
-                Analyze your error and compare to the expected wavelength ($\lambda = \SI{632.8}{\nano\meter})$.
+                Compare your result to the expected wavelength ($\lambda = \SI{632.8}{\nano\meter})$.
         \end{itemize}
     }
 
@@ -248,28 +252,32 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
     \begin{align} \label{eqn:fresnel-square-root-approx}
         \sqrt{(s-x)^2 + L^2} = \sqrt{w^2 + x^2 - 2wx + L^2} = r \, \sqrt{1 + \frac{-2wx + w^2}{r^2}} \approx r \qty(1 - \frac{(w-x)^2}{2r^2}),
     \end{align}
-    and the amplitude becomes
+    and the amplitude becomes (after the small angle approximation)
     \begin{align} \label{eqn:fresnel-diffraction-integral}
-        E(x) &= \frac{e^{i k r}}{r} \, \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, e^{-i k \frac{(w-x)^2}{2r}}.
+        E(x) &= \frac{e^{i k L}}{L} \, \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, e^{-i k \frac{(w-x)^2}{2L}}.
     \end{align}
-    For an incoming constant-amplitude plane wave we can pull out the electric field and make a variable transformation $\nu = (w-x) \sqrt{2/(r\lambda)}$.
+    For an incoming constant-amplitude plane wave we can pull out the electric field and make a variable transformation $\nu = (w-x) \sqrt{2/(\lambda L)}$.
     This yields
     \begin{align} \label{eqn:fresnel-diffraction}
-        E(x) &= E_0 \frac{e^{i k r}}{r} \, \sqrt{\frac{r \, \lambda}{2}} \, \int^{\nu_{\mathrm{max}}}_{\nu_{\mathrm{min}}} \dd{\nu} e^{-i \frac{\pi}{2} \nu^2},
+        E(x) &= E_0 \frac{e^{i k L}}{L} \, \sqrt{\frac{L \, \lambda}{2}} \, \int^{\nu_{\mathrm{max}}}_{\nu_{\mathrm{min}}} \dd{\nu} e^{-i \frac{\pi}{2} \nu^2},
     \end{align}
     where
     \begin{align}
-        \nu_{\mathrm{min}} = -\qty(\frac{W}{2} + x) \sqrt{\frac{2}{r \lambda}}
+        \nu_{\mathrm{min}} = -\qty(\frac{W}{2} + x) \sqrt{\frac{2}{\lambda L}}
         \qquad \qquad
-        \nu_{\mathrm{max}} = \qty(\frac{W}{2} - x) \sqrt{\frac{2}{r \lambda}}.
+        \nu_{\mathrm{max}} = \qty(\frac{W}{2} - x) \sqrt{\frac{2}{\lambda L}}.
     \end{align}
     This type of diffraction is called \textbf{Fresnel diffraction}.
+    The shape of the resulting intensity pattern is mostly determined by the quantity $\Delta \nu = \nu_{\mathrm{max}} - \nu_{\mathrm{min}}$.
+
+    You have been provided with two adjustable slits.
+    We will use the first slit to produce a spherical wave in the near field, and the second to produce a Fresnel diffraction pattern.
+    Bring the slits as close together as possible, and make the first slit as small as possible (so as to mimic a single point source).
+    The distance between them is then $L$, and the width of the second slit is $W$.
 
     \checkpoint{
-        Compare the theoretical expression for Fresnel diffraction (Equation~\eqref{eqn:fresnel-diffraction}) to your real setup.
-        \begin{itemize}
-            \item Make a plot that compares the theoretical intensity curve to your measured intensity curve.
-        \end{itemize}
+        Create and observe the Fresnel diffraction pattern for $\Delta \nu = 3.9$ on your screen.
+        It should appear to be a broad blob with the center slightly dimmer than the edges.
     }
 
     \newpage
@@ -278,7 +286,7 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
     \section{Prelab Questions}
     \setcounter{subsection}{0}
 
-    \subsection{Wavelength from Intensity Maxima}
+    \subsection*{Wavelength from Intensity Maxima}
 
     Consider the intensity pattern produced by monochromatic light undergoing Fraunhofer diffraction from a single slit.
     Derive a relationship between the location of the first-order intensity maximum and the wavelength of the light.
@@ -286,11 +294,5 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
 
     \vspace{\stretch{1}}
 
-    \subsection{Numerical Fresnel Diffraction}
-
-    Write a program in your language of choice (Mathematica, MATLAB, and Python are all good choices) that performs the Fresnel diffraction integral \eqref{eqn:fresnel-diffraction-integral} numerically.
-    Show the Fresnel diffraction patterns of a few different sets of parameters.
-
-    \vspace{\stretch{1}}
 
 \end{document}

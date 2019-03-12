@@ -4,7 +4,7 @@
 \LoadClass[11pt]{article}
 
 % standard graphics/image display packages
-\usepackage[dvipsnames]{xcolor}
+\RequirePackage[dvipsnames]{xcolor}
 \RequirePackage{graphicx}
 
 % figures
