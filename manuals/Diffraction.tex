@@ -76,16 +76,11 @@
     \end{figure}
 
     To determine what we see on the screen (i.e., $I(x) = \abs{E(x)}^2 = E(x) \, E^*(x)$, called the ``intensity pattern'' or ``diffraction pattern''), we will use \textbf{Huygen's Principle}, which says that we can treat each point in the plane of the rectangular hole as an independent spherical emitter.
-    To determine the electric field anywhere, we sum over the contributions from each point (after making some approximations which we won't describe in detail here):
+    To determine the electric field anywhere, we sum over the contributions from each point:
     \begin{align}
-        E(z, x) &= \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, \frac{e^{i k r}}{r},
+        E(z, x) &= \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, \frac{e^{i k r}}{r} = \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, \frac{e^{i k \sqrt{(w-x)^2 + L^2}}}{\sqrt{(w-x)^2 + L^2}},
     \end{align}
-    where $z$ is the coordinate going between the barrier and the screen, $x$ is the distance along the screen to the observed point, $r$ is the distance from the center of the slit to the observed point on the screen, $k = 2 \pi / \lambda$ is the wavenumber of the light, and $W$ is the width of the slit.
-    The integration variable $w$ tracks where the integral is along the slit.
-    The field on the screen is
-    \begin{align}
-        E(x) &= \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, \frac{e^{i k \sqrt{(w-x)^2 + L^2}}}{\sqrt{(w-x)^2 + L^2}}.
-    \end{align}
+    where $z$ is the coordinate going between the barrier and the screen, $x$ is the distance along the screen to the observed point, $r$ is the distance from some point in the slit to the observed point on the screen,$w$ is the distance of that point to the center of the slit, $W$ is the width of the slit, and $k = 2 \pi / \lambda$ is the wavenumber of the light.
 
     This integral is not tractable without making some assumptions.
     We will assume that we are in the \textbf{far-field}: $L \gg W$.
@@ -94,7 +89,7 @@
     \begin{align} \label{eqn:fraunhoffer-square-root-approx}
         \sqrt{(s-x)^2 + L^2} = \sqrt{w^2 + x^2 - 2wx + L^2} = r \, \sqrt{1 + \frac{-2wx + w^2}{r^2}} \approx r \qty(1 - \frac{wx}{r^2}),
     \end{align}
-    and the square root in the denominator as $\sqrt{(w-x)^2 + L^2} \approx r$. 
+    and the square root in the denominator as $\sqrt{(w-x)^2 + L^2} = r$. 
     Now we have
     \begin{align} \label{eqn:fraunhofer-diffraction-integral}
         E(x) &= \frac{e^{i k r}}{r} \, \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, e^{-i k \frac{x}{r} w}.
@@ -103,7 +98,8 @@
     \begin{align} \label{eqn:fraunhofer-diffraction-integral-with-L}
         E(x) &= \frac{e^{i k L}}{L} \, \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, e^{-i k \frac{x}{L} w}.
     \end{align}
-    We've managed to pull out an overall prefactor: the integral itself now only accounts for deviations from the pattern produced by a point source at the center of the slit, which is itself handled by the prefactor.
+    The integral in the above equation accounts for the interference of all the point sources in the slit, each with initial amplitude $E(z_0, w)$, at point $x$ on the screen.  The phase factor outside the integral is common to all the point sources and accounts for the phase accumulated from propagating the distance $L$ from the slit to the screen.
+    
     Suppose that the incoming electromagnetic wave is a plane wave, so that we can take $E(z_0, w) = E_0$.
     Then
     \begin{align} \label{eqn:single-slit-diffraction}
@@ -227,25 +223,39 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
     \checkpoint{
         Compare the theoretical expression for single-slit diffraction (Equation~\eqref{eqn:single-slit-diffraction}) to your real setup.
         \begin{itemize}
-            \item Make a plot that compares the theoretical intensity curve (i.e., $I(x)$) to your measured intensity curve.
-            \item Identify the position of the first-order maximum and use it to measure the wavelength of the laser.
-                Don't interpolate on your plot - go back to the apparatus and find the position as accurately as possible.
-                Compare your result to the expected wavelength ($\lambda = \SI{632.8}{\nano\meter})$.
+        	\item So far we still have one unknown parameter, the wavelength of the laser.  Our theory relates the wavelength to the slit width and intensity maxima by Eq. \eqref{eqn:single-slit-diffraction}. Hone in on the positions of the 0th and 1st order maxima and use their separation to determine the wavelength.
+        	\item How well does your measured value compare to the actual value, 632.8 nm.
         \end{itemize}
     }
+
+	\checkpoint{
+	Now that we know all of the parameters that go into Eq. \eqref{eqn:single-slit-diffraction}, we can compare the theory and experiment for all positions on the screen.
+	\begin{itemize}
+		\item Make a plot of Eq. \eqref{eqn:single-slit-diffraction} using your known $W$ and $\lambda$.
+		\item Measure $I(x)$ at evenly spaced positions that are dense enough to resolve the lobes of the diffraction pattern.  
+		\item How well do your plots agree?
+	\end{itemize}
+	}
 
     \subsection{Double-Slit Diffraction}
     Switch out the single-slit assembly for a double-slit holder.
     Readjust your setup to make  sure that you can resolve the small features in the double-slit diffraction pattern.
 
     \checkpoint{
-        Compare the theoretical expression for double-slit diffraction (Equation~\eqref{eqn:multi-slit-diffraction} with $N=2$) to your real setup.
-        \begin{itemize}
-            \item Make a plot that compares the theoretical intensity curve to your measured intensity curve.
-            \item Identify the position of the first non-central maximum in the central lobe and use it to measure the wavelength of the laser.
-                Compare your result to the expected wavelength ($\lambda = \SI{632.8}{\nano\meter})$.
-        \end{itemize}
+    	Compare the theoretical expression for double-slit diffraction (Equation~\eqref{eqn:single-slit-diffraction}) to your real setup.
+    	\begin{itemize}
+    		\item Now that we have to slits the structure of the diffraction pattern will be slightly different. In between the lobes will be sub-lobes whose position is determined by $D$.  Use your known $N$, $D$, $W$, and $\lambda$ to predict the positions of the sub-lobes
+    		\item Measure the positions of the sub-lobes and compare to your predictions.
+    	\end{itemize}
     }
+
+	\checkpoint{
+	\begin{itemize}
+		\item Make a plot of \eqref{eqn:multi-slit-diffraction}.
+		\item Measure $I(x)$ at evenly spaced positions that are dense enough to resolve the lobes and sub-lobes of the diffraction pattern.
+		\item How well do your plots agree?
+	\end{itemize}
+	}
 
     \subsection{Fresnel Diffraction}
     If we can't neglect the quadratic terms in \eqref{eqn:fraunhoffer-square-root-approx}, we instead get
