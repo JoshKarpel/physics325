@@ -103,7 +103,7 @@
     Suppose that the incoming electromagnetic wave is a plane wave, so that we can take $E(z_0, w) = E_0$.
     Then
     \begin{align} \label{eqn:single-slit-diffraction}
-        E(x) &= E_0 \, W \, \frac{e^{i L r}}{L} \sinc\qty(\pi \, \frac{W}{\lambda L} \, x) \\
+        E(x) &= E_0 \, W \, \frac{e^{i L r}}{L} \sinc\qty(\pi \, \frac{W}{\lambda L} \, x) \nonumber \\
         I(x) &= \frac{E_0^2 \, W^2}{L^2} \sinc^2\qty(\pi \, \frac{W}{\lambda L} \, x)
     \end{align}
     where $\sinc(y) \equiv \sin(y) / y$, and $\sinc(0) = 1$.
@@ -163,12 +163,12 @@
     \end{align}
     So we have
     \begin{align} \label{eqn:multi-slit-diffraction}
-        E(x) &= E_0 \, W \, \frac{e^{i k L}}{L} \sinc\qty(\pi \, \frac{W}{\lambda L} \, x) \, \frac{e^{i k \, D \, x / L} - e^{i (N + 1) \, k \, D \, x / L}}{1 - e^{i k \, D \, x / L}} \\
+        E(x) &= E_0 \, W \, \frac{e^{i k L}}{L} \sinc\qty(\pi \, \frac{W}{\lambda L} \, x) \, \frac{e^{i k \, D \, x / L} - e^{i (N + 1) \, k \, D \, x / L}}{1 - e^{i k \, D \, x / L}} \nonumber \\
         I(x) &= \frac{E_0^2 \, W^2}{L^2} \sinc^2\qty(\pi \, \frac{W}{\lambda L} \, x) \, \frac{\sin^2(\pi \frac{N D}{\lambda L} x)}{\sin^2(\pi \frac{D}{\lambda L} x)}.
     \end{align}
 This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intensity}.
-    The overall envelope of multiple lobes comes from the $\sinc^2$ term, and the oscillations under each lobe come from the $\sin^2$ ratio.
-    Since the $\sinc^2$ involves only $W$ and the $\sin^2$ involve only $D$, we see that the slit width controls the lobe pattern and the slit spacing controls the oscillations.
+    The overall envelope of multiple lobes comes from the $\sinc^2$ term, and the oscillations under each lobe, which we call sub-lobes in this lab, come from the $\sin^2$ ratio.
+    Since the $\sinc^2$ involves only $W$ and the $\sin^2$ involve only $D$, we see that the slit width controls the lobe pattern and the slit spacing controls the sub-lobe pattern.
     The two features are essentially independent of each other.
     We will revisit this perhaps-surprising result when we start thinking about Fourier optics.
 
@@ -187,6 +187,7 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
 
 
             \draw[<-] (0.05, 4.85) -- (1, 5.2) node[right] {central maximum $I_0$};
+            \draw[<-] (pi/5+.05, 4.3) -- (1.25, 4.5) node[right] {first sub-lobe};
 
             \draw[<-] (-pi, 1/10) -- (-pi, 3) node[above] {first minimum};
             \draw[<-] (-2*pi, 1/10) -- (-2*pi, 2) node[above] {second minimum};
@@ -218,43 +219,47 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
     Set up the laser, single-slit holder, and photodiode on the optical rail such that the laser beam passes through one the slits (write down the slit width for that slit) and is diffracted onto the photodiode.
     Hook the photodiode up to the multimeter and observe how the output voltage varies as you change the horizontal and vertical positions of the slit assembly and photodiode (make sure the multimeter is DC-coupled).
     The photodiode output voltage is proportional to the number of photons it is detecting, which is proportional to the light intensity on the detector (plus a small offset, which you must account for).
-    Optimize the horizontal and vertical alignments so that you have maximum intensity on the photodiode at the center of the diffraction pattern.
+    Optimize the horizontal and vertical alignments so that you have maximum intensity on the photodiode at the center of the diffraction pattern (i.e., at the position of the central maximum).
 
     \checkpoint{
-        Compare the theoretical expression for single-slit diffraction (Equation~\eqref{eqn:single-slit-diffraction}) to your real setup.
+        Compare the theoretical expression for double-slit diffraction (Equation~\eqref{eqn:single-slit-diffraction}) to your real setup.
         \begin{itemize}
-        	\item So far we still have one unknown parameter, the wavelength of the laser.  Our theory relates the wavelength to the slit width and intensity maxima by Eq. \eqref{eqn:single-slit-diffraction}. Hone in on the positions of the 0th and 1st order maxima and use their separation to determine the wavelength.
-        	\item How well does your measured value compare to the actual value, 632.8 nm.
+        \item Determine the positions of the central and first order maxima and use their separation to determine the wavelength of the laser via Eq.~\eqref{eqn:single-slit-diffraction}.
+       	\item Compare your result to the expected wavelength, $\lambda = \SI{632.8}{\nano\meter}$.
         \end{itemize}
     }
 
 	\checkpoint{
-	Now that we know all of the parameters that go into Eq. \eqref{eqn:single-slit-diffraction}, we can compare the theory and experiment for all positions on the screen.
-	\begin{itemize}
-		\item Make a plot of Eq. \eqref{eqn:single-slit-diffraction} using your known $W$ and $\lambda$.
-		\item Measure $I(x)$ at evenly spaced positions that are dense enough to resolve the lobes of the diffraction pattern.  
-		\item How well do your plots agree?
-	\end{itemize}
+    	Now that we know all of the parameters that go into Eq.~\eqref{eqn:single-slit-diffraction}, we can compare the theoretical expression and the experiment results for all positions on the screen.
+    	\begin{itemize}
+    		\item Make a plot of the theoretical intensity as a function of position $I(x)$ on the screen using your known $W$ and measured $\lambda$.
+    		\item Measure $I(x)$ at evenly spaced positions that are dense enough to resolve the lobes of the diffraction pattern.
+    		\item Overlay your measured intensities onto your theory plot.
+                How well do they agree?
+    	\end{itemize}
 	}
 
     \subsection{Double-Slit Diffraction}
     Switch out the single-slit assembly for a double-slit holder.
-    Readjust your setup to make  sure that you can resolve the small features in the double-slit diffraction pattern.
+    Readjust your setup to make  sure that you can resolve the small features in the double-slit diffraction pattern, including the sub-lobes.
 
     \checkpoint{
-    	Compare the theoretical expression for double-slit diffraction (Equation~\eqref{eqn:single-slit-diffraction}) to your real setup.
+    	Compare the theoretical expression for double-slit diffraction (Eq.~\eqref{eqn:multi-slit-diffraction}) to your real setup.
     	\begin{itemize}
-    		\item Now that we have to slits the structure of the diffraction pattern will be slightly different. In between the lobes will be sub-lobes whose position is determined by $D$.  Use your known $N$, $D$, $W$, and $\lambda$ to predict the positions of the sub-lobes
-    		\item Measure the positions of the sub-lobes and compare to your predictions.
+    		\item Use your known $N$, $D$, $W$, and $\lambda$ to predict the positions of the sub-lobes.
+    		\item Measure the positions of the sub-lobes and compare your results to your predictions.
+                How well do they agree?
     	\end{itemize}
     }
 
 	\checkpoint{
-	\begin{itemize}
-		\item Make a plot of \eqref{eqn:multi-slit-diffraction}.
-		\item Measure $I(x)$ at evenly spaced positions that are dense enough to resolve the lobes and sub-lobes of the diffraction pattern.
-		\item How well do your plots agree?
-	\end{itemize}
+        Compare the theoretical expression and the experiment results for all positions on the screen.
+    	\begin{itemize}
+    		\item Make a plot of the theoretical intensity for double-slit diffraction.
+    		\item Measure $I(x)$ at evenly spaced positions that are dense enough to resolve the lobes and sub-lobes of the diffraction pattern.
+    		\item Overlay your measured intensities onto your theory plot.
+                How well do they agree?
+    	\end{itemize}
 	}
 
     \subsection{Fresnel Diffraction}
@@ -281,7 +286,7 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
     The shape of the resulting intensity pattern is mostly determined by the quantity $\Delta \nu = \nu_{\mathrm{max}} - \nu_{\mathrm{min}}$.
 
     You have been provided with two adjustable slits.
-    We will use the first slit to produce a spherical wave in the near field, and the second to produce a Fresnel diffraction pattern.
+    We will use the first slit to produce a spherical wave in the near field, and the second to produce a Fresnel diffraction pattern which will propagate into the far field.
     Bring the slits as close together as possible, and make the first slit as small as possible (so as to mimic a single point source).
     The distance between them is then $L$, and the width of the second slit is $W$.
 
