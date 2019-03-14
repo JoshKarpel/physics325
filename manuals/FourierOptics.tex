@@ -17,10 +17,7 @@
 
     \section{Background}
 
-    In the Diffraction lab we derived an expression for the electric field on a screen far behind a slit when an electromagnetic wave was incident on the slit (see Figure~\ref{fig:single-slit-diffraction-geometry}):
-    \begin{align} \label{eqn:fraunhofer-diffraction-integral}
-        E(x) &= \frac{e^{i k r}}{r} \, \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, e^{-i k \frac{x}{r} w}.
-    \end{align}
+    Imagine we have some aperture of width $W$ with some assortment of opaque blockages within it.  In addition to the aperture, imagine that there is some electromagnetic wave incident on the aperture from the left (see Figure~\ref{fig:single-slit-diffraction-geometry}).
 
     \begin{figure}
             \centering
@@ -39,10 +36,15 @@
                      -- (-2.7 + \x, 0.5)
                      -- (-3 + \x, 0);
 
-                \draw[|<->|, dashed] (-0.3, 2) -- (-0.3, 3) node[midway, left] {$W$};
+                \draw[|<->|, dashed] (-0.3, 1.5) -- (-0.3, 3.5) node[midway, left] {$W$};
 
-                \draw[ultra thick] (0, 0) -- (0, 2);
-                \draw[ultra thick] (0, 3) -- (0, 5) node[above] {Barrier w/ Slit};
+                \draw[ultra thick] (0, 0) -- (0, 1.5);
+                \draw[ultra thick] (0, 3.5) -- (0, 5) node[above] {Barrier w/ Aperture};
+                \draw[ultra thick] (0, 1.7) -- (0, 2.13);
+                \draw[ultra thick] (0, 2.2) -- (0, 2.33);
+                \draw[ultra thick] (0, 2.6) -- (0, 2.65);
+                \draw[ultra thick] (0, 2.9) -- (0, 3.25);
+                \draw[ultra thick] (0, 3.35) -- (0, 3.45);
 
                 \draw[dashed] (0, 2.5) -- (8, 2.5) node[midway, below] {$L$};
 
@@ -69,6 +71,27 @@
 
             \label{fig:single-slit-diffraction-geometry}
         \end{figure}
+    
+    To determine what we see on the screen (i.e., $I(x) = \abs{E(x)}^2 = E(x) \, E^*(x)$, called the ``intensity pattern'' or ``diffraction pattern''), we will use \textbf{Huygen's Principle}, which says that we can treat each point in the aperture as an independent spherical emitter.
+    To determine the electric field anywhere, we sum over the contributions from each point:
+    \begin{align}
+    E(z, x) &= \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, \frac{e^{i k r}}{r} = \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, \frac{e^{i k \sqrt{(w-x)^2 + L^2}}}{\sqrt{(w-x)^2 + L^2}},
+    \end{align}
+    where $z$ is the coordinate going between the barrier and the screen, $x$ is the distance along the screen to the observed point, $r$ is the distance from some point in the aperture to the observed point on the screen, $w$ is the distance of that point to the center of the aperture, $W$ is the width of the aperture, and $k = 2 \pi / \lambda$ is the wavenumber of the light.  
+    
+    This integral is not tractable without making some assumptions.
+    We will assume that we are in the \textbf{far-field}: $L \gg W$.
+    This type of diffraction is called \textbf{Fraunhofer diffraction}.
+    We can now approximate the square root in the exponent as
+    \begin{align} \label{eqn:fraunhoffer-square-root-approx}
+    \sqrt{(s-x)^2 + L^2} = \sqrt{w^2 + x^2 - 2wx + L^2} = r \, \sqrt{1 + \frac{-2wx + w^2}{r^2}} \approx r \qty(1 - \frac{wx}{r^2}),
+    \end{align}
+    and the square root in the denominator as $\sqrt{(w-x)^2 + L^2} = r$. 
+    Now we have
+    \begin{align} \label{eqn:fraunhofer-diffraction-integral}
+    E(x) &= \frac{e^{i k r}}{r} \, \int^{W/2}_{-W/2} \dd{w} E(z_0, w) \, e^{-i k \frac{x}{r} w}.
+    \end{align}
+    The integral in the above equation accounts for the interference of all the point sources in the aperture, each with initial amplitude $E(z_0, w)$, at point $x$ on the screen.  The phase factor outside the integral is common to all the point sources and accounts for the phase accumulated from propagating the distance $r$ from the aperture to the screen. Note that $E(z_0, w)=0$ whenever $w$ coincides with one of the blockages.
 
     It turns out that we can capture the behavior of this integral in a much more intuitive way.
     Let's return to Eq.~\eqref{eqn:fraunhofer-diffraction-integral} and rewrite the exponential phase factor using $x / r = \sin \theta$.
