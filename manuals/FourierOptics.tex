@@ -17,60 +17,61 @@
 
     \section{Background}
 
-    Imagine we have some aperture of width $W$ with some assortment of opaque blockages within it.  In addition to the aperture, imagine that there is some electromagnetic wave incident on the aperture from the left (see Figure~\ref{fig:single-slit-diffraction-geometry}).
+    Imagine that we have some aperture of width $W$ with an assortment of opaque blockages in it.
+    What is the image in the far field when an electromagnetic wave is incident on the aperture from the left, as shown in Figure~\ref{fig:single-slit-diffraction-geometry}?
 
     \begin{figure}
-            \centering
+        \centering
 
-            \begin{tikzpicture}
-                \foreach \x in {0, .4, .8}
-                    \draw[rounded corners] (-3 + \x, 5)
-                     -- (-2.8 + \x, 4.5)
-                     -- (-2.9 + \x, 4)
-                     -- (-2.5 + \x, 3.5)
-                     -- (-2.7 + \x, 3)
-                     -- (-2.4 + \x, 2.5)
-                     -- (-2.6 + \x, 2)
-                     -- (-2.5 + \x, 1.5)
-                     -- (-2.9 + \x, 1)
-                     -- (-2.7 + \x, 0.5)
-                     -- (-3 + \x, 0);
+        \begin{tikzpicture}
+            \foreach \x in {0, .4, .8}
+                \draw[rounded corners] (-3 + \x, 5)
+                 -- (-2.8 + \x, 4.5)
+                 -- (-2.9 + \x, 4)
+                 -- (-2.5 + \x, 3.5)
+                 -- (-2.7 + \x, 3)
+                 -- (-2.4 + \x, 2.5)
+                 -- (-2.6 + \x, 2)
+                 -- (-2.5 + \x, 1.5)
+                 -- (-2.9 + \x, 1)
+                 -- (-2.7 + \x, 0.5)
+                 -- (-3 + \x, 0);
 
-                \draw[|<->|, dashed] (-0.3, 1.5) -- (-0.3, 3.5) node[midway, left] {$W$};
+            \draw[|<->|, dashed] (-0.3, 1.5) -- (-0.3, 3.5) node[midway, left] {$W$};
 
-                \draw[ultra thick] (0, 0) -- (0, 1.5);
-                \draw[ultra thick] (0, 3.5) -- (0, 5) node[above] {Barrier w/ Aperture};
-                \draw[ultra thick] (0, 1.7) -- (0, 2.13);
-                \draw[ultra thick] (0, 2.2) -- (0, 2.33);
-                \draw[ultra thick] (0, 2.6) -- (0, 2.65);
-                \draw[ultra thick] (0, 2.9) -- (0, 3.25);
-                \draw[ultra thick] (0, 3.35) -- (0, 3.45);
+            \draw[ultra thick] (0, 0) -- (0, 1.5);
+            \draw[ultra thick] (0, 3.5) -- (0, 5) node[above] {Barrier w/ Aperture};
+            \draw[ultra thick] (0, 1.7) -- (0, 2.13);
+            \draw[ultra thick] (0, 2.2) -- (0, 2.33);
+            \draw[ultra thick] (0, 2.6) -- (0, 2.65);
+            \draw[ultra thick] (0, 2.9) -- (0, 3.25);
+            \draw[ultra thick] (0, 3.35) -- (0, 3.45);
 
-                \draw[dashed] (0, 2.5) -- (8, 2.5) node[midway, below] {$L$};
+            \draw[dashed] (0, 2.5) -- (8, 2.5) node[midway, below] {$L$};
 
-                \draw[dashed] (0 ,2.5) -- (8, 3.5) node[midway, above] {$r$};
+            \draw[dashed] (0 ,2.5) -- (8, 3.5) node[midway, above] {$r$};
 
-                \draw[|<->|, dashed] (8.2, 2.5) -- (8.2,3.5) node[midway, right] {$x$};
+            \draw[|<->|, dashed] (8.2, 2.5) -- (8.2,3.5) node[midway, right] {$x$};
 
-                \draw[<->, dashed] (7, 2.5) arc (0:6.4:7) node[midway, right] {$\theta$};
+            \draw[<->, dashed] (7, 2.5) arc (0:6.4:7) node[midway, right] {$\theta$};
 
-                \draw[fill] (0, 2.5) circle (2pt);
-                \draw (0, 2.5) -- (0.5, 2.25);
-                \node[align=center,below] at (1,2.35) {$(z_0, \, 0)$};
+            \draw[fill] (0, 2.5) circle (2pt);
+            \draw (0, 2.5) -- (0.5, 2.25);
+            \node[align=center,below] at (1,2.35) {$(z_0, \, 0)$};
 
-                \draw[fill] (0, 2.75) circle (2pt);
-                \draw (0, 2.75) -- (0.5, 2.85);
-                \node[align=center,above] at (1,2.7) {$(z_0, \, w)$};
+            \draw[fill] (0, 2.75) circle (2pt);
+            \draw (0, 2.75) -- (0.5, 2.85);
+            \node[align=center,above] at (1,2.7) {$(z_0, \, w)$};
 
-                \draw (8, 0) -- ++(0, 5) node[above] {Screen};
+            \draw (8, 0) -- ++(0, 5) node[above] {Screen};
 
-                \draw[fill] (8,3.5) circle (2pt) node[above right] {Observation Point};
-            \end{tikzpicture}
+            \draw[fill] (8,3.5) circle (2pt) node[above right] {Observation Point};
+        \end{tikzpicture}
 
-            \caption{An electromagnetic wave illuminating an arbitrary aperture.}
+        \caption{An electromagnetic wave illuminating an arbitrary aperture.}
 
-            \label{fig:single-slit-diffraction-geometry}
-        \end{figure}
+        \label{fig:single-slit-diffraction-geometry}
+    \end{figure}
     
     To determine what we see on the screen (i.e., $I(x) = \abs{E(x)}^2 = E(x) \, E^*(x)$, called the ``intensity pattern'' or ``diffraction pattern''), we will use \textbf{Huygen's Principle}, which says that we can treat each point in the aperture as an independent spherical emitter.
     To determine the electric field anywhere, we sum over the contributions from each point:
@@ -105,13 +106,14 @@
     Apparently, diffracting off of an obstructing object produces a far-field image based on the amplitudes of the different \textbf{spatial frequency components} of the obstructing object's transverse features.
     Spatial frequency has units of inverse length, just like time-based frequency has units of inverse time.
 
-    This agrees with what we learned in the Diffraction lab by doing the integral manually, because the Fourier transform of a rectangle is a $\sinc$ function.
+    This agrees with what we learned (or will learn) in the Diffraction lab by doing the integral manually, because the Fourier transform of a rectangle is a $\sinc$ function.
     When we shone light on a rectangular slit the intensity pattern we observed was $\sinc^2$, so the underlying electric field must have been a $\sinc$.
     Thinking about far-field diffraction using the Fourier transform is a specialty sub-field all it's own: Fourier optics.
 
     In this lab we will build a Fourier imaging setup from scratch.
     The schematic of the setup is shown in Figure~\ref{fig:fourier-optics-setup}.
-    Lenses 1 and 2 and the pinhole form a ``spatial filter'' system, which cleans up the input beam.
+    The spatial filter (containing a thin lens and a pinhole) cleans up the input beam.
+    The resulting beam, which will be expanding rapidly since it just went through a tiny aperture (can you explain why in terms of Fourier optics?) is sent through a thick lens to bring it back under control.
     The beam then passes through the object, which acts just like the slits we have been using up until now (except, of course, that the pattern is more complicated).
     The achromatic lens pulls the far-field into the near-field, placing it on the lower prism's upper surface.
 
@@ -128,22 +130,27 @@
 
             % laser
             \draw[optics] (0, 0) rectangle (2, \h) node[midway] {Laser};
+            
+            % spatial filter
+            \pgfmathsetmacro{\filterx}{2.8}
+            \pgfmathsetmacro{\filterlength}{2}
+            \pgfmathsetmacro{\filterheight}{1.1*\h}
+            \draw[optics] (\filterx, {(\h-\filterheight)/2}) rectangle ++(\filterlength, \filterheight);
+            \node[above] at (\filterx + \filterlength/2, \h) {Spatial Filter}; 
 
             % thin lens
-            \pgfmathsetmacro{\thinlensx}{4}
+            \pgfmathsetmacro{\thinlensx}{3}
             \pgfmathsetmacro{\r}{3}
             \pgfmathsetmacro{\startAngle}{asin(\h/\r)/2}
             \draw[optics] (\thinlensx, \h)
             arc[start angle=180-\startAngle,delta angle=2*\startAngle,radius=\r]
             arc[start angle=-\startAngle,delta angle=2*\startAngle,radius=\r]
             -- cycle;
-            \node[above] at (\thinlensx, \h) {Lens 1};
 
             % pinhole
-            \pgfmathsetmacro{\pinholex}{4.6}
-            \draw[ultra thick] (\pinholex, 0) -- (\pinholex, {(\h/2)-.1});
-            \draw[ultra thick] (\pinholex, {(\h/2)+.1}) -- (\pinholex, \h);
-            \node[below] at (\pinholex, 0) {Pinhole};
+            \pgfmathsetmacro{\pinholex}{4.05}
+            \draw[ultra thick] (\pinholex, -.05*\h) -- (\pinholex, {(\h/2)-.1});
+            \draw[ultra thick] (\pinholex, {(\h/2)+.1}) -- (\pinholex, 1.05*\h);
 
             % thick lens
             \pgfmathsetmacro{\thicklensx}{6}
@@ -153,7 +160,7 @@
             node[pos=.3, inner sep=0pt] (thicklower) {}
             node[pos=.7, inner sep=0pt] (thickupper) {}
             -- cycle;
-            \node[above] at ({\thicklensx}, \h) {Lens 2};
+            \node[above] at ({\thicklensx}, \h) {Thick Lens};
 
             % object
             \foreach \x in {0,.1,...,.5} {
@@ -228,17 +235,18 @@
         \begin{tabular}{ c c c }
             Function & Fourier Transform & Name \\
             \hline
-            $f(c x)$ & $\frac{1}{c} \hat{f}(\frac{\kappa}{c})$ & Similarity \\
+            $a \, f(x) + b \, g(x)$ & $a \, \hat{f}(\kappa) + b \, \hat{g}(\kappa)$ & Linearity \\
+            $f(c x)$ & $\frac{1}{c} \hat{f}(\frac{\kappa}{c})$ & Scaling \\
             $f(x - c)$ & $\hat{f}(\kappa) \, e^{-i \, 2 \pi \, a \kappa}$ & Shift \\
             $f(x) * g(x)$ & $\frac{1}{\sqrt{2 \pi}} \hat{f}(\kappa) \, \hat{g}(\kappa)$ & Convolution Theorem \\
-            $e^{i k_0 \kappa}$ & $\sqrt{2 \pi} \, \delta(\kappa - \kappa_0)$ & \\
+            $e^{i k_0 \kappa}$ & $\sqrt{2 \pi} \, \delta(\kappa - \kappa_0)$ & Delta Function \\
         \end{tabular}
         \renewcommand{\arraystretch}{1}
 
         \caption{
             A few particularly useful identities involving the Fourier transform.
             The convolution of $f$ and $g$ is defined to be $f * g = \int_{-\infty}^{\infty} \dd{\sigma} f(x) g(x - \sigma)$.
-            Remember that due to the duality of the Fourier transform (the Fourier transform is almost its own inverse), all of these properties are true in reverse as well.
+            Due to the duality of the Fourier transform (the Fourier transform is its own inverse), all of these properties are true in reverse as well.
             For example, the Fourier transform of a product of two functions is the convolution of their Fourier transforms.
         }
 
@@ -321,11 +329,9 @@
     \begin{enumerate}
         \item Set up everything except the lenses.
         Align the laser beam through the optical setup so that it hits (roughly) the centers of the prisms, the mirror, and the screen.
-        \item Add Lens 1.
-        You should now have a big blog of light.
-        Make sure the blob is still hitting the center of the other optics by adjusting the position of the lens.
-        \item Add the pinhole so that it sits on top of the focus of Lens 1.
-        \item Add Lens 2 and adjust it to produce a roughly-collimated beam.
+        \item Add the spatial filter, ensuring that the pinhole is on the side of the device away from the laser.
+        Adjust it until some light comes through the pinhole.
+        \item Add the thick lens and adjust its position to produce a roughly-collimated beam.
         \item Add the achromatic lens to the system, and move it so that its focal plane is the exit surface of the first prism.
         \item Install the wire grid object.
         You should see its Fourier transform on the exit surface of the first prism in sharp focus - adjust the achromatic lens until this is so.
