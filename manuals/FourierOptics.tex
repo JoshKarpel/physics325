@@ -153,7 +153,7 @@
             \draw[ultra thick] (\pinholex, {(\h/2)+.1}) -- (\pinholex, 1.05*\h);
 
             % thick lens
-            \pgfmathsetmacro{\thicklensx}{6}
+            \pgfmathsetmacro{\thicklensx}{6.5}
             \draw[optics] (\thicklensx, \h) -- ++(0, -\h)
             -- ++(-.5, 0)
             .. controls (\thicklensx-0.8, \h/3) and (\thicklensx-0.8, 2*\h/3) .. ++(0, \h)
@@ -281,12 +281,11 @@
     \FloatBarrier
 
     \subsection{Thinking Fourier}
+    
+    One of the simplest application of the ideas of Fourier optics is simply the ability to predict what light will look like after passing through an aperture without grinding through integrals.
 
     \checkpoint{
-        Make a qualitative prediction about what the Fourier transform of each of the four objects shown in Figure~\ref{fig:fourier-objects} will look like.
-        \begin{itemize}
-            \item Justify each of your predictions based on the ideas of Fourier optics.
-        \end{itemize}
+        Make a qualitative prediction about what the Fourier transform of each of the four objects shown in Figure~\ref{fig:fourier-objects} will look like based on the ideas of Fourier optics.
     }
 
     \begin{figure}
@@ -331,7 +330,7 @@
         Align the laser beam through the optical setup so that it hits (roughly) the centers of the prisms, the mirror, and the screen.
         \item Add the spatial filter, ensuring that the pinhole is on the side of the device away from the laser.
         Adjust it until some light comes through the pinhole.
-        \item Add the thick lens and adjust its position to produce a roughly-collimated beam.
+        \item Add the thick lens and adjust its position and the alignment of the spatial filter to produce a roughly-collimated beam that still passes roughly through the center of the rest of the optical elements.
         \item Add the achromatic lens to the system, and move it so that its focal plane is the exit surface of the first prism.
         \item Install the wire grid object.
         You should see its Fourier transform on the exit surface of the first prism in sharp focus - adjust the achromatic lens until this is so.
@@ -340,41 +339,53 @@
     \end{enumerate}
 
     \checkpoint{
-        Construct and align the Fourier imaging system, then check your predictions from the previous checkpoint by using the masks.
+        Construct and align the Fourier imaging system.
+        \begin{itemize}
+            \item Check your predictions from the previous checkpoint by using the masks.
+        \end{itemize}
     }
 
     \subsection{The Wild World of Fourier Transforms}
 
     We will now investigate some of the strange things we can make happen by interacting with the Fourier transform of the object.
+    Remember that although we can only see the intensity of the light in the Fourier transform, the phase of the light matters as well.
+    Changing either of them will change what we see on the screen.
 
     Install the wire grid object.
 
     \checkpoint{
         Mask out all but a single row or column of dots.
-        What do you see on the screen?
-        Why?
-        What happens if you mask out all but a $\SI{45}{\degree}$ line of dots containing the central dot?
+        \begin{itemize}
+            \item What do you see on the screen? Why?
+        \end{itemize}
     }
 
     \checkpoint{
         Mask out all but the central dot.
         What do you see on the screen?
-        This mask is a \textbf{spatial frequency filter}.
-        Is it a high-pass filter, a low-pass filter, or a notch filter?
+        \begin{itemize}
+            \item This mask is a \textbf{spatial frequency filter}.
+                  Is it a high-pass filter, a low-pass filter, or a notch filter?
+        \end{itemize}
     }
+    
+    Carefully install the glass chip phase-shifter over the central dot, so that the light of just that frequency component passes through the glass chip, while as many other frequency components as possible are unperturbed.
 
     \checkpoint{
-        Carefully install the glass phase-shifter over the central dot.
-        Rotate the chip to change the phase shift.
-        What do you see on the screen?
+        Rotate the chip to change the phase of that frequency component.
+        
+        \begin{itemize}
+            \item What happens to the image?
+            \item Which property from Table~\ref{tab:fourier-transform-properties} describes what is happening?
+        \end{itemize}
     }
 
     Install the circular hole object.
 
     \checkpoint{
-        Move the hole around, and note that the Fourier transform (called an ``Airy disk'') does not appear to change.
-        However, the image on the screen will move!
-        How is the information about the position of the object being stored?
+        Move the hole around, and note that the Fourier transform (called an ``Airy disk'') does not appear to change shape or position.
+        However, the image on the screen will still move with the physical object!
+        How is the information about the position of the object being stored in the traveling light?
     }
 
     \newpage
