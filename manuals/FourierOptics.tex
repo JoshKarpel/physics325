@@ -108,7 +108,7 @@
 
     This agrees with what we learned (or will learn) in the Diffraction lab by doing the integral manually, because the Fourier transform of a rectangle is a $\sinc$ function.
     When we shone light on a rectangular slit the intensity pattern we observed was $\sinc^2$, so the underlying electric field must have been a $\sinc$.
-    Thinking about far-field diffraction using the Fourier transform is a specialty sub-field all it's own: Fourier optics.
+    Thinking about far-field diffraction using the Fourier transform is a specialty sub-field all it's own: \textbf{Fourier optics}.
 
     In this lab we will build a Fourier imaging setup from scratch.
     The schematic of the setup is shown in Figure~\ref{fig:fourier-optics-setup}.
@@ -118,7 +118,7 @@
     The achromatic lens pulls the far-field into the near-field, placing it on the lower prism's upper surface.
 
     At this point the intensity pattern is the Fourier transform of the object, and we will in fact be able to see it on the surface of the prism.
-    But, we just produced a (virtual) object in the new near-field, so if we let the beam keep propagating, we can eventually get it to Fourier transform \textbf{again}.
+    But, we just produced an object in the new near-field, so if we let the beam keep propagating, we can eventually get it to Fourier transform \textbf{again}.
     The doubly-Fourier-transformed image is picked up using the mirror and screen after the prism pair.
     This is an interesting addition to the setup: we can modify the Fourier transform in the near-field and see the results in the far-field.
 
@@ -246,7 +246,7 @@
         \caption{
             A few particularly useful identities involving the Fourier transform.
             The convolution of $f$ and $g$ is defined to be $f * g = \int_{-\infty}^{\infty} \dd{\sigma} f(x) g(x - \sigma)$.
-            Due to the duality of the Fourier transform (the Fourier transform is its own inverse), all of these properties are true in reverse as well.
+            Due to the duality of the Fourier transform (the Fourier transformation is its own inverse), all of these properties are true in reverse as well.
             For example, the Fourier transform of a product of two functions is the convolution of their Fourier transforms.
         }
 
@@ -258,19 +258,19 @@
 
     For this lab, you will need:
     \begin{itemize}
-        \item The pieces of the Fourier imaging setup, with appropriate mounts for each:
+        \item The pieces of the Fourier imaging setup, with mounts for each:
         \begin{itemize}
             \item A Helium-Neon (He-Ne) laser.
-            \item A converging lens.
-            \item A diverging lens.
+            \item A spatial filter (with internal lens and pinhole).
+            \item A thick converging lens.
             \item An achromatic lens.
-            \item A pinhole.
             \item A right-angle prism pair.
             \item A mirror.
             \item A screen.
         \end{itemize}
         \item Various masks, to block out portions of the Fourier transform.
         \item Various ``objects'', like wire grids and circular holes.
+        \item A diffuser, to make it easier to view the Fourier transform on the prism surface.
     \end{itemize}
 
     \FloatBarrier
@@ -282,10 +282,10 @@
 
     \subsection{Thinking Fourier}
     
-    One of the simplest application of the ideas of Fourier optics is simply the ability to predict what light will look like after passing through an aperture without grinding through integrals.
+    One of the most straightforward applications of the ideas of Fourier optics is to predict what light will look like after passing through an aperture without grinding through integrals.
 
     \checkpoint{
-        Make a qualitative prediction about what the Fourier transform of each of the four objects shown in Figure~\ref{fig:fourier-objects} will look like based on the ideas of Fourier optics.
+        Make a \textbf{qualitative} prediction about what the Fourier transform of each of the four objects shown in Figure~\ref{fig:fourier-objects} will look like based on the ideas of Fourier optics.
     }
 
     \begin{figure}
@@ -330,7 +330,7 @@
         Align the laser beam through the optical setup so that it hits (roughly) the centers of the prisms, the mirror, and the screen.
         \item Add the spatial filter, ensuring that the pinhole is on the side of the device away from the laser.
         Adjust it until some light comes through the pinhole.
-        \item Add the thick lens and adjust its position and the alignment of the spatial filter to produce a roughly-collimated beam that still passes roughly through the center of the rest of the optical elements.
+        \item Add the thick lens and adjust its position and the alignment of the spatial filter to produce a collimated beam that still passes roughly through the center of the rest of the optical elements.
         \item Add the achromatic lens to the system, and move it so that its focal plane is the exit surface of the first prism.
         \item Install the wire grid object.
         You should see its Fourier transform on the exit surface of the first prism in sharp focus - adjust the achromatic lens until this is so.

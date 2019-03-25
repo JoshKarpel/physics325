@@ -205,8 +205,9 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
         \item A Helium-Neon (He-Ne) laser on a post.
         \item A slit-holder, on a post, mounted on a translation stage.
         \item A set of single and double-slit slides.
+        \item Two adjustable slits, on posts.
         \item A photodiode, on a post, mounted on a translation stage.
-        \item An oscilloscope.
+        \item A multimeter.
     \end{itemize}
 
 
@@ -222,7 +223,7 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
     Optimize the horizontal and vertical alignments so that you have maximum intensity on the photodiode at the center of the diffraction pattern (i.e., at the position of the central maximum).
 
     \checkpoint{
-        Compare the theoretical expression for double-slit diffraction (Equation~\eqref{eqn:single-slit-diffraction}) to your real setup.
+        Compare the theoretical prediction for the locations of the maxima in single-slit diffraction (Equation~\eqref{eqn:single-slit-diffraction}) to your real setup.
         \begin{itemize}
         \item Determine the positions of the central and first order maxima and use their separation to determine the wavelength of the laser via Eq.~\eqref{eqn:single-slit-diffraction}.
        	\item Compare your result to the expected wavelength, $\lambda = \SI{632.8}{\nano\meter}$.
@@ -230,9 +231,9 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
     }
 
 	\checkpoint{
-    	Now that we know all of the parameters that go into Eq.~\eqref{eqn:single-slit-diffraction}, we can compare the theoretical expression and the experiment results for all positions on the screen.
+    	Now that we know all of the parameters that go into Eq.~\eqref{eqn:single-slit-diffraction}, we can compare the theoretical expression to the experiment results at many positions on the screen.
     	\begin{itemize}
-    		\item Make a plot of the theoretical intensity as a function of position $I(x)$ on the screen using your known $W$ and measured $\lambda$.
+    		\item Make a plot of the theoretical intensity as a function of position on the screen, $I(x)$, using your known $W$ and measured $\lambda$.
     		\item Measure $I(x)$ at evenly spaced positions that are dense enough to resolve the lobes of the diffraction pattern.
     		\item Overlay your measured intensities onto your theory plot.
                 How well do they agree?
@@ -244,7 +245,7 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
     Readjust your setup to make  sure that you can resolve the small features in the double-slit diffraction pattern, including the sub-lobes.
 
     \checkpoint{
-    	Compare the theoretical expression for double-slit diffraction (Eq.~\eqref{eqn:multi-slit-diffraction}) to your real setup.
+    	Compare the theoretical predictions for the locations of the sub-lobes in double-slit diffraction (Eq.~\eqref{eqn:multi-slit-diffraction}) to your real setup.
     	\begin{itemize}
     		\item Use your known $N$, $D$, $W$, and $\lambda$ to predict the positions of the sub-lobes.
     		\item Measure the positions of the sub-lobes and compare your results to your predictions.
@@ -253,7 +254,7 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
     }
 
 	\checkpoint{
-        Compare the theoretical expression and the experiment results for all positions on the screen.
+        Compare the theoretical expression to your experimental results at many positions on the screen.
     	\begin{itemize}
     		\item Make a plot of the theoretical intensity for double-slit diffraction.
     		\item Measure $I(x)$ at evenly spaced positions that are dense enough to resolve the lobes and sub-lobes of the diffraction pattern.
@@ -285,9 +286,14 @@ This intensity pattern is shown in Figure~\ref{fig:multi-slit-diffraction-intens
     This type of diffraction is called \textbf{Fresnel diffraction}.
     The shape of the resulting intensity pattern is mostly determined by the quantity $\Delta \nu = \nu_{\mathrm{max}} - \nu_{\mathrm{min}}$.
 
+    To observe Fresnel diffraction from a previously-collimated beam, we would need to look in the near field, just after the slit.
+    To make it easier to observe using our setup, we will instead send a spherical wave at a slit.
+    The Fresnel diffraction will then appear in the far-field instead of the near-field.
+
     You have been provided with two adjustable slits.
-    We will use the first slit to produce a spherical wave in the near field, and the second to produce a Fresnel diffraction pattern which will propagate into the far field.
+    We will use the first slit to produce a ``spherical wave'' in the near field (it won't really be spherical, but it should look like a very, very wide single-slit diffraction pattern), and the second to produce a Fresnel diffraction pattern which will propagate into the far field.
     Bring the slits as close together as possible, and make the first slit as small as possible (so as to mimic a single point source).
+    Adjust the second slit so that the light passes through it.
     The distance between them is then $L$, and the width of the second slit is $W$.
 
     \checkpoint{
