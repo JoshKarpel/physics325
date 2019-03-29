@@ -19,3 +19,10 @@ The lens tube should be placed so that the actual lens is away from the FP, but 
 ### Diffraction Gratings
 
 Three/four-jaw mounts are good for holding the calibration lasers.
+
+## Fourier Optics
+
+## Diffraction
+
+Use the PD10A photodiodes, **not** the PD36A.
+You need the small detector area to resolve features, even though the signal is very small.
