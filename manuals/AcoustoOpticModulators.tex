@@ -14,19 +14,19 @@
 
     Acousto-optic modulators (AOMs) are an extremely useful piece of optics lab equipment.
     One of the most common problems in the lab is getting your laser to the desired frequency.
-    There are far fewer good, high-power laser frequencies than there are atomic and molecular transitions that we want to target.
+    There are far fewer narrow, high-power laser frequencies than there are atomic and molecular transitions that we want to target.
     Some lasers are widely tunable, but they may not be very efficient over their entire bandwidth.
-    Even worse, what if we want to target two atomic transitions that are very close to each other at the same time.
+    Even worse, what if we want to target two atomic transitions that are very close to each other at the same time?
     Do we need to get two identical lasers and tune them ever-so-slightly differently?
 
     Luckily, we don't.
     AOMs can solve these problems, and in solving them, also provide other useful capabilities.
-    In this lab, we will explore both the solution to the problem state above and their other uses.
+    In this lab, we will explore both the solution to the problems stated above and other uses of AOMs.
 
     \section*{Background}
 
     The AOM is a small crystal attached to a piezo-electric transducer.
-    When a voltage is applied to the piezo, it expands.
+    When a voltage is applied to the piezo, it expands and pushes on the crystal, producing a sound wave.
     By applying an oscillating voltage from a radio-frequency (RF) source, we can make the piezo oscillate.
     If we carefully choose a crystal with an index of refraction that changes when it is compressed, we will have a crystal whose index of refraction varies over time at ``electronic'' frequencies (\si{\mega\hertz} or \si{\giga\hertz}).
     When light passes through this crystal, it will gain additional frequency components, called \textbf{sidebands}, separated from the original frequency by integer multiples of whatever \textbf{modulation frequency} the crystal is driven at.
@@ -82,11 +82,7 @@
     For this lab, you will need:
     \begin{itemize}
         \item An acousto-optic modulator, with mount.
-        \item Two radio-frequency (RF) sources:
-        \begin{itemize}
-            \item A fixed-frequency, high-power source.
-            \item A variable-frequency, low-power source.
-        \end{itemize}
+        \item A variable-frequency radio-frequency (RF) source.
         \item An optical power meter, with mount.
         \item A photodiode, with mount.
         \item An oscilloscope.
@@ -109,13 +105,16 @@
     You'll need to have the AOM running while doing this.
     When you see the modulated orders coming out of the AOM, you're close enough to lock down the AOM position.
     Then you can optimize the output power by walking the input beam and the fine-angle adjustment on the AOM mount.
-    Maximize the power in the $+1$ order using the fixed-frequency source.
 
     \checkpoint{
-        Switch to the variable-frequency source and measure the deflection angle as a function of modulation frequency.
+        Maximize the power in the $+1$ order with the fixed-frequency RF source by aligning the laser through the AOM.
+    }
+
+    \checkpoint{
+        Measure the deflection angle as a function of modulation frequency using the variable-frequency RF source.
         \begin{itemize}
             \item Make a plot of modulation frequency vs. deflection angle for the $+1$ order.
-            Analyze your error and overlay the expected result from \eqref{eqn:output-angle}.
+            Overlay the expected theoretical result from \eqref{eqn:output-angle}.
             Do they agree?
         \end{itemize}
     }
@@ -128,7 +127,7 @@
     You may also need to figure out a way to minimize the amount of light coming from the $0$ order, depending on how much power you were able to push into the $+1$ order.
 
     \checkpoint{
-        Using the variable-frequency source, measure the output power as a function of frequency.
+        Measure the output power as a function of frequency using the variable-frequency RF source.
         \begin{itemize}
             \item Make a plot of frequency vs. output power for the $+1$ order.
             \item For what frequency is the output power maximized?
@@ -138,23 +137,18 @@
 
     \subsection{Rise Time}
 
-    An alternate way of measuring the bandwidth of the AOM is to measure its \textbf{rise time} when operating as an \textbf{optical switch}.
-    This is itself a useful way to use the AOM: turning a laser beam on or off.
-    Today, our main interest in this measurement is that the rise time is the inverse of the bandwidth.
-
-    To see why, recall that the bandwidth of the AOM essentially measures the highest frequency that it can operate at with reasonable efficiency.
-    When the AOM is turned on it tries to jump from ``no output'' to ``full output'' instantly.
-    Since it can't do that, it responds as quickly as possibly, and the speed of this response is limited by the fastest sine wave it can operate efficiently with (think Fourier!).
+    Another important property of the AOM is its \emph{rise time}:
+    how long does it take for the output power to stabilize after turning the device on?
 
     Set up a photodiode to measure the power from the $+1$ order.
     Set up the oscilloscope to trigger a single shot from a rising voltage and hook it up to the photodiode.
+    Use the high-power, fixed-frequency source for this part of the experiment.
 
     \checkpoint{
-        Turn the AOM off and on to trigger the oscilloscope and observe the rise of the $+1$ order.
+        Turn the RF source off and on to trigger the oscilloscope and observe the rise of the $+1$ order.
         \begin{itemize}
             \item Roughly how long does it take the AOM to turn on?
             \item What shape is the curve? What quantity corresponds to the rise time?
-            \item Does your measurement of the rise time agree with your previous measurement of the bandwidth?
         \end{itemize}
     }
 

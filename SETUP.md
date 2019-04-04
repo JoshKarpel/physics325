@@ -22,7 +22,20 @@ Three/four-jaw mounts are good for holding the calibration lasers.
 
 ## Fourier Optics
 
+Put the spatial filters on horizontal/vertical translation stages so that you have many degrees of freedom to align them with.
+Getting a reasonable alignment on the spatial filter is critical to having enough light to see what you're doing later in the lab.
+
 ## Diffraction
 
 Use the PD10A photodiodes, **not** the PD36A.
 You need the small detector area to resolve features, even though the signal is very small.
+(This may change in the future if we get irises for the photodiodes).
+
+## AOMs
+
+Students will likely be unfamiliar with how to set up the trigger on the oscilloscope.
+Be prepared to mostly do it for them.
+
+## Fiber Optics
+
+Do not bend the fibers too tightly, or they'll break, and everyone will be sad.
