@@ -28,7 +28,7 @@
     The AOM is a small crystal attached to a piezo-electric transducer.
     When a voltage is applied to the piezo, it expands and pushes on the crystal, producing a sound wave.
     By applying an oscillating voltage from a radio-frequency (RF) source, we can make the piezo oscillate.
-    If we carefully choose a crystal with an index of refraction that changes when it is compressed, we will have a crystal whose index of refraction varies over time at ``electronic'' frequencies (\si{\mega\hertz} or \si{\giga\hertz}).
+    The index of refraction is dependent on the density of atoms in the material.  Since the sound waves compress and rarefy the crystal, the crystal will have an index of refraction that varies over time at ``electronic'' frequencies (\si{\mega\hertz} or \si{\giga\hertz}).
     When light passes through this crystal, it will gain additional frequency components, called \textbf{sidebands}, separated from the original frequency by integer multiples of whatever \textbf{modulation frequency} the crystal is driven at.
 
     Alternatively, one can think of the light as diffracting off of a sound wave in the crystal, or of the photons scattering off of phonons.
@@ -52,15 +52,15 @@
             \draw[thick, fill=gray!30] (-1, -0.5) rectangle ++(2, 1) node[midway] {Laser};
 
             \draw[pattern = north west lines, rotate around = {-45:(3, 0)}] (3, -.5) rectangle ++(.1, 1) node[midway, below right] {M1};
-            \draw[pattern = north west lines, rotate around = {-45:(3, 3)}] (3, 2.5) rectangle ++(-.1, 1) node[midway, above left] {M2};
+            \draw[pattern = north west lines, rotate around = {-45:(3, 2.75)}] (3, 2.25) rectangle ++(-.1, 1) node[midway, above left] {M2};
 
             \draw[fill=gray!20] (5, 2) rectangle ++(2, 2);
             \draw[thick,fill=gray!40] (5, 1) rectangle ++(2, 1) node[midway] {\small Transducer};
             \draw[thick,fill=gray!40] (5, 4) rectangle ++(2, .2) node[midway, above] {AOM};
 
-            \draw[veryneararrow={stealth}, midarrow={stealth}] (1, 0) -- (3, 0) -- (3, 3) -- (6.5, 3);
+            \draw[veryneararrow={stealth}, midarrow={stealth}] (1, 0) -- (3, 0) -- (3, 2.75) -- (6.5, 2.65);
             \foreach \t in {-3,-2,...,3} {
-                \draw[veryfararrow={stealth}] (6.5, 3) -- ++({\t*15}:3) node[right] {\t};
+                \draw[veryfararrow={stealth}] (6.5, 2.65) -- ++({\t*15}:3) node[right] {\t};
             }
             \draw[<->, dashed] (8.5, 3) arc (0:15:2) node[midway, right] {$\theta$};
 
@@ -70,7 +70,8 @@
 
         \caption{
             An acousto-optic modulator, with input laser (guided by mirrors M1 and M2) and output beams.
-            The modulator's transducer is connected to a radio-frequency (RF) source.
+            The modulator's transducer is connected to a radio-frequency (RF) source and the acoustic waves travel up the page, roughly perpendicularly to the optical beam.
+            Note that the beam going into the AOM enters into the half of the crystal closer to the transducer.  Also note that the beam enters the crystal at a slight angle.
         }
 
         \label{fig:aom-setup}
@@ -101,9 +102,9 @@
     \subsection{Measuring $\theta$}
 
     Our first goal is to measure $\Delta \theta$ as a function of modulation frequency to confirm \eqref{eqn:output-angle}.
-    Set up the AOM (but don't screw it down tightly yet) and use two mirrors to walk your laser into it.
+    To get a coarse alignment, pass the beam through the AOM without the AOM being screwed down yet. Turn and translate the AOM very slightly by hand.
     You'll need to have the AOM running while doing this.
-    When you see the modulated orders coming out of the AOM, you're close enough to lock down the AOM position.
+    When you see the modulated orders coming out of the AOM (they might be dim), you're close enough to lock down the AOM position.
     Then you can optimize the output power by walking the input beam and the fine-angle adjustment on the AOM mount.
 
     \checkpoint{
