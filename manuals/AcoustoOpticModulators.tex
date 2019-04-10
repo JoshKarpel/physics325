@@ -98,18 +98,26 @@
     \newpage
 
     \section*{Procedure}
-
-    \subsection{Measuring $\theta$}
-
-    Our first goal is to measure $\Delta \theta$ as a function of modulation frequency to confirm \eqref{eqn:output-angle}.
-    To get a coarse alignment, pass the beam through the AOM without the AOM being screwed down yet. Turn and translate the AOM very slightly by hand.
+    
+    \subsection{Optimizing the AOM Alignment}
+    
+    To get a coarse alignment, pass the beam through the AOM without the AOM being screwed down yet.
+    Turn and translate the AOM very slightly by hand.
     You'll need to have the AOM running while doing this.
     When you see the modulated orders coming out of the AOM (they might be dim), you're close enough to lock down the AOM position.
     Then you can optimize the output power by walking the input beam and the fine-angle adjustment on the AOM mount.
 
+    
     \checkpoint{
         Maximize the power in the $+1$ order with the fixed-frequency RF source by aligning the laser through the AOM.
     }
+
+    \subsection{Measuring $\theta$}
+
+    Our first goal is to measure $\Delta \theta$ as a function of modulation frequency to confirm \eqref{eqn:output-angle}.
+    
+    You may notice that the brightness of the output light varies as you change the frequency.
+    We'll investigate this in the next section.
 
     \checkpoint{
         Measure the deflection angle as a function of modulation frequency using the variable-frequency RF source.
@@ -122,8 +130,7 @@
 
     \subsection{Measuring the Bandwidth}
 
-    You may have noticed that the brightness of the output light varied as you changed the frequency.
-    Let's investigate this effect using the photodiode.
+    Let's investigate how the output power varies with frequency using the photodiode.
     Since you'll need to move the photodiode between measurements, you'll need to be careful about background light.
     You may also need to figure out a way to minimize the amount of light coming from the $0$ order, depending on how much power you were able to push into the $+1$ order.
 
