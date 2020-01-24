@@ -78,7 +78,7 @@
     \begin{enumerate}
         \item Do a coarse alignment: get the beam going toward the fiber coupler by using the two mirrors to perform a \textbf{beam walk}.
         \item Connect your multi-mode fiber to the fiber connector and connect the other end to the fault-finder.
-        The fault-finder has a laser with a pre-aligned fiber-optic connector inside it, so when you turn it on you should see light coming out the other end of your fiber.
+        The fault-finder has a laser with a pre-aligned fiber-optic connector inside it, so when you turn it on you should see light coming out of the other end of your fiber.
         \item Keep walking your beam until the laser beam overlaps the beam coming out of the fault-finder.
         You'll want to check the overlap at the laser and at the fiber coupler, while adjusting the mirror furthest from where you are checking.
         Because the whole setup is invertible, this should get you very close to aligned (i.e., if the fault-finder beam goes to the laser from the fiber, then the laser will go to the fiber).
@@ -87,6 +87,7 @@
         If not, put the fault-finder back in and keep walking the beam.
         \item Once you have some output light, shine it on a photodiode and keep walking the beam to maximize the output power.
         You shouldn't have to make very large adjustments at this point!
+        You may also need to adjust the position of the fiber coupler lens.
     \end{enumerate}
 
     \checkpoint{
@@ -94,8 +95,13 @@
         \begin{itemize}
             \item Maximize and record the coupling efficiency.
                 You should be able to achieve at least 80\% coupling.
-            \item Observe the output of the fiber about two meters away from the end of the fiber.
-                Is the output beam Gaussian?
+        \end{itemize}
+    }
+    
+    \checkpoint{
+        Observe the output of the fiber about two meters away from the end of the fiber.
+        \begin{itemize}
+            \item Is the output beam Gaussian?
                 Explain your observations.
         \end{itemize}
     }
@@ -121,11 +127,16 @@
         \begin{itemize}
             \item Maximize and record the coupling efficiency.
                 You should be able to achieve at least 50\% coupling.
-            \item Observe the output of the fiber about two meters away from the end of the fiber.
-                Is the output beam Gaussian?
+        \end{itemize}
+    }
+    
+    \checkpoint{
+        Observe the output of the fiber about two meters away from the end of the fiber.
+        Measure the divergence angle of the output light (i.e., the numerical aperture of the fiber).
+        \begin{itemize}
+            \item Is the output beam Gaussian?
                 Explain your observations.
-            \item Measure the divergence angle of the output light (i.e., the numerical aperture of the fiber).
-                Look up the specification sheet for the fiber online.
+            \item Look up the specification sheet for the fiber online.
                 Does your measurement match what the sheet says it should be?
         \end{itemize}
     }

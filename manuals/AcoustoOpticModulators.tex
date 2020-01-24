@@ -62,7 +62,7 @@
             \foreach \t in {-3,-2,...,3} {
                 \draw[veryfararrow={stealth}] (6.5, 2.65) -- ++({\t*15}:3) node[right] {\t};
             }
-            \draw[<->, dashed] (8.5, 3) arc (0:15:2) node[midway, right] {$\theta$};
+            \draw[<->, dashed] (8.5, 2.65) arc (0:15:2) node[midway, right] {$\Delta \theta$};
 
             \draw[ultra thick] (6, .5) -- (6, 1);
             \draw[thick, fill=gray!30] (5, -0.5) rectangle ++(2, 1) node[midway] {RF Source};
@@ -98,23 +98,31 @@
     \newpage
 
     \section*{Procedure}
-
-    \subsection{Measuring $\theta$}
-
-    Our first goal is to measure $\Delta \theta$ as a function of modulation frequency to confirm \eqref{eqn:output-angle}.
-    To get a coarse alignment, pass the beam through the AOM without the AOM being screwed down yet. Turn and translate the AOM very slightly by hand.
+    
+    \subsection{Optimizing the AOM Alignment}
+    
+    To get a coarse alignment, pass the beam through the AOM without the AOM being screwed down yet.
+    Turn and translate the AOM very slightly by hand.
     You'll need to have the AOM running while doing this.
     When you see the modulated orders coming out of the AOM (they might be dim), you're close enough to lock down the AOM position.
     Then you can optimize the output power by walking the input beam and the fine-angle adjustment on the AOM mount.
 
+    
     \checkpoint{
         Maximize the power in the $+1$ order with the fixed-frequency RF source by aligning the laser through the AOM.
     }
 
+    \subsection{Measuring $\theta$}
+
+    Our first goal is to measure $\Delta \theta$ as a function of modulation frequency to confirm \eqref{eqn:output-angle}.
+    
+    You may notice that the brightness of the output light varies as you change the frequency.
+    We'll investigate this in the next section.
+
     \checkpoint{
         Measure the deflection angle as a function of modulation frequency using the variable-frequency RF source.
         \begin{itemize}
-            \item Make a plot of modulation frequency vs. deflection angle for the $+1$ order.
+            \item Make a plot of deflection angle vs. modulation frequency for the $+1$ order.
             Overlay the expected theoretical result from \eqref{eqn:output-angle}.
             Do they agree?
         \end{itemize}
@@ -122,9 +130,8 @@
 
     \subsection{Measuring the Bandwidth}
 
-    You may have noticed that the brightness of the output light varied as you changed the frequency.
-    Let's investigate this effect using the power meter.
-    Since you'll need to move the power meter between measurements, you'll need to be careful about background light.
+    Let's investigate how the output power varies with frequency using the photodiode.
+    Since you'll need to move the photodiode between measurements, you'll need to be careful about background light.
     You may also need to figure out a way to minimize the amount of light coming from the $0$ order, depending on how much power you were able to push into the $+1$ order.
 
     \checkpoint{
@@ -132,7 +139,7 @@
         \begin{itemize}
             \item Make a plot of frequency vs. output power for the $+1$ order.
             \item For what frequency is the output power maximized?
-            \item What is the bandwidth of the AOM (for the half-power point)?
+            \item What is the bandwidth of the AOM (full width at the half-power point)?
         \end{itemize}
     }
 
@@ -150,7 +157,8 @@
         Turn the RF source off and on to trigger the oscilloscope and observe the rise of the $+1$ order.
         \begin{itemize}
             \item Roughly how long does it take the AOM to turn on?
-            \item What shape is the curve? What quantity corresponds to the rise time?
+            \item What shape is the curve? 
+                What quantity corresponds to the rise time?
         \end{itemize}
     }
 
@@ -162,11 +170,14 @@
 
     \subsection*{Frequency Modulation}
 
-    An important aspect of experimental science is using equipment manuals to understand how you should expect your equipment to work.  Look up the manual for the AOM we will be using in lab: Gooch \& Housego R23080-3-LTD.  PDFs of the manual are readily available online. Use the specifications and calculations sections to answer the following questions:
+    An important aspect of experimental science is using equipment manuals to understand how you should expect your equipment to work.
+    Look up the manual for the AOM we will be using in lab: Gooch \& Housego R23080-3-LTD.
+    PDFs of the manual are readily available online.
+    Use the specifications and calculations sections to answer the following questions:
     \begin{itemize}
     	\item What is the interactive material of the AOM?
     	\item What is the speed of sound in this material?
-    	\item If we send a 500 $\mu m$ beam through the AOM what is the expected rise time?
+    	\item If we send a \SI{500}{\micro\meter} diameter beam through the AOM, what is the expected rise time?
     \end{itemize}
 
     \vspace{\stretch{1}}
