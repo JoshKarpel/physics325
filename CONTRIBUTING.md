@@ -2,27 +2,31 @@
 
 ## Project Organization
 
-The lab manuals and associated style files are stored in `physics325/manuals`.
-Only actual source files should be committed to the repository: no intermediate or final `TeX` output should ever make its way into the repository.
+The lab manuals and associated style files are stored in `manuals/`.
+Only source files belong in the repository:
+no intermediate or final TeX output (`.aux`, `.log`, `.pdf`, and so on) should be committed.
+The published PDFs are built from source by CI; see `README.md`.
 
 ## Contributing Changes
 
-Anyone can submit possible changes to the lab manuals via a GitLab merge request.
+Anyone can propose changes to the lab manuals by opening a pull request on GitHub.
+If you don't have write access to the repository, fork it, push your changes to a branch on your fork,
+and open the pull request from there.
 
-## Administration
+Every pull request compiles all the manuals,
+so a change that breaks the build shows up as a failed check before it merges.
 
-If you think you should have Maintainer access but don't, it's probably because you logged into GitLab via your UW-Madison NetID.
-That way of authenticating doesn't give you a real GitLab account, which you'll need to actually commit changes.
-Go to Settings > Password (upper right corner, dropdown menu to Settings, then Password in the menu on the left).
-Set a password - this is for your "actual" GitLab account, which you're currently accessing purely through its connection to your NetID.
+## Maintaining
 
-Whatever edits you make to the manuals locally should eventually be pushed back up to the GitLab repository.
-Minor edits can probably be `commit`ed and `push`ed directly into the `master` branch.
-Major edits should go into a new branch first, then `merge`d when they're ready.
-The goal should be for the `master` branch to be a consistent, usable, "production-ready" set of lab manuals at all times.
+Every push to `master` is compiled and published to the course website straight away,
+so the `master` branch should always be a consistent, usable, "production-ready" set of lab manuals.
+Minor edits (typos, small wording fixes) can be committed and pushed directly to `master`.
+Major edits should go on a new branch and through a pull request,
+and be merged once they're ready and the build passes.
 
 ## Lab Manual Style
 
-* We aim for a sparse style.
+- We aim for a sparse style.
   Provide only the necessary information, without major diversions.
-* Do not include material from other sources (other than, possibly, figures that represent real data that are impossible to replicate using `tikz`).
+- Do not include material from other sources
+  (other than, possibly, figures that represent real data that are impossible to replicate using TikZ).

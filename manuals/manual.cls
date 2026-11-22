@@ -211,7 +211,8 @@
 
 
 % load siunitx
-\usepackage[alsoload=synchem]{siunitx}
+\usepackage{siunitx}
+\DeclareSIUnit{\torr}{Torr}
 
 % set up section numbering
 
